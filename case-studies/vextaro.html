@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vextaro — Internship Capstone · Eric Ariel De La Paz</title>
+<meta name="description" content="A token-based design system and research-backed IA for a men's luxury formalwear rental app, built during a UX/UI design internship.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{ --accent:var(--vextaro); }</style>
+</head>
+<body>
+
+<header class="filebar">
+  <div class="brand">
+    <a href="../index.html" class="logo wordmark" style="display:flex;align-items:center;justify-content:center;">D</a>
+    <span class="wordmark">De La Paz</span>
+  </div>
+  <nav>
+    <a href="../index.html" data-nav="home">Home</a>
+    <a href="../index.html#work" data-nav="work">Work</a>
+    <a href="../index.html#about" data-nav="about">About</a>
+  </nav>
+  <div class="cta"><a class="btn btn-primary" href="mailto:ericforall247@gmail.com">Contact</a></div>
+</header>
+<div class="mobile-tabs">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#work">Work</a>
+  <a href="secureid.html">SecureID</a>
+  <a href="vextaro.html" class="active">Vextaro</a>
+  <a href="honda.html">Honda</a>
+  <a href="devtective.html">DevTective</a>
+</div>
+
+<main>
+  <section class="cs-hero container">
+    <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Current Works</a> / Vextaro</div>
+    <div class="cs-badge-row"><span>Flyrank AI internship</span></div>
+    <h1>Vextaro</h1>
+    <p class="tagline">
+      Vextaro is a men's luxury formalwear rental app. The core problem wasn't demand — it was
+      trust: renters can't try the garment on before it ships, so uncertainty about fit was
+      the single biggest thing standing between browsing and booking.
+    </p>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>UX/UI Design Intern</dd></div>
+      <div><dt>Team</dt><dd>Flyrank AI</dd></div>
+      <div><dt>Status</dt><dd>Active internship</dd></div>
+      <div><dt>Tools</dt><dd>Figma, Figma Variables</dd></div>
+    </dl>
+  </section>
+
+  <section class="cs-body container">
+    <div class="cs-section">
+      <span class="num">01 — The problem</span>
+      <h2>Fit anxiety, not selection, was the blocker</h2>
+      <p>
+        I ran competitive audits across 10+ competitor and industry sources for men's luxury
+        formalwear rental, paired with targeted user interviews. Fit-uncertainty complaints
+        came up repeatedly — renters wanted a second opinion before committing, not more
+        product options.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">02 — Research → decision → evaluation</span>
+      <h2>From a recurring complaint to a checkpoint</h2>
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Competitive audits and interviews both pointed to the same gap: no
+            competitor offered a human-backed fit check before checkout, and that absence was
+            a recurring, named frustration — not a guess.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I designed a specialist fit-confirmation checkpoint directly into the
+            booking flow, and mapped it into a 7-section information architecture with three
+            annotated user flows (primary task, onboarding, and a recovery/unhappy path with
+            escalation) so the checkpoint had a clear place to live rather than being bolted on.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Flow walkthroughs against the IA to confirm the checkpoint was reachable
+            from both the primary booking path and the recovery path, with no dead ends.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">03 — System</span>
+      <h2>A design system built for scale, not just this screen</h2>
+      <p>
+        In parallel, I built a complete Figma token-based design system — variables, a 4-color
+        semantic palette, and a typographic scale — and linked every style to a shared token
+        rather than a one-off value. I also designed the multi-state UI patterns (dropdown
+        menus, bottom-sheet overlays, tabbed selectors, collapsible navigation) the flows
+        actually needed, with interaction behavior documented for engineering handoff.
+      </p>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">~60%</div><div class="l">less visual rework after tokens shipped</div></div>
+        <div class="impact-stat"><div class="n">~90%</div><div class="l">faster global UI updates</div></div>
+        <div class="impact-stat"><div class="n">7</div><div class="l">IA sections, 3 annotated user flows</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">04 — Still in progress</span>
+      <h2>What's next</h2>
+      <p>
+        Vextaro is an active internship project — low-fidelity wireframes for onboarding and the
+        core screens are the current phase, building on the IA and the token system above before
+        moving to hi-fi.
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cs-nav-footer">
+      <a href="devtective.html">← DevTective</a>
+      <a href="../index.html#work">Back to all work →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="container" style="margin-top:40px;">
+  <div class="foot-row">
+    <div class="foot-links">
+      <a href="mailto:ericforall247@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <span class="copyright">© 2026 Eric Ariel De La Paz</span>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
