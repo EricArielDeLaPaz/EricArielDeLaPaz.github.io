@@ -176,17 +176,49 @@
   controls.className = 'presentation-controls';
   controls.innerHTML = '<button type="button" data-presentation-prev aria-label="Previous slide">←</button><div class="presentation-progress"><span></span></div><button type="button" data-presentation-next aria-label="Next slide">→</button><button type="button" class="present-button" data-presentation-present>Present</button>';
 
-  const labels = ['Overview', ...(note ? ['Context'] : []), ...[...body.querySelectorAll('.cs-section h2')].map((heading) => heading.textContent.trim())];
+  const caseStudy = page.dataset.caseStudy;
+  const slideLabels = {
+    SecureID: ['SecureID', 'Empathizing', 'Defining', 'Personas', 'Ideation', 'Prototyping', 'Impact & Reflection'],
+    'Honda of Clear Lake': ['Honda of Clear Lake', 'Overview', 'Navigation & Accessibility', 'Product Clarity'],
+    DevTective: ['DevTective', 'Overview', 'Empathizing', 'Design System'],
+    Vextaro: ['Vextaro', 'Overview', 'The Problem', 'Design System', "What's Next"],
+  };
+  const labels = slideLabels[caseStudy] || ['Overview', ...(note ? ['Context'] : []), ...[...body.querySelectorAll('.cs-section h2')].map((heading) => heading.textContent.trim())];
+  const coverAssets = {
+    SecureID: '../assets/images/secureid.png',
+    'Honda of Clear Lake': '../assets/images/honda.png',
+    DevTective: '../assets/images/devtective.png',
+  };
   let current = 0;
   slides.forEach((slide, index) => {
     slide.classList.add('presentation-slide');
     slide.dataset.presentationIndex = String(index);
     if (slide === note) slide.classList.add('presentation-note');
+    if (slide === hero) {
+      slide.classList.add('presentation-cover');
+      const visual = document.createElement('div');
+      visual.className = 'presentation-cover-visual';
+      if (coverAssets[caseStudy]) {
+        const image = document.createElement('img');
+        image.src = coverAssets[caseStudy];
+        image.alt = `${caseStudy} project artwork`;
+        visual.appendChild(image);
+      } else {
+        const mark = document.createElement('span');
+        mark.className = 'cover-mark';
+        mark.textContent = caseStudy === 'Vextaro' ? 'V' : caseStudy;
+        visual.appendChild(mark);
+      }
+      const copy = document.createElement('div');
+      copy.className = 'presentation-cover-copy';
+      while (slide.firstChild) copy.appendChild(slide.firstChild);
+      slide.append(visual, copy);
+    }
     canvas.appendChild(slide);
     const item = document.createElement('button');
     item.type = 'button';
     item.className = 'presentation-thumb';
-    item.innerHTML = `<span>${index + 1}</span><strong>${labels[index]}</strong><small>${index === 0 ? 'OVERVIEW' : `SLIDE ${String(index).padStart(2, '0')}`}</small>`;
+    item.innerHTML = `<span>${index + 1}</span><strong>${labels[index] || `Slide ${index + 1}`}</strong><small>${index === 0 ? 'OVERVIEW' : `SLIDE ${String(index).padStart(2, '0')}`}</small>`;
     item.addEventListener('click', () => show(index));
     rail.appendChild(item);
   });
