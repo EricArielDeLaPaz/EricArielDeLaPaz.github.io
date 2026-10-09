@@ -1,6 +1,38 @@
 // Mark the current page's nav link active, in both the desktop
 // filebar nav and the mobile scrollable tab strip.
 (function () {
+  const workspaceTabs = [...document.querySelectorAll('[data-workspace-target]')];
+  const workspaceContent = document.querySelector('.workspace-content');
+  if (workspaceTabs.length && workspaceContent) {
+    const setActiveWorkspaceTab = (target) => {
+      workspaceTabs.forEach((tab) => {
+        tab.classList.toggle('is-active', tab.dataset.workspaceTarget === target);
+      });
+    };
+
+    workspaceTabs.forEach((tab) => {
+      tab.addEventListener('click', (event) => {
+        const target = document.getElementById(tab.dataset.workspaceTarget);
+        if (!target) return;
+        event.preventDefault();
+        setActiveWorkspaceTab(tab.dataset.workspaceTarget);
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', `#${tab.dataset.workspaceTarget}`);
+      });
+    });
+
+    workspaceContent.addEventListener('scroll', () => {
+      const sections = ['recents', 'work']
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+      const current = sections.reduce((closest, section) => {
+        const distance = Math.abs(section.getBoundingClientRect().top - workspaceContent.getBoundingClientRect().top);
+        return distance < closest.distance ? { id: section.id, distance } : closest;
+      }, { id: 'recents', distance: Infinity });
+      setActiveWorkspaceTab(current.id);
+    });
+  }
+
   const slides = [...document.querySelectorAll('.slide')];
   if (!slides.length) return;
 
