@@ -182,15 +182,21 @@
 
   const slides = [hero, ...(note ? [note] : []), ...body.querySelectorAll('.cs-section')];
   const shell = document.createElement('div');
-  shell.className = 'presentation-shell';
+  shell.className = 'hero-workspace case-study-deck';
   const rail = document.createElement('aside');
-  rail.className = 'presentation-rail';
-  rail.setAttribute('aria-label', 'Case study slides');
+  rail.className = 'hero-rail';
+  rail.setAttribute('aria-label', `${page.dataset.caseStudy} slides`);
+  const railHeading = document.createElement('span');
+  railHeading.className = 'rail-heading';
+  railHeading.textContent = 'SLIDES';
+  rail.appendChild(railHeading);
+  const canvasWrap = document.createElement('div');
+  canvasWrap.className = 'hero-canvas-wrap';
   const canvas = document.createElement('div');
-  canvas.className = 'presentation-canvas';
+  canvas.className = 'hero-canvas';
   const controls = document.createElement('div');
-  controls.className = 'presentation-controls';
-  controls.innerHTML = '<button type="button" data-presentation-prev aria-label="Previous slide">←</button><div class="presentation-progress"><span></span></div><button type="button" data-presentation-next aria-label="Next slide">→</button><button type="button" class="present-button" data-presentation-present>Present</button>';
+  controls.className = 'hero-controls';
+  controls.innerHTML = '<button type="button" data-presentation-prev aria-label="Previous slide">←</button><div class="hero-progress"><span></span></div><button type="button" data-presentation-next aria-label="Next slide">→</button><span class="hero-hint">Use ← → or click the canvas edges</span><button type="button" class="present-button" data-presentation-present>Present</button>';
   const exit = document.createElement('button');
   exit.type = 'button';
   exit.className = 'presentation-exit';
@@ -214,7 +220,7 @@
   };
   let current = 0;
   slides.forEach((slide, index) => {
-    slide.classList.add('presentation-slide');
+    slide.classList.add('presentation-slide', 'hero-slide', 'case-study-slide');
     slide.dataset.presentationIndex = String(index);
     if (slide === note) slide.classList.add('presentation-note');
     if (slide === hero) {
@@ -240,21 +246,22 @@
     canvas.appendChild(slide);
     const item = document.createElement('button');
     item.type = 'button';
-    item.className = 'presentation-thumb';
+    item.className = 'hero-thumb';
     item.innerHTML = `<span>${index + 1}</span><strong>${labels[index] || `Slide ${index + 1}`}</strong><small>${index === 0 ? 'OVERVIEW' : `SLIDE ${String(index).padStart(2, '0')}`}</small>`;
     item.addEventListener('click', () => show(index));
     rail.appendChild(item);
   });
   body.remove();
   main.innerHTML = '';
-  shell.append(rail, canvas);
-  main.append(shell, controls);
+  canvasWrap.append(canvas, controls);
+  shell.append(rail, canvasWrap);
+  main.append(shell);
 
   function show(index) {
     current = (index + slides.length) % slides.length;
     slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === current));
     rail.querySelectorAll('.presentation-thumb').forEach((item, itemIndex) => item.classList.toggle('is-active', itemIndex === current));
-    controls.querySelector('.presentation-progress span').style.width = `${((current + 1) / slides.length) * 100}%`;
+    controls.querySelector('.hero-progress span').style.width = `${((current + 1) / slides.length) * 100}%`;
     controls.querySelector('[data-presentation-prev]').disabled = current === 0;
     controls.querySelector('[data-presentation-next]').disabled = current === slides.length - 1;
     history.replaceState(null, '', `#slide-${current + 1}`);
