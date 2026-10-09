@@ -2,7 +2,7 @@
 (function () {
   const list = document.querySelector('[data-tab-list]');
   const main = document.querySelector('#workspace-main');
-  if (!main) return;
+  if (!main || !document.querySelector('[data-file-title]')) return;
   const files = new Map();
   const fixedFiles = [['hero', 'Hero', '▣']];
   let active = 'hero';
