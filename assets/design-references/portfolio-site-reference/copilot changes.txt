@@ -1,0 +1,196 @@
+You are editing my live portfolio repo (EricArielDeLaPaz.github.io). Make these exact changes. Do not touch any text content, copy, numbers, or resume-derived facts anywhere in the repo — only the structural/nav/CSS changes below. Work file by file.
+
+1. index.html — remove the gold “D” square and the duplicate Resume link from the top toolbar.
+
+Find:
+
+html
+<div class="file-identity"><span class="gold-mark">D</span><strong>DE LA PAZ</strong><span class="toolbar-divider"></span><span data-file-title>Hero — Portfolio</span><small>Eric Ariel De La Paz / Portfolio</small></div>
+<div class="toolbar-actions"><a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">Resume</a><button class="toolbar-button" type="button" data-share>Share</button><button class="toolbar-present" type="button" data-present aria-label="Present current file">▶ Present</button></div>
+
+Replace with:
+
+html
+<div class="file-identity"><strong>DE LA PAZ</strong><span class="toolbar-divider"></span><span data-file-title>Hero — Portfolio</span><small>Eric Ariel De La Paz / Portfolio</small></div>
+<div class="toolbar-actions"><button class="toolbar-button" type="button" data-share>Share</button><button class="toolbar-present" type="button" data-present aria-label="Present current file">▶ Present</button></div>
+
+(Resume stays as-is in the left rail nav — don’t remove it there.)
+
+2. assets/js/main.js — make the Present button only show on the Hero deck (hide it on Previous Works / Current Works). Inside the openFile(id) function, right before the history.replaceState(...) line, add:
+
+js
+    // Present only makes sense on a slide deck (Hero); Previous/Current Works
+    // are file browsers, not decks, so hide the button there.
+    const presentButton = document.querySelector('[data-present]');
+    if (presentButton) presentButton.hidden = id !== 'hero';
+
+3. assets/css/style.css — four changes:
+
+a) Delete the entire dead .filebar rule block (it’s unused now that case studies use .workspace-toolbar/.workspace-rail instead — see step 4). It’s the block starting with the comment /* ---------- top chrome (file-bar nav) ---------- */ right after .btn svg{...}, and ending right before the comment /* mobile bottom-tab scrollable strip, echoes the Figma Slides tab UI */. Delete the whole thing including the .filebar, .filebar .logo, .filebar .brand, .filebar nav, .filebar-tabs, and the @media(max-width:620px) block that targets .filebar.
+
+b) In the “Figma Slides-style case-study workspace” section, find:
+
+css
+.case-study-page .filebar{ height:48px; padding:0 16px; border-radius:0; }
+.case-study-page main{ height:calc(100vh - 48px); min-height:0; display:flex; flex-direction:column; }
+
+Replace with:
+
+css
+.case-study-page .workspace-toolbar{ height:48px; padding:0 16px; border-radius:0; }
+.case-study-page .workspace-shell{ height:calc(100vh - 48px); min-height:0; }
+.case-study-page .workspace-main{ min-height:0; display:flex; flex-direction:column; }
+
+(Important: do NOT add display:flex to .workspace-shell here — it already inherits display:flex from the base .workspace-shell rule, and the global @media(max-width:760px) rule switches it to display:block on mobile so the rail can stack. Adding display:flex here would override that and break the mobile layout.)
+
+c) Find .presentation-slide{ display:none; width:min(100%,1100px); height:min(100%,620px); ...} and change the size to width:min(100%,1140px); height:min(100%,640px); — this makes case-study slides exactly match the Hero deck’s slide size (.hero-slide is 1140×640), so every slide across the whole site is the same size.
+
+d) In the big .presentation-slide.is-active{...} single-line rule block, find these two fragments and rename them:
+
+.case-study-page.is-presenting .filebar,.case-study-page.is-presenting .presentation-rail,... → change .filebar to .workspace-toolbar,.case-study-page.is-presenting .workspace-rail
+.case-study-page.is-presenting main{ height:100vh; } → change to .case-study-page.is-presenting .workspace-shell{ height:100vh; }
+
+e) In the @media(max-width:700px) block right after that, find:
+
+css
+.case-study-page .filebar{ height:56px; }.case-study-page main{ height:calc(100vh - 56px); min-height:600px; }
+
+Replace with:
+
+css
+.case-study-page .workspace-toolbar{ height:56px; }.case-study-page .workspace-shell{ height:calc(100vh - 56px); min-height:600px; }
+
+4. case-studies/secureid.html, case-studies/honda.html, case-studies/devtective.html, case-studies/vextaro.html — replace the old header nav with the new workspace rail nav, in all 4 files. This is the same edit in each file, just swap the page title/section per file as noted.
+
+Find (the old header + mobile tabs, right before <main>):
+
+html
+<header class="filebar">
+  <div class="brand">
+    <a href="../index.html" class="logo wordmark" style="display:flex;align-items:center;justify-content:center;">D</a>
+    <span class="wordmark">De La Paz</span>
+  </div>
+  <nav>
+    <a href="../index.html" data-nav="home">Home</a>
+    <a href="../index.html#work" data-nav="work">Work</a>
+    <a href="../index.html#about" data-nav="about">About</a>
+  </nav>
+  <div class="cta">
+    <a class="btn btn-primary" href="mailto:ericforall247@gmail.com">Contact</a>
+  </div>
+</header>
+<div class="mobile-tabs">
+  ... (whatever links are in this file's mobile-tabs) ...
+</div>
+
+<main>
+
+Replace with (fill in {PAGE_TITLE} and the active-section class per file — see table below):
+
+html
+<div class="workspace-toolbar">
+  <div class="file-identity"><strong>DE LA PAZ</strong><span class="toolbar-divider"></span><span>{PAGE_TITLE}</span><small>Eric Ariel De La Paz / {SECTION_LABEL}</small></div>
+  <div class="toolbar-actions"><button class="toolbar-button" type="button" data-share>Share</button></div>
+</div>
+
+<div class="workspace-shell">
+  <aside class="workspace-rail" aria-label="Portfolio files">
+    <div class="rail-profile"><img src="../assets/images/profile.png" alt=""><div><strong>Eric Ariel De La Paz</strong><small>UX &middot; Product designer</small></div></div>
+    <nav>
+      <a href="../index.html#hero"><span>&#9633;</span>Hero</a>
+      <a href="../index.html#previous"{PREV_ACTIVE}><span>&#9633;</span>Previous Works</a>
+      <a href="../index.html#current"{CURR_ACTIVE}><span>&#9633;</span>Current Works</a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><span>&#9831;</span>LinkedIn</a>
+      <a href="../assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener"><span>&#9678;</span>Resume</a>
+    </nav>
+    <div class="rail-footer"><span class="status-dot"></span><span>Available remotely</span></div>
+  </aside>
+  <main class="workspace-main">
+
+Per-file values:
+
+File	{PAGE_TITLE}	{SECTION_LABEL}	{PREV_ACTIVE}	{CURR_ACTIVE}
+secureid.html	SecureID — Case Study	Previous Works	class="is-active"	(empty)
+honda.html	Honda of Clear Lake — Heuristic Evaluation	Previous Works	class="is-active"	(empty)
+devtective.html	DevTective — Google UX Design Certificate Project	Current Works	(empty)	class="is-active"
+vextaro.html	Vextaro — Internship Capstone	Current Works	(empty)	class="is-active"
+
+Then, in each of these 4 files, find the closing </main> tag (the one that closes the <main> you just turned into <main class="workspace-main">) and add a new </div> on the line right after it, to close the .workspace-shell wrapper, before the <footer that follows. So:
+
+html
+  </main>
+
+<footer...
+
+becomes:
+
+html
+  </main>
+</div>
+
+<footer...
+
+5. New file 404.html at the repo root (GitHub Pages auto-serves this for any broken link). Bare, centered text only — no header, no rail, no footer, no images — using the site’s existing color tokens (--bg, --gold, --gold-bright, --text-dim) and font pairing (EB Garamond for the heading, Inter for body text):
+
+html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Eric Ariel De La Paz</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  body.error-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 24px;
+  }
+  .error-page .error-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+  .error-page h1 {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(28px, 5vw, 44px);
+    color: #fbf7ee;
+    margin: 0 0 14px;
+  }
+  .error-page p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dim);
+    max-width: 44ch;
+    margin: 0 auto 28px;
+  }
+  .error-page a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .error-page a:hover { color: var(--gold-bright); }
+</style>
+</head>
+<body class="error-page">
+  <div>
+    <p class="error-eyebrow">404</p>
+    <h1>This page doesn't exist.</h1>
+    <p>The link may be broken, or the page may have moved. Head back to the homepage to keep browsing.</p>
+    <a href="index.html">&larr; Back to the portfolio</a>
+  </div>
+</body>
+</html>
+
+After making all changes, run a sanity check: confirm .filebar no longer appears anywhere in any .html file, confirm all 4 case-study pages still have exactly one <main class="workspace-main"> and one matching </main> plus the new closing </div>, and confirm 404.html exists at the repo root.
