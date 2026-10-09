@@ -105,6 +105,53 @@
   showSlide(current, false);
 })();
 
+// Keep the workspace controls useful without introducing a second page model.
+(function () {
+  const search = document.querySelector('[data-project-search]');
+  const cards = [...document.querySelectorAll('.workspace-card')];
+  const shareButtons = [...document.querySelectorAll('[data-share]')];
+
+  search?.addEventListener('input', () => {
+    const query = search.value.trim().toLowerCase();
+    cards.forEach((card) => {
+      card.hidden = Boolean(query) && !card.textContent.toLowerCase().includes(query);
+    });
+    document.querySelectorAll('.file-section').forEach((section) => {
+      const visibleCards = [...section.querySelectorAll('.workspace-card')].filter((card) => !card.hidden);
+      const count = section.querySelector('.file-count');
+      if (count) count.textContent = `${visibleCards.length} ${visibleCards.length === 1 ? 'file' : 'files'}`;
+    });
+  });
+
+  document.querySelectorAll('.view-toggle').forEach((toggle) => {
+    const section = toggle.closest('.file-section');
+    const grid = section?.querySelector('.project-grid');
+    if (!grid) return;
+    toggle.querySelectorAll('[data-view]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const view = button.dataset.view;
+        grid.classList.toggle('is-list', view === 'list');
+        toggle.querySelectorAll('[data-view]').forEach((item) => {
+          item.classList.toggle('selected', item === button);
+        });
+      });
+    });
+  });
+
+  shareButtons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const original = button.textContent;
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        button.textContent = 'Link copied';
+      } catch {
+        button.textContent = 'Copy unavailable';
+      }
+      window.setTimeout(() => { button.textContent = original; }, 1600);
+    });
+  });
+})();
+
 // Present case studies as a Figma Slides-style deck: the existing authored
 // sections become navigable slides without duplicating or hiding their content.
 (function () {
