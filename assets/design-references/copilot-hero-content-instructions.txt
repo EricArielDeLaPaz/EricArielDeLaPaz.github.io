@@ -1,0 +1,306 @@
+===============================================================================
+INSTRUCTIONS FOR GITHUB COPILOT — HERO DECK CONTENT REWRITE
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+Live site: https://ericarieldelapaz.tech/
+Prepared for: Eric Ariel De La Paz
+===============================================================================
+
+HOW TO USE THIS FILE
+---------------------
+Open this repo in an environment where GitHub Copilot has agent/edit access
+to the files (VS Code with Copilot Chat in Agent mode, or GitHub Copilot
+Workspace). Paste the ENTIRE "PROMPT TO PASTE INTO COPILOT" section below
+into the chat as one message, then let it run. Everything above that section
+is background for you (Eric) — Copilot does not need you to paste it, but
+you can include it too if you want Copilot to have the full picture; it will
+not hurt anything since it's clearly marked as background/source material.
+
+
+===============================================================================
+WHY THIS CHANGE IS NEEDED (background for Eric)
+===============================================================================
+
+The site (ericarieldelapaz.tech) is a single-page "workspace" portfolio.
+The homepage (index.html) has a Hero section built as a slide deck — a set
+of full-screen slides the visitor clicks or arrows through, rendered
+entirely from one JavaScript array called `heroSlides` inside
+`assets/js/main.js`. Each array entry is one slide.
+
+I compared three sources against each other:
+  1. Your resume (October_Resume.pdf) — the ground truth for all facts,
+     numbers, dates, and job titles.
+  2. Your original portfolio at https://ericarieldelapaz.framer.website/ —
+     useful for voice/tone and a couple of strong lines worth keeping.
+  3. The current live site's Hero deck content (the 6 slides currently in
+     `heroSlides`).
+
+Finding: the four case-study pages (SecureID, Honda of Clear Lake,
+DevTective, Vextaro) are already accurate, complete, and well-matched to
+your resume — no changes needed there, and Copilot should NOT touch them.
+
+But the Hero deck itself is thin and incomplete:
+  - It compresses both internships (Flyrank AI and the Stealth Startup)
+    into one generic slide, losing the real numbers from your resume
+    (~60% less visual rework, ~90% faster UI updates, 30+ minutes saved
+    per demo, ~30 screens delivered, "one of ~5 design interns reporting
+    directly to the founder").
+  - It never mentions your "Design Mentor & Workshop Facilitator" role at
+    all — this is real, resume-documented leadership experience (mentoring
+    2-3 interns per session, leading monthly workshops) that is currently
+    invisible on the site.
+  - The opening slide doesn't echo your resume's actual positioning
+    statement, which is stronger and more specific than the current
+    generic intro line. This directly addresses your senior designer's
+    original feedback to "strengthen the opening message."
+  - A strong, authentic line from your original Framer site — "making
+    precise decisions, not just making things look good" — never made it
+    into the rebuilt site, even though it's a good, specific positioning
+    statement in your own voice.
+
+The fix below expands the deck from 6 slides to 8 (splitting the two
+internships into their own slides, and adding one new Leadership slide),
+and rewrites several slides to use your actual resume language and numbers.
+
+
+===============================================================================
+SOURCE MATERIAL — FOR COPILOT TO VERIFY AGAINST (do not invent beyond this)
+===============================================================================
+
+--- FROM THE RESUME (October_Resume.pdf) — treat every fact/number here as
+    the single source of truth. Do not add numbers or claims not present
+    in this material. ---
+
+SUMMARY:
+"Junior Product / UI/UX Designer with two concurrent internships building
+token-based design systems across web and mobile, creating consistent,
+scalable interfaces and smoother design-to-engineering handoff. Combines
+strong UX research and information architecture with advanced Figma
+prototyping to clarify user flows, reduce visual rework, and support
+accessible, WCAG-aligned experiences."
+
+EDUCATION:
+- Western Governors University — Bachelor's degree in User Experience
+  Design — Expected Nov 2026
+- Coursera — Google UX Design Professional Certificate — Expected Nov 2026
+  ("Hands-on UX program with practical projects focused on user research
+  methods and usability testing to build job-ready UX design skills.")
+
+EXPERIENCE — UI/UX Design Intern, Flyrank AI, Remote, Jul 2026 – Present:
+- Built a complete Figma token-based design system with variables, a
+  4-color semantic palette, and typographic scale, linking styles to
+  shared tokens to cut visual rework by ~60%, reduce inconsistencies to
+  near-zero, and make global UI updates ~90% faster.
+- Conducted competitive audits across 10+ competitor and industry sources
+  for men's luxury formalwear and paired them with targeted user
+  interviews to inform product decisions, creating a specialist
+  fit-confirmation checkpoint that directly addressed recurring
+  fit-uncertainty complaints.
+- Designed multi-state UI patterns in Figma using components and variants
+  (dropdown menus, bottom-sheet overlays, tabbed selectors, collapsible
+  navigation) for key app and website flows, documenting interaction
+  behavior to make states and transitions easier for engineers to
+  understand and implement.
+- Reduced UI element count by over half under time constraints by
+  consolidating redundant Figma components and styles for the men's
+  luxury formalwear experience, practicing how to defend removals by
+  tying every decision back to stated user goals and core flows.
+- Developed information architecture with seven sections and designed
+  three annotated user flows in Figma to show how users move end-to-end
+  through discovering men's luxury formalwear, confirming fit, and
+  completing purchases, while clarifying primary tasks, onboarding, and
+  recovery with escalation.
+
+EXPERIENCE — Product Design Intern, Stealth Startup, Remote, Jul 2026 –
+Present:
+- Led creation of a Figma token-based design system from scratch for a
+  product that previously had none, then applied it across two mobile
+  apps and a desktop dashboard to create a more consistent, smoother
+  user experience as one of ~5 design interns reporting directly to
+  the founder.
+- Built high-fidelity, interactive Figma prototypes with complex
+  component states, dynamic overlays, typeable form fields, and
+  conditional logic to closely simulate final user experiences for
+  engineering handoff, enhancing the demo workflow and reducing setup
+  and execution time by 30+ minutes per demo.
+- Conducted design reviews, guided teammates on technical Figma
+  prototyping and responsive design best practices, and led workshops
+  for current and new team members to demonstrate design-system
+  workflows, tools, and processes as a product design intern reporting
+  directly to the founder.
+- Delivered ~30 new Figma screen designs and refinements (plus multiple
+  overlays) while collaborating closely with the founder, an engineer,
+  and ~5 interns to simplify design-to-engineering handoff and support
+  teammates' growth in design systems, variables, and advanced
+  prototyping.
+- Role performed under a strict NDA; responsibilities and outcomes above
+  reflect actual scope while specific project and company details remain
+  confidential.
+
+SKILLS:
+- Technical: HTML, Product Design, UX/UI Design, Interaction Design, User
+  Experience Research, Usability Testing, Wireframing, Prototyping,
+  Information Architecture, User Flows, Design Systems, Design Tokens &
+  Variables, Components & Libraries, Visual Design, Responsive Design,
+  Accessibility (WCAG), Research Synthesis, Competitive Analysis, User
+  Journey Mapping, Personas, User Interviews, A/B Testing
+- Tools: Figma, Figma Prototyping, Figma Variables, Microsoft Office,
+  Google Workspace, Granola AI, Claude
+- Soft: Cross-Functional Collaboration, Communication, Design Critiques
+
+LEADERSHIP & ACTIVITIES — Design Mentor & Workshop Facilitator, Stealth
+Startup (Product Design Internship):
+"Provided on-demand mentorship and learning support to fellow design
+interns during my Product Design Internship, owning small-group and 1:1
+sessions focused on practical, systems-minded UI/UX skills."
+- Mentored 2–3 design interns per session in a mix of 1:1 and small-group
+  formats, answering questions and reviewing work with a focus on
+  clarity, usability, and maintainable design systems.
+- Planned and led recurring design workshops (roughly once a month) to
+  help teammates practice responsive design principles and advanced
+  Figma prototyping techniques in a collaborative setting.
+- Guided the team in using Figma variables within interactive prototypes
+  so they could explore, test, and refine design ideas more efficiently
+  together.
+
+CONTACT: Texas, U.S.A. | +1 (832) 758-4781 | ericforall247@gmail.com |
+https://www.linkedin.com/in/eric-ariel-de-la-paz/ |
+https://github.com/EricArielDeLaPaz
+
+--- FROM THE ORIGINAL FRAMER SITE (https://ericarieldelapaz.framer.website/)
+    — voice/tone reference only, not a numbers source ---
+
+Opening line: "I'm Eric Ariel De La Paz, a designer based in Texas,
+available remotely worldwide."
+
+About Me / approach: "making precise decisions, not just making things
+look good." Builds design systems rather than one-off styling, and
+grounds decisions in research such as competitor reviews, industry data,
+and user complaints.
+
+Self-assessment: early in his career, takes the work seriously, learns
+quickly, and will say when designs aren't working.
+
+Contact heading: "Let's Build Something!" — open to UX internships,
+freelance projects, and collaborations.
+
+--- CURRENT LIVE HERO DECK (what's being replaced) ---
+The current `heroSlides` array in assets/js/main.js has exactly 6 entries:
+HERO, ABOUT ME, EXPERIENCE (both internships combined into one generic
+line), EDUCATION, SKILLS + TOOLS, CONTACT. The EXPERIENCE slide in
+particular loses almost all of the real numbers above.
+
+
+===============================================================================
+PROMPT TO PASTE INTO COPILOT (copy everything between the lines below)
+===============================================================================
+-------------------------------------------------------------------------------
+
+You are editing a live, already-deployed personal portfolio site in this
+repo. Read this entire instruction carefully before editing anything —
+precision matters more than speed here.
+
+SCOPE — READ THIS FIRST:
+Edit ONLY one thing: the `heroSlides` array inside `assets/js/main.js`.
+Do not edit, reformat, or "clean up" any other file in this repo —
+specifically, leave `index.html`, `assets/css/style.css`, and all four
+files in `case-studies/` (secureid.html, honda.html, devtective.html,
+vextaro.html) completely untouched. Those have already been reviewed
+against the resume and are correct as-is. Do not rename, reorder, or
+change the structure of `heroSlides` beyond its contents — it must remain
+a JavaScript array of arrays, each inner array in the exact order
+`[eyebrow, title, metaLabel, metaBody, tag]`, because the rendering code
+immediately below it (the `heroSlides.forEach(...)` block and the
+`showHero()` function) destructures each entry by that exact positional
+order and will break silently (wrong text in wrong place) if the order
+changes.
+
+CONTEXT ON WHAT THIS ARRAY DOES:
+Each entry in `heroSlides` becomes one full-screen slide in the homepage's
+Hero presentation. `eyebrow` is the small label at the top-left of the
+slide. `title` is the large headline (rendered as-is, so it needs to
+already be in the correct case — the existing convention in this file is
+ALL CAPS for the title and normal sentence case for the body text; keep
+following that same convention for consistency with the rest of the
+deck). `metaLabel` is a small caption above the supporting text.
+`metaBody` is the supporting paragraph, in normal sentence case.
+`tag` is a short right-aligned label shown in the slide footer. The
+number of slides in the deck, and the thumbnails in the left-hand rail,
+are both generated automatically from how many entries are in this
+array — you do not need to edit anything else to add slides.
+
+FACTUAL ACCURACY — HARD CONSTRAINT:
+Every number, date, job title, and company name used below is already
+pulled directly from Eric's resume (included as reference material
+above/alongside this prompt, or ask Eric for the resume PDF if it wasn't
+included with this prompt). Do not alter, round differently, invent, or
+add any fact, statistic, percentage, or claim beyond what's given to you
+in the exact replacement content below. Do not "improve" the copy by
+adding specifics that aren't in the source material. If something seems
+like it's missing information, leave it general rather than guessing.
+
+THE EDIT:
+Find the `heroSlides` declaration — it currently starts with
+`const heroSlides = [` and has 6 entries. Replace the entire array
+(opening bracket through closing `];`) with this exact replacement:
+
+const heroSlides = [
+  ['HERO', 'I’M ERIC ARIEL DE LA PAZ, A JUNIOR PRODUCT / UI/UX DESIGNER WHO TURNS RESEARCH INTO TOKEN-BASED DESIGN SYSTEMS.', 'CURRENTLY', 'Two concurrent remote internships building design systems across web and mobile, plus a bachelor’s degree in User Experience Design — expected November 2026.', 'INTRO'],
+  ['ABOUT ME', 'I COMBINE UX RESEARCH, INFORMATION ARCHITECTURE, AND ADVANCED FIGMA PROTOTYPING.', 'DESIGN APPROACH', 'I care about making precise decisions, not just making things look good. I build design systems instead of one-off styling, and ground decisions in real research — competitive audits, user interviews, and the complaints people actually have — before I touch a screen.', 'PROFILE'],
+  ['EXPERIENCE', 'UI/UX DESIGN INTERN AT FLYRANK AI — BUILDING A TOKEN SYSTEM FROM RESEARCH TO HANDOFF.', 'FLYRANK AI · REMOTE', 'Jul 2026 – Present · Built a complete Figma token-based design system (variables, a 4-color semantic palette, type scale) that cut visual rework ~60% and made global UI updates ~90% faster. Ran 10+ competitive audits and user interviews for a men’s luxury formalwear app, designing a fit-confirmation checkpoint and a 7-section information architecture with 3 annotated user flows.', 'WORK · 01'],
+  ['EXPERIENCE', 'PRODUCT DESIGN INTERN AT A STEALTH STARTUP — LEADING A DESIGN SYSTEM FROM SCRATCH.', 'STEALTH STARTUP · REMOTE', 'Jul 2026 – Present · Led creation of a Figma token-based design system from scratch and applied it across two mobile apps and a desktop dashboard, as one of ~5 design interns reporting directly to the founder. Built high-fidelity interactive prototypes that cut demo setup time by 30+ minutes each, and delivered ~30 new screen designs and refinements.', 'WORK · 02'],
+  ['LEADERSHIP', 'MENTORING OTHER DESIGN INTERNS ON SYSTEMS-MINDED UI/UX.', 'DESIGN MENTOR & WORKSHOP FACILITATOR', 'Stealth Startup · Mentored 2–3 design interns per session, 1:1 and in small groups, on clarity, usability, and maintainable design systems. Planned and led monthly workshops on responsive design and advanced Figma prototyping, including how to use Figma variables inside interactive prototypes.', 'MENTORSHIP'],
+  ['EDUCATION', 'BUILDING A STRONGER FOUNDATION FOR PRODUCT DESIGN.', 'WGU / COURSERA', 'WGU Bachelor’s degree in User Experience Design and Google UX Design Professional Certificate · Expected November 2026. Hands-on program focused on user research methods and usability testing.', 'EDUCATION'],
+  ['SKILLS + TOOLS', 'RESEARCH, SYSTEMS, AND STORYTELLING.', 'FOCUS AREAS', 'UX research · Usability testing · Information architecture · User flows · Design systems · Design tokens & variables · Components & libraries · Responsive design · WCAG accessibility · Figma, Figma Prototyping, Figma Variables · HTML · CSS · JavaScript', 'CAPABILITIES'],
+  ['CONTACT', 'LET’S MAKE SOMETHING USEFUL.', 'OPEN TO', 'Product design, UX research, and thoughtful teams solving real problems. Available remotely. ericforall247@gmail.com · LinkedIn · GitHub', 'LINKS'],
+];
+
+NOTE ON APOSTROPHES: the title and body strings above use a curly/typographic
+apostrophe (’) in words like "I’M" and "Bachelor’s", matching the style
+already used elsewhere in this same file (e.g. the existing EDUCATION
+slide already uses "Bachelor’s"). Keep that same curly-apostrophe
+character — do not auto-"fix" it to a straight apostrophe ('), since that
+would make this array's style inconsistent with the rest of the file.
+
+AFTER EDITING, VERIFY:
+1. The array still opens with `const heroSlides = [` and closes with
+   `];`, with exactly 8 entries between them, each a 5-item array in the
+   order `[eyebrow, title, metaLabel, metaBody, tag]`.
+2. No entry is missing a closing bracket or a comma — a syntax error here
+   will break the entire homepage, not just the Hero section, because
+   this script also drives the tab/file-switching logic for the rest of
+   the page.
+3. You have not changed anything outside this one array — run a diff
+   against the previous version of `assets/js/main.js` and confirm the
+   only changed lines are inside `heroSlides`.
+4. You have not touched `index.html`, `assets/css/style.css`, or any file
+   inside `case-studies/`.
+5. Open the page locally (or describe what you'd expect to render) and
+   confirm there are now 8 slide thumbnails in the Hero rail instead of 6,
+   in the order: HERO, ABOUT ME, EXPERIENCE (Flyrank AI), EXPERIENCE
+   (Stealth Startup), LEADERSHIP, EDUCATION, SKILLS + TOOLS, CONTACT.
+
+Once you've made and verified this change, stop — do not proceed to make
+any other edits or suggestions to the rest of the site unless explicitly
+asked.
+
+-------------------------------------------------------------------------------
+===============================================================================
+END OF PROMPT TO PASTE INTO COPILOT
+===============================================================================
+
+
+===============================================================================
+WHAT'S DELIBERATELY NOT CHANGING (for Eric's own reference)
+===============================================================================
+
+- SecureID, Honda of Clear Lake, DevTective, and Vextaro case-study pages:
+  already reviewed against your resume line by line. Facts, numbers, and
+  job titles all check out. Their slide structure already matches the
+  slide-label names defined in main.js's presentation code. No action.
+- Site structure, CSS, navigation, Present button logic, 404 page: all
+  already fixed and verified in the previous round of changes. This
+  prompt does not touch any of that.
+- The Pokémon/personality aside from your original Framer "About Me"
+  section was intentionally left out of the new ABOUT ME slide — it's
+  charming but optional personal flavor, not resume-critical content, and
+  can always be added back in later as its own slide if you want it.
