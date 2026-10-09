@@ -36,8 +36,6 @@
     document.querySelectorAll('[data-open-page]').forEach((link) => link.classList.toggle('is-active', link.dataset.openPage === id));
     const entry = files.get(id);
     document.querySelector('[data-file-title]').textContent = entry?.label || 'Portfolio';
-    const presentButton = document.querySelector('[data-present]');
-    if (presentButton) presentButton.hidden = id !== 'hero';
     history.replaceState(null, '', `#${id}`);
   }
 
@@ -71,11 +69,6 @@
     }));
   });
 
-  document.querySelector('[data-present]')?.addEventListener('click', () => {
-    const frame = main.querySelector(`[data-page="${active}"] iframe`);
-    if (frame) frame.contentWindow.postMessage({ type: 'present' }, '*');
-    else if (active === 'hero') main.querySelector('[data-page="hero"]').classList.toggle('is-presenting');
-  });
   document.querySelector('[data-share]')?.addEventListener('click', async (event) => {
     const button = event.currentTarget;
     try { await navigator.clipboard.writeText(window.location.href); button.textContent = 'Link copied'; }
@@ -196,14 +189,7 @@
   canvas.className = 'hero-canvas';
   const controls = document.createElement('div');
   controls.className = 'hero-controls';
-  controls.innerHTML = '<button type="button" data-presentation-prev aria-label="Previous slide">←</button><div class="hero-progress"><span></span></div><button type="button" data-presentation-next aria-label="Next slide">→</button><span class="hero-hint">Use ← → or click the canvas edges</span><button type="button" class="present-button" data-presentation-present>Present</button>';
-  const exit = document.createElement('button');
-  exit.type = 'button';
-  exit.className = 'presentation-exit';
-  exit.setAttribute('aria-label', 'Exit presentation');
-  exit.textContent = '×';
-  exit.addEventListener('click', () => page.classList.remove('is-presenting'));
-  page.appendChild(exit);
+  controls.innerHTML = `<button type="button" data-presentation-prev aria-label="Previous slide">←</button><div class="hero-progress"><span></span></div><button type="button" data-presentation-next aria-label="Next slide">→</button><span class="hero-hint">Use ← → or click the canvas edges</span><a class="toolbar-button toolbar-contact" href="mailto:ericforall247@gmail.com"><img src="../assets/icons/mail-01.svg" alt="" aria-hidden="true">Contact</a>`;
 
   const caseStudy = page.dataset.caseStudy;
   const slideLabels = {
@@ -260,7 +246,7 @@
   function show(index) {
     current = (index + slides.length) % slides.length;
     slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === current));
-    rail.querySelectorAll('.presentation-thumb').forEach((item, itemIndex) => item.classList.toggle('is-active', itemIndex === current));
+    rail.querySelectorAll('.hero-thumb').forEach((item, itemIndex) => item.classList.toggle('is-active', itemIndex === current));
     controls.querySelector('.hero-progress span').style.width = `${((current + 1) / slides.length) * 100}%`;
     controls.querySelector('[data-presentation-prev]').disabled = current === 0;
     controls.querySelector('[data-presentation-next]').disabled = current === slides.length - 1;
@@ -268,26 +254,9 @@
   }
   controls.querySelector('[data-presentation-prev]').addEventListener('click', () => show(current - 1));
   controls.querySelector('[data-presentation-next]').addEventListener('click', () => show(current + 1));
-  controls.querySelector('[data-presentation-present]').addEventListener('click', () => page.classList.toggle('is-presenting'));
-  canvas.addEventListener('click', (event) => {
-    if (!page.classList.contains('is-presenting')) return;
-    const midpoint = canvas.getBoundingClientRect().left + canvas.clientWidth / 2;
-    show(event.clientX >= midpoint ? current + 1 : current - 1);
-  });
-  window.addEventListener('message', (event) => {
-    if (event.data?.type === 'present') page.classList.add('is-presenting');
-  });
-  let exitTimer;
-  page.addEventListener('mousemove', () => {
-    if (!page.classList.contains('is-presenting')) return;
-    exit.classList.add('is-visible');
-    window.clearTimeout(exitTimer);
-    exitTimer = window.setTimeout(() => exit.classList.remove('is-visible'), 1800);
-  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') show(current - 1);
     if (event.key === 'ArrowRight') show(current + 1);
-    if (event.key === 'Escape') page.classList.remove('is-presenting');
   });
   const hashIndex = Number(window.location.hash.replace('#slide-', '')) - 1;
   show(Number.isInteger(hashIndex) && hashIndex >= 0 ? hashIndex : 0);
