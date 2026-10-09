@@ -83,10 +83,10 @@
 
   const heroSlides = [
     ['HERO', 'I’M ERIC ARIEL DE LA PAZ, A JUNIOR PRODUCT / UI/UX DESIGNER BASED IN TEXAS.', 'CURRENTLY', 'Two concurrent remote internships, pursuing a bachelor’s degree in User Experience Design.', 'INTRO'],
-    ['ABOUT ME', 'I COMBINE UX RESEARCH, INFORMATION ARCHITECTURE, AND ADVANCED FIGMA PROTOTYPING.', 'DESIGN APPROACH', 'I turn user questions into clear flows, token-based systems, and accessible experiences that are easier to build.', 'PROFILE'],
+    ['ABOUT ME', 'I COMBINE UX RESEARCH, INFORMATION ARCHITECTURE, AND ADVANCED FIGMA PROTOTYPING.', 'DESIGN APPROACH', 'I like problems that need both research and structure — figuring out why something is confusing, then building the information architecture, flows, and design-system tokens that make the fix hold up across a whole product.', 'PROFILE'],
     ['EXPERIENCE', 'DESIGNING SYSTEMS THAT HELP TEAMS MOVE WITH CONFIDENCE.', 'FLYRANK AI / STEALTH STARTUP', 'UI/UX Design Intern · Present · Built token-based systems, high-fidelity prototypes, user flows, and design workshops across web and mobile.', 'WORK'],
-    ['EDUCATION', 'BUILDING A STRONGER FOUNDATION FOR PRODUCT DESIGN.', 'WESTERN GOVERNORS UNIVERSITY', 'Bachelor’s degree in User Experience Design · Expected November 2026', 'EDUCATION'],
-    ['SKILLS + TOOLS', 'RESEARCH, SYSTEMS, AND STORYTELLING.', 'FOCUS AREAS', 'UX research · Usability testing · Information architecture · User flows · Design systems · Responsive design · WCAG accessibility · Figma · HTML · CSS · JavaScript', 'CAPABILITIES'],
+    ['EDUCATION', 'BUILDING A STRONGER FOUNDATION FOR PRODUCT DESIGN.', 'WGU / COURSERA', 'WGU Bachelor’s degree in User Experience Design and Google UX Design Professional Certificate · Expected November 2026', 'EDUCATION'],
+    ['SKILLS + TOOLS', 'RESEARCH, SYSTEMS, AND STORYTELLING.', 'FOCUS AREAS', 'UX research · Usability testing · Information architecture · User flows · Design systems · Design tokens & variables · Responsive design · WCAG accessibility · Figma · HTML · CSS · JavaScript', 'CAPABILITIES'],
     ['CONTACT', 'LET’S MAKE SOMETHING USEFUL.', 'OPEN TO', 'Product design, UX research, and thoughtful teams solving real problems. ericforall247@gmail.com · LinkedIn · GitHub', 'LINKS'],
   ];
   const canvas = document.querySelector('[data-hero-canvas]');
@@ -199,7 +199,7 @@
 
   const caseStudy = page.dataset.caseStudy;
   const slideLabels = {
-    SecureID: ['SecureID', 'Empathizing', 'Defining', 'Personas', 'Ideation', 'Prototyping', 'Impact & Reflection'],
+    SecureID: ['SecureID', 'Empathizing: what we learned', 'Defining', 'Personas', 'Ideation: what I changed', 'Prototyping: how I evaluated it', 'Impact & Reflection'],
     'Honda of Clear Lake': ['Honda of Clear Lake', 'Overview', 'Navigation & Accessibility', 'Product Clarity'],
     DevTective: ['DevTective', 'Overview', 'Empathizing', 'Design System'],
     Vextaro: ['Vextaro', 'Overview', 'The Problem', 'Design System', "What's Next"],
