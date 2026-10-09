@@ -1,108 +1,138 @@
-// Mark the current page's nav link active, in both the desktop
-// filebar nav and the mobile scrollable tab strip.
+// Workspace files behave like a small, keyboard-friendly Figma file browser.
 (function () {
-  const workspaceTabs = [...document.querySelectorAll('[data-workspace-target]')];
-  const workspaceContent = document.querySelector('.workspace-content');
-  if (workspaceTabs.length && workspaceContent) {
-    const setActiveWorkspaceTab = (target) => {
-      workspaceTabs.forEach((tab) => {
-        tab.classList.toggle('is-active', tab.dataset.workspaceTarget === target);
-      });
+  const list = document.querySelector('[data-tab-list]');
+  const main = document.querySelector('#workspace-main');
+  if (!list || !main) return;
+  const files = new Map();
+  const fixedFiles = [
+    ['home', 'Home', '⌂'],
+    ['hero', 'Hero', '▣'],
+  ];
+  let active = 'home';
 
-      const addTab = document.querySelector('.workspace-tab-add');
-      addTab?.addEventListener('click', () => {
-        if (document.querySelector('[data-workspace-target="work"]')) {
-          document.querySelector('[data-workspace-target="work"]').focus();
-          return;
-        }
-        const tab = document.createElement('a');
-        tab.className = 'workspace-tab';
-        tab.href = '#work';
-        tab.dataset.workspaceTarget = 'work';
-        tab.innerHTML = '▣ <span>Work</span><b aria-hidden="true">×</b>';
-        addTab.before(tab);
-        workspaceTabs.push(tab);
-        tab.addEventListener('click', (event) => {
-          event.preventDefault();
-          setActiveWorkspaceTab('work');
-          document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          history.replaceState(null, '', '#work');
-        });
-        tab.click();
-      });
-    };
-
-    workspaceTabs.forEach((tab) => {
-      tab.addEventListener('click', (event) => {
-        const target = document.getElementById(tab.dataset.workspaceTarget);
-        if (!target) return;
-        event.preventDefault();
-        setActiveWorkspaceTab(tab.dataset.workspaceTarget);
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        history.replaceState(null, '', `#${tab.dataset.workspaceTarget}`);
-      });
+  const makeTab = (id, label, icon = '▣', closable = false) => {
+    const tab = document.createElement('button');
+    tab.type = 'button';
+    tab.className = 'workspace-tab';
+    tab.dataset.tabId = id;
+    tab.innerHTML = `<span aria-hidden="true">${icon}</span><span>${label}</span>${closable ? '<b aria-label="Close tab">×</b>' : ''}`;
+    tab.addEventListener('click', (event) => {
+      if (event.target.closest('b')) {
+        event.stopPropagation();
+        closeFile(id);
+        return;
+      }
+      openFile(id);
     });
+    list.appendChild(tab);
+    return tab;
+  };
 
-    workspaceContent.addEventListener('scroll', () => {
-      const sections = ['hero', 'work']
-        .map((id) => document.getElementById(id))
-        .filter(Boolean);
-      const current = sections.reduce((closest, section) => {
-        const distance = Math.abs(section.getBoundingClientRect().top - workspaceContent.getBoundingClientRect().top);
-        return distance < closest.distance ? { id: section.id, distance } : closest;
-      }, { id: 'hero', distance: Infinity });
-      setActiveWorkspaceTab(current.id);
-    });
+  fixedFiles.forEach(([id, label, icon]) => { files.set(id, { id, label }); makeTab(id, label, icon); });
+
+  function openFile(id) {
+    active = id;
+    document.querySelectorAll('.workspace-file').forEach((file) => file.classList.toggle('is-visible', file.dataset.page === id));
+    document.querySelectorAll('.workspace-tab').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tabId === id));
+    document.querySelectorAll('[data-open-page]').forEach((link) => link.classList.toggle('is-active', link.dataset.openPage === id));
+    const entry = files.get(id);
+    document.querySelector('[data-file-title]').textContent = entry?.label || 'Portfolio';
+    history.replaceState(null, '', `#${id}`);
   }
 
-  const slides = [...document.querySelectorAll('.slide')];
-  if (!slides.length) return;
-
-  const dots = document.querySelector('.slide-dots');
-  const progress = document.querySelector('.slide-progress span');
-  let current = Math.max(0, slides.findIndex((slide) => slide.id === window.location.hash.slice(1)));
-  if (current === -1) current = 0;
-
-  slides.forEach((slide, index) => {
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = 'slide-dot';
-    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-    dot.addEventListener('click', () => showSlide(index));
-    dots.appendChild(dot);
-  });
-
-  function showSlide(index, updateHash = true) {
-    current = (index + slides.length) % slides.length;
-    const activeSection = slides[current].id === 'intro' ? 'intro' :
-      slides[current].id === 'about' ? 'about' : 'work';
-    slides.forEach((slide, slideIndex) => {
-      const active = slideIndex === current;
-      slide.classList.toggle('is-active', active);
-      slide.setAttribute('aria-hidden', String(!active));
-      dots.children[slideIndex].classList.toggle('is-active', active);
-    });
-    progress.style.width = `${((current + 1) / slides.length) * 100}%`;
-    if (updateHash) history.replaceState(null, '', `#${slides[current].id}`);
-    document.querySelectorAll('.filebar nav a, .mobile-tabs a').forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${activeSection}`);
-    });
+  function closeFile(id) {
+    if (!files.get(id)?.closable) return;
+    files.delete(id);
+    list.querySelector(`[data-tab-id="${id}"]`)?.remove();
+    main.querySelector(`[data-page="${id}"]`)?.remove();
+    openFile(id === active ? 'home' : active);
   }
 
-  document.querySelector('[data-prev]').addEventListener('click', () => showSlide(current - 1));
-  document.querySelectorAll('[data-next]').forEach((button) => {
-    button.addEventListener('click', () => showSlide(current + 1));
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowRight') showSlide(current + 1);
-    if (event.key === 'ArrowLeft') showSlide(current - 1);
-  });
-  window.addEventListener('hashchange', () => {
-    const next = slides.findIndex((slide) => slide.id === window.location.hash.slice(1));
-    if (next >= 0) showSlide(next, false);
+  document.querySelectorAll('[data-open-page]').forEach((link) => link.addEventListener('click', (event) => {
+    if (!files.has(link.dataset.openPage)) return;
+    event.preventDefault();
+    openFile(link.dataset.openPage);
+  }));
+
+  document.querySelectorAll('[data-case-study]').forEach((card) => card.addEventListener('click', (event) => {
+    event.preventDefault();
+    const id = `case-${card.dataset.caseStudy.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+    if (!files.has(id)) {
+      const frame = document.createElement('section');
+      frame.className = 'workspace-file case-file';
+      frame.dataset.page = id;
+      frame.setAttribute('aria-label', `${card.dataset.caseStudy} case study`);
+      frame.innerHTML = `<iframe title="${card.dataset.caseStudy} presentation" src="${card.getAttribute('href')}"></iframe>`;
+      main.appendChild(frame);
+      files.set(id, { id, label: card.dataset.caseStudy, closable: true });
+      makeTab(id, card.dataset.caseStudy, '▣', true);
+    }
+    openFile(id);
+  }));
+
+  const initial = window.location.hash.slice(1);
+  openFile(files.has(initial) ? initial : 'home');
+
+  document.querySelectorAll('[data-project-search]').forEach((search) => search.addEventListener('input', () => {
+    const section = search.closest('.workspace-file');
+    const query = search.value.trim().toLowerCase();
+    section?.querySelectorAll('.workspace-card').forEach((card) => { card.hidden = Boolean(query) && !card.textContent.toLowerCase().includes(query); });
+  }));
+  document.querySelectorAll('.view-toggle').forEach((toggle) => {
+    const grid = toggle.closest('.workspace-file')?.querySelector('.project-grid');
+    toggle.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => {
+      grid?.classList.toggle('is-list', button.dataset.view === 'list');
+      toggle.querySelectorAll('[data-view]').forEach((item) => item.classList.toggle('selected', item === button));
+    }));
   });
 
-  showSlide(current, false);
+  document.querySelector('[data-present]')?.addEventListener('click', () => {
+    const frame = main.querySelector(`[data-page="${active}"] iframe`);
+    if (frame) frame.contentWindow.postMessage({ type: 'present' }, '*');
+    else if (active === 'hero') main.querySelector('[data-page="hero"]').classList.toggle('is-presenting');
+  });
+  document.querySelector('[data-share]')?.addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    try { await navigator.clipboard.writeText(window.location.href); button.textContent = 'Link copied'; }
+    catch { button.textContent = 'Copy unavailable'; }
+    window.setTimeout(() => { button.textContent = 'Share'; }, 1600);
+  });
+
+  const heroSlides = [
+    ['HERO', 'I’M ERIC ARIEL DE LA PAZ, A DESIGNER BASED IN TEXAS, AVAILABLE REMOTELY WORLDWIDE.', 'SEPTEMBER STATUS', 'LEARNING HTML & CSS, 2 INTERNSHIPS, AND PURSUING A BACHELOR’S', 'INTRO'],
+    ['ABOUT ME', 'I turn research, constraints, and messy product questions into clear experiences.', 'DESIGN APPROACH', 'Curious by default. Structured when it matters. Always looking for the useful next step.', 'PROFILE'],
+    ['CONTACT', 'LET’S MAKE SOMETHING USEFUL.', 'OPEN TO', 'Product design, UX research, and thoughtful teams solving real problems.', 'LINKS'],
+    ['TOOLS', 'TOOLS I USE TO MOVE FROM QUESTIONS TO PROTOTYPES.', 'WORKING SET', 'Figma · FigJam · HTML · CSS · JavaScript · Notion', 'TOOLKIT'],
+    ['SKILLS', 'RESEARCH, SYSTEMS, AND STORYTELLING.', 'FOCUS AREAS', 'UX research · Information architecture · Interaction design · Prototyping · Usability testing', 'CAPABILITIES'],
+  ];
+  const canvas = document.querySelector('[data-hero-canvas]');
+  const thumbs = document.querySelector('[data-hero-thumbs]');
+  if (canvas && thumbs) {
+    let heroIndex = 0;
+    heroSlides.forEach((slide, index) => {
+      const page = document.createElement('article');
+      page.className = 'hero-slide';
+      page.innerHTML = `<div class="hero-slide-top"><span>${slide[0]}</span><i></i></div><h1>${slide[1]}</h1><div class="hero-slide-footer"><div><span>${slide[2]}</span><strong>${slide[3]}</strong></div><small>PORTFOLIO / ${String(index + 1).padStart(2, '0')}</small><em>${slide[4]}</em></div>`;
+      page.addEventListener('click', (event) => {
+        if (event.clientX - page.getBoundingClientRect().left > page.clientWidth / 2) showHero(heroIndex + 1);
+        else showHero(heroIndex - 1);
+      });
+      canvas.appendChild(page);
+      const thumb = document.createElement('button');
+      thumb.type = 'button'; thumb.className = 'hero-thumb'; thumb.innerHTML = `<span>${index + 1}</span><strong>${slide[0]}</strong><small>${slide[4]}</small>`;
+      thumb.addEventListener('click', () => showHero(index));
+      thumbs.appendChild(thumb);
+    });
+    function showHero(index) {
+      heroIndex = (index + heroSlides.length) % heroSlides.length;
+      canvas.querySelectorAll('.hero-slide').forEach((slide, i) => slide.classList.toggle('is-active', i === heroIndex));
+      thumbs.querySelectorAll('.hero-thumb').forEach((thumb, i) => thumb.classList.toggle('is-active', i === heroIndex));
+      document.querySelector('.hero-progress span').style.width = `${((heroIndex + 1) / heroSlides.length) * 100}%`;
+    }
+    document.querySelector('[data-hero-prev]').addEventListener('click', () => showHero(heroIndex - 1));
+    document.querySelector('[data-hero-next]').addEventListener('click', () => showHero(heroIndex + 1));
+    showHero(0);
+  }
 })();
 
 // Keep the workspace controls useful without introducing a second page model.
@@ -175,6 +205,13 @@
   const controls = document.createElement('div');
   controls.className = 'presentation-controls';
   controls.innerHTML = '<button type="button" data-presentation-prev aria-label="Previous slide">←</button><div class="presentation-progress"><span></span></div><button type="button" data-presentation-next aria-label="Next slide">→</button><button type="button" class="present-button" data-presentation-present>Present</button>';
+  const exit = document.createElement('button');
+  exit.type = 'button';
+  exit.className = 'presentation-exit';
+  exit.setAttribute('aria-label', 'Exit presentation');
+  exit.textContent = '×';
+  exit.addEventListener('click', () => page.classList.remove('is-presenting'));
+  page.appendChild(exit);
 
   const caseStudy = page.dataset.caseStudy;
   const slideLabels = {
@@ -239,6 +276,21 @@
   controls.querySelector('[data-presentation-prev]').addEventListener('click', () => show(current - 1));
   controls.querySelector('[data-presentation-next]').addEventListener('click', () => show(current + 1));
   controls.querySelector('[data-presentation-present]').addEventListener('click', () => page.classList.toggle('is-presenting'));
+  canvas.addEventListener('click', (event) => {
+    if (!page.classList.contains('is-presenting')) return;
+    const midpoint = canvas.getBoundingClientRect().left + canvas.clientWidth / 2;
+    show(event.clientX >= midpoint ? current + 1 : current - 1);
+  });
+  window.addEventListener('message', (event) => {
+    if (event.data?.type === 'present') page.classList.add('is-presenting');
+  });
+  let exitTimer;
+  page.addEventListener('mousemove', () => {
+    if (!page.classList.contains('is-presenting')) return;
+    exit.classList.add('is-visible');
+    window.clearTimeout(exitTimer);
+    exitTimer = window.setTimeout(() => exit.classList.remove('is-visible'), 1800);
+  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') show(current - 1);
     if (event.key === 'ArrowRight') show(current + 1);

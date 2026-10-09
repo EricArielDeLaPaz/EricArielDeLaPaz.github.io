@@ -3,72 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eric Ariel De La Paz — Product Design Work</title>
+<title>Eric Ariel De La Paz — Portfolio workspace</title>
 <meta name="description" content="Eric Ariel De La Paz is a UX and product designer organizing research into useful systems.">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="workspace-page">
-<header class="workspace-tabs">
-  <a class="workspace-menu" href="#intro" aria-label="Open workspace menu"><span></span><span></span><span></span></a>
-  <a class="workspace-tab is-active" href="#recents" data-workspace-target="recents">⌂ <span>Home</span><b aria-hidden="true">×</b></a>
-  <a class="workspace-tab" href="#hero" data-workspace-target="hero">▣ <span>Hero</span></a>
-  <button class="workspace-tab-add" type="button" aria-label="Open work tab">+</button>
+<header class="workspace-tabs" aria-label="Open files">
+  <button class="workspace-menu" type="button" aria-label="Workspace menu"><span></span><span></span><span></span></button>
+  <div class="workspace-tab-list" data-tab-list></div>
 </header>
 
 <div class="workspace-toolbar">
-  <div class="file-identity"><span class="gold-mark">D</span><strong>DE LA PAZ</strong><span class="toolbar-divider"></span><span>Portfolio workspace</span><small>Drafts / Eric</small></div>
-  <div class="toolbar-actions"><a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">Resume</a><button class="toolbar-button" type="button" data-share>Share</button></div>
+  <div class="file-identity"><span class="gold-mark">D</span><strong>DE LA PAZ</strong><span class="toolbar-divider"></span><span data-file-title>Home</span><small>Eric Ariel De La Paz / Portfolio</small></div>
+  <div class="toolbar-actions"><a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">Resume</a><button class="toolbar-button" type="button" data-share>Share</button><button class="toolbar-present" type="button" data-present aria-label="Present current file">▶ Present</button></div>
 </div>
 
 <div class="workspace-shell">
-  <aside class="workspace-rail" aria-label="Portfolio sections">
+  <aside class="workspace-rail" aria-label="Portfolio files">
     <div class="rail-profile"><img src="assets/images/profile.png" alt=""><div><strong>Eric Ariel De La Paz</strong><small>UX · Product designer</small></div></div>
     <nav>
-      <a href="#hero"><span>▱</span>Hero</a>
-      <a class="is-active" href="#recents"><span>◷</span>Recents</a>
-      <a href="#previous"><span>▱</span>Previous Works</a>
-      <a href="#work"><span>▱</span>Current Works</a>
+      <a href="#hero" data-open-page="hero"><span>▱</span>Hero</a>
+      <a href="#home" data-open-page="home" class="is-active"><span>◷</span>Home</a>
+      <a href="#previous" data-open-page="previous"><span>▱</span>Previous Works</a>
+      <a href="#current" data-open-page="current"><span>▱</span>Current Works</a>
       <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><span>♧</span>LinkedIn</a>
       <a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener"><span>◎</span>Resume</a>
     </nav>
     <div class="rail-footer"><span class="status-dot"></span><span>Available remotely</span></div>
   </aside>
 
-  <main class="workspace-main" id="intro">
-    <section class="workspace-content" id="recents">
-      <header class="workspace-hero" id="hero">
-        <div><span class="workspace-eyebrow">DE LA PAZ / PORTFOLIO</span><h1>DESIGN WORK, ORGANIZED.</h1><p>UX case studies, product concepts, and presentation files.</p></div>
-        <label class="search-chip"><span aria-hidden="true">⌕</span><input type="search" data-project-search placeholder="Search files and folders" aria-label="Search files and folders"></label>
-      </header>
+  <main class="workspace-main" id="workspace-main">
+    <section class="workspace-file is-visible" data-page="home" aria-label="Home">
+      <div class="workspace-content home-content">
+        <header class="workspace-hero">
+          <div><span class="workspace-eyebrow">DE LA PAZ / PORTFOLIO</span><h1>DESIGN WORK, ORGANIZED.</h1><p>UX case studies, product concepts, and presentation files.</p></div>
+          <label class="search-chip"><span aria-hidden="true">⌕</span><input type="search" data-project-search placeholder="Search files and folders" aria-label="Search files and folders"></label>
+        </header>
+        <section class="home-welcome"><h2>Open a file to see how I think.</h2><p>Explore selected work, or open Hero for a quick introduction, skills, and ways to connect.</p><button class="text-action" type="button" data-open-page="hero">Open Hero <span>↗</span></button></section>
+        <div class="home-file-links"><button type="button" data-open-page="previous"><span>▱</span><strong>Previous Works</strong><small>2 files</small><b>→</b></button><button type="button" data-open-page="current"><span>▱</span><strong>Current Works</strong><small>2 files</small><b>→</b></button></div>
+      </div>
+    </section>
 
-      <section class="file-section" id="previous" aria-labelledby="previous-title">
-        <div class="file-section-heading"><div><span class="folder-icon">▱</span><h2 id="previous-title">Previous Works</h2><span class="file-count">2 files</span></div><div class="view-toggle" role="group" aria-label="Previous Works view"><button type="button" class="selected" data-view="grid" aria-label="Grid view">▦</button><button type="button" data-view="list" aria-label="List view">☷</button></div></div>
+    <section class="workspace-file" data-page="previous" aria-label="Previous Works">
+      <div class="workspace-content">
+        <header class="page-heading"><div><span class="workspace-eyebrow">ARCHIVE / CASE STUDIES</span><h1>Previous Works</h1><p>Evaluations and practice projects that shaped my product thinking.</p></div><label class="search-chip"><span aria-hidden="true">⌕</span><input type="search" data-project-search placeholder="Search files" aria-label="Search previous work"></label></header>
+        <div class="file-section-heading"><span class="file-count">2 files</span><div class="view-toggle" role="group" aria-label="Previous Works view"><button type="button" class="selected" data-view="grid" aria-label="Grid view">▦</button><button type="button" data-view="list" aria-label="List view">☷</button></div></div>
         <div class="project-grid">
-          <a class="workspace-card card-secureid" href="case-studies/secureid.html">
+          <a class="workspace-card card-secureid" href="case-studies/secureid.html" data-case-study="SecureID">
             <div class="card-art"><img src="assets/images/secureid.png" alt=""><span class="card-badge">PREVIOUS WORK</span></div>
-            <div class="card-details"><div class="card-title"><div><h3>SecureID — Case Study</h3><small>Figma Slides · Edited recently</small></div><b>···</b></div><div class="card-tags"><span>UX Research</span><span>Info Architecture</span><span>Prototyping</span></div><p>An identity-verification platform created from a professional practice brief — helping organizations verify user identities through document capture, biometric checks, and manual case review.</p></div>
+            <div class="card-details"><div class="card-title"><div><h2>SecureID — Case Study</h2><small>Figma Slides · Edited recently</small></div><b>···</b></div><div class="card-tags"><span>UX Research</span><span>Info Architecture</span><span>Prototyping</span></div><p>An identity-verification platform created from a professional practice brief.</p></div>
           </a>
-          <a class="workspace-card card-honda" href="case-studies/honda.html">
+          <a class="workspace-card card-honda" href="case-studies/honda.html" data-case-study="Honda of Clear Lake">
             <div class="card-art"><img src="assets/images/honda.png" alt=""><span class="card-badge">PREVIOUS WORK</span></div>
-            <div class="card-details"><div class="card-title"><div><h3>Honda of Clear Lake — Heuristic Evaluation</h3><small>Figma Slides · Edited recently</small></div><b>···</b></div><div class="card-tags"><span>UX Principles</span><span>Accessibility</span><span>Usability Analysis</span></div><p>A usability evaluation analyzing the Honda of Clear Lake website using Nielsen’s 10 principles to uncover usability, clarity, and navigation issues for real car shoppers.</p></div>
+            <div class="card-details"><div class="card-title"><div><h2>Honda of Clear Lake — Heuristic Evaluation</h2><small>Figma Slides · Edited recently</small></div><b>···</b></div><div class="card-tags"><span>UX Principles</span><span>Accessibility</span><span>Usability Analysis</span></div><p>A usability evaluation uncovering clarity, navigation, and accessibility issues for car shoppers.</p></div>
           </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="file-section" id="work" aria-labelledby="current-title">
-        <div class="file-section-heading"><div><span class="folder-icon">▱</span><h2 id="current-title">Current Works</h2><span class="file-count">2 files</span></div><div class="view-toggle" role="group" aria-label="Current Works view"><button type="button" class="selected" data-view="grid" aria-label="Grid view">▦</button><button type="button" data-view="list" aria-label="List view">☷</button></div></div>
+    <section class="workspace-file" data-page="current" aria-label="Current Works">
+      <div class="workspace-content">
+        <header class="page-heading"><div><span class="workspace-eyebrow">IN PROGRESS / CASE STUDIES</span><h1>Current Works</h1><p>Recent concepts and internship work exploring useful, approachable products.</p></div><label class="search-chip"><span aria-hidden="true">⌕</span><input type="search" data-project-search placeholder="Search files" aria-label="Search current work"></label></header>
+        <div class="file-section-heading"><span class="file-count">2 files</span><div class="view-toggle" role="group" aria-label="Current Works view"><button type="button" class="selected" data-view="grid" aria-label="Grid view">▦</button><button type="button" data-view="list" aria-label="List view">☷</button></div></div>
         <div class="project-grid">
-          <a class="workspace-card card-devtective" href="case-studies/devtective.html">
+          <a class="workspace-card card-devtective" href="case-studies/devtective.html" data-case-study="DevTective">
             <div class="card-art"><img src="assets/images/devtective.png" alt=""><span class="card-badge">CURRENT WORK</span></div>
-            <div class="card-details"><div class="card-title"><div><h3>DevTective — Google UX Design Certificate Project</h3><small>Figma Slides · Edited recently</small></div><b>···</b></div><div class="card-tags"><span>App</span><span>UX Research</span><span>Prototyping</span></div><p>5–15% of people who start a free coding course never finish it. DevTective is my attempt at fixing that.</p></div>
+            <div class="card-details"><div class="card-title"><div><h2>DevTective — Google UX Design Certificate Project</h2><small>Figma Slides · Edited recently</small></div><b>···</b></div><div class="card-tags"><span>App</span><span>UX Research</span><span>Prototyping</span></div><p>A gamified coding education app that treats bugs as cases to investigate.</p></div>
           </a>
-          <a class="workspace-card card-vextaro" href="case-studies/vextaro.html">
+          <a class="workspace-card card-vextaro" href="case-studies/vextaro.html" data-case-study="Vextaro">
             <div class="card-art"><span class="vextaro-mark">V</span><span class="card-badge">CURRENT WORK</span></div>
-            <div class="card-details"><div class="card-title"><div><h3>Vextaro — Internship Capstone</h3><small>Figma Slides · Edited recently</small></div><b>···</b></div><div class="card-tags"><span>App</span><span>Internship</span><span>Usability Testing</span></div><p>Vextaro is a fictional men’s luxury formalwear app that helps users find and purchase clothing suited to their body, personal style, and occasion.</p></div>
+            <div class="card-details"><div class="card-title"><div><h2>Vextaro — Internship Capstone</h2><small>Figma Slides · Edited recently</small></div><b>···</b></div><div class="card-tags"><span>App</span><span>Internship</span><span>Usability Testing</span></div><p>A formalwear app helping users find clothing suited to their body, style, and occasion.</p></div>
           </a>
         </div>
-      </section>
+      </div>
+    </section>
 
+    <section class="workspace-file" data-page="hero" aria-label="Hero presentation">
+      <div class="hero-workspace">
+        <aside class="hero-rail" aria-label="Hero slides"><span class="rail-heading">SLIDES</span><div data-hero-thumbs></div></aside>
+        <div class="hero-canvas-wrap"><div class="hero-canvas" data-hero-canvas></div><div class="hero-controls"><button type="button" data-hero-prev aria-label="Previous slide">←</button><div class="hero-progress"><span></span></div><button type="button" data-hero-next aria-label="Next slide">→</button><span class="hero-hint">Use ← → or click the canvas edges</span></div></div>
+      </div>
     </section>
   </main>
 </div>
