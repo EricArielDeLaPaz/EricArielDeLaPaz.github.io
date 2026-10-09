@@ -2,13 +2,10 @@
 (function () {
   const list = document.querySelector('[data-tab-list]');
   const main = document.querySelector('#workspace-main');
-  if (!list || !main) return;
+  if (!main) return;
   const files = new Map();
-  const fixedFiles = [
-    ['home', 'Home', '⌂'],
-    ['hero', 'Hero', '▣'],
-  ];
-  let active = 'home';
+  const fixedFiles = [['hero', 'Hero', '▣']];
+  let active = 'hero';
 
   const makeTab = (id, label, icon = '▣', closable = false) => {
     const tab = document.createElement('button');
@@ -24,11 +21,13 @@
       }
       openFile(id);
     });
-    list.appendChild(tab);
+    list?.appendChild(tab);
     return tab;
   };
 
   fixedFiles.forEach(([id, label, icon]) => { files.set(id, { id, label }); makeTab(id, label, icon); });
+  files.set('previous', { id: 'previous', label: 'Previous Works' });
+  files.set('current', { id: 'current', label: 'Current Works' });
 
   function openFile(id) {
     active = id;
@@ -43,9 +42,9 @@
   function closeFile(id) {
     if (!files.get(id)?.closable) return;
     files.delete(id);
-    list.querySelector(`[data-tab-id="${id}"]`)?.remove();
+    list?.querySelector(`[data-tab-id="${id}"]`)?.remove();
     main.querySelector(`[data-page="${id}"]`)?.remove();
-    openFile(id === active ? 'home' : active);
+    openFile(id === active ? 'hero' : active);
   }
 
   document.querySelectorAll('[data-open-page]').forEach((link) => link.addEventListener('click', (event) => {
@@ -54,24 +53,8 @@
     openFile(link.dataset.openPage);
   }));
 
-  document.querySelectorAll('[data-case-study]').forEach((card) => card.addEventListener('click', (event) => {
-    event.preventDefault();
-    const id = `case-${card.dataset.caseStudy.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-    if (!files.has(id)) {
-      const frame = document.createElement('section');
-      frame.className = 'workspace-file case-file';
-      frame.dataset.page = id;
-      frame.setAttribute('aria-label', `${card.dataset.caseStudy} case study`);
-      frame.innerHTML = `<iframe title="${card.dataset.caseStudy} presentation" src="${card.getAttribute('href')}"></iframe>`;
-      main.appendChild(frame);
-      files.set(id, { id, label: card.dataset.caseStudy, closable: true });
-      makeTab(id, card.dataset.caseStudy, '▣', true);
-    }
-    openFile(id);
-  }));
-
   const initial = window.location.hash.slice(1);
-  openFile(files.has(initial) ? initial : 'home');
+  openFile(files.has(initial) ? initial : 'hero');
 
   document.querySelectorAll('[data-project-search]').forEach((search) => search.addEventListener('input', () => {
     const section = search.closest('.workspace-file');
@@ -99,11 +82,12 @@
   });
 
   const heroSlides = [
-    ['HERO', 'I’M ERIC ARIEL DE LA PAZ, A DESIGNER BASED IN TEXAS, AVAILABLE REMOTELY WORLDWIDE.', 'SEPTEMBER STATUS', 'LEARNING HTML & CSS, 2 INTERNSHIPS, AND PURSUING A BACHELOR’S', 'INTRO'],
-    ['ABOUT ME', 'I turn research, constraints, and messy product questions into clear experiences.', 'DESIGN APPROACH', 'Curious by default. Structured when it matters. Always looking for the useful next step.', 'PROFILE'],
-    ['CONTACT', 'LET’S MAKE SOMETHING USEFUL.', 'OPEN TO', 'Product design, UX research, and thoughtful teams solving real problems.', 'LINKS'],
-    ['TOOLS', 'TOOLS I USE TO MOVE FROM QUESTIONS TO PROTOTYPES.', 'WORKING SET', 'Figma · FigJam · HTML · CSS · JavaScript · Notion', 'TOOLKIT'],
-    ['SKILLS', 'RESEARCH, SYSTEMS, AND STORYTELLING.', 'FOCUS AREAS', 'UX research · Information architecture · Interaction design · Prototyping · Usability testing', 'CAPABILITIES'],
+    ['HERO', 'I’M ERIC ARIEL DE LA PAZ, A JUNIOR PRODUCT / UI/UX DESIGNER BASED IN TEXAS.', 'CURRENTLY', 'Two concurrent remote internships, pursuing a bachelor’s degree in User Experience Design.', 'INTRO'],
+    ['ABOUT ME', 'I COMBINE UX RESEARCH, INFORMATION ARCHITECTURE, AND ADVANCED FIGMA PROTOTYPING.', 'DESIGN APPROACH', 'I turn user questions into clear flows, token-based systems, and accessible experiences that are easier to build.', 'PROFILE'],
+    ['EXPERIENCE', 'DESIGNING SYSTEMS THAT HELP TEAMS MOVE WITH CONFIDENCE.', 'FLYRANK AI / STEALTH STARTUP', 'UI/UX Design Intern · Present · Built token-based systems, high-fidelity prototypes, user flows, and design workshops across web and mobile.', 'WORK'],
+    ['EDUCATION', 'BUILDING A STRONGER FOUNDATION FOR PRODUCT DESIGN.', 'WESTERN GOVERNORS UNIVERSITY', 'Bachelor’s degree in User Experience Design · Expected November 2026', 'EDUCATION'],
+    ['SKILLS + TOOLS', 'RESEARCH, SYSTEMS, AND STORYTELLING.', 'FOCUS AREAS', 'UX research · Usability testing · Information architecture · User flows · Design systems · Responsive design · WCAG accessibility · Figma · HTML · CSS · JavaScript', 'CAPABILITIES'],
+    ['CONTACT', 'LET’S MAKE SOMETHING USEFUL.', 'OPEN TO', 'Product design, UX research, and thoughtful teams solving real problems. ericforall247@gmail.com · LinkedIn · GitHub', 'LINKS'],
   ];
   const canvas = document.querySelector('[data-hero-canvas]');
   const thumbs = document.querySelector('[data-hero-thumbs]');
