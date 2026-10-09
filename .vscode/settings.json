@@ -1,3 +1,4 @@
 {
-    "mcpFigma.aiAssistant": "github-copilot"
+    "mcpFigma.aiAssistant": "github-copilot",
+    "mcpFigma.autoStartWebSocket": true
 }
