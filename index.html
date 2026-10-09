@@ -4,321 +4,82 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eric Ariel De La Paz — UX / Product Designer</title>
-<meta name="description" content="UX &amp; Product Designer building token-based design systems, information architecture, and research-backed prototypes.">
+<meta name="description" content="Eric Ariel De La Paz is a UX/Product Designer turning research into scalable systems.">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
 <header class="filebar">
-  <div class="brand">
-    <div class="logo wordmark">D</div>
-    <span class="wordmark">De La Paz</span>
-    <span class="role">UX / Product Designer</span>
-  </div>
-  <nav>
-    <a href="index.html" data-nav="index.html">Home</a>
-    <a href="index.html#work" data-nav="work">Work</a>
-    <a href="index.html#about" data-nav="about">About</a>
-  </nav>
-  <div class="cta">
-    <a class="btn" href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-    <a class="btn btn-primary" href="mailto:ericforall247@gmail.com">Contact</a>
-  </div>
+  <div class="brand"><div class="logo wordmark">D</div><span class="wordmark">De La Paz</span><span class="role">UX / Product Designer</span></div>
+  <nav><a href="#intro" class="active">Home</a><a href="#work">Work</a><a href="#about">About</a></nav>
+  <div class="cta"><a class="btn" href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">Resume</a><a class="btn btn-primary" href="mailto:ericforall247@gmail.com">Contact</a></div>
 </header>
+<div class="mobile-tabs"><a href="#intro" class="active">Home</a><a href="#work">Work</a><a href="#about">About</a><a href="mailto:ericforall247@gmail.com">Contact</a></div>
 
-<div class="mobile-tabs">
-  <a href="index.html" class="active" data-nav="index.html">Home</a>
-  <a href="index.html#work">Work</a>
-  <a href="index.html#about">About</a>
-  <a href="mailto:ericforall247@gmail.com">Contact</a>
-</div>
-
-<main>
-  <!-- ===== Hero — opening message clarified per feedback ===== -->
-  <section class="hero container">
-    <div class="overline">UX &amp; Product Designer</div>
-    <h1>I turn research into <em>systems</em> other people can build from.</h1>
-    <p class="lede">
-      I'm Eric Ariel De La Paz — a UX/Product Designer who works at the intersection of research and
-      systems: competitive audits and user interviews that justify every decision, information
-      architecture that holds up at scale, and token-based Figma design systems that make
-      engineering handoff fast instead of painful. I'm currently applying this across two
-      concurrent design internships while finishing my UX degree at WGU.
-    </p>
-    <div class="actions">
-      <a class="btn btn-primary" href="#work">See the work</a>
-      <a class="btn" href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <div class="status-row">
-      <span class="label">Based in</span>
-      <span>Texas, U.S.A. — available remotely</span>
-    </div>
+<main class="portfolio">
+  <div class="slide-progress" aria-hidden="true"><span></span></div>
+  <section class="slides" aria-label="Portfolio slideshow">
+    <article class="slide slide-intro is-active" id="intro" data-slide="intro" aria-hidden="false">
+      <div class="slide-copy"><span class="overline">01 / Portfolio</span><h1>I turn research into <em>systems</em> other people can build from.</h1>
+        <p class="lede">I'm Eric Ariel De La Paz — a UX/Product Designer working at the intersection of research and systems. I turn competitive audits and user interviews into information architecture, flows, and token-based Figma design systems.</p>
+        <div class="slide-actions"><button class="btn btn-primary" type="button" data-next>Explore the work <span aria-hidden="true">→</span></button><a class="btn" href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">View resume</a></div>
+        <p class="availability"><span class="status-dot"></span> Based in Texas, U.S.A. — available remotely</p>
+        <div class="experience-note"><span class="overline">Currently designing</span><strong>UX/UI Design Intern · Flyrank AI</strong><span>Building token-based product systems for Vextaro.</span></div>
+      </div><div class="slide-art art-intro" aria-hidden="true"><span>Research</span><span>Structure</span><span>Systems</span></div>
+    </article>
+    <article class="slide" id="vextaro" data-slide="vextaro" aria-hidden="true">
+      <div class="slide-copy"><span class="overline">02 / Current work · Internship</span><h2>Vextaro <em>formalwear rental</em></h2><p class="slide-kicker">A fit-confirmation experience for men's luxury formalwear.</p><p class="lede">Led competitive research, personas &amp; JTBDs, information architecture, and the token-based design system behind the app.</p>
+        <dl class="slide-meta"><div><dt>Role</dt><dd>UX/UI Design Intern — Flyrank AI</dd></div><div><dt>Focus</dt><dd>Design systems · UX research · IA</dd></div></dl><a class="text-link" href="case-studies/vextaro.html">Read case study <span aria-hidden="true">↗</span></a>
+      </div><div class="slide-art art-vextaro" aria-label="Abstract formalwear project preview"><span class="art-label">VXT / 01</span><div class="art-dress"></div><span class="art-caption">Fit, confirmed.</span></div>
+    </article>
+    <article class="slide" id="devtective" data-slide="devtective" aria-hidden="true">
+      <div class="slide-copy"><span class="overline">03 / Current work · Cert project</span><h2>DevTective <em>coding habit app</em></h2><p class="slide-kicker">Helping new coders stay oriented and motivated.</p><p class="lede">Designed a progress-tracking companion app for the 5–15% of free-course coders who quit before finishing.</p>
+        <dl class="slide-meta"><div><dt>Role</dt><dd>Solo UX Designer — Google UX Cert</dd></div><div><dt>Focus</dt><dd>App · UX research · Prototyping</dd></div></dl><a class="text-link" href="case-studies/devtective.html">Read case study <span aria-hidden="true">↗</span></a>
+      </div><div class="slide-art art-devtective" aria-label="Abstract coding habit project preview"><span class="art-label">DVT / 02</span><div class="art-orbit"></div><span class="art-caption">Keep going.</span></div>
+    </article>
+    <article class="slide" id="secureid" data-slide="secureid" aria-hidden="true">
+      <div class="slide-copy"><span class="overline">04 / Previous work · Flagship</span><h2>SecureID <em>identity verification</em></h2><p class="slide-kicker">One flow for anxious end-users and time-pressed analysts.</p><p class="lede">Designed the verification flow and a separate analyst case-review dashboard on one shared system.</p>
+        <dl class="slide-meta"><div><dt>Role</dt><dd>Solo UX Designer</dd></div><div><dt>Focus</dt><dd>UX research · IA · Usability testing</dd></div></dl><a class="text-link" href="case-studies/secureid.html">Read case study <span aria-hidden="true">↗</span></a>
+      </div><div class="slide-art art-secureid" aria-label="Abstract identity verification project preview"><span class="art-label">SID / 03</span><div class="art-lock">+</div><span class="art-caption">Trust the flow.</span></div>
+    </article>
+    <article class="slide" id="honda" data-slide="honda" aria-hidden="true">
+      <div class="slide-copy"><span class="overline">05 / Previous work · Audit</span><h2>Honda of Clear Lake <em>heuristic evaluation</em></h2><p class="slide-kicker">Making inventory, pricing, and financing easier to find.</p><p class="lede">Ran a 10-point Nielsen heuristic evaluation and prioritized fixes by impact.</p>
+        <dl class="slide-meta"><div><dt>Role</dt><dd>Solo UX Auditor</dd></div><div><dt>Focus</dt><dd>UX principles · Accessibility · Usability</dd></div></dl><a class="text-link" href="case-studies/honda.html">Read case study <span aria-hidden="true">↗</span></a>
+      </div><div class="slide-art art-honda" aria-label="Abstract heuristic evaluation project preview"><span class="art-label">HCL / 04</span><div class="art-target"></div><span class="art-caption">Find the signal.</span></div>
+    </article>
+    <article class="slide" id="about" data-slide="about" aria-hidden="true">
+      <div class="slide-copy"><span class="overline">06 / About Eric</span><h2>Research first.<br><em>Structure always.</em></h2><p class="lede">I'm finishing a UX Design degree at Western Governors University (expected Nov 2026) alongside the Google UX Design Professional Certificate and two concurrent design internships.</p>
+        <div class="skills"><span>Design systems</span><span>Design tokens</span><span>Information architecture</span><span>User flows</span><span>Prototyping</span><span>Accessibility</span><span>Figma</span></div>
+        <div class="slide-actions"><a class="btn btn-primary" href="mailto:ericforall247@gmail.com">Let's work together</a><a class="btn" href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a></div>
+      </div><div class="slide-art art-about" aria-hidden="true"><span>Eric Ariel</span><strong>De La Paz</strong><small>UX / Product Designer</small></div>
+    </article>
   </section>
-
-  <!-- ===== Internships — surfaced near the top per feedback ===== -->
-  <section class="internships container">
-    <div class="section-head">
-      <h2>Currently designing at</h2>
-      <span class="count">2 concurrent internships</span>
-    </div>
-    <div class="internships-grid">
-      <article class="intern-card">
-        <div class="top">
-          <span class="org">Flyrank AI</span>
-          <span class="when">Jul 2026 – Present</span>
-        </div>
-        <div class="title">UI/UX Design Intern · Remote</div>
-        <p>
-          Built a token-based Figma design system (variables, 4-color semantic palette,
-          type scale) that cut visual rework ~60% and made global UI updates ~90% faster.
-          Paired competitive research with user interviews to define a men's luxury
-          formalwear app's fit-confirmation flow and information architecture.
-        </p>
-        <span class="status-pill">Active</span>
-      </article>
-      <article class="intern-card">
-        <div class="top">
-          <span class="org">Stealth Startup</span>
-          <span class="when">Jul 2026 – Present</span>
-        </div>
-        <div class="title">Product Design Intern · Remote</div>
-        <p>
-          Led creation of a Figma token-based design system from scratch — the product had
-          none — and applied it across two mobile apps and a desktop dashboard. One of ~5
-          design interns reporting directly to the founder; mentors teammates on prototyping
-          and design-system workflow.
-        </p>
-        <span class="status-pill">Active · NDA</span>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===== Current Works ===== -->
-  <section class="section container" id="work">
-    <div class="section-head">
-      <h2>Current works</h2>
-      <span class="count">2 projects</span>
-    </div>
-
-    <div class="scroll-row">
-      <article class="proj-card" style="--accent:var(--vextaro)">
-        <a href="case-studies/vextaro.html">
-          <div class="thumb"><span class="tag-corner">Internship</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16l-2 6-6 3-6-3-2-6Z"/><path d="M12 13v7"/></svg>
-          </div>
-        </a>
-        <div class="body">
-          <h3><a href="case-studies/vextaro.html">Vextaro — Formalwear Rental App</a></h3>
-          <dl class="meta-row">
-            <dt>Role</dt><dd><strong>UX/UI Design Intern</strong> — Flyrank AI</dd>
-            <dt>Problem</dt><dd>Renters don't trust online fit for luxury formalwear.</dd>
-          </dl>
-          <p class="desc">Led competitive research, personas &amp; JTBDs, IA, and the token-based design system behind the app.</p>
-          <div class="tags"><span>Design Systems</span><span>UX Research</span><span>IA</span></div>
-        </div>
-        <a class="viewlink" href="case-studies/vextaro.html">Read case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-
-      <article class="proj-card" style="--accent:var(--devtective)">
-        <a href="case-studies/devtective.html">
-          <div class="thumb"><span class="tag-corner">Cert project</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><path d="M20 20l-5.6-5.6"/></svg>
-          </div>
-        </a>
-        <div class="body">
-          <h3><a href="case-studies/devtective.html">DevTective — Coding Habit App</a></h3>
-          <dl class="meta-row">
-            <dt>Role</dt><dd><strong>Solo UX Designer</strong> — Google UX Cert</dd>
-            <dt>Problem</dt><dd>5–15% of free-course coders quit before finishing.</dd>
-          </dl>
-          <p class="desc">Designed a progress-tracking companion app to keep new coders oriented and motivated.</p>
-          <div class="tags"><span>App</span><span>UX Research</span><span>Prototyping</span></div>
-        </div>
-        <a class="viewlink" href="case-studies/devtective.html">Read case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-    </div>
-
-    <div class="card-grid desktop-only">
-      <article class="proj-card" style="--accent:var(--vextaro)">
-        <a href="case-studies/vextaro.html">
-          <div class="thumb"><span class="tag-corner">Internship</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16l-2 6-6 3-6-3-2-6Z"/><path d="M12 13v7"/></svg>
-          </div>
-        </a>
-        <div class="body">
-          <h3><a href="case-studies/vextaro.html">Vextaro — Formalwear Rental App</a></h3>
-          <dl class="meta-row">
-            <dt>Role</dt><dd><strong>UX/UI Design Intern</strong> — Flyrank AI</dd>
-            <dt>Problem</dt><dd>Renters don't trust online fit for luxury formalwear.</dd>
-          </dl>
-          <p class="desc">Led competitive research, personas &amp; JTBDs, IA, and the token-based design system behind the app.</p>
-          <div class="tags"><span>Design Systems</span><span>UX Research</span><span>IA</span></div>
-        </div>
-        <a class="viewlink" href="case-studies/vextaro.html">Read case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-
-      <article class="proj-card" style="--accent:var(--devtective)">
-        <a href="case-studies/devtective.html">
-          <div class="thumb"><span class="tag-corner">Cert project</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><path d="M20 20l-5.6-5.6"/></svg>
-          </div>
-        </a>
-        <div class="body">
-          <h3><a href="case-studies/devtective.html">DevTective — Coding Habit App</a></h3>
-          <dl class="meta-row">
-            <dt>Role</dt><dd><strong>Solo UX Designer</strong> — Google UX Cert</dd>
-            <dt>Problem</dt><dd>5–15% of free-course coders quit before finishing.</dd>
-          </dl>
-          <p class="desc">Designed a progress-tracking companion app to keep new coders oriented and motivated.</p>
-          <div class="tags"><span>App</span><span>UX Research</span><span>Prototyping</span></div>
-        </div>
-        <a class="viewlink" href="case-studies/devtective.html">Read case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===== Previous Works ===== -->
-  <section class="section container">
-    <div class="section-head">
-      <h2>Previous works</h2>
-      <span class="count">2 projects</span>
-    </div>
-
-    <div class="scroll-row">
-      <article class="proj-card" style="--accent:var(--secureid)">
-        <a href="case-studies/secureid.html">
-          <div class="thumb"><span class="tag-corner">Flagship</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-          </div>
-        </a>
-        <div class="body">
-          <h3><a href="case-studies/secureid.html">SecureID — Identity Verification</a></h3>
-          <dl class="meta-row">
-            <dt>Role</dt><dd><strong>Solo UX Designer</strong></dd>
-            <dt>Problem</dt><dd>One flow had to serve anxious end-users and time-pressed analysts.</dd>
-          </dl>
-          <p class="desc">Designed the verification flow and a separate analyst case-review dashboard on one shared system.</p>
-          <div class="tags"><span>UX Research</span><span>IA</span><span>Usability Testing</span></div>
-        </div>
-        <a class="viewlink" href="case-studies/secureid.html">Read case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-
-      <article class="proj-card" style="--accent:var(--honda)">
-        <a href="case-studies/honda.html">
-          <div class="thumb"><span class="tag-corner">Audit</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.4"/></svg>
-          </div>
-        </a>
-        <div class="body">
-          <h3><a href="case-studies/honda.html">Honda of Clear Lake — Heuristic Evaluation</a></h3>
-          <dl class="meta-row">
-            <dt>Role</dt><dd><strong>Solo UX Auditor</strong></dd>
-            <dt>Problem</dt><dd>Shoppers couldn't confidently find inventory, pricing, or financing.</dd>
-          </dl>
-          <p class="desc">Ran a 10-point Nielsen heuristic evaluation and prioritized fixes by impact.</p>
-          <div class="tags"><span>UX Principles</span><span>Accessibility</span><span>Usability</span></div>
-        </div>
-        <a class="viewlink" href="case-studies/honda.html">Read case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-    </div>
-
-    <div class="card-grid desktop-only">
-      <article class="proj-card" style="--accent:var(--secureid)">
-        <a href="case-studies/secureid.html">
-          <div class="thumb"><span class="tag-corner">Flagship</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-          </div>
-        </a>
-        <div class="body">
-          <h3><a href="case-studies/secureid.html">SecureID — Identity Verification</a></h3>
-          <dl class="meta-row">
-            <dt>Role</dt><dd><strong>Solo UX Designer</strong></dd>
-            <dt>Problem</dt><dd>One flow had to serve anxious end-users and time-pressed analysts.</dd>
-          </dl>
-          <p class="desc">Designed the verification flow and a separate analyst case-review dashboard on one shared system.</p>
-          <div class="tags"><span>UX Research</span><span>IA</span><span>Usability Testing</span></div>
-        </div>
-        <a class="viewlink" href="case-studies/secureid.html">Read case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-
-      <article class="proj-card" style="--accent:var(--honda)">
-        <a href="case-studies/honda.html">
-          <div class="thumb"><span class="tag-corner">Audit</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.4"/></svg>
-          </div>
-        </a>
-        <div class="body">
-          <h3><a href="case-studies/honda.html">Honda of Clear Lake — Heuristic Evaluation</a></h3>
-          <dl class="meta-row">
-            <dt>Role</dt><dd><strong>Solo UX Auditor</strong></dd>
-            <dt>Problem</dt><dd>Shoppers couldn't confidently find inventory, pricing, or financing.</dd>
-          </dl>
-          <p class="desc">Ran a 10-point Nielsen heuristic evaluation and prioritized fixes by impact.</p>
-          <div class="tags"><span>UX Principles</span><span>Accessibility</span><span>Usability</span></div>
-        </div>
-        <a class="viewlink" href="case-studies/honda.html">Read case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===== About ===== -->
-  <section class="section container" id="about">
-    <div class="section-head"><h2>About</h2></div>
-    <div class="about-grid">
-      <div>
-        <p class="lede">Eric Ariel De La Paz<br>UX / Product Designer</p>
-        <p class="lede" style="font-size:14.5px;margin-top:10px;">
-          Texas, U.S.A. — available remotely worldwide
-        </p>
-      </div>
-      <div>
-        <p class="lede">
-          I'm finishing a UX Design degree at Western Governors University (expected Nov 2026)
-          alongside the Google UX Design Professional Certificate, while working two concurrent
-          design internships. I like problems that need both research and structure — figuring out
-          <em>why</em> something is confusing, then building the information architecture, flows,
-          and design-system tokens that make the fix hold up across a whole product.
-        </p>
-        <div class="skills">
-          <span>Design Systems</span><span>Design Tokens &amp; Variables</span><span>Information Architecture</span>
-          <span>User Flows</span><span>Wireframing</span><span>Prototyping</span><span>Usability Testing</span>
-          <span>Competitive Analysis</span><span>Personas &amp; JTBD</span><span>Accessibility (WCAG)</span>
-          <span>Figma</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="slide-controls" aria-label="Slideshow controls"><button class="slide-arrow" type="button" data-prev aria-label="Previous slide">←</button><div class="slide-dots"></div><button class="slide-arrow" type="button" data-next aria-label="Next slide">→</button><span class="slide-hint">Use ← → keys</span></div>
 </main>
-
-<footer class="container">
-  <div class="foot-row">
-    <div class="foot-links">
-      <a href="mailto:ericforall247@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a>
-      <a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-    </div>
-    <span class="copyright" title="Mawile &amp; Shuckle — proof that an odd pairing can still cover each other's weaknesses">© 2026 Eric Ariel De La Paz</span>
+<section class="work-overview container" id="work" aria-labelledby="work-title">
+  <div class="section-head"><div><span class="overline">Selected work</span><h2 id="work-title">A closer look at the work.</h2></div><span class="count">04 case studies · research to systems</span></div>
+  <div class="recent-work">
+    <a class="recent-card recent-vextaro" href="case-studies/vextaro.html">
+      <span class="recent-index">01 / Current</span><h3>Vextaro</h3><p>Fit-confirmation for luxury formalwear rental.</p><span class="recent-link">View case study <span aria-hidden="true">↗</span></span>
+    </a>
+    <a class="recent-card recent-secureid" href="case-studies/secureid.html">
+      <span class="recent-index">02 / Flagship</span><h3>SecureID</h3><p>One verification system for users and analysts.</p><span class="recent-link">View case study <span aria-hidden="true">↗</span></span>
+    </a>
+    <a class="recent-card recent-devtective" href="case-studies/devtective.html">
+      <span class="recent-index">03 / Capstone</span><h3>DevTective</h3><p>Helping new coders find their momentum again.</p><span class="recent-link">View case study <span aria-hidden="true">↗</span></span>
+    </a>
+    <a class="recent-card recent-honda" href="case-studies/honda.html">
+      <span class="recent-index">04 / Audit</span><h3>Honda of Clear Lake</h3><p>A heuristic evaluation for more confident shopping.</p><span class="recent-link">View case study <span aria-hidden="true">↗</span></span>
+    </a>
   </div>
-</footer>
-
+</section>
+<section class="internships container" aria-labelledby="experience-title">
+  <div class="section-head"><div><span class="overline">Experience</span><h2 id="experience-title">Applied design, in progress.</h2></div></div>
+  <div class="internships-grid">
+    <article class="intern-card"><div class="top"><span class="org">Flyrank AI</span><span class="when">Current</span></div><div class="title">UX/UI Design Intern</div><p>Research, information architecture, and token-based systems for Vextaro, a formalwear rental product.</p><span class="status-pill">Currently designing</span></article>
+    <article class="intern-card"><div class="top"><span class="org">AI / Product Design</span><span class="when">Internship</span></div><div class="title">Design systems &amp; product thinking</div><p>Turning ambiguous product needs into structured flows, reusable components, and clearer handoff.</p><span class="status-pill">Resume details</span></article>
+  </div>
+</section>
+<footer class="container"><div class="foot-row"><div class="foot-links"><a href="mailto:ericforall247@gmail.com">Email</a><a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a><a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">Resume</a></div><span class="copyright">© 2026 Eric Ariel De La Paz</span></div></footer>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
