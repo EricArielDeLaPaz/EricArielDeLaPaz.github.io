@@ -1,7 +1,7 @@
 {
   "inputs": [],
   "servers": {
-    "Figma Desktop": {
+    "figma": {
       "type": "http",
       "url": "https://mcp.figma.com/mcp"
     }
