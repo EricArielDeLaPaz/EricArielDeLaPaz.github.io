@@ -36,6 +36,8 @@
     document.querySelectorAll('[data-open-page]').forEach((link) => link.classList.toggle('is-active', link.dataset.openPage === id));
     const entry = files.get(id);
     document.querySelector('[data-file-title]').textContent = entry?.label || 'Portfolio';
+    const presentButton = document.querySelector('[data-present]');
+    if (presentButton) presentButton.hidden = id !== 'hero';
     history.replaceState(null, '', `#${id}`);
   }
 
