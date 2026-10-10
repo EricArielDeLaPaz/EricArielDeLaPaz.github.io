@@ -1,0 +1,173 @@
+===============================================================================
+FILE 8 — SecureID: remove the "Empathizing" slide, fix the Personas slide
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+Files Copilot will edit: case-studies/secureid.html and assets/js/main.js
+===============================================================================
+
+RUN ORDER: run file 7 (global slide-consistency fixes) before this one.
+
+HOW TO USE THIS FILE: paste everything between === PROMPT START === and
+=== PROMPT END === into Copilot Chat (agent mode, repo open) as ONE
+message.
+
+-------------------------------------------------------------------------------
+WHAT'S ACTUALLY WRONG WITH THE PERSONAS SLIDE (background for Eric)
+-------------------------------------------------------------------------------
+I loaded the live SecureID deck slide by slide and compared what's in the
+left-hand rail against what each slide actually shows. The rail currently
+reads:
+
+  1 SecureID (Overview)
+  2 Empathizing: what we learned
+  3 Defining
+  4 Personas
+  5 Ideation: what I changed
+  6 Prototyping: how I evaluated it
+  7 Impact & Reflection
+
+But that's not what's actually on each slide. Slide 2, "Empathizing: what
+we learned," shows no empathizing content at all — it's a single sentence
+disclaimer ("This case study is built from a self-directed UX practice
+brief...") sitting alone on an otherwise empty slide. And because that
+slide is there, everything after it is shifted out of alignment: slide 4,
+labeled "Personas," actually shows the reasoning-chain content ("From
+insight to decision" — We learned / So I changed / Evaluated via). The
+REAL personas content ("Four personas, kept honest") is sitting one slide
+later, mislabeled "Ideation: what I changed." That's the bug — not that
+the personas writing itself is weak, but that clicking "Personas" in the
+rail shows you the wrong slide entirely.
+
+The fix: delete that disclaimer slide (its one sentence gets folded into
+the opening/cover slide instead, as a small note under the tagline, so
+the "this is a practice project, not client work" transparency isn't
+lost — just not wasting a whole slide on it) and rewrite the slide labels
+so each one actually matches the slide it points to. After this fix,
+clicking "Personas" will show the actual personas content.
+
+-------------------------------------------------------------------------------
+PROMPT START — copy everything below this line into Copilot Chat
+===============================================================================
+
+You are editing a live, already-deployed personal portfolio site. Work
+only inside case-studies/secureid.html and assets/js/main.js in this
+step. Do not touch assets/css/style.css, index.html, or any other file in
+case-studies/. Only do what's described in this message, then stop and
+report back so the result can be verified.
+
+If you don't have permission to read or edit either file, or don't have
+write access to this repository, say so explicitly and stop.
+
+Do Part A, then Part B, verifying each before moving to the next.
+
+-------------------------------------------------------------------------------
+PART A — fold the disclaimer into the cover slide, remove it as its own slide
+-------------------------------------------------------------------------------
+
+A1. In case-studies/secureid.html, find this exact block:
+
+    <section class="cs-hero container">
+        <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Selected work</a> / SecureID</div>
+        <div class="cs-badge-row"><span>Flagship case study</span></div>
+        <h1>SecureID</h1>
+        <p class="tagline">
+          An identity-verification platform, built from a professional UX practice brief, that has
+          to work for two very different people on the same flow: an everyday user who just wants to
+          prove who they are, and an internal analyst who has to review the edge cases fast.
+        </p>
+        <dl class="cs-meta">
+          <div><dt>Role</dt><dd>Solo UX Designer</dd></div>
+          <div><dt>Team</dt><dd>Solo project</dd></div>
+          <div><dt>Scope</dt><dd>Practice brief</dd></div>
+          <div><dt>Tools</dt><dd>Figma, FigJam, Claude</dd></div>
+        </dl>
+      </section>
+
+      <div class="container">
+        <div class="note-box">
+          This case study is built from a self-directed UX practice brief, not a client engagement —
+          the design problem and research are structured the same way client work would be, but
+          "SecureID" is a practice product, not a company.
+        </div>
+      </div>
+
+Replace it with exactly this (the disclaimer is now one small sentence
+right under the tagline, inside the cover slide itself, and the separate
+note-box slide and its wrapping container div are gone):
+
+    <section class="cs-hero container">
+        <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Selected work</a> / SecureID</div>
+        <div class="cs-badge-row"><span>Flagship case study</span></div>
+        <h1>SecureID</h1>
+        <p class="tagline">
+          An identity-verification platform, built from a professional UX practice brief, that has
+          to work for two very different people on the same flow: an everyday user who just wants to
+          prove who they are, and an internal analyst who has to review the edge cases fast.
+        </p>
+        <p class="practice-note">Self-directed practice brief, not a client engagement — "SecureID" is a practice product, not a company.</p>
+        <dl class="cs-meta">
+          <div><dt>Role</dt><dd>Solo UX Designer</dd></div>
+          <div><dt>Team</dt><dd>Solo project</dd></div>
+          <div><dt>Scope</dt><dd>Practice brief</dd></div>
+          <div><dt>Tools</dt><dd>Figma, FigJam, Claude</dd></div>
+        </dl>
+      </section>
+
+A2. Now add a small amount of new CSS so that sentence reads as a quiet,
+secondary note rather than body text. In assets/css/style.css, find this
+exact line (search for `.cs-hero .tagline`):
+
+    .cs-hero .tagline{ font-size:17px; color:var(--text-dim); max-width:var(--measure); margin-bottom:26px; }
+
+Immediately after it, add this new line:
+
+    .cs-hero .practice-note{ font-size:13px; font-style:italic; color:var(--text-faint); max-width:var(--measure); margin:-16px 0 26px; }
+
+Verify: you have not changed any other file in this sub-step besides
+case-studies/secureid.html and assets/css/style.css, and the note-box div
+and its wrapping container no longer exist anywhere in
+case-studies/secureid.html.
+
+-------------------------------------------------------------------------------
+PART B — fix the slide labels so they match the real content
+-------------------------------------------------------------------------------
+
+In assets/js/main.js, find this exact line (inside the `slideLabels`
+object, search for `SecureID:`):
+
+    SecureID: ['SecureID', 'Empathizing: what we learned', 'Defining', 'Personas', 'Ideation: what I changed', 'Prototyping: how I evaluated it', 'Impact & Reflection'],
+
+Replace it with:
+
+    SecureID: ['SecureID', 'Defining', 'Research & Decisions', 'Personas', 'System Design', 'Impact & Outcome'],
+
+Notes for Copilot:
+- This array now has 6 entries instead of 7, matching the 6 real slides
+  SecureID has after Part A removed the disclaimer slide: the cover, then
+  the 5 `cs-section` blocks in case-studies/secureid.html in order
+  ("Two users, one flow" / "From insight to decision" / "Four personas,
+  kept honest" / "One system, two interfaces" / "Outcome & impact").
+- Do not change the `slideLabels` entries for 'Honda of Clear Lake',
+  DevTective, or Vextaro — only the `SecureID` line.
+- Do not reorder or rewrite any content inside
+  case-studies/secureid.html in this part — Part B only changes this one
+  line in assets/js/main.js.
+
+After making this change, verify:
+1. The `SecureID` array in `slideLabels` has exactly 6 items.
+2. Load case-studies/secureid.html (or describe the expected render) and
+   click through the rail in order. Confirm: slide 1 is the cover
+   ("Overview"), slide 2 ("SLIDE 01," labeled "Defining") shows "Two
+   users, one flow," slide 3 ("Research & Decisions") shows "From insight
+   to decision" with the two We-learned/So-I-changed/Evaluated-via
+   blocks, slide 4 ("Personas") shows "Four personas, kept honest" — this
+   is the one that was broken before, confirm it's fixed — slide 5
+   ("System Design") shows "One system, two interfaces," and slide 6
+   ("Impact & Outcome") shows the outcome stats.
+3. There are exactly 6 thumbnails in the rail, numbered 1 through 6, with
+   no slide called "Empathizing: what we learned" anywhere.
+
+Once verified, stop. Do not make any other changes or suggestions.
+
+===============================================================================
+PROMPT END
+===============================================================================

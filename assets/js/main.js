@@ -195,7 +195,7 @@
 
   const caseStudy = page.dataset.caseStudy;
   const slideLabels = {
-    SecureID: ['SecureID', 'Empathizing: what we learned', 'Defining', 'Personas', 'Ideation: what I changed', 'Prototyping: how I evaluated it', 'Impact & Reflection'],
+    SecureID: ['SecureID', 'Defining', 'Research & Decisions', 'Personas', 'System Design', 'Impact & Outcome'],
     'Honda of Clear Lake': ['Honda of Clear Lake', 'Overview', 'Navigation & Accessibility', 'Product Clarity'],
     DevTective: ['DevTective', 'Overview', 'Empathizing', 'Design System'],
     Vextaro: ['Vextaro', 'Overview', 'The Problem', 'Design System', "What's Next"],
@@ -226,10 +226,13 @@
         mark.textContent = caseStudy === 'Vextaro' ? 'V' : caseStudy;
         visual.appendChild(mark);
       }
+      const meta = slide.querySelector('.cs-meta');
       const copy = document.createElement('div');
       copy.className = 'presentation-cover-copy';
       while (slide.firstChild) copy.appendChild(slide.firstChild);
+      if (meta) copy.removeChild(meta);
       slide.append(visual, copy);
+      if (meta) slide.append(meta);
     }
     canvas.appendChild(slide);
     const item = document.createElement('button');

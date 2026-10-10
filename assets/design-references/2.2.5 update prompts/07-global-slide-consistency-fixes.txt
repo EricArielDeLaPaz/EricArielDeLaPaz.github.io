@@ -1,0 +1,240 @@
+===============================================================================
+FILE 7 — SITEWIDE: make every slide the same size, fix body text, extend
+the Role/Team/Scope/Tools bar full-width on every case-study cover
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+Files Copilot will edit: assets/css/style.css and assets/js/main.js
+===============================================================================
+
+RUN ORDER: run this file BEFORE file 8 (the SecureID persona fix). This
+file touches shared CSS/JS that affects the Hero deck and all 4
+case-study pages at once.
+
+HOW TO USE THIS FILE: paste everything between === PROMPT START === and
+=== PROMPT END === into Copilot Chat (agent mode, repo open) as ONE
+message.
+
+-------------------------------------------------------------------------------
+WHAT'S ACTUALLY WRONG (background for Eric — this matters, read it)
+-------------------------------------------------------------------------------
+I checked the live site's actual rendered CSS (not just the source code)
+and found the real cause of "slides aren't the same size everywhere."
+
+At some point, the code that turns each case-study page into a slide deck
+was rewritten to directly reuse the Hero section's CSS classes
+(`hero-slide`, `hero-rail`, `hero-canvas`, `hero-thumb`, etc.) instead of
+having its own separate set. That's a reasonable thing to do — but it had
+a side effect nobody caught: on a case-study page, each slide element now
+carries BOTH its old class (`cs-section`) AND the new ones
+(`presentation-slide hero-slide case-study-slide`) all on the exact same
+element, not nested inside each other like the code elsewhere assumes.
+
+That collision quietly breaks three things:
+
+1. `.cs-section` still has a very old rule — `max-width:var(--measure)`,
+   where `--measure` is 68 characters wide (meant for comfortable reading
+   line-length in a normal scrolling page). That rule is still capping
+   each slide at roughly 686px wide, while the Hero deck's slides render
+   at up to 1136px wide. That's the actual, measured size difference I
+   found between a Hero slide and a SecureID slide right now — not a
+   rounding error, a real ~450px gap. This is the main fix.
+
+2. Several CSS rules that were supposed to make case-study body text
+   bigger (to match Hero's new, more readable body text) were written as
+   `.presentation-slide .cs-section p` or `.case-study-deck
+   .case-study-slide .cs-section p` — a "space" in a CSS selector means
+   "this must be INSIDE that," i.e. a separate ancestor element
+   containing a separate `.cs-section` descendant. But since all of those
+   classes now live on the exact same single element, there is no such
+   ancestor/descendant relationship anymore, so none of those rules
+   actually match anything. I checked the real computed font size on the
+   live page: case-study body paragraphs are rendering at 16px in the
+   Inter font, not the 18px Raleway that was intended. This explains why
+   the earlier body-text fix didn't visibly take.
+
+3. Separately, on each case study's opening/cover slide, the small
+   Role / Team / Scope / Tools row only sits underneath the text column,
+   leaving the space under the project image empty. You asked for that
+   row to stretch the full width of the slide, under both the image and
+   the text, which needs a small change to the code that builds the
+   cover slide, not just a CSS tweak.
+
+This file fixes all three, with the corrected selectors that actually
+match the current, real structure of the page — verified against the
+live site's computed styles, not guessed from the source code alone.
+
+===============================================================================
+PROMPT START — copy everything below this line into Copilot Chat
+===============================================================================
+
+You are editing a live, already-deployed personal portfolio site. Work
+only inside assets/css/style.css and assets/js/main.js in this step. Do
+not touch index.html or any file in case-studies/. Only do what's
+described in this message, then stop and report back so the result can
+be verified before the next step.
+
+If you don't have permission to read or edit either file, or don't have
+write access to this repository, say so explicitly and stop.
+
+Important context before you start: on every case-study page, each slide
+element (built by the IIFE in assets/js/main.js that converts a
+case-study page into a deck) carries multiple classes directly on one
+element — for example a body slide has class="cs-section presentation-slide
+hero-slide case-study-slide". It is NOT nested inside separate elements
+with those classes. Keep that in mind: any CSS selector with a space
+between two of those class names (like `.presentation-slide .cs-section`)
+will NOT match these elements, because there's no such ancestor/descendant
+relationship — they're the same element. Selectors without a space
+between two of those classes (like `.cs-section.hero-slide`) are compound
+selectors that DO match a single element carrying both classes, and that
+is the pattern to use in this fix.
+
+Do Part A, B, and C in order, verifying each before moving to the next.
+
+-------------------------------------------------------------------------------
+PART A — fix the slide width/height bug (every slide becomes the same size)
+-------------------------------------------------------------------------------
+
+In assets/css/style.css, find this exact line:
+
+    .cs-section li{ margin-bottom:8px; }
+
+Immediately after it, add this new line:
+
+    .cs-section.hero-slide{ max-width:none; margin:0; }
+
+(This is a compound selector — no space between `.cs-section` and
+`.hero-slide` — so it only applies to an element that has both classes at
+once, which is exactly a case-study body slide. It cancels out the old
+`max-width:var(--measure)` and `margin:0 0 56px` from the plain
+`.cs-section` rule, letting the slide's actual size come from
+`.hero-slide{ width:min(100%,1136px); height:min(100%,640px); }` instead
+— the same rule that already sizes every Hero slide.)
+
+Verify: load a case-study page (or describe the expected render) and
+confirm each slide now visibly fills the same width as a Hero slide does
+on the homepage, with no narrow, centered-looking panel anymore.
+
+-------------------------------------------------------------------------------
+PART B — fix the case-study body text size (make the earlier fix actually
+take effect, and clean up the rules that never worked)
+-------------------------------------------------------------------------------
+
+B1. In assets/css/style.css, find this exact line:
+
+    .cs-section p{ color:var(--text-dim); margin:0 0 14px; font-size:16px; }
+
+Replace it with:
+
+    .cs-section p{ color:var(--text-dim); margin:0 0 14px; font-family:'Raleway',sans-serif; font-size:18px; line-height:1.6; }
+
+B2. Immediately below it, find this exact line:
+
+    .cs-section ul{ margin:0 0 14px; padding-left:20px; color:var(--text-dim); font-size:15.5px; }
+
+Replace it with:
+
+    .cs-section ul{ margin:0 0 14px; padding-left:20px; color:var(--text-dim); font-family:'Raleway',sans-serif; font-size:18px; line-height:1.6; }
+
+B3. Now the cleanup. Find this long single line (search for
+`.presentation-slide.is-active`) and locate this fragment inside it:
+
+    .presentation-slide .cs-section{ max-width:760px; margin:0; }.presentation-slide .cs-section h2{ font-size:clamp(26px,3.2vw,44px); }.presentation-slide .cs-section p,.presentation-slide .cs-section ul{ font-family:'Raleway',sans-serif; font-size:18px; line-height:1.6; }
+
+Delete that fragment only — leave everything else on that long line
+exactly as it is. (This fragment can never match any element on the page,
+for the reason explained above, so it's safe to remove. Its job is now
+done correctly by B1 and B2.)
+
+B4. Find these 6 consecutive lines (search for
+`.case-study-deck .case-study-slide .cs-section`):
+
+    .case-study-deck .case-study-slide .cs-section{ max-width:760px; margin:0; }
+    .case-study-deck .case-study-slide .cs-section h2{ font-size:clamp(26px,3.2vw,44px); }
+    .case-study-deck .case-study-slide .cs-section p,
+    .case-study-deck .case-study-slide .cs-section ul{ font-size:15px; }
+    .case-study-deck .case-study-slide .cs-body{ padding:0; }
+    .case-study-deck .case-study-slide .container{ width:auto; max-width:none; }
+
+Delete all 6 lines. (Same reason: `.case-study-slide` and `.cs-section`
+are the same element here, so a selector with a space between them never
+matches. `.cs-body` and the `.container` class on it are removed from the
+page entirely by the deck-building script, so those two never matched
+anything either, on any page, ever.)
+
+Verify: load a case-study page (or describe the expected render) and
+confirm body paragraphs in each section are visibly bigger than before,
+left-aligned, in a cleaner sans-serif font (Raleway) instead of the
+default serif-leaning body font.
+
+-------------------------------------------------------------------------------
+PART C — extend the Role/Team/Scope/Tools row full-width on every cover
+-------------------------------------------------------------------------------
+
+C1. In assets/js/main.js, find this exact block (search for
+`presentation-cover-copy`):
+
+    const copy = document.createElement('div');
+    copy.className = 'presentation-cover-copy';
+    while (slide.firstChild) copy.appendChild(slide.firstChild);
+    slide.append(visual, copy);
+
+Replace it with:
+
+    const meta = slide.querySelector('.cs-meta');
+    const copy = document.createElement('div');
+    copy.className = 'presentation-cover-copy';
+    while (slide.firstChild) copy.appendChild(slide.firstChild);
+    if (meta) copy.removeChild(meta);
+    slide.append(visual, copy);
+    if (meta) slide.append(meta);
+
+(This pulls the Role/Team/Scope/Tools `<dl class="cs-meta">` element back
+out before it gets buried inside the text column, and re-attaches it
+directly to the slide itself as a third element, after the image and the
+text column — which the CSS below will then stretch across the full
+width of the slide, as a bottom row under both columns.)
+
+C2. In assets/css/style.css, find this long single line (search for
+`.presentation-slide.presentation-cover{`) and locate this fragment
+inside it:
+
+    .presentation-cover-copy .cs-meta{ margin-top:22px; }
+
+Delete that fragment only (it no longer applies anything useful once
+`.cs-meta` is moved out of `.presentation-cover-copy` by the Part C1
+change) — leave the rest of that long line untouched.
+
+C3. Immediately after the line containing `.presentation-slide.is-active`
+(the very long line you edited in Part B3), add this new line:
+
+    .presentation-cover > .cs-meta{ grid-column:1 / -1; margin-top:24px; padding-top:20px; border-top:1px solid #2b2b2b; }
+
+(`.presentation-cover` is a CSS grid with 2 columns — the image and the
+text. `grid-column:1 / -1` tells this element to span both columns
+instead of sitting in just one, which puts it on its own full-width row
+at the bottom, under both the image and the text. This only affects the
+cover/opening slide of each case study — it has no effect on the Hero
+deck, which doesn't use this cover layout at all.)
+
+Verify: load each case study's opening slide (SecureID, Honda,
+DevTective, Vextaro) — or describe the expected render — and confirm the
+Role/Team/Scope/Tools row now stretches the full width of the slide,
+below both the project image and the text column, with a thin divider
+line above it, instead of sitting narrowly under just the text.
+
+-------------------------------------------------------------------------------
+After all three parts, do a final check:
+-------------------------------------------------------------------------------
+1. Compare a Hero slide and any case-study body slide side by side (or
+   describe both) — they should now be the same width and height.
+2. Case-study body paragraphs should be visibly bigger and in Raleway.
+3. Every case study's opening slide should show the Role/Team/Scope/Tools
+   row spanning the full slide width at the bottom.
+4. You have not changed index.html or any file in case-studies/ in this
+   session — only assets/css/style.css and assets/js/main.js.
+
+Once verified, stop. Do not make any other changes or suggestions.
+
+===============================================================================
+PROMPT END
+===============================================================================
