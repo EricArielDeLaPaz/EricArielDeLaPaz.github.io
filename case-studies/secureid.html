@@ -57,29 +57,19 @@
   <section class="cs-body container">
 
     <div class="cs-section">
-      <span class="num">01 — The problem</span>
-      <h2>One flow, two very different users</h2>
+      <h2>Two users, one flow</h2>
       <p>
-        SecureID verifies a person's identity through document capture, basic biometric checks,
-        and manual case review. That last step is where most products fall down: automated
-        checks can't resolve every case, so a human analyst has to step in — and the interface
-        that got the <em>user</em> through verification smoothly wasn't built to help an analyst
-        triage a queue of flagged cases quickly.
-      </p>
-      <p>
-        I treated this as two connected problems rather than one screen: a verification flow
-        that needed to feel trustworthy and low-friction for the end user, and a case-review
-        dashboard that needed to feel fast and unambiguous for the analyst — both drawing from
-        one shared design system so the product stayed consistent end to end.
+        SecureID verifies identity through document capture, biometric checks, and manual case
+        review — the step where most products break down. I treated it as two connected
+        problems: a verification flow that had to feel calm and trustworthy, and an analyst
+        dashboard that had to feel fast and unambiguous, both built on one shared design system.
       </p>
     </div>
 
     <div class="cs-section">
-      <span class="num">02 — Research → decision → evaluation</span>
-      <h2>How findings turned into the design</h2>
+      <h2>From insight to decision</h2>
       <p>
-        Here's the reasoning chain behind the two biggest decisions in SecureID — what I
-        learned, what I changed because of it, and how I checked the change actually worked.
+        Two decisions mattered most — here's the reasoning behind each.
       </p>
 
       <div class="reasoning-chain">
@@ -133,43 +123,35 @@
     </div>
 
     <div class="cs-section">
-      <span class="num">03 — Personas</span>
-      <h2>Four perspectives kept the system honest</h2>
+      <h2>Four personas, kept honest</h2>
       <p>
-        The original case study used four representative perspectives to keep the verification
-        flow and analyst workspace grounded: Riley needs calm, predictable guidance; Jordan
-        values speed across devices; Casey needs fast access to the details that affect a
-        decision; and Morgan needs clear hierarchy so important issues are not buried.
+        Four representative perspectives kept the verification flow and analyst workspace
+        grounded: Riley needs calm, predictable guidance. Jordan values speed across devices.
+        Casey needs fast access to the details that affect a decision. Morgan needs a clear
+        hierarchy so nothing important gets buried.
       </p>
-      <div class="impact-grid">
-        <div class="impact-stat"><div class="n">Riley</div><div class="l">Anxious verifier who needs confidence</div></div>
-        <div class="impact-stat"><div class="n">Jordan</div><div class="l">Busy user who needs a fast re-entry</div></div>
-        <div class="impact-stat"><div class="n">Casey</div><div class="l">Analyst who prioritizes speed and accuracy</div></div>
-      </div>
     </div>
 
     <div class="cs-section">
-      <span class="num">04 — System</span>
-      <h2>One design system, two interfaces</h2>
+      <h2>One system, two interfaces</h2>
       <p>
-        Rather than designing the user flow and the analyst dashboard as separate products, I
-        built both on a shared token system — a neutral base plus accent, success, and error
-        colors in five tints each — so the same visual language reads as "calm and trustworthy"
-        to a verifying user and "fast and unambiguous" to an analyst scanning a queue.
+        Instead of designing the user flow and analyst dashboard as separate products, I built
+        both on one shared token system — a neutral base plus accent, success, and error colors
+        in five tints each — so the same visual language reads as calm to a verifying user and
+        fast to a scanning analyst.
       </p>
       <ul>
-        <li>Five-stop color ramps (100 → 900) for accent, feedback-positive, feedback-negative, and background</li>
-        <li>Status color consistently mapped to meaning across every button, badge, and banner</li>
-        <li>Shared type and spacing scale across the verification flow and the dashboard</li>
+        <li>Five-stop color ramps (100 → 900) for accent, positive, and negative feedback</li>
+        <li>Status color mapped consistently to meaning across every button, badge, and banner</li>
+        <li>One shared type and spacing scale across both interfaces</li>
       </ul>
     </div>
 
     <div class="cs-section">
-      <span class="num">05 — Outcome</span>
-      <h2>Where this landed</h2>
+      <h2>Outcome & impact</h2>
       <p>
-        As a solo practice project, the goal was a defensible design process end to end — not a
-        shipped metric. What I can point to concretely:
+        As a solo practice project, the goal was a defensible process end to end — not a shipped
+        metric. What I can point to concretely:
       </p>
       <div class="impact-grid">
         <div class="impact-stat"><div class="n">2</div><div class="l">interfaces unified on one token system</div></div>
@@ -177,9 +159,9 @@
         <div class="impact-stat"><div class="n">1:1</div><div class="l">status color mapped to meaning, zero ambiguity</div></div>
       </div>
       <p>
-        The biggest lesson carried forward into my internship work since: designing for two
-        audiences on one flow means deciding, explicitly, which parts of the system flex per
-        audience and which parts never do.
+        The lesson I've carried into my internship work since: designing for two audiences on
+        one flow means deciding, explicitly, which parts of the system flex per audience and
+        which never do.
       </p>
     </div>
 
