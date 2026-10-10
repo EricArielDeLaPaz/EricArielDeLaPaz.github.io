@@ -1,0 +1,214 @@
+===============================================================================
+FILE 3 OF 6 — CASE STUDY: Honda of Clear Lake (text rewrite)
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+File Copilot will edit: case-studies/honda.html
+===============================================================================
+
+RUN ORDER: do files 1 (Hero) and 2 (SecureID) before this one. File 2
+already made a shared CSS change that affects this page too — this file
+does NOT repeat that CSS change, it only checks that it's already there.
+
+HOW TO USE THIS FILE: paste everything between === PROMPT START === and
+=== PROMPT END === into Copilot Chat (agent mode, repo open) as ONE
+message.
+
+-------------------------------------------------------------------------------
+WHY THIS CHANGE (background for Eric)
+-------------------------------------------------------------------------------
+Same treatment as SecureID: remove the small gold "01 — The problem"
+style captions, shorten every heading, and tighten the prose. Honda's
+content is already fully accurate — it's a self-directed practice audit
+(not a client engagement, not on your resume, and the page says so
+clearly) — and that framing is being kept exactly as-is per your
+decision.
+
+One structural improvement: right now, the only numbers on this page (10
+heuristics evaluated, 0–4 severity scale) sit all the way at the bottom,
+after a hiring manager has already had to read through the whole page to
+find them. Those two numbers are being moved up to right after the
+opening "problem" section instead — as a small stat strip, using the same
+visual style already used at the bottom of SecureID and Vextaro, so a
+recruiter skimming top to bottom sees "10 heuristics, severity-rated"
+within the first few seconds, not at the very end. The closing section
+keeps the same information in prose, just without repeating the same
+numbers a second time right below.
+
+-------------------------------------------------------------------------------
+HOW THIS PAGE IS STRUCTURED (background, also explained to Copilot below)
+-------------------------------------------------------------------------------
+Same as SecureID: inside `<section class="cs-body container">`, several
+`<div class="cs-section">` blocks, each currently starting with a
+`<span class="num">...</span>` caption that's being deleted, followed by
+an `<h2>` heading being shortened, followed by body text that will
+automatically render bigger because of the CSS change already made in
+file 2 — no CSS edit needed in this file.
+
+===============================================================================
+PROMPT START — copy everything below this line into Copilot Chat
+===============================================================================
+
+You are editing a live, already-deployed personal portfolio site. Work
+only inside case-studies/honda.html in this step. Do not touch
+index.html, assets/js/main.js, assets/css/style.css, or any other file in
+case-studies/. This is step 3 of a 6-step plan, done across 6 separate
+sessions — only do what's described in this message, then stop and
+report back so the result can be verified before the next session
+begins.
+
+If you don't have permission to read or edit this file, or don't have
+write access to this repository, say so explicitly and stop — do not
+attempt a workaround or guess at the content.
+
+First, a quick check (do not change anything yet): open
+assets/css/style.css and confirm it already contains this line (it was
+added in an earlier step):
+
+    .presentation-slide .cs-section p,.presentation-slide .cs-section ul{ font-family:'Raleway',sans-serif; font-size:18px; line-height:1.6; }
+
+and that `.cs-section .num{...}` has already been deleted from that file.
+If either of those is NOT true, stop and report that the shared CSS step
+appears not to have been run yet — do not attempt to add it yourself in
+this session, so the change stays contained to one file at a time as
+planned.
+
+If both checks pass, proceed with the edit below.
+
+-------------------------------------------------------------------------------
+Rewrite case-studies/honda.html
+-------------------------------------------------------------------------------
+
+Leave the `<section class="cs-hero container">` block (the cover slide —
+breadcrumb, badge, `<h1>Honda of Clear Lake</h1>`, tagline, and the
+Role/Team/Scope/Tools meta grid) completely untouched. Only change what's
+inside `<section class="cs-body container">`.
+
+Find this entire block (three `<div class="cs-section">` elements back to
+back — copy from the first through the final matching `</div>`):
+
+    <div class="cs-section">
+      <span class="num">01 — The problem</span>
+      <h2>Shoppers couldn't shop with confidence</h2>
+      <p>
+        Buying a car is already a high-stakes decision. Walking through the live site as a
+        first-time shopper, the friction wasn't a single broken feature — it was a pattern of
+        small heuristic violations (inconsistent navigation, unclear pricing, weak error
+        recovery) that each chipped away at trust before a shopper ever reached financing.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">02 — Research → decision → evaluation</span>
+      <h2>From violation to recommendation</h2>
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Running the site against Nielsen's 10 heuristics surfaced repeated
+            violations of visibility of system status and consistency/standards — shoppers
+            couldn't always tell what filters were active or what a click would do before
+            doing it.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I wrote prioritized, severity-ranked recommendations (not a redesign)
+            tied to each violation — specific fixes like persistent filter state, clearer
+            inventory and pricing labeling, and consistent navigation patterns across pages.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">A severity-rating pass against Nielsen's own 0–4 scale, so the
+            recommendations read as a prioritized punch list a real team could act on, not a
+            flat list of opinions.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">03 — Outcome</span>
+      <h2>A prioritized fix list, not just a critique</h2>
+      <p>
+        The deliverable was a heuristic evaluation report: every violation tied to a specific
+        heuristic, rated by severity, and paired with a concrete recommendation — the format a
+        real stakeholder could hand to engineering without translation.
+      </p>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">10</div><div class="l">heuristics evaluated</div></div>
+        <div class="impact-stat"><div class="n">0–4</div><div class="l">severity scale applied per finding</div></div>
+      </div>
+    </div>
+
+Replace that entire block with exactly this:
+
+    <div class="cs-section">
+      <h2>Shoppers couldn't shop confidently</h2>
+      <p>
+        Buying a car is already high-stakes. Walking the live site as a first-time shopper, the
+        friction wasn't one broken feature — it was a pattern of small heuristic violations
+        (inconsistent navigation, unclear pricing, weak error recovery) that each chipped away
+        at trust before a shopper ever reached financing.
+      </p>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">10</div><div class="l">Nielsen heuristics evaluated</div></div>
+        <div class="impact-stat"><div class="n">0–4</div><div class="l">severity scale applied per finding</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>From violation to fix</h2>
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Running the site against Nielsen's 10 heuristics surfaced repeated
+            violations of visibility of system status and consistency/standards — shoppers
+            couldn't always tell what filters were active or what a click would do before
+            doing it.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I wrote prioritized, severity-ranked recommendations (not a redesign)
+            tied to each violation — specific fixes like persistent filter state, clearer
+            inventory and pricing labeling, and consistent navigation patterns across pages.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">A severity-rating pass against Nielsen's own 0–4 scale, so the
+            recommendations read as a prioritized punch list a real team could act on, not a
+            flat list of opinions.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>A fix list, not a critique</h2>
+      <p>
+        The deliverable was a heuristic evaluation report: every violation tied to a specific
+        heuristic, rated by severity, and paired with a concrete recommendation — the format a
+        real stakeholder could hand to engineering without translation.
+      </p>
+    </div>
+
+Notes for Copilot:
+- Zero occurrences of `class="num"` should remain in this file when done.
+- The `reasoning-chain` block is copied over completely unchanged — do
+  not reword anything inside it.
+- The `impact-grid` with the "10" and "0–4" stats moved from the third
+  section to the first section — do not leave a duplicate copy in both
+  places, and do not leave the third section with an empty or missing
+  closing `</div>`.
+- Do not add, remove, or alter any number or claim beyond what's shown
+  above.
+
+After making this change, verify:
+1. Zero occurrences of `class="num"` remain in case-studies/honda.html.
+2. Exactly 3 `cs-section` blocks exist, each with a short `<h2>`.
+3. The `impact-grid` with "10" and "0–4" appears exactly once, inside the
+   first `cs-section`, not the third.
+4. The `reasoning-chain` block renders with no broken HTML — check tag
+   balance carefully.
+5. The `.cs-hero` cover section is byte-for-byte unchanged from before
+   this edit, and no CSS file was touched in this session.
+
+Once verified, stop. Do not make any other changes.
+
+===============================================================================
+PROMPT END
+===============================================================================

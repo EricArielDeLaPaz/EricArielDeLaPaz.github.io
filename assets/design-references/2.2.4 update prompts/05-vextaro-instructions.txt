@@ -1,0 +1,235 @@
+===============================================================================
+FILE 5 OF 6 — CASE STUDY: Vextaro (text rewrite)
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+File Copilot will edit: case-studies/vextaro.html
+===============================================================================
+
+RUN ORDER: do files 1 (Hero), 2 (SecureID), 3 (Honda), and 4 (DevTective)
+before this one. The shared CSS change was already made in file 2 — this
+file only checks it's there, it does not repeat it.
+
+HOW TO USE THIS FILE: paste everything between === PROMPT START === and
+=== PROMPT END === into Copilot Chat (agent mode, repo open) as ONE
+message.
+
+-------------------------------------------------------------------------------
+WHY THIS CHANGE (background for Eric)
+-------------------------------------------------------------------------------
+Same treatment as the other three: remove the small gold caption style,
+shorten every heading, tighten the prose. Vextaro already has a strong,
+resume-grounded stat block (the ~60% rework reduction, ~90% faster
+updates, and 7-section IA with 3 flows) — that stays exactly where it is
+and exactly as written, just with a shorter heading around it. The
+opening section's two paragraphs are being merged into one tighter
+paragraph for skimmability, and the closing "What's Next" section is kept
+since it's honest, current, and shows this is active, ongoing internship
+work rather than a finished case study.
+
+-------------------------------------------------------------------------------
+HOW THIS PAGE IS STRUCTURED (background, also explained to Copilot below)
+-------------------------------------------------------------------------------
+Same as the other case studies: inside `<section class="cs-body
+container">`, several `<div class="cs-section">` blocks, each currently
+starting with a `<span class="num">...</span>` caption being deleted,
+followed by an `<h2>` heading being shortened, followed by body text that
+will automatically render bigger because of the CSS change already made
+in file 2 — no CSS edit needed in this file.
+
+===============================================================================
+PROMPT START — copy everything below this line into Copilot Chat
+===============================================================================
+
+You are editing a live, already-deployed personal portfolio site. Work
+only inside case-studies/vextaro.html in this step. Do not touch
+index.html, assets/js/main.js, assets/css/style.css, or any other file in
+case-studies/. This is step 5 of a 6-step plan, done across 6 separate
+sessions — only do what's described in this message, then stop and
+report back so the result can be verified before the next session
+begins.
+
+If you don't have permission to read or edit this file, or don't have
+write access to this repository, say so explicitly and stop — do not
+attempt a workaround or guess at the content.
+
+First, a quick check (do not change anything yet): open
+assets/css/style.css and confirm it already contains this line (it was
+added in an earlier step):
+
+    .presentation-slide .cs-section p,.presentation-slide .cs-section ul{ font-family:'Raleway',sans-serif; font-size:18px; line-height:1.6; }
+
+and that `.cs-section .num{...}` has already been deleted from that file.
+If either of those is NOT true, stop and report that the shared CSS step
+appears not to have been run yet — do not attempt to add it yourself in
+this session.
+
+If both checks pass, proceed with the edit below.
+
+-------------------------------------------------------------------------------
+Rewrite case-studies/vextaro.html
+-------------------------------------------------------------------------------
+
+Leave the `<section class="cs-hero container">` block (the cover slide —
+breadcrumb, badge, `<h1>Vextaro</h1>`, tagline, and the Role/Team/Status/
+Tools meta grid) completely untouched. Only change what's inside
+`<section class="cs-body container">`.
+
+Find this entire block (four `<div class="cs-section">` elements back to
+back — copy from the first through the final matching `</div>`):
+
+    <div class="cs-section">
+      <span class="num">01 — The problem</span>
+      <h2>Fit anxiety, not selection, was the blocker</h2>
+      <p>
+        I ran competitive audits across 10+ competitor and industry sources for men's luxury
+        formalwear rental, paired with targeted user interviews. Fit-uncertainty complaints
+        came up repeatedly — renters wanted a second opinion before committing, not more
+        product options.
+      </p>
+      <p>
+        A finished formal outfit is a coordinated system: jacket, trousers, shirt, tie, shoes,
+        and accessories all carry different sizing rules. Vextaro treats that connected fit
+        problem as the product opportunity instead of making shoppers solve each item separately.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">02 — Research → decision → evaluation</span>
+      <h2>From a recurring complaint to a checkpoint</h2>
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Competitive audits and interviews both pointed to the same gap: no
+            competitor offered a human-backed fit check before checkout, and that absence was
+            a recurring, named frustration — not a guess.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I designed a specialist fit-confirmation checkpoint directly into the
+            booking flow, and mapped it into a 7-section information architecture with three
+            annotated user flows (primary task, onboarding, and a recovery/unhappy path with
+            escalation) so the checkpoint had a clear place to live rather than being bolted on.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Flow walkthroughs against the IA to confirm the checkpoint was reachable
+            from both the primary booking path and the recovery path, with no dead ends.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">03 — System</span>
+      <h2>A design system built for scale, not just this screen</h2>
+      <p>
+        In parallel, I built a complete Figma token-based design system — variables, a 4-color
+        semantic palette, and a typographic scale — and linked every style to a shared token
+        rather than a one-off value. I also designed the multi-state UI patterns (dropdown
+        menus, bottom-sheet overlays, tabbed selectors, collapsible navigation) the flows
+        actually needed, with interaction behavior documented for engineering handoff.
+      </p>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">~60%</div><div class="l">less visual rework after tokens shipped</div></div>
+        <div class="impact-stat"><div class="n">~90%</div><div class="l">faster global UI updates</div></div>
+        <div class="impact-stat"><div class="n">7</div><div class="l">IA sections, 3 annotated user flows</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">04 — Still in progress</span>
+      <h2>What's next</h2>
+      <p>
+        Vextaro is an active internship project — low-fidelity wireframes for onboarding and the
+        core screens are the current phase, building on the IA and the token system above before
+        moving to hi-fi.
+      </p>
+    </div>
+
+Replace that entire block with exactly this:
+
+    <div class="cs-section">
+      <h2>Fit anxiety, not selection</h2>
+      <p>
+        I ran competitive audits across 10+ competitor and industry sources for men's luxury
+        formalwear rental, paired with targeted user interviews. Fit-uncertainty complaints came
+        up repeatedly — renters wanted a second opinion before committing, not more product
+        options. A finished outfit is a coordinated system (jacket, trousers, shirt, tie, shoes,
+        and accessories, each with different sizing rules), so Vextaro treats that connected fit
+        problem as the product opportunity instead of making shoppers solve each item alone.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <h2>From complaint to checkpoint</h2>
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Competitive audits and interviews both pointed to the same gap: no
+            competitor offered a human-backed fit check before checkout, and that absence was
+            a recurring, named frustration — not a guess.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I designed a specialist fit-confirmation checkpoint directly into the
+            booking flow, and mapped it into a 7-section information architecture with three
+            annotated user flows (primary task, onboarding, and a recovery/unhappy path with
+            escalation) so the checkpoint had a clear place to live rather than being bolted on.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Flow walkthroughs against the IA to confirm the checkpoint was reachable
+            from both the primary booking path and the recovery path, with no dead ends.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>A system built to scale</h2>
+      <p>
+        In parallel, I built a complete Figma token-based design system — variables, a 4-color
+        semantic palette, and a typographic scale — and linked every style to a shared token
+        rather than a one-off value, including the multi-state UI patterns (dropdown menus,
+        bottom-sheet overlays, tabbed selectors, collapsible navigation) the flows actually
+        needed, with interaction behavior documented for engineering handoff.
+      </p>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">~60%</div><div class="l">less visual rework after tokens shipped</div></div>
+        <div class="impact-stat"><div class="n">~90%</div><div class="l">faster global UI updates</div></div>
+        <div class="impact-stat"><div class="n">7</div><div class="l">IA sections, 3 annotated user flows</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>What's next</h2>
+      <p>
+        Vextaro is an active internship project. Low-fidelity wireframes for onboarding and the
+        core screens are the current phase, building on the IA and token system above before
+        moving to hi-fi.
+      </p>
+    </div>
+
+Notes for Copilot:
+- Zero occurrences of `class="num"` should remain in this file when done.
+- The `reasoning-chain` block and the `impact-grid` with the ~60% / ~90% /
+  7 stats are both copied over completely unchanged — do not reword
+  anything inside them.
+- The first section's two original paragraphs are now one merged
+  paragraph — make sure no duplicate sentence or leftover fragment is
+  left behind.
+- Do not add, remove, or alter any number or claim beyond what's shown
+  above.
+
+After making this change, verify:
+1. Zero occurrences of `class="num"` remain in
+   case-studies/vextaro.html.
+2. Exactly 4 `cs-section` blocks exist, each with a short `<h2>`.
+3. The `reasoning-chain` block and the `impact-grid` (still showing
+   ~60%, ~90%, and 7) render with no broken HTML — check tag balance
+   carefully.
+4. The `.cs-hero` cover section is byte-for-byte unchanged from before
+   this edit, and no CSS file was touched in this session.
+
+Once verified, stop. Do not make any other changes.
+
+===============================================================================
+PROMPT END
+===============================================================================

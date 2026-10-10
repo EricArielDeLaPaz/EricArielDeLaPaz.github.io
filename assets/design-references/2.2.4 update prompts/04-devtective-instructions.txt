@@ -1,0 +1,198 @@
+===============================================================================
+FILE 4 OF 6 — CASE STUDY: DevTective (text rewrite)
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+File Copilot will edit: case-studies/devtective.html
+===============================================================================
+
+RUN ORDER: do files 1 (Hero), 2 (SecureID), and 3 (Honda) before this
+one. The shared CSS change was already made in file 2 — this file only
+checks it's there, it does not repeat it.
+
+HOW TO USE THIS FILE: paste everything between === PROMPT START === and
+=== PROMPT END === into Copilot Chat (agent mode, repo open) as ONE
+message.
+
+-------------------------------------------------------------------------------
+WHY THIS CHANGE (background for Eric)
+-------------------------------------------------------------------------------
+Same treatment as SecureID and Honda: remove the small gold caption
+style, shorten every heading, tighten the prose.
+
+One honest note: unlike the other 3 case studies, DevTective doesn't have
+a second hard number to add as a stat callout beyond the "5–15% of people
+who start a free coding course never finish it" figure that's already in
+the cover tagline. There's no resume-backed count of screens, flows, or
+testing sessions for this capstone project to point to. Rather than
+invent a number just to add a stat box, this file leaves DevTective
+without an impact-grid, the same way it is today — accuracy over forced
+consistency with the other three pages. If you do have a real number for
+this project (e.g. how many screens you wireframed, or how many usability
+sessions you ran) that isn't captured here, let me know and I'll add a
+proper stat for it.
+
+-------------------------------------------------------------------------------
+HOW THIS PAGE IS STRUCTURED (background, also explained to Copilot below)
+-------------------------------------------------------------------------------
+Same as the other case studies: inside `<section class="cs-body
+container">`, several `<div class="cs-section">` blocks, each currently
+starting with a `<span class="num">...</span>` caption being deleted,
+followed by an `<h2>` heading being shortened, followed by body text that
+will automatically render bigger because of the CSS change already made
+in file 2 — no CSS edit needed in this file.
+
+===============================================================================
+PROMPT START — copy everything below this line into Copilot Chat
+===============================================================================
+
+You are editing a live, already-deployed personal portfolio site. Work
+only inside case-studies/devtective.html in this step. Do not touch
+index.html, assets/js/main.js, assets/css/style.css, or any other file in
+case-studies/. This is step 4 of a 6-step plan, done across 6 separate
+sessions — only do what's described in this message, then stop and
+report back so the result can be verified before the next session
+begins.
+
+If you don't have permission to read or edit this file, or don't have
+write access to this repository, say so explicitly and stop — do not
+attempt a workaround or guess at the content.
+
+First, a quick check (do not change anything yet): open
+assets/css/style.css and confirm it already contains this line (it was
+added in an earlier step):
+
+    .presentation-slide .cs-section p,.presentation-slide .cs-section ul{ font-family:'Raleway',sans-serif; font-size:18px; line-height:1.6; }
+
+and that `.cs-section .num{...}` has already been deleted from that file.
+If either of those is NOT true, stop and report that the shared CSS step
+appears not to have been run yet — do not attempt to add it yourself in
+this session.
+
+If both checks pass, proceed with the edit below.
+
+-------------------------------------------------------------------------------
+Rewrite case-studies/devtective.html
+-------------------------------------------------------------------------------
+
+Leave the `<section class="cs-hero container">` block (the cover slide —
+breadcrumb, badge, `<h1>DevTective</h1>`, tagline, and the
+Role/Team/Scope/Tools meta grid) completely untouched. Only change what's
+inside `<section class="cs-body container">`.
+
+Find this entire block (three `<div class="cs-section">` elements back to
+back — copy from the first through the final matching `</div>`):
+
+    <div class="cs-section">
+      <span class="num">01 — The problem</span>
+      <h2>Momentum, not motivation, is the gap</h2>
+      <p>
+        Most dropout analysis treats this as a motivation problem. Interviewing early-stage
+        coders surfaced a more fixable gap: people didn't quit because they stopped caring —
+        they quit after a gap of a few days left them unsure where they'd left off and what
+        "picking back up" even meant.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">02 — Research → decision → evaluation</span>
+      <h2>Designing for re-entry, not just progress</h2>
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">The hardest moment wasn't lesson 1 — it was the second session, after
+            a gap, when a learner had to reconstruct context before they could do anything.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I designed the home screen around a single "pick up where you left off"
+            entry point with a short context recap, instead of a generic course-list home —
+            and wireframed progress states that show streaks honestly, without guilt-driven
+            red/warning styling.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Low-fidelity prototype walkthroughs checking whether a returning user
+            could state what they'd do next within the first screen, with no explanation needed.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">03 — Outcome</span>
+      <h2>A concept built to be tested</h2>
+      <p>
+        As a certificate capstone, DevTective's deliverable is the research-to-wireframe process
+        itself: a documented problem statement, a re-entry-first IA, and wireframes ready for
+        usability testing — the exact workflow I'm now applying on paid internship work.
+      </p>
+    </div>
+
+Replace that entire block with exactly this:
+
+    <div class="cs-section">
+      <h2>Momentum, not motivation</h2>
+      <p>
+        Most dropout analysis treats this as a motivation problem. Interviewing early-stage
+        coders surfaced a more fixable gap: people didn't quit because they stopped caring —
+        they quit after a few days away left them unsure where they'd left off.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <h2>Designing for re-entry</h2>
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">The hardest moment wasn't lesson 1 — it was the second session, after
+            a gap, when a learner had to reconstruct context before they could do anything.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I designed the home screen around a single "pick up where you left off"
+            entry point with a short context recap, instead of a generic course-list home —
+            and wireframed progress states that show streaks honestly, without guilt-driven
+            red/warning styling.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Low-fidelity prototype walkthroughs checking whether a returning user
+            could state what they'd do next within the first screen, with no explanation needed.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>A concept built to test</h2>
+      <p>
+        As a certificate capstone, the deliverable is the research-to-wireframe process itself:
+        a documented problem statement, a re-entry-first information architecture, and
+        wireframes ready for usability testing — the same workflow I'm now applying on paid
+        internship work.
+      </p>
+    </div>
+
+Notes for Copilot:
+- Zero occurrences of `class="num"` should remain in this file when done.
+- The `reasoning-chain` block is copied over completely unchanged — do
+  not reword anything inside it.
+- Do not add an `impact-grid` or any stat box to this file — there is no
+  resume-backed number for this project beyond the "5–15%" figure already
+  in the cover tagline, and that one is intentionally not being repeated
+  here.
+- Do not add, remove, or alter any number or claim beyond what's shown
+  above.
+
+After making this change, verify:
+1. Zero occurrences of `class="num"` remain in
+   case-studies/devtective.html.
+2. Exactly 3 `cs-section` blocks exist, each with a short `<h2>`.
+3. The `reasoning-chain` block renders with no broken HTML — check tag
+   balance carefully.
+4. No `impact-grid` was added anywhere in this file.
+5. The `.cs-hero` cover section is byte-for-byte unchanged from before
+   this edit, and no CSS file was touched in this session.
+
+Once verified, stop. Do not make any other changes.
+
+===============================================================================
+PROMPT END
+===============================================================================

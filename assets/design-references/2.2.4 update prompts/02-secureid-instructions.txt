@@ -1,0 +1,403 @@
+===============================================================================
+FILE 2 OF 6 — CASE STUDY: SecureID (text rewrite + shared case-study CSS)
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+File Copilot will edit: case-studies/secureid.html  (and, once, assets/css/style.css)
+===============================================================================
+
+RUN ORDER: do file 1 (Hero) before this one. This file also carries a CSS
+change that is SHARED by all 4 case studies — do this file before files
+3, 4, and 5 (Honda, DevTective, Vextaro), since those files will tell
+Copilot to check whether this CSS change already exists before touching
+anything, to avoid applying it twice.
+
+HOW TO USE THIS FILE: paste everything between === PROMPT START === and
+=== PROMPT END === into Copilot Chat (agent mode, repo open) as ONE
+message.
+
+-------------------------------------------------------------------------------
+WHY THIS CHANGE (background for Eric)
+-------------------------------------------------------------------------------
+Each case-study page (SecureID, Honda, DevTective, Vextaro) renders as a
+slide deck too, exactly like the Hero section — you click or arrow
+through numbered slides. Two things are changing, matching what we just
+did to Hero:
+
+1) Every slide in these decks currently starts with a small gold caption
+   like "01 — The problem" above its heading. That's being removed, the
+   same way Hero's meta label was removed — the heading itself should
+   carry the idea on its own, and the slide-rail thumbnails (which
+   already say things like "Empathizing: what we learned," "Personas,"
+   "Impact & Reflection") are staying exactly as they are — those are
+   good and don't need to change.
+
+2) The body paragraph text in every section (15px right now) is growing
+   to match Hero's new body-text size and font. This is a ONE-TIME shared
+   CSS change — one CSS rule in assets/css/style.css controls this for
+   all 4 case-study pages at once, so it only needs to be made here, in
+   this first case-study file. Note it does NOT touch the opening/cover
+   slide of each case study (the one with the project title, tagline, and
+   Role/Team/Scope/Tools grid) — that slide uses different styling
+   entirely and is intentionally left untouched.
+
+On top of the structural change, SecureID's text is being fully
+rewritten: shorter headings a recruiter can skim in a glance, tighter
+paragraphs, and one content fix — the "Personas" section currently
+displays 3 of your 4 personas crammed into number-styled stat boxes
+(visually implying they're statistics, which they aren't). That's being
+replaced with a plain, readable list of all 4 personas. Every fact,
+number, and quote below is already on the live page today — nothing new
+is being invented, only reorganized and tightened. The reasoning-chain
+blocks ("We learned / So I changed / Evaluated via") and the outcome
+stats at the bottom are strong as written and are being kept, just with
+shorter section headings around them.
+
+-------------------------------------------------------------------------------
+HOW THESE CASE-STUDY PAGES ARE STRUCTURED (background, also explained to
+Copilot below)
+-------------------------------------------------------------------------------
+Inside the `<main class="workspace-main">` of each case-study HTML file,
+after the opening `<section class="cs-hero container">` (the cover —
+leave this one alone), there's a `<section class="cs-body container">`
+containing several `<div class="cs-section">` blocks. Each one currently
+looks like this:
+
+  <div class="cs-section">
+    <span class="num">01 — The problem</span>
+    <h2>Some heading</h2>
+    <p>Some paragraph.</p>
+  </div>
+
+The `<span class="num">...</span>` line is the small gold caption being
+deleted from every section in every case study. The `<h2>` is the
+heading being shortened. The `<p>` (and any `<ul>`) is the body text that
+will look bigger automatically once the shared CSS rule below is changed
+— no per-section CSS edit needed, just the one shared rule.
+
+===============================================================================
+PROMPT START — copy everything below this line into Copilot Chat
+===============================================================================
+
+You are editing a live, already-deployed personal portfolio site. Work
+only inside case-studies/secureid.html in this step, plus ONE shared CSS
+rule in assets/css/style.css described in Part A below. Do not touch
+index.html, assets/js/main.js, or any other file in case-studies/. This
+is step 2 of a 6-step plan, done across 6 separate sessions — only do
+what's described in this message, then stop and report back so the
+result can be verified before the next session begins.
+
+If you don't have permission to read or edit either of those two files,
+or don't have write access to this repository, say so explicitly and
+stop — do not attempt a workaround or guess at the content.
+
+Do Part A first, confirm it, then do Part B.
+
+-------------------------------------------------------------------------------
+PART A — shared CSS change (do this once; files 3, 4, and 5 will check
+whether it's already done before touching CSS again)
+-------------------------------------------------------------------------------
+
+In assets/css/style.css, find this exact line (search for
+`.presentation-slide.is-active` — it is a very long single line; the
+fragment you need is inside it):
+
+    .presentation-slide .cs-section p,.presentation-slide .cs-section ul{ font-size:15px; }
+
+Replace that fragment only (leave the rest of the long line it's part of
+untouched) with:
+
+    .presentation-slide .cs-section p,.presentation-slide .cs-section ul{ font-family:'Raleway',sans-serif; font-size:18px; line-height:1.6; }
+
+Also in the same file, find this exact line (search for
+`.cs-section .num`):
+
+    .cs-section .num{ font-size:12px; color:var(--accent,var(--gold)); font-weight:700; letter-spacing:.1em; margin-bottom:8px; display:block; }
+
+Delete that entire line (it styles the small gold caption that's being
+removed from the markup in Part B — once no page has a `<span
+class="num">` element left anywhere, this rule has nothing to style, so
+it's safe to delete rather than leave as unused CSS).
+
+Verify: confirm both edits landed in assets/css/style.css and that you
+have not changed any other line in that file.
+
+-------------------------------------------------------------------------------
+PART B — rewrite case-studies/secureid.html
+-------------------------------------------------------------------------------
+
+Leave the `<section class="cs-hero container">` block (the cover slide —
+contains the breadcrumb, badge, `<h1>SecureID</h1>`, tagline, and the
+Role/Team/Scope/Tools meta grid) and the `.note-box` div completely
+untouched. Only change what's inside `<section class="cs-body
+container">`.
+
+Find this entire block (it is five `<div class="cs-section">` elements
+back to back — copy from the first `<div class="cs-section">` through
+the final matching `</div>`):
+
+    <div class="cs-section">
+      <span class="num">01 — The problem</span>
+      <h2>One flow, two very different users</h2>
+      <p>
+        SecureID verifies a person's identity through document capture, basic biometric checks,
+        and manual case review. That last step is where most products fall down: automated
+        checks can't resolve every case, so a human analyst has to step in — and the interface
+        that got the <em>user</em> through verification smoothly wasn't built to help an analyst
+        triage a queue of flagged cases quickly.
+      </p>
+      <p>
+        I treated this as two connected problems rather than one screen: a verification flow
+        that needed to feel trustworthy and low-friction for the end user, and a case-review
+        dashboard that needed to feel fast and unambiguous for the analyst — both drawing from
+        one shared design system so the product stayed consistent end to end.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">02 — Research → decision → evaluation</span>
+      <h2>How findings turned into the design</h2>
+      <p>
+        Here's the reasoning chain behind the two biggest decisions in SecureID — what I
+        learned, what I changed because of it, and how I checked the change actually worked.
+      </p>
+
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Users dropped their guard the moment they hit a screen that felt uncertain —
+            unclear what step they were on, or what would happen with their documents.
+            Anxiety about making a mistake during verification was the dominant emotion in
+            early research conversations.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I rebuilt onboarding around a persistent step indicator and plain-language
+            status copy at every stage ("Reviewing your document now" instead of a spinner),
+            and separated document capture from biometric confirmation into distinct,
+            single-purpose screens instead of one dense form.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Usability walkthroughs of the hi-fi prototype against the original
+            wireframes, checking specifically whether participants could state what step they
+            were on and what happened next without being told.</span>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        "I'm afraid to make a mistake."
+        <cite>— Riley, representative user persona developed from the practice brief</cite>
+      </div>
+
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Analysts don't review cases in the order they arrive — they triage by
+            risk and age first, and a simple top-to-bottom list made that harder, not easier.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I redesigned the dashboard navigation around filterable, sortable case
+            queues with status and priority surfaced at a glance, instead of a flat case list —
+            and mapped a dedicated settings area (notifications, password, email preferences)
+            so account controls stopped competing with the review workspace.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">A self-review against the IA and the color-mapped status system (button
+            and badge color tied one-to-one to case status) to confirm an analyst could read a
+            queue's priority without opening a single case.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">03 — Personas</span>
+      <h2>Four perspectives kept the system honest</h2>
+      <p>
+        The original case study used four representative perspectives to keep the verification
+        flow and analyst workspace grounded: Riley needs calm, predictable guidance; Jordan
+        values speed across devices; Casey needs fast access to the details that affect a
+        decision; and Morgan needs clear hierarchy so important issues are not buried.
+      </p>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">Riley</div><div class="l">Anxious verifier who needs confidence</div></div>
+        <div class="impact-stat"><div class="n">Jordan</div><div class="l">Busy user who needs a fast re-entry</div></div>
+        <div class="impact-stat"><div class="n">Casey</div><div class="l">Analyst who prioritizes speed and accuracy</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">04 — System</span>
+      <h2>One design system, two interfaces</h2>
+      <p>
+        Rather than designing the user flow and the analyst dashboard as separate products, I
+        built both on a shared token system — a neutral base plus accent, success, and error
+        colors in five tints each — so the same visual language reads as "calm and trustworthy"
+        to a verifying user and "fast and unambiguous" to an analyst scanning a queue.
+      </p>
+      <ul>
+        <li>Five-stop color ramps (100 → 900) for accent, feedback-positive, feedback-negative, and background</li>
+        <li>Status color consistently mapped to meaning across every button, badge, and banner</li>
+        <li>Shared type and spacing scale across the verification flow and the dashboard</li>
+      </ul>
+    </div>
+
+    <div class="cs-section">
+      <span class="num">05 — Outcome</span>
+      <h2>Where this landed</h2>
+      <p>
+        As a solo practice project, the goal was a defensible design process end to end — not a
+        shipped metric. What I can point to concretely:
+      </p>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">2</div><div class="l">interfaces unified on one token system</div></div>
+        <div class="impact-stat"><div class="n">7</div><div class="l">case-study sections, wireframe → hi-fi</div></div>
+        <div class="impact-stat"><div class="n">1:1</div><div class="l">status color mapped to meaning, zero ambiguity</div></div>
+      </div>
+      <p>
+        The biggest lesson carried forward into my internship work since: designing for two
+        audiences on one flow means deciding, explicitly, which parts of the system flex per
+        audience and which parts never do.
+      </p>
+    </div>
+
+Replace that entire block with exactly this:
+
+    <div class="cs-section">
+      <h2>Two users, one flow</h2>
+      <p>
+        SecureID verifies identity through document capture, biometric checks, and manual case
+        review — the step where most products break down. I treated it as two connected
+        problems: a verification flow that had to feel calm and trustworthy, and an analyst
+        dashboard that had to feel fast and unambiguous, both built on one shared design system.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <h2>From insight to decision</h2>
+      <p>
+        Two decisions mattered most — here's the reasoning behind each.
+      </p>
+
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Users dropped their guard the moment they hit a screen that felt uncertain —
+            unclear what step they were on, or what would happen with their documents.
+            Anxiety about making a mistake during verification was the dominant emotion in
+            early research conversations.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I rebuilt onboarding around a persistent step indicator and plain-language
+            status copy at every stage ("Reviewing your document now" instead of a spinner),
+            and separated document capture from biometric confirmation into distinct,
+            single-purpose screens instead of one dense form.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Usability walkthroughs of the hi-fi prototype against the original
+            wireframes, checking specifically whether participants could state what step they
+            were on and what happened next without being told.</span>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        "I'm afraid to make a mistake."
+        <cite>— Riley, representative user persona developed from the practice brief</cite>
+      </div>
+
+      <div class="reasoning-chain">
+        <div class="chain-step">
+          <span class="k">We learned</span>
+          <span class="v">Analysts don't review cases in the order they arrive — they triage by
+            risk and age first, and a simple top-to-bottom list made that harder, not easier.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I changed</span>
+          <span class="v">I redesigned the dashboard navigation around filterable, sortable case
+            queues with status and priority surfaced at a glance, instead of a flat case list —
+            and mapped a dedicated settings area (notifications, password, email preferences)
+            so account controls stopped competing with the review workspace.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">A self-review against the IA and the color-mapped status system (button
+            and badge color tied one-to-one to case status) to confirm an analyst could read a
+            queue's priority without opening a single case.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>Four personas, kept honest</h2>
+      <p>
+        Four representative perspectives kept the verification flow and analyst workspace
+        grounded: Riley needs calm, predictable guidance. Jordan values speed across devices.
+        Casey needs fast access to the details that affect a decision. Morgan needs a clear
+        hierarchy so nothing important gets buried.
+      </p>
+    </div>
+
+    <div class="cs-section">
+      <h2>One system, two interfaces</h2>
+      <p>
+        Instead of designing the user flow and analyst dashboard as separate products, I built
+        both on one shared token system — a neutral base plus accent, success, and error colors
+        in five tints each — so the same visual language reads as calm to a verifying user and
+        fast to a scanning analyst.
+      </p>
+      <ul>
+        <li>Five-stop color ramps (100 → 900) for accent, positive, and negative feedback</li>
+        <li>Status color mapped consistently to meaning across every button, badge, and banner</li>
+        <li>One shared type and spacing scale across both interfaces</li>
+      </ul>
+    </div>
+
+    <div class="cs-section">
+      <h2>Outcome & impact</h2>
+      <p>
+        As a solo practice project, the goal was a defensible process end to end — not a shipped
+        metric. What I can point to concretely:
+      </p>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">2</div><div class="l">interfaces unified on one token system</div></div>
+        <div class="impact-stat"><div class="n">7</div><div class="l">case-study sections, wireframe → hi-fi</div></div>
+        <div class="impact-stat"><div class="n">1:1</div><div class="l">status color mapped to meaning, zero ambiguity</div></div>
+      </div>
+      <p>
+        The lesson I've carried into my internship work since: designing for two audiences on
+        one flow means deciding, explicitly, which parts of the system flex per audience and
+        which never do.
+      </p>
+    </div>
+
+Notes for Copilot:
+- Every `<span class="num">...</span>` line is gone — there should be
+  zero occurrences of `class="num"` left anywhere in this file when
+  you're done.
+- The `reasoning-chain`, `quote-block`, and `impact-grid` blocks are
+  copied over completely unchanged — do not reword anything inside them.
+- The persona "impact-grid" that showed only 3 of the 4 personas as
+  number-styled stat tiles has been replaced with one plain paragraph
+  naming all 4 personas — do not try to restore the old 3-tile grid.
+- Do not add, remove, or alter any number, statistic, or claim beyond
+  what's shown above.
+
+After making this change, verify:
+1. Zero occurrences of `class="num"` remain in case-studies/secureid.html.
+2. Every `<h2>` in the `cs-body` section is short (a few words), and
+   there are exactly 5 `cs-section` blocks, same as before.
+3. The `reasoning-chain`, `quote-block`, and both `impact-grid` blocks
+   (persona grid is gone; outcome grid remains) render with no broken
+   HTML — check tag balance carefully.
+4. The `.cs-hero` cover section and the `.note-box` are byte-for-byte
+   unchanged from before this edit.
+5. Confirm the Part A CSS edits are in place and you haven't modified
+   any other CSS rule.
+
+Once both parts are verified, stop. Do not make any other changes.
+
+===============================================================================
+PROMPT END
+===============================================================================

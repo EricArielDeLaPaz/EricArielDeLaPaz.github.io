@@ -1,0 +1,214 @@
+===============================================================================
+FILE 1 OF 6 — HERO DECK (structure + text)
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+File Copilot will edit: assets/js/main.js   (and assets/css/style.css)
+===============================================================================
+
+RUN ORDER FOR THE FULL SET: do this file FIRST. After this, run file 2
+(SecureID), then 3 (Honda), then 4 (DevTective), then 5 (Vextaro), then 6
+(the error page), each as its own separate Copilot conversation/session so
+Copilot only ever has one file's instructions in front of it at a time.
+
+HOW TO USE THIS FILE: paste everything between the === PROMPT START === and
+=== PROMPT END === lines into Copilot Chat (agent mode, with the repo open)
+as ONE message. The material above and below those markers is background
+for you (Eric) and does not need to be pasted, though it won't hurt
+anything if you paste the whole file.
+
+-------------------------------------------------------------------------------
+WHY THIS CHANGE (background for Eric)
+-------------------------------------------------------------------------------
+Two separate problems, fixed in order:
+
+1) ACCESSIBILITY / READABILITY (do this first, before any text changes).
+   Your Hero slide deck currently shows three pieces of text per slide: a
+   small gold "eyebrow" label at the top, a big headline, and — at the
+   bottom — a small gold "meta label" (e.g. "CURRENTLY", "FLYRANK AI ·
+   REMOTE") sitting right above a small 15px line of body copy. That body
+   copy is the actual substance of each slide, and it's currently smaller
+   than is comfortable to read, set in a tight decorative serif font
+   (Cinzel) instead of a body-text font, and squeezed under a label that
+   duplicates information the headline mostly already carries. Your senior
+   designer's feedback specifically called out improving the body text
+   size on these slides. The fix: delete the small meta label entirely,
+   and make the body copy itself bigger, left-aligned, and set in Raleway
+   (already loaded as a font on this site — no new font import needed).
+   The headline shrinks slightly so it's still clearly the biggest text on
+   the slide, but doesn't overpower the now-larger body text beneath it.
+
+2) CONTENT. Once the meta label is gone, each slide's body paragraph has
+   to carry a little more of the context by itself (since it's no longer
+   paired with a label like "FLYRANK AI · REMOTE" sitting next to it). So
+   the headline and body text for all 8 slides are being rewritten:
+   shorter, punchier headlines a recruiter can read in one glance, and
+   tight-but-complete body paragraphs. Every fact and number below comes
+   straight from your resume. Two new things are being added that aren't
+   on the site at all right now: your "Design Mentor & Workshop
+   Facilitator" leadership experience (it's on your resume, but currently
+   invisible on the whole site), and a short, genuine personal touch — one
+   line referencing your competitive Pokémon interest in the Contact
+   slide, the way your original Framer portfolio did, without turning the
+   whole slide into a Pokémon story.
+
+-------------------------------------------------------------------------------
+HOW THE HERO DECK WORKS (background for Eric, also explained to Copilot
+below so it understands the code before touching it)
+-------------------------------------------------------------------------------
+Your homepage's Hero section is a slide deck built entirely from one
+JavaScript array called `heroSlides` near the top of assets/js/main.js.
+Each entry in the array is one slide, and is laid out like this:
+
+  ['EYEBROW', 'TITLE TEXT', 'META LABEL', 'Body text.', 'TAG']
+
+A block of code right below the array turns each entry into the actual
+slide on the page, and a second small block builds the thumbnail list in
+the left-hand rail. Both pieces of code read the array by position (item
+1, item 2, item 3, etc.) — not by name — so the order of the 5 items in
+each row matters, and changing that order without also changing the code
+that reads it will put the wrong text in the wrong place on the page.
+
+===============================================================================
+PROMPT START — copy everything below this line into Copilot Chat
+===============================================================================
+
+You are editing a live, already-deployed personal portfolio site. Work
+only inside assets/js/main.js and assets/css/style.css in this step. Do
+not touch index.html, any file inside case-studies/, or anything else.
+This is step 1 of a 6-step plan, done across 6 separate sessions — only do
+what's described in this message, then stop and report back so the
+result can be verified before the next session begins.
+
+If you don't have permission to read or edit either of those two files,
+or you don't have write access to this repository, say so explicitly and
+stop — do not attempt a workaround or guess at the content.
+
+This step has two parts. Do Part A first, confirm it, then do Part B.
+
+-------------------------------------------------------------------------------
+PART A — remove the meta label, resize and restyle the body text
+-------------------------------------------------------------------------------
+
+A1. In assets/js/main.js, find this exact line (it's inside a function
+called `openFile`... no, inside the IIFE that builds hero slides, inside
+a `.forEach` callback — search for the text `hero-slide-top` to find it):
+
+    page.innerHTML = `<div class="hero-slide-top"><span>${slide[0]}</span><i></i></div><h1>${slide[1]}</h1><div class="hero-slide-footer"><div><span>${slide[2]}</span><strong>${slide[3]}</strong></div><small>PORTFOLIO / ${String(index + 1).padStart(2, '0')}</small><em>${slide[4]}</em></div>`;
+
+Replace it with this exact line — the only change is deleting
+`<span>${slide[2]}</span>` so the meta label no longer renders (the array
+item at position 3, `slide[2]`, is intentionally left alone for now; it
+will simply stop being displayed):
+
+    page.innerHTML = `<div class="hero-slide-top"><span>${slide[0]}</span><i></i></div><h1>${slide[1]}</h1><div class="hero-slide-footer"><div><strong>${slide[3]}</strong></div><small>PORTFOLIO / ${String(index + 1).padStart(2, '0')}</small><em>${slide[4]}</em></div>`;
+
+A2. In assets/css/style.css, find this exact line (search for
+`.hero-slide h1`):
+
+    .hero-slide h1{ max-width:850px; margin:18px 0 0; color:#f0ede8; font:600 clamp(30px,3.8vw,48px)/1.1 Cinzel,serif; letter-spacing:.01em; }
+
+Replace it with:
+
+    .hero-slide h1{ max-width:850px; margin:18px 0 0; color:#f0ede8; font:600 clamp(22px,2.6vw,34px)/1.2 Cinzel,serif; letter-spacing:.01em; }
+
+(This only changes the clamp() values from 30/3.8vw/48 down to
+22/2.6vw/34 — the title shrinks but stays Cinzel, stays bold, stays the
+biggest text on the slide.)
+
+A3. In the same file, find this exact line (search for
+`.hero-slide-footer div`):
+
+    .hero-slide-footer div{ display:grid; gap:7px; max-width:380px; }.hero-slide-footer span{ color:#c9a84c; font-size:10px; letter-spacing:.15em; }.hero-slide-footer strong{ color:#f0ede8; font:600 15px/1.35 Cinzel,serif; }.hero-slide-footer small{ color:#aaa39b; font-size:9px; letter-spacing:.1em; }.hero-slide-footer em{ display:none; }
+
+Replace it with:
+
+    .hero-slide-footer div{ display:grid; max-width:620px; }.hero-slide-footer strong{ display:block; color:#f0ede8; font:400 19px/1.6 'Raleway', sans-serif; text-align:left; font-weight:500; }.hero-slide-footer small{ color:#aaa39b; font-size:9px; letter-spacing:.1em; }.hero-slide-footer em{ display:none; }
+
+(What changed: the `.hero-slide-footer span` rule is deleted entirely —
+that was the small gold meta-label style, and nothing will use it anymore
+after Part A1. `.hero-slide-footer strong` — the body text — switches
+from 15px Cinzel to 19px Raleway at weight 500, explicitly left-aligned,
+and the container's max-width grows from 380px to 620px so the larger
+text has room to breathe instead of wrapping narrowly.)
+
+A4. In the same file, find this exact line inside the mobile media query
+(search for `.hero-slide{ height:100%; min-height:390px`, then look two
+lines below it for `.hero-slide h1{ font-size:clamp(24px,7vw,36px); }`):
+
+    .hero-slide h1{ font-size:clamp(24px,7vw,36px); }
+
+Replace it with:
+
+    .hero-slide h1{ font-size:clamp(20px,6vw,28px); }
+
+A5. STOP after A1–A4 and verify:
+    - Load the homepage locally (or describe the expected rendering) and
+      confirm: each Hero slide now shows only the small gold eyebrow at
+      top, the headline, and ONE line of larger body text at the bottom
+      with no small gold caption above it.
+    - Confirm the body text is visibly bigger than before and left-aligned.
+    - Confirm the headline is still clearly bigger than the body text.
+    - Confirm you have NOT changed the `heroSlides` array's data yet —
+      the text content on the slides will still read exactly as it did
+      before this step. That's expected; content changes are Part B.
+
+Report back once Part A is verified. Then proceed to Part B.
+
+-------------------------------------------------------------------------------
+PART B — replace the slide content
+-------------------------------------------------------------------------------
+
+In assets/js/main.js, find the `heroSlides` array — it starts with
+`const heroSlides = [` and currently has 8 entries. Replace the ENTIRE
+array (from `const heroSlides = [` through the closing `];`) with exactly
+this:
+
+const heroSlides = [
+  ['HERO', 'Junior Product / UI/UX Designer — Texas, Remote', '', 'Two concurrent remote internships building token-based design systems across web and mobile, while finishing a Bachelor’s in User Experience Design at WGU — expected November 2026.', 'INTRO'],
+  ['ABOUT ME', 'Precise decisions, not just good-looking screens.', '', 'I pair UX research and information architecture with advanced Figma prototyping — grounding every decision in competitive audits, user interviews, and the complaints people actually have.', 'PROFILE'],
+  ['EXPERIENCE', 'UI/UX Design Intern — Flyrank AI', '', 'Built a Figma token-based design system that cut visual rework ~60% and sped up global UI updates ~90%. Paired 10+ competitive audits with user interviews to design a fit-confirmation checkpoint and a 7-section information architecture with 3 annotated user flows.', 'WORK · 01'],
+  ['EXPERIENCE', 'Product Design Intern — Stealth Startup', '', 'Led a Figma token-based design system from scratch across two mobile apps and a desktop dashboard, as one of ~5 design interns reporting directly to the founder — delivering ~30 new screen designs and cutting demo setup time by 30+ minutes each.', 'WORK · 02'],
+  ['LEADERSHIP', 'Mentoring the next wave of design interns', '', 'Mentored 2–3 design interns per session, 1:1 and in small groups, and led monthly workshops on responsive design and advanced Figma prototyping — including how to use Figma variables inside interactive prototypes.', 'MENTORSHIP'],
+  ['EDUCATION', 'B.S. in User Experience Design, WGU', '', 'Expected November 2026, alongside the Google UX Design Professional Certificate — a hands-on program in user research methods and usability testing.', 'EDUCATION'],
+  ['SKILLS + TOOLS', 'Research, systems, and craft', '', 'UX research, usability testing, information architecture, user flows, design systems, tokens & variables, responsive design, and WCAG accessibility — built in Figma, Figma Variables, and Figma Prototyping.', 'CAPABILITIES'],
+  ['CONTACT', 'Let’s make something useful.', '', 'Open to product design and UX research roles, remote or Texas-based. Outside of design, I’m into competitive Pokémon — ask me what that has to do with UX. ericforall247@gmail.com · LinkedIn · GitHub', 'LINKS'],
+];
+
+Notes for Copilot:
+- Every array entry still has exactly 5 items, in the same order as
+  before (`[eyebrow, title, metaLabel, body, tag]`) — the 3rd item
+  (metaLabel) is now an empty string `''` in every row on purpose, since
+  Part A already stopped it from being displayed. Do not delete the empty
+  string or shorten the array to 4 items — the rendering code from Part A
+  still expects 5 positions (`slide[0]` through `slide[4]`), and removing
+  the empty placeholder would shift every item after it into the wrong
+  position.
+- The curly apostrophes (’) in words like "Let’s" and "Bachelor’s" are
+  intentional and match the style already used elsewhere in this file —
+  do not auto-correct them to straight apostrophes (').
+- Do not alter, round differently, or add any number, date, or claim
+  beyond what's written above — every figure here (the ~60%, ~90%, 10+,
+  7-section IA, 3 annotated user flows, ~5 interns, ~30 screens, 30+
+  minutes, 2–3 interns mentored) comes directly from the resume this
+  content was written from.
+
+After making this change, verify:
+1. The array has exactly 8 entries, each a 5-item array in the order
+   `[eyebrow, title, metaLabel, body, tag]`, with the 3rd item as `''`
+   in every entry.
+2. No entry is missing a comma or a closing bracket — a syntax error
+   here breaks the whole homepage script, not just the Hero section.
+3. You haven't changed anything outside this array in Part B, and
+   nothing outside assets/js/main.js and assets/css/style.css in this
+   entire file's instructions.
+4. Load the homepage (or describe the expected render) and confirm 8
+   slide thumbnails appear in the Hero rail, in this order: HERO, ABOUT
+   ME, EXPERIENCE (Flyrank AI), EXPERIENCE (Stealth Startup),
+   LEADERSHIP, EDUCATION, SKILLS + TOOLS, CONTACT — and that no slide
+   shows a small gold caption above its body text anymore.
+
+Once both Part A and Part B are verified, stop. Do not make any other
+changes or suggestions.
+
+===============================================================================
+PROMPT END
+===============================================================================

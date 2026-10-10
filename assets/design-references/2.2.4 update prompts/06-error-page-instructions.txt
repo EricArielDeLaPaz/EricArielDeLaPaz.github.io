@@ -1,0 +1,101 @@
+===============================================================================
+FILE 6 OF 6 — 404 / ERROR PAGE (text rewrite)
+Repo: EricArielDeLaPaz/EricArielDeLaPaz.github.io
+Files Copilot will edit: 404.html and error.html
+===============================================================================
+
+RUN ORDER: do this one last, after files 1–5.
+
+HOW TO USE THIS FILE: paste everything between === PROMPT START === and
+=== PROMPT END === into Copilot Chat (agent mode, repo open) as ONE
+message.
+
+-------------------------------------------------------------------------------
+WHY THIS CHANGE (background for Eric)
+-------------------------------------------------------------------------------
+The site's error page currently has generic placeholder copy ("This page
+doesn't exist.") because I wasn't able to fetch the exact text from your
+old Framer site's /error page when I first built it. You've since told me
+the actual page is a Shuckle joke — "YOU FOUND SHUCKLE. GREAT DEFENSE,
+NOWHERE TO GO — KIND OF LIKE THIS PAGE" — and that it should stay that
+way here too, but WITHOUT the Shuckle image/illustration your old site
+used. Just the text, centered, in the site's own fonts and colors — no
+header, no rail, no footer, no layout chrome, exactly like it is now,
+just with different words.
+
+I've also tied it back to the one line from your old site's About Me
+section that explains the joke for anyone who doesn't already get the
+Pokémon reference ("don't judge a system by its surface-level stats") —
+so it reads as a small, genuine personal touch rather than an inside joke
+that lands flat for a recruiter who doesn't play Pokémon.
+
+Two files are being changed because GitHub Pages automatically serves
+404.html for any broken link, and error.html was kept earlier as a
+second copy reachable by its own direct URL — both should show the same
+new text.
+
+-------------------------------------------------------------------------------
+PROMPT START — copy everything below this line into Copilot Chat
+===============================================================================
+
+You are editing a live, already-deployed personal portfolio site. Work
+only inside 404.html and error.html in this step — both files currently
+have identical content and both should end up identical again after this
+edit. Do not touch any other file. This is the last step of a 6-step
+plan — only do what's described in this message, then stop and report
+back.
+
+If you don't have permission to read or edit these files, or don't have
+write access to this repository, say so explicitly and stop — do not
+attempt a workaround or guess at the content.
+
+In BOTH 404.html and error.html, find this exact block:
+
+    <body class="error-page">
+      <div>
+        <p class="error-eyebrow">404</p>
+        <h1>This page doesn't exist.</h1>
+        <p>The link may be broken, or the page may have moved. Head back to the homepage to keep browsing.</p>
+        <a href="index.html">&larr; Back to the portfolio</a>
+      </div>
+    </body>
+
+Replace it with exactly this:
+
+    <body class="error-page">
+      <div>
+        <p class="error-eyebrow">404</p>
+        <h1>You found Shuckle.</h1>
+        <p>Great defense, nowhere to go — kind of like this page.</p>
+        <p>Don't judge a system by its surface-level stats. This link's broken, or the page moved — there's nothing else to find here.</p>
+        <a href="index.html">&larr; Back to the portfolio</a>
+      </div>
+    </body>
+
+Do not add an image, icon, or any visual asset of any kind — this page
+stays text-only, centered, with no header, rail, or footer, exactly as
+it is laid out today. Do not change anything in the `<style>` block in
+either file; only the text inside `<body>` changes.
+
+Notes for Copilot:
+- "Shuckle" and "Pokémon" are intentional, correct spellings — do not
+  "correct" them to anything else.
+- Both files must end up with identical `<body>` content — check this
+  explicitly after editing, since they are two separate files with
+  duplicated markup, not one file referencing the other.
+
+After making this change, verify:
+1. 404.html and error.html have identical `<body>` content.
+2. Neither file references any image file or `<img>` tag anywhere.
+3. The `<style>` block in both files is unchanged from before this edit.
+4. Load either page (or describe the expected render) and confirm it
+   shows, centered on an otherwise empty dark page: "404" in small gold
+   text, "You found Shuckle." as the heading, the two paragraphs below
+   it, and the "← Back to the portfolio" link — nothing else on the page.
+
+Once verified, stop. This is the final file in the 6-part plan — after
+this, report that all 6 steps are complete.
+
+===============================================================================
+PROMPT END
+===============================================================================
