@@ -83,7 +83,7 @@
     ['EXPERIENCE', 'Product Design Intern — Stealth Startup', '', 'Led a Figma token-based design system from scratch across two mobile apps and a desktop dashboard, as one of ~5 design interns reporting directly to the founder — delivering ~30 new screen designs and cutting demo setup time by 30+ minutes each.', 'WORK · 02'],
     ['LEADERSHIP', 'Mentoring the next wave of design interns', '', 'Mentored 2–3 design interns per session, 1:1 and in small groups, and led monthly workshops on responsive design and advanced Figma prototyping — including how to use Figma variables inside interactive prototypes.', 'MENTORSHIP'],
     ['EDUCATION', 'B.S. in User Experience Design, WGU', '', 'Expected November 2026, alongside the Google UX Design Professional Certificate — a hands-on program in user research methods and usability testing.', 'EDUCATION'],
-    ['SKILLS + TOOLS', 'Research, systems, and craft', '', 'UX research, usability testing, information architecture, user flows, design systems, tokens & variables, responsive design, and WCAG accessibility — built in Figma, Figma Variables, and Figma Prototyping.', 'CAPABILITIES'],
+    ['SKILLS + TOOLS', 'Research, systems, and craft', '', 'UX research, usability testing, information architecture, user flows, design systems, tokens & variables, responsive design, and WCAG accessibility. Built in Figma, with knowledge of HTML and CSS.', 'CAPABILITIES'],
     ['CONTACT', 'Let’s make something useful.', '', 'Open to product design and UX research roles, remote or Texas-based. Outside of design, I’m into competitive Pokémon — ask me what that has to do with UX. ericforall247@gmail.com · LinkedIn · GitHub', 'LINKS'],
   ];
   const canvas = document.querySelector('[data-hero-canvas]');
