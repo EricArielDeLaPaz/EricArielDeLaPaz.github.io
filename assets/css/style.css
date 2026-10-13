@@ -119,7 +119,7 @@ h1,h2,h3,h4{
 .btn-primary:hover{ background:var(--gold-bright); border-color:var(--gold-bright); }
 .btn svg{ width:15px; height:15px; }
 
-/* mobile bottom-tab scrollable strip, echoes the Figma Slides tab UI */
+/* mobile bottom-tab scrollable strip, echoes the Slides tab UI */
 .mobile-tabs{
   display:none;
   position:sticky; top:64px; z-index:40;
@@ -326,7 +326,7 @@ footer .copyright{ font-size:12.5px; color:var(--text-faint); }
 .cs-section li{ margin-bottom:8px; }
 .cs-section.hero-slide{ max-width:none; margin:0; }
 
-/* Figma Slides-style case-study workspace */
+/* Slides-style case-study workspace */
 .case-study-page{ height:100vh; overflow:hidden; background:#0e0e0e; }
 .case-study-page .workspace-toolbar{ height:48px; padding:0 16px; border-radius:0; }
 .case-study-page .workspace-shell{ height:calc(100vh - 48px); min-height:0; }
