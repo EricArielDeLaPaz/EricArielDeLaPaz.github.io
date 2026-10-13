@@ -97,7 +97,7 @@ back — copy from the first through the final matching `</div>`):
       <h2>From a recurring complaint to a checkpoint</h2>
       <div class="reasoning-chain">
         <div class="chain-step">
-          <span class="k">We learned</span>
+          <span class="k">I learned</span>
           <span class="v">Competitive audits and interviews both pointed to the same gap: no
             competitor offered a human-backed fit check before checkout, and that absence was
             a recurring, named frustration — not a guess.</span>
@@ -162,7 +162,7 @@ Replace that entire block with exactly this:
       <h2>From complaint to checkpoint</h2>
       <div class="reasoning-chain">
         <div class="chain-step">
-          <span class="k">We learned</span>
+          <span class="k">I learned</span>
           <span class="v">Competitive audits and interviews both pointed to the same gap: no
             competitor offered a human-backed fit check before checkout, and that absence was
             a recurring, named frustration — not a guess.</span>

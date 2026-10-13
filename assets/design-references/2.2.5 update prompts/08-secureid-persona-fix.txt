@@ -18,7 +18,7 @@ left-hand rail against what each slide actually shows. The rail currently
 reads:
 
   1 SecureID (Overview)
-  2 Empathizing: what we learned
+  2 Empathizing: what I learned
   3 Defining
   4 Personas
   5 Ideation: what I changed
@@ -26,12 +26,12 @@ reads:
   7 Impact & Reflection
 
 But that's not what's actually on each slide. Slide 2, "Empathizing: what
-we learned," shows no empathizing content at all — it's a single sentence
+I learned," shows no empathizing content at all — it's a single sentence
 disclaimer ("This case study is built from a self-directed UX practice
 brief...") sitting alone on an otherwise empty slide. And because that
 slide is there, everything after it is shifted out of alignment: slide 4,
 labeled "Personas," actually shows the reasoning-chain content ("From
-insight to decision" — We learned / So I changed / Evaluated via). The
+insight to decision" — I learned / So I changed / Evaluated via). The
 REAL personas content ("Four personas, kept honest") is sitting one slide
 later, mislabeled "Ideation: what I changed." That's the bug — not that
 the personas writing itself is weak, but that clicking "Personas" in the
@@ -134,7 +134,7 @@ PART B — fix the slide labels so they match the real content
 In assets/js/main.js, find this exact line (inside the `slideLabels`
 object, search for `SecureID:`):
 
-    SecureID: ['SecureID', 'Empathizing: what we learned', 'Defining', 'Personas', 'Ideation: what I changed', 'Prototyping: how I evaluated it', 'Impact & Reflection'],
+    SecureID: ['SecureID', 'Empathizing: what I learned', 'Defining', 'Personas', 'Ideation: what I changed', 'Prototyping: how I evaluated it', 'Impact & Reflection'],
 
 Replace it with:
 
@@ -164,7 +164,7 @@ After making this change, verify:
    ("System Design") shows "One system, two interfaces," and slide 6
    ("Impact & Outcome") shows the outcome stats.
 3. There are exactly 6 thumbnails in the rail, numbered 1 through 6, with
-   no slide called "Empathizing: what we learned" anywhere.
+   no slide called "Empathizing: what I learned" anywhere.
 
 Once verified, stop. Do not make any other changes or suggestions.
 

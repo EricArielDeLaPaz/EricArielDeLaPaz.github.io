@@ -26,7 +26,7 @@ did to Hero:
    like "01 — The problem" above its heading. That's being removed, the
    same way Hero's meta label was removed — the heading itself should
    carry the idea on its own, and the slide-rail thumbnails (which
-   already say things like "Empathizing: what we learned," "Personas,"
+   already say things like "Empathizing: what I learned," "Personas,"
    "Impact & Reflection") are staying exactly as they are — those are
    good and don't need to change.
 
@@ -47,7 +47,7 @@ displays 3 of your 4 personas crammed into number-styled stat boxes
 replaced with a plain, readable list of all 4 personas. Every fact,
 number, and quote below is already on the live page today — nothing new
 is being invented, only reorganized and tightened. The reasoning-chain
-blocks ("We learned / So I changed / Evaluated via") and the outcome
+blocks ("I learned / So I changed / Evaluated via") and the outcome
 stats at the bottom are strong as written and are being kept, just with
 shorter section headings around them.
 
@@ -162,7 +162,7 @@ the final matching `</div>`):
 
       <div class="reasoning-chain">
         <div class="chain-step">
-          <span class="k">We learned</span>
+          <span class="k">I learned</span>
           <span class="v">Users dropped their guard the moment they hit a screen that felt uncertain —
             unclear what step they were on, or what would happen with their documents.
             Anxiety about making a mistake during verification was the dominant emotion in
@@ -190,7 +190,7 @@ the final matching `</div>`):
 
       <div class="reasoning-chain">
         <div class="chain-step">
-          <span class="k">We learned</span>
+          <span class="k">I learned</span>
           <span class="v">Analysts don't review cases in the order they arrive — they triage by
             risk and age first, and a simple top-to-bottom list made that harder, not easier.</span>
         </div>
@@ -281,7 +281,7 @@ Replace that entire block with exactly this:
 
       <div class="reasoning-chain">
         <div class="chain-step">
-          <span class="k">We learned</span>
+          <span class="k">I learned</span>
           <span class="v">Users dropped their guard the moment they hit a screen that felt uncertain —
             unclear what step they were on, or what would happen with their documents.
             Anxiety about making a mistake during verification was the dominant emotion in
@@ -309,7 +309,7 @@ Replace that entire block with exactly this:
 
       <div class="reasoning-chain">
         <div class="chain-step">
-          <span class="k">We learned</span>
+          <span class="k">I learned</span>
           <span class="v">Analysts don't review cases in the order they arrive — they triage by
             risk and age first, and a simple top-to-bottom list made that harder, not easier.</span>
         </div>
