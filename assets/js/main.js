@@ -84,7 +84,7 @@
     ['LEADERSHIP', 'Mentoring the next wave of design interns', '', 'Mentored 2–3 design interns per session, 1:1 and in small groups, and led monthly workshops on responsive design and advanced Figma prototyping — including how to use Figma variables inside interactive prototypes.', 'MENTORSHIP'],
     ['EDUCATION', 'B.S. in User Experience Design, WGU', '', 'Expected November 2026, alongside the Google UX Design Professional Certificate — a hands-on program in user research methods and usability testing.', 'EDUCATION'],
     ['SKILLS + TOOLS', 'Research, systems, and craft', '', 'UX research, usability testing, information architecture, user flows, design systems, tokens & variables, responsive design, and WCAG accessibility. Built in Figma, with knowledge of HTML and CSS.', 'CAPABILITIES'],
-    ['CONTACT', "Let’s make something useful.", '', 'Open to product design and UX design roles. Outside of design, on a bit more of a personal note, I like Pokémon. Please do reach out to me at my email if you\'d like to set up a call to hire me or work on something!', 'LINKS'],
+    ['CONTACT', "Let’s make something useful.", '', 'Open to product design and UX design roles. Outside of design, on a bit more of a personal note, I like Pokémon. If you need my contact information, you\'ll find it on my resume or on my LinkedIn.', 'LINKS'],
   ];
   const canvas = document.querySelector('[data-hero-canvas]');
   const thumbs = document.querySelector('[data-hero-thumbs]');
