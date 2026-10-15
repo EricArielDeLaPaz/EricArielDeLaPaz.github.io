@@ -191,7 +191,7 @@
   canvas.className = 'hero-canvas';
   const controls = document.createElement('div');
   controls.className = 'hero-controls';
-  controls.innerHTML = `<button type="button" data-presentation-prev aria-label="Previous slide">←</button><div class="hero-progress"><span></span></div><button type="button" data-presentation-next aria-label="Next slide">→</button><span class="hero-hint">Use ← → or click the canvas edges</span><a class="toolbar-button toolbar-contact" href="mailto:ericforall247@gmail.com"><img src="../assets/icons/mail-01.svg" alt="" aria-hidden="true">Contact</a>`;
+  controls.innerHTML = `<button type="button" data-presentation-prev aria-label="Previous slide">←</button><div class="hero-progress"><span></span></div><button type="button" data-presentation-next aria-label="Next slide">→</button><span class="hero-hint">Use ← → or click the canvas edges</span><a class="toolbar-button toolbar-prototype" href="https://www.figma.com/proto/lkyBLNn8aDnai9EJADZQ7e/SecureID?node-id=148-4058&viewport=930%2C879%2C0.28&t=troa1yPjmIpvF53z-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=148%3A4058&show-proto-sidebar=1&page-id=41%3A3813"><a class="toolbar-button toolbar-contact" href="mailto:ericforall247@gmail.com"><img src="../assets/icons/mail-01.svg" alt="" aria-hidden="true">Contact</a>`;
 
   const caseStudy = page.dataset.caseStudy;
   const slideLabels = {
