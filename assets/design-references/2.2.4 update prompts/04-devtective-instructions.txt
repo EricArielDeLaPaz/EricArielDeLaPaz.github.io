@@ -122,7 +122,7 @@ back — copy from the first through the final matching `</div>`):
       <p>
         As a certificate capstone, DevTective's deliverable is the research-to-wireframe process
         itself: a documented problem statement, a re-entry-first IA, and wireframes ready for
-        usability testing — the exact workflow I'm now applying on paid internship work.
+        usability testing — the exact workflow I'm now applying on internship work.
       </p>
     </div>
 
