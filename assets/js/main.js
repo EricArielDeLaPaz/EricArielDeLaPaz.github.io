@@ -77,7 +77,7 @@
   });
 
   const heroSlides = [
-    ['HERO', 'Junior Product / UI/UX Designer — Texas, Remote', '', 'Two concurrent remote internships building token-based design systems across web and mobile, while finishing a Bachelor’s in User Experience Design at WGU — expected November 2026.', 'INTRO'],
+    ['HERO', 'Junior Product / UI/UX Designer — Texas, Remote', '', 'Two concurrent remote internships building token-based design systems across web and mobile, while finishing a Bachelor’s in User Experience Design at WGU,  expected November 2026.', 'INTRO'],
     ['ABOUT ME', 'Precise decisions, not just good-looking screens.', '', 'I pair UX research and information architecture with advanced Figma prototyping — grounding every decision in competitive audits, user interviews, and the complaints people actually have.', 'PROFILE'],
     ['EXPERIENCE', 'UI/UX Design Intern — Flyrank AI', '', 'Built a Figma token-based design system that cut visual rework ~60% and sped up global UI updates ~90%. Paired 10+ competitive audits with user interviews to design a fit-confirmation checkpoint and a 7-section information architecture with 3 annotated user flows.', 'WORK · 01'],
     ['EXPERIENCE', 'Product Design Intern — Stealth Startup', '', 'Led a Figma token-based design system from scratch across two mobile apps and a desktop dashboard, as one of ~5 design interns reporting directly to the founder — delivering ~30 new screen designs and cutting demo setup time by 30+ minutes each.', 'WORK · 02'],
