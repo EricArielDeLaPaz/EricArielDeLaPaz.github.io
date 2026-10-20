@@ -81,7 +81,7 @@ back — copy from the first through the final matching `</div>`):
       <h2>Fit anxiety, not selection, was the blocker</h2>
       <p>
         I ran competitive audits across 10+ competitor and industry sources for men's luxury
-        formalwear rental, paired with targeted user interviews. Fit-uncertainty complaints
+        formalwear rental, paired with desk research into customer reviews and industry return-rate data. Fit-uncertainty complaints
         came up repeatedly — renters wanted a second opinion before committing, not more
         product options.
       </p>
@@ -125,7 +125,7 @@ back — copy from the first through the final matching `</div>`):
         semantic palette, and a typographic scale — and linked every style to a shared token
         rather than a one-off value. I also designed the multi-state UI patterns (dropdown
         menus, bottom-sheet overlays, tabbed selectors, collapsible navigation) the flows
-        actually needed, with interaction behavior documented for engineering handoff.
+        actually needed, with interaction behavior documented for engineering handoff. I also consolidated redundant components and styles, cutting the UI element count by over half.
       </p>
       <div class="impact-grid">
         <div class="impact-stat"><div class="n">~60%</div><div class="l">less visual rework after tokens shipped</div></div>
@@ -150,7 +150,7 @@ Replace that entire block with exactly this:
       <h2>Fit anxiety, not selection</h2>
       <p>
         I ran competitive audits across 10+ competitor and industry sources for men's luxury
-        formalwear rental, paired with targeted user interviews. Fit-uncertainty complaints came
+        formalwear rental, paired with desk research into customer reviews and industry return-rate data. Fit-uncertainty complaints came
         up repeatedly — renters wanted a second opinion before committing, not more product
         options. A finished outfit is a coordinated system (jacket, trousers, shirt, tie, shoes,
         and accessories, each with different sizing rules), so Vextaro treats that connected fit
@@ -189,7 +189,7 @@ Replace that entire block with exactly this:
         semantic palette, and a typographic scale — and linked every style to a shared token
         rather than a one-off value, including the multi-state UI patterns (dropdown menus,
         bottom-sheet overlays, tabbed selectors, collapsible navigation) the flows actually
-        needed, with interaction behavior documented for engineering handoff.
+        needed, with interaction behavior documented for engineering handoff. I also consolidated redundant components and styles, cutting the UI element count by over half.
       </p>
       <div class="impact-grid">
         <div class="impact-stat"><div class="n">~60%</div><div class="l">less visual rework after tokens shipped</div></div>
