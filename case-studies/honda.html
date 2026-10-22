@@ -61,6 +61,41 @@
     </div>
 
     <div class="cs-section">
+      <h2>What the audit found</h2>
+      <p class="hc-lede">
+        I walked the full dealership experience across five areas: Navigation, Homepage, Inventory, Vehicle Details and Checkout. I rated every finding by severity, and Navigation produced the most.
+      </p>
+      <div class="hc-grid">
+        <div class="hc-chart">
+          <h3>Findings by severity</h3>
+          <div class="hc-row"><span>Catastrophic</span><div class="hc-bar"><i class="cat" style="width:16.7%"></i></div><b>3</b></div>
+          <div class="hc-row"><span>Major</span><div class="hc-bar"><i class="maj" style="width:27.8%"></i></div><b>5</b></div>
+          <div class="hc-row"><span>Minor</span><div class="hc-bar"><i class="min" style="width:100.0%"></i></div><b>18</b></div>
+          <div class="hc-row"><span>Not severe</span><div class="hc-bar"><i class="not" style="width:27.8%"></i></div><b>5</b></div>
+        </div>
+        <div class="hc-chart">
+          <h3>Heuristics violated</h3>
+          <div class="hc-row"><span>Aesthetic &amp; Minimalist Design</span><div class="hc-bar"><i class="" style="width:100.0%"></i></div><b>15</b></div>
+          <div class="hc-row"><span>Consistency &amp; Standards</span><div class="hc-bar"><i class="" style="width:93.3%"></i></div><b>14</b></div>
+          <div class="hc-row"><span>Match With the Real World</span><div class="hc-bar"><i class="" style="width:20.0%"></i></div><b>3</b></div>
+          <div class="hc-row"><span>Visibility of System Status</span><div class="hc-bar"><i class="" style="width:13.3%"></i></div><b>2</b></div>
+          <div class="hc-row"><span>User Control &amp; Freedom</span><div class="hc-bar"><i class="" style="width:13.3%"></i></div><b>2</b></div>
+          <div class="hc-row"><span>Recognition vs Recall</span><div class="hc-bar"><i class="" style="width:6.7%"></i></div><b>1</b></div>
+          <div class="hc-row"><span>Flexibility &amp; Efficiency</span><div class="hc-bar"><i class="" style="width:6.7%"></i></div><b>1</b></div>
+          <div class="hc-row"><span>Help &amp; Documentation</span><div class="hc-bar"><i class="" style="width:6.7%"></i></div><b>1</b></div>
+          <p class="hc-note">A finding can violate more than one heuristic.</p>
+        </div>
+      </div>
+      <div class="hc-areas">
+        <div class="impact-stat"><div class="n">11</div><div class="l">Navigation</div></div>
+        <div class="impact-stat"><div class="n">7</div><div class="l">Homepage</div></div>
+        <div class="impact-stat"><div class="n">4</div><div class="l">Inventory</div></div>
+        <div class="impact-stat"><div class="n">5</div><div class="l">Vehicle Details</div></div>
+        <div class="impact-stat"><div class="n">4</div><div class="l">Checkout</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
       <h2>From violation to fix</h2>
       <div class="reasoning-chain">
         <div class="chain-step">
@@ -82,6 +117,36 @@
             recommendations read as a prioritized punch list a real team could act on, not a
             flat list of opinions.</span>
         </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>Three catastrophic findings, three fixes</h2>
+      <p class="hc-lede">
+        Three findings were rated catastrophic. Each one pairs the problem with the fix I recommended in the report.
+      </p>
+      <div class="hf-grid">
+        <article class="hf-card">
+          <div class="hf-top"><span class="hf-id">2.5.0 · Homepage</span><span class="hf-badge">Catastrophic</span></div>
+          <h3>Map controls cut off</h3>
+          <p>The embedded map isn't centered, so some map controls are cut off.</p>
+          <p class="hf-heur">Heuristic: User Control &amp; Freedom, Consistency &amp; Standards</p>
+          <div class="hf-fix"><span>Recommended fix</span>Recenter the map so all controls are fully visible in the default view.</div>
+        </article>
+        <article class="hf-card">
+          <div class="hf-top"><span class="hf-id">3.0.0 · Inventory</span><span class="hf-badge">Catastrophic</span></div>
+          <h3>Search bar locks scrolling</h3>
+          <p>Clicking into the search bar makes the page unscrollable, locking the user into the search input until they exit it.</p>
+          <p class="hf-heur">Heuristic: User Control &amp; Freedom</p>
+          <div class="hf-fix"><span>Recommended fix</span>Allow normal page scrolling while search is active, and avoid modal-like behavior unless it is a deliberate full-screen search.</div>
+        </article>
+        <article class="hf-card">
+          <div class="hf-top"><span class="hf-id">5.3.0 · Checkout</span><span class="hf-badge">Catastrophic</span></div>
+          <h3>Accessibility button missing</h3>
+          <p>The accessibility button is not available on the checkout screen, even though it appears on other pages.</p>
+          <p class="hf-heur">Heuristic: Help &amp; Documentation</p>
+          <div class="hf-fix"><span>Recommended fix</span>Keep the accessibility button visible and functional throughout the entire checkout flow.</div>
+        </article>
       </div>
     </div>
 

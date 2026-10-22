@@ -56,55 +56,109 @@
         problems: a verification flow that had to feel calm and trustworthy, and an analyst
         dashboard that had to feel fast and unambiguous, both built on one shared design system.
       </p>
+      <div class="cs-figure-row cols-2">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/verification-face-verified.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/verification-face-verified.png" alt="SecureID face-scan success screen on mobile" loading="lazy"></a><figcaption>The person verifying: one task per screen and a clear success state.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/dashboard-case-queue.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/dashboard-case-queue.png" alt="SecureID analyst dashboard case queue with color-coded status badges" loading="lazy"></a><figcaption>The analyst: a sortable case queue with status at a glance.</figcaption></figure>
+        </div>
     </div>
 
     <div class="cs-section">
-      <h2>From insight to decision</h2>
-      <p>
-        Two decisions mattered most, here's the reasoning behind each.
-      </p>
-      <div class="reasoning-chain">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>From insight to decision</h2>
+          <p>
+            Two decisions mattered most, here's the reasoning behind each. The first was about the person verifying.
+          </p>
+          <div class="reasoning-chain compact">
+                  <div class="chain-step">
+                    <span class="k">I learned</span>
+                    <span class="v">Users dropped their guard the moment they hit a screen that felt uncertain,
+                      unclear what step they were on, or what would happen with their documents.
+                      Anxiety about making a mistake during verification was the dominant emotion in
+                      early research conversations.</span>
+                  </div>
+                  <div class="chain-step">
+                    <span class="k">So I changed</span>
+                    <span class="v">I rebuilt onboarding as single-purpose screens: document capture separated
+                      from biometric confirmation instead of one dense form, with a progress indicator
+                      while scanning, a clear success state, and a confirmation before leaving.</span>
+                  </div>
+                  <div class="chain-step">
+                    <span class="k">Evaluated via</span>
+                    <span class="v">A self-review of the hi-fi screens against the original wireframes,
+                      checking that each screen asks for one thing and shows what happens next.</span>
+                  </div>
+                </div>
+        </div>
+        <div class="cs-split-media">
+        <div class="cs-figure-row flex" style="--h:250px">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/hi-fi%20ID%20type.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/hi-fi%20ID%20type.png" alt="SecureID Choose Your ID Type mobile screen" loading="lazy"></a><figcaption>Choose an ID type.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/verification-face-verified.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/verification-face-verified.png" alt="SecureID face scan success mobile screen" loading="lazy"></a><figcaption>A clear success state.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/verification-exit.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/verification-exit.png" alt="SecureID exit confirmation mobile screen" loading="lazy"></a><figcaption>Leaving asks for confirmation.</figcaption></figure>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>Triage, not a flat list</h2>
+          <p>
+            The second decision was about the analyst, who needs to read a queue before opening a case.
+          </p>
+          <div class="reasoning-chain compact">
+                  <div class="chain-step">
+                    <span class="k">I learned</span>
+                    <span class="v">Analysts don't review cases in the order they arrive, they triage by
+                      risk and age first, and a simple top-to-bottom list made that harder, not easier.</span>
+                  </div>
+                  <div class="chain-step">
+                    <span class="k">So I changed</span>
+                    <span class="v">I redesigned the dashboard navigation around filterable, sortable case
+                      queues with status and priority surfaced at a glance, instead of a flat case list,
+                      and mapped a dedicated settings area (notifications, password, email preferences)
+                      so account controls stopped competing with the review workspace.</span>
+                  </div>
+                  <div class="chain-step">
+                    <span class="k">Evaluated via</span>
+                    <span class="v">A self-review against the IA and the color-mapped status system (button
+                      and badge color tied one-to-one to case status) to confirm an analyst could read a
+                      queue's priority without opening a single case.</span>
+                  </div>
+                </div>
+        </div>
+        <div class="cs-split-media">
+        <div class="cs-figure-row cols-1 sm">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/dashboard-case-queue.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/dashboard-case-queue.png" alt="SecureID case queue with sortable columns and status badges" loading="lazy"></a><figcaption>Sortable queue with color-coded status.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/dashboard-settings.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/dashboard-settings.png" alt="SecureID settings screen with account, notification and preference sections" loading="lazy"></a><figcaption>Settings live in their own area, away from the review workspace.</figcaption></figure>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>Fewer choices, faster cases</h2>
+      <div class="reasoning-chain is-row compact">
         <div class="chain-step">
           <span class="k">I learned</span>
-          <span class="v">Users dropped their guard the moment they hit a screen that felt uncertain,
-            unclear what step they were on, or what would happen with their documents.
-            Anxiety about making a mistake during verification was the dominant emotion in
-            early research conversations.</span>
+          <span class="v">My first version of the case-review screen put every possible action in front of the analyst at once, several buttons and controls competing for attention on a single case, which risked overwhelming someone who needed to move through cases quickly, not deliberate over the screen itself.</span>
         </div>
         <div class="chain-step">
           <span class="k">So I changed</span>
-          <span class="v">I rebuilt onboarding around a persistent step indicator and plain-language
-            status copy at every stage ("Reviewing your document now" instead of a spinner),
-            and separated document capture from biometric confirmation into distinct,
-            single-purpose screens instead of one dense form.</span>
+          <span class="v">I cut the primary actions down to three, Reject, Escalate, Approve, and moved everything else (a reason for rejection, a confirmation prompt, a note) into a focused overlay that only appears after one of those three is chosen, instead of sitting on the main screen at all times.</span>
         </div>
         <div class="chain-step">
           <span class="k">Evaluated via</span>
-          <span class="v">Usability walkthroughs of the hi-fi prototype against the original
-            wireframes, checking specifically whether participants could state what step they
-            were on and what happened next without being told.</span>
+          <span class="v">A direct side-by-side of the early low-fidelity screen against the revised dashboard, checking whether the number of decisions an analyst had to make per case dropped without losing any action they actually needed.</span>
         </div>
       </div>
-      <div class="reasoning-chain">
-        <div class="chain-step">
-          <span class="k">I learned</span>
-          <span class="v">Analysts don't review cases in the order they arrive, they triage by
-            risk and age first, and a simple top-to-bottom list made that harder, not easier.</span>
+      <div class="cs-figure-row cols-3 xs">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/lo-fi%20review.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/lo-fi%20review.png" alt="Low-fidelity case review workspace with many controls visible at once" loading="lazy"></a><figcaption>Before: every control visible at once.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/dashboard-case-48291.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/dashboard-case-48291.png" alt="High-fidelity analyst screen for case 48291 with Reject, Escalate and Approve buttons" loading="lazy"></a><figcaption>After: Reject, Escalate, Approve.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/overlays/overlay-confirmation-reject.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/overlays/overlay-confirmation-reject.png" alt="Rejection confirmation overlay" loading="lazy"></a><figcaption>Follow-ups live in overlays.</figcaption></figure>
         </div>
-        <div class="chain-step">
-          <span class="k">So I changed</span>
-          <span class="v">I redesigned the dashboard navigation around filterable, sortable case
-            queues with status and priority surfaced at a glance, instead of a flat case list,
-            and mapped a dedicated settings area (notifications, password, email preferences)
-            so account controls stopped competing with the review workspace.</span>
-        </div>
-        <div class="chain-step">
-          <span class="k">Evaluated via</span>
-          <span class="v">A self-review against the IA and the color-mapped status system (button
-            and badge color tied one-to-one to case status) to confirm an analyst could read a
-            queue's priority without opening a single case.</span>
-        </div>
-      </div>
+      <p class="cs-note">Fewer visible choices per case was a deliberate trade for analyst throughput: less time spent interpreting the screen is less time spent per case, and the overlay pattern keeps that speed without hiding anything an analyst needs.</p>
     </div>
 
     <div class="cs-section">
@@ -118,18 +172,39 @@
     </div>
 
     <div class="cs-section">
-      <h2>One system, two interfaces</h2>
+      <h2>From paper to pixels</h2>
       <p>
-        Instead of designing the user flow and analyst dashboard as separate products, I built
-        both on one shared token system, a neutral base plus accent, success, and error colors
-        in five tints each, so the same visual language reads as calm to a verifying user and
-        fast to a scanning analyst.
+        The verification flow moved through three fidelities: paper sketches to find the structure, low-fidelity wireframes to settle the screens, then high-fidelity screens built on the shared token system.
       </p>
-      <ul>
-        <li>Five-stop color ramps (100 → 900) for accent, positive, and negative feedback</li>
-        <li>Status color mapped consistently to meaning across every button, badge, and banner</li>
-        <li>One shared type and spacing scale across both interfaces</li>
-      </ul>
+      <div class="cs-figure-row flex" style="--h:300px">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/paper-id-type.jpg" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/paper-id-type.jpg" alt="Paper sketch of the Choose Your ID Type screen" loading="lazy"></a><figcaption>Paper sketch.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/lo-fi%20ID%20type.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/lo-fi%20ID%20type.png" alt="Low-fidelity Choose Your ID Type screen" loading="lazy"></a><figcaption>Low-fidelity wireframe.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/hi-fi%20ID%20type.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/hi-fi%20ID%20type.png" alt="High-fidelity Choose Your ID Type screen" loading="lazy"></a><figcaption>High-fidelity screen.</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>One system, two interfaces</h2>
+                <p>
+                  Instead of designing the user flow and analyst dashboard as separate products, I built
+                  both on one shared token system, a neutral base plus accent, success, and error colors
+                  in five tints each, so the same visual language reads as calm to a verifying user and
+                  fast to a scanning analyst.
+                </p>
+                <ul>
+                  <li>Five-stop color ramps (100 → 900) for accent, positive, and negative feedback</li>
+                  <li>Status color mapped consistently to meaning across every button, badge, and banner</li>
+                  <li>One shared type and spacing scale across both interfaces</li>
+                </ul>
+        </div>
+        <div class="cs-split-media">
+          <div class="cs-figure-row cols-1">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/hifi-overview.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/hifi-overview.png" alt="Overview of all SecureID high-fidelity screens, user flow and analyst dashboard" loading="lazy"></a><figcaption>Every high-fidelity screen, user flow and analyst dashboard, on one system.</figcaption></figure>
+        </div>
+        </div>
+      </div>
     </div>
 
     <div class="cs-section">

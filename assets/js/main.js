@@ -195,16 +195,17 @@
 
   const caseStudy = page.dataset.caseStudy;
   const slideLabels = {
-    SecureID: ['SecureID', 'Defining', 'Research & Decisions', 'Personas', 'System Design', 'Impact & Outcome'],
-    'Honda of Clear Lake': ['Honda of Clear Lake', 'Overview', 'Navigation & Accessibility', 'Product Clarity'],
-    DevTective: ['DevTective', 'Overview', 'Empathizing', 'Design System'],
-    Vextaro: ['Vextaro', 'Overview', 'The Problem', 'Design System', "What's Next"],
+    SecureID: ['SecureID', 'Defining', 'Calm Verification', 'Analyst Triage', 'Analyst Pivot', 'Personas', 'Paper to Pixels', 'System Design', 'Impact & Outcome'],
+    'Honda of Clear Lake': ['Honda of Clear Lake', 'The Problem', 'What We Found', 'From Violation to Fix', 'Catastrophic Findings', 'Fix List'],
+    DevTective: ['DevTective', 'Momentum', 'Three Learners', 'Re-entry Design', 'The Screens', 'Design System', 'Capstone Scope'],
+    Vextaro: ['Vextaro', 'Fit Anxiety', 'Marcus & Journey', 'The Checkpoint', 'Flows & Screens', 'System Design', "What's Next"],
   };
   const labels = slideLabels[caseStudy] || ['Overview', ...(note ? ['Context'] : []), ...[...body.querySelectorAll('.cs-section h2')].map((heading) => heading.textContent.trim())];
   const coverAssets = {
     SecureID: '../assets/images/secureid.png',
     'Honda of Clear Lake': '../assets/images/honda.png',
     DevTective: '../assets/images/devtective.png',
+    Vextaro: '../assets/images/vextaro.png',
   };
   let current = 0;
   slides.forEach((slide, index) => {

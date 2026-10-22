@@ -604,3 +604,65 @@ footer .copyright{ font-size:12.5px; color:var(--text-faint); }
   .workspace-file[data-page="hero"].is-visible .hero-internships{ grid-column:1; grid-row:2; min-width:0; padding-top:30px; }
   .workspace-file[data-page="hero"].is-visible .hero-folders{ grid-column:2; grid-row:2; grid-template-columns:1fr; max-width:none; padding:92px 36px 30px 0; }
 }
+
+/* Case-study visuals: figures, split layouts, and the Honda charts/cards */
+.cs-section figure{ margin:0; min-width:0; }
+.cs-section figure img{ display:block; width:100%; height:auto; max-height:280px; object-fit:contain; background:#171512; border:1px solid var(--border); border-radius:var(--radius-sm); }
+.cs-section figcaption{ margin-top:8px; font:12px/1.45 'Raleway',sans-serif; color:var(--text-faint); }
+.cs-section a.cs-zoom{ display:block; cursor:zoom-in; }
+.cs-figure-row{ display:grid; gap:14px; margin:18px 0 6px; align-items:start; }
+.cs-figure-row.cols-1{ grid-template-columns:minmax(0,1fr); }
+.cs-figure-row.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+.cs-figure-row.cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+.cs-figure-row.sm img{ max-height:200px; }
+.cs-figure-row.xs img{ max-height:150px; }
+.cs-section p.cs-note{ margin:10px 0 0; font:14px/1.5 'Raleway',sans-serif; color:var(--text-dim); }
+.cs-figure-row.flex{ display:flex; flex-wrap:nowrap; justify-content:center; gap:14px; }
+.cs-figure-row.flex figure{ flex:0 1 auto; }
+.cs-figure-row.flex a.cs-zoom{ display:inline-block; }
+.cs-figure-row.flex img{ width:auto; max-width:100%; max-height:var(--h,300px); }
+.cs-section.case-study-slide > *{ flex-shrink:0; }
+.cs-split{ display:grid; grid-template-columns:minmax(0,var(--split,1.6fr)) minmax(0,1fr); gap:28px; align-items:start; }
+.cs-split .cs-figure-row{ margin-top:0; }
+.cs-split .cs-figure-row.flex{ justify-content:flex-start; }
+.cs-split-media > .cs-figure-row + .cs-figure-row{ margin-top:14px; }
+.reasoning-chain.compact .chain-step{ padding:12px 16px; }
+.reasoning-chain.compact .chain-step .k{ font-size:10px; }
+.reasoning-chain.compact .chain-step .v{ font-size:13.5px; line-height:1.5; }
+.reasoning-chain.is-row{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.reasoning-chain.is-row .chain-step{ grid-template-columns:minmax(0,1fr); gap:8px; }
+.reasoning-chain.is-row .chain-step + .chain-step{ border-top:0; border-left:1px solid var(--border-soft); }
+.hc-lede{ max-width:none; }
+.hc-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px; margin-top:16px; }
+.hc-chart h3{ margin:0 0 10px; font:600 11px/1.3 'Raleway',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--text-faint); }
+.hc-row{ display:grid; grid-template-columns:150px minmax(0,1fr) 26px; gap:10px; align-items:center; margin-bottom:8px; font:13px/1.3 'Raleway',sans-serif; color:var(--text-dim); }
+.hc-row b{ font-weight:600; color:var(--text); text-align:right; }
+.hc-bar{ height:12px; background:#1b1b1b; border-radius:2px; overflow:hidden; }
+.hc-bar i{ display:block; height:100%; background:var(--accent,#c9a84c); }
+.hc-bar i.cat{ background:#c4574b; }
+.hc-bar i.maj{ background:#d9873a; }
+.hc-bar i.min{ background:#c9a84c; }
+.hc-bar i.not{ background:#6f8f6b; }
+.hc-note{ margin:6px 0 0; font:12px/1.45 'Raleway',sans-serif; color:var(--text-faint); }
+.hc-areas{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin-top:18px; }
+.hc-areas .impact-stat{ padding:12px; }
+.hf-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:16px; }
+.hf-card{ display:flex; flex-direction:column; gap:8px; padding:16px; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--card); }
+.hf-top{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.hf-id{ font:600 12px 'Raleway',sans-serif; letter-spacing:.08em; color:var(--accent,#c9a84c); }
+.hf-badge{ padding:2px 8px; border-radius:999px; background:#c4574b; color:#140b0a; font:700 10px 'Raleway',sans-serif; letter-spacing:.06em; text-transform:uppercase; }
+.hf-card h3{ margin:0; font:600 17px/1.25 'EB Garamond',serif; color:var(--text); }
+.hf-card p{ margin:0; font:13px/1.5 'Raleway',sans-serif; color:var(--text-dim); }
+.hf-card .hf-heur{ font-size:12px; color:var(--text-faint); }
+.hf-fix{ margin-top:auto; padding:10px 12px; border-left:3px solid var(--accent,#c9a84c); background:#151515; font:13px/1.5 'Raleway',sans-serif; color:var(--text); }
+.hf-fix span{ display:block; margin-bottom:2px; font:700 10px 'Raleway',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--accent,#c9a84c); }
+@media(max-width:700px){
+  .cs-split,.hc-grid,.hf-grid,.reasoning-chain.is-row{ grid-template-columns:minmax(0,1fr); }
+  .reasoning-chain.is-row .chain-step + .chain-step{ border-left:0; border-top:1px solid var(--border-soft); }
+  .cs-figure-row.cols-2,.cs-figure-row.cols-3{ grid-template-columns:minmax(0,1fr); }
+  .cs-figure-row.flex{ flex-wrap:wrap; }
+  .cs-section figure img,.cs-figure-row.sm img{ max-height:none; }
+  .cs-figure-row.flex img{ max-height:var(--h,300px); }
+  .hc-areas{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .hc-row{ grid-template-columns:110px minmax(0,1fr) 26px; }
+}
