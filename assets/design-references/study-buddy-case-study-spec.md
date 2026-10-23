@@ -1,0 +1,328 @@
+# Study Buddy case study: build spec
+
+Repo: `EricArielDeLaPaz/EricArielDeLaPaz.github.io`. This spec adds a new case study, **Study Buddy**, to Current Works, a card for it on the Current Works page, and one new slide in the Hero deck about how Eric works with AI. It was test-built against the live code: all 9 case-study slides fit at 1440x900 with no inner scrolling.
+
+## Ground rules
+
+- Every HTML or code block below is the **final, exact text**. Use it verbatim.
+- Do not change anything that is not listed here.
+- Never invent facts, numbers or claims. Never use em dashes in new site copy (use commas).
+- Do not change the copy to say the app detects distracting apps, syncs to a phone, or was tested with other students. None of that is true yet.
+- Apostrophes inside single-quoted JS strings must be escaped (`\'`). One unescaped apostrophe breaks the whole site.
+- Credit wording: Eric articulated each change in plain language to Gemini, which structured it into prompts, and Gemini 4 Argon generated the code. Eric designed in Figma and reviewed every round. Keep that framing.
+
+## Files that change
+
+1. `assets/js/main.js` (three small edits)
+2. `assets/css/style.css` (one line)
+3. `index.html` (a card and two counters)
+4. `case-studies/study-buddy.html` (new file)
+
+## Images (Eric commits these before the code goes live)
+
+Folder: `assets/images/case-studies/study-buddy/` (12 files), plus the cover `assets/images/study-buddy.png` (708x354, same size as the other covers).
+
+| File | What it is |
+|---|---|
+| `figma-session.png` | Figma frame "Desktop / 1 Study session" (node 37:60) |
+| `figma-buddy-studio.png` | Figma frame "Desktop / 8 Buddy Studio" (node 41:636) |
+| `figma-overlay-hydration.png` | Figma frame "overlay_hydration" (node 61:778) |
+| `app-overlay-hydration.png` | Built app, hydration break overlay (dark theme) |
+| `app-overlay-intervention.png` | Built app, distraction nudge overlay (dark theme) |
+| `app-session-dark.png` | Built app, Session screen, dark theme |
+| `app-session-light.png` | Built app, Session screen, light theme |
+| `app-reminders.png` | Built app, Reminders screen |
+| `app-schedule.png` | Built app, Schedule screen |
+| `app-app-rules.png` | Built app, App rules screen |
+| `app-buddy-studio.png` | Built app, Buddy Studio screen |
+| `app-progress.png` | Built app, Progress screen (sample data) |
+
+If any image is missing, list it and leave the `<img>` as written. Do not change file names.
+
+## 1. main.js
+
+**1a.** In `slideLabels`, insert this line directly above the `Vextaro:` line. The label count must equal 1 (the cover) plus the number of `.cs-section` blocks, which is 9 for this page.
+
+
+```js
+    'Study Buddy': ['Study Buddy', 'The Problem', 'Designed First', 'Frame to Build', 'Working With AI', 'Human Review', 'The App', 'Companion & Progress', 'Next Steps'],
+```
+
+
+**1b.** In `coverAssets`, insert this line directly below the `Vextaro:` line:
+
+```js
+    'Study Buddy': '../assets/images/study-buddy.png',
+```
+
+**1c.** In `heroSlides`, insert this array directly after the `'ABOUT ME'` slide and before the `'EXPERIENCE'` slide for Flyrank AI:
+
+
+```js
+    ['AI WORKFLOW', 'Fast, with a human in the loop.', '', 'I use AI to move quickly and I stay accountable for what ships. Study Buddy, my desktop focus app, went from first commit to v3.2.1 in about 30 hours. I designed it in Figma, directed the AI through staged change lists, and reviewed every round against my designs, cutting features, fixing contrast failures and changing window behavior along the way.', 'HOW I WORK'],
+```
+
+
+## 2. style.css
+
+In the `:root` block, add this line directly after `--vextaro: #5aa3c9;`:
+
+```css
+  --studybuddy: #a594f9;
+```
+
+## 3. index.html
+
+**3a.** In the Current Works project grid, insert this card as the first card, directly before the DevTective card (`<a class="workspace-card card-devtective"`):
+
+
+```html
+          <a class="workspace-card card-studybuddy" href="case-studies/study-buddy.html" data-case-study="Study Buddy">
+            <div class="card-art"><img src="assets/images/study-buddy.png" alt=""></div>
+            <div class="card-details"><div class="card-title"><div><h2>Study Buddy — Desktop Focus Companion</h2></div><b>···</b></div><strong class="card-role">Product Designer · AI-assisted build</strong><p class="card-problem"><b>Problem:</b> Hard-stop timers and notification blockers break study flow, and breaks get skipped.</p><div class="card-tags"><span>App</span><span>AI-assisted</span><span>Design Systems</span></div><p>Designed a floating desktop companion in Figma, then built it by directing AI through staged change lists and reviewing every round.</p></div>
+          </a>
+```
+
+
+**3b.** In the Current Works heading, change `<span class="file-count">2 files</span>` to `3 files`. It is the span directly before `aria-label="Current Works view"`. Do not change the Previous Works count.
+
+**3c.** Change `<strong>Current Works</strong><small>2 case studies</small>` to `<strong>Current Works</strong><small>3 case studies</small>`. Do not change the Previous Works count.
+
+## 4. New file: case-studies/study-buddy.html
+
+Create this file exactly as written. It reuses the structure of `vextaro.html`: the same toolbar, side rail, hero, sections and footer, with the Study Buddy accent.
+
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Buddy — Desktop Focus Companion · Eric Ariel De La Paz</title>
+<meta name="description" content="A desktop focus companion designed in Figma and built by directing AI through staged change lists, with human review at every round.">
+<link rel="icon" type="image/png" href="../assets/images/profile.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{ --accent:var(--studybuddy); }</style>
+</head>
+<body class="case-study-page" data-case-study="Study Buddy" data-accent="studybuddy">
+
+<div class="workspace-toolbar">
+  <div class="file-identity"><strong>DE LA PAZ</strong><span class="toolbar-divider"></span><span>Study Buddy — Case Study</span><small>Current Works / Study Buddy</small></div>
+  <div class="toolbar-actions"><a class="toolbar-button" href="../index.html#current">Back to Current Works</a> </div>
+</div>
+<div class="workspace-shell">
+  <aside class="workspace-rail" aria-label="Portfolio files">
+    <div class="rail-profile"><img src="../assets/images/profile.png" alt=""><div><strong>Eric Ariel De La Paz</strong><small>UX · Product designer</small></div></div>
+    <nav>
+      <a href="../index.html#hero"><span><img src="../assets/icons/home-01.svg" alt="" aria-hidden="true"></span>Hero</a>
+      <a href="../index.html#previous"><span><img src="../assets/icons/folder-closed.svg" alt="" aria-hidden="true"></span>Previous Works</a>
+      <a href="../index.html#current" class="is-active"><span><img src="../assets/icons/briefcase-01.svg" alt="" aria-hidden="true"></span>Current Works</a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><span><img src="../assets/icons/link-01.svg" alt="" aria-hidden="true"></span>LinkedIn</a>
+      <a href="../assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener"><span><img src="../assets/icons/file-01.svg" alt="" aria-hidden="true"></span>Resume</a>
+    </nav>
+    <div class="rail-footer"><span class="status-dot"></span><span>Open to work</span></div>
+  </aside>
+
+<main class="workspace-main" id="workspace-main">
+  <section class="cs-hero container">
+    <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Selected work</a> / Study Buddy</div>
+    <h1>Study Buddy</h1>
+    <p class="tagline">
+      Study Buddy is a desktop focus companion. A small mascot, Mambo, runs your study sessions and asks
+      for breaks with friendly overlays instead of locking your screen. I designed it in Figma, then built it by
+      articulating each change in plain language to Gemini and directing Gemini 4 Argon to generate the code,
+      reviewing every round myself.
+    </p>
+    <div class="cs-badge-row"><span>Self-initiated</span><span>AI-assisted build</span></div>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Product designer, AI-assisted builder</dd></div>
+      <div><dt>Status</dt><dd>In progress, rolling updates</dd></div>
+      <div><dt>Platform</dt><dd>Desktop first, mobile next</dd></div>
+      <div><dt>Tools</dt><dd>Figma, Gemini, Gemini 4 Argon, Electron, React</dd></div>
+    </dl>
+  </section>
+
+  <section class="cs-body container">
+    <div class="cs-section">
+      <h2>Focus without lockouts</h2>
+      <p>
+        Study tools tend to fight you. Hard-stop timers cut off a train of thought, blockers feel like
+        punishment, and static reminders are easy to dismiss on autopilot. Study Buddy takes a gentler
+        route: a small mascot named Mambo runs the session and asks for breaks with friendly overlays
+        that never lock the screen.
+      </p>
+      <div class="reasoning-chain compact">
+        <div class="chain-step">
+          <span class="k">I noticed</span>
+          <span class="v">In my own study sessions, a timer that cut me off made me anxious about the timer instead of the work. I skipped water and breaks for hours, and opening Discord "for a second" often took the evening.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I designed</span>
+          <span class="v">An ambient companion that floats over the workspace, postpones a break with one tap (+30s, +1m, +5m) instead of a hard stop, and tucks itself away when you need the full screen.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Daily use by me, the first user. I have not tested with other students yet, and that is the first thing I plan to do next.</span>
+        </div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <h2>Designed in Figma first</h2>
+      <p>
+        Before any code, I designed the desktop experience in Figma: the session, reminders, schedule,
+        app rules, progress and buddy screens, the break overlays, and the Mambo widget with animation
+        slots. Light and dark themes run on shared tokens, with Fredoka for the mascot's voice and timers
+        and DM Sans for the interface.
+      </p>
+      <div class="cs-figure-row cols-2">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-session.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-session.png" alt="Figma design of the Study Buddy session screen" loading="lazy"></a><figcaption>Figma: the session screen, with presets, a study goal and the Mambo preview.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-buddy-studio.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-buddy-studio.png" alt="Figma design of the Buddy Studio screen with presets and animation slots" loading="lazy"></a><figcaption>Figma: Buddy Studio, where each animation is linked to a session, reminder or alert.</figcaption></figure>
+        </div>
+    </div>
+    <div class="cs-section">
+      <h2>From frame to working overlay</h2>
+      <p>
+        The break overlay is the heart of the product: a calm card over your work, with a small plus to
+        postpone. The Figma frame had a placeholder for the character. The built version plays Mambo's
+        states, and a gentler nudge appears for a distracting site.
+      </p>
+      <div class="cs-figure-row cols-3">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" alt="Figma frame of the hydration break overlay with a placeholder character" loading="lazy"></a><figcaption>Design: hydration break in Figma.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" alt="Built hydration break overlay with the Mambo character" loading="lazy"></a><figcaption>Built: the same break with Mambo.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" alt="Built distraction nudge overlay asking whether to keep or close Discord" loading="lazy"></a><figcaption>Built: the nudge. For now it is triggered from a developer control.</figcaption></figure>
+        </div>
+    </div>
+    <div class="cs-section">
+      <h2>Working with AI, on purpose</h2>
+      <p>
+        I built Study Buddy by directing AI, and I kept the product decisions. Each round followed the same loop.
+      </p>
+      <div class="reasoning-chain is-row compact">
+        <div class="chain-step">
+          <span class="k">I designed</span>
+          <span class="v">Frames, tokens and reference screenshots in Figma. Every round started by comparing the running app to those frames.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">I directed</span>
+          <span class="v">I wrote each change in plain language, and Gemini turned it into a structured prompt. Gemini 4 Argon generated the Electron, React and TypeScript code.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">I reviewed</span>
+          <span class="v">I ran the app, clicked through every screen, and wrote the next change list. My saved transcripts show 10 rounds for stages 9 to 18.</span>
+        </div>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">~30 hrs</div><div class="l">first commit to v3.2.1</div></div>
+        <div class="impact-stat"><div class="n">21</div><div class="l">commits</div></div>
+        <div class="impact-stat"><div class="n">~11k</div><div class="l">lines of TypeScript and React</div></div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-split" style="--split:1.25fr">
+        <div class="cs-split-text">
+          <h2>Where human review changed the product</h2>
+          <ul>
+            <li>Cut features that added clutter: the Messages tab, a focus-timer pill and the strict-blocking options.</li>
+            <li>Made the window behave like a normal app: resizable, no fullscreen, and closing tucks it into Mambo.</li>
+            <li>Found low-contrast text in light mode, such as buttons, tags and pills, then asked for WCAG AA contrast and sent targeted fixes. A formal audit is still to do.</li>
+            <li>Replaced a mix of blue and purple with one purple palette, and added hover states to every desktop button.</li>
+            <li>Added a confirmation dialog before deleting an account, clearing the notepad, deleting a reminder or signing out.</li>
+            <li>Removed a cloud-sync card and an "iPhone connected" row from settings because they did not work yet.</li>
+          </ul>
+        </div>
+        <div class="cs-split-media">
+          <div class="cs-figure-row cols-1 sm">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-session-dark.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-session-dark.png" alt="Study Buddy session screen in dark theme" loading="lazy"></a><figcaption>Dark theme.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-session-light.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-session-light.png" alt="Study Buddy session screen in light theme" loading="lazy"></a><figcaption>Light theme, after the contrast pass.</figcaption></figure>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <h2>The desktop app</h2>
+      <p>
+        Reminders you can edit, a schedule that wakes Mambo only during study blocks, and app rules that
+        define which sites and apps should trigger a nudge. Automatic detection of those apps is the next build.
+      </p>
+      <div class="cs-figure-row cols-3">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-reminders.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-reminders.png" alt="Reminders screen with editable reminder cards" loading="lazy"></a><figcaption>Reminders.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-schedule.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-schedule.png" alt="Schedule screen with study time blocks" loading="lazy"></a><figcaption>Schedule.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-app-rules.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-app-rules.png" alt="App rules screen listing apps and sites that trigger a nudge" loading="lazy"></a><figcaption>App rules.</figcaption></figure>
+        </div>
+    </div>
+    <div class="cs-section">
+      <h2>Companions and progress</h2>
+      <p>
+        Mambo is the starting companion. Levels unlock more, and each companion's animations can be linked to a
+        reminder, a session or an alert. The progress screen tracks focus hours, streaks and level.
+      </p>
+      <div class="cs-figure-row cols-2">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-buddy-studio.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-buddy-studio.png" alt="Buddy Studio screen with companions and animation slots" loading="lazy"></a><figcaption>Buddy Studio.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-progress.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-progress.png" alt="Progress screen with focus hours, streak and companion level" loading="lazy"></a><figcaption>Progress. Numbers shown are sample data.</figcaption></figure>
+        </div>
+    </div>
+    <div class="cs-section">
+      <h2>What's next</h2>
+      <p>
+        Study Buddy is in a rolling-update stage and the desktop app comes first.
+      </p>
+      <ul>
+        <li><strong>Test with students.</strong> This is the biggest gap and the first thing I plan to do.</li>
+        <li><strong>Real app detection.</strong> The nudge overlay works, but it is triggered from a developer control today.</li>
+        <li><strong>Mobile app, accounts and sync.</strong> Planned, not built. Notes and stats stay on the computer for now.</li>
+        <li><strong>A formal accessibility check</strong> of both themes.</li>
+      </ul>
+      <p>
+        <a href="https://github.com/EricArielDeLaPaz/study-buddy-desktop" target="_blank" rel="noopener">View the code on GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="https://lnkd.in/p/gGzFaVaE" target="_blank" rel="noopener">Watch the overlay demo on LinkedIn</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cs-nav-footer">
+      <a href="vextaro.html">← Vextaro</a>
+      <a href="../index.html#work">Back to all work →</a>
+    </div>
+  </div>
+</main>
+</div>
+
+<footer class="container" style="margin-top:40px;">
+  <div class="foot-row">
+    <div class="foot-links">
+      <a href="mailto:ericforall247@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <span class="copyright">© 2026 Eric Ariel De La Paz</span>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
+```
+
+
+## Do not change
+
+- The Hero deck slides other than the one new slide, the homepage layout, other case studies and other pages.
+- Do not add a "Messages" or "sync" claim, and do not change the sample-data caption under the progress screenshot.
+
+## Verification checklist
+
+1. `slideLabels['Study Buddy']` has 9 labels and the page has 8 `.cs-section` blocks plus the cover.
+2. The new page loads at `/case-studies/study-buddy.html`, all 9 slides show, none scrolls inside itself at 1440x900, and every image loads.
+3. The Current Works page shows 3 cards with Study Buddy first, and both counters say 3.
+4. The Hero deck has one new "AI WORKFLOW" slide after "ABOUT ME" and the rail shows it.
+5. Browser console shows no JavaScript errors.
+6. No em dashes in the new body copy. The only exceptions are the page title, toolbar label and card title ("Study Buddy — ..."), which copy the existing pattern used by the other case studies. Keep them as written.
+
+## Notes for Eric
+
+- On short laptop screens (about 720 px tall), slide 6 ("Where human review changed the product") scrolls inside itself. At 900 px tall it fits.
+- The Notepad in the app still shows "Cloud Synced" and "iPhone synced" labels while sync is not built. No notepad screenshots are used on the site. Hide or remove those labels in the app before you show the notepad anywhere.
+- The progress screenshot shows sample numbers, and it is captioned that way.
+- "In my own study sessions..." on slide 2 is written as your first-hand observation. Edit it if it is not accurate.
