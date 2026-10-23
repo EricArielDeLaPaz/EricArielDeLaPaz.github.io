@@ -79,6 +79,7 @@
   const heroSlides = [
     ['HERO', 'Junior Product / UI/UX Designer — design systems and research-backed flows', '', 'Based in Texas and open to work, I build token-based Figma design systems and research-grounded user flows for smoother design-to-engineering handoff, with AI tools like Claude in my workflow. Two concurrent internships now; B.S. in User Experience Design at WGU, expected end of November 2026.', 'INTRO'],
     ['ABOUT ME', 'Precise decisions, not just good-looking screens.', '', 'I pair UX research and information architecture with advanced Figma prototyping, grounding every decision in competitive audits, desk research, and the complaints people actually have.', 'PROFILE'],
+    ['AI WORKFLOW', 'Fast, with a human in the loop.', '', 'I use AI to move quickly and I stay accountable for what ships. Study Buddy, my desktop focus app, went from first commit to v3.2.1 in about 30 hours. I designed it in Figma, directed the AI through staged change lists, and reviewed every round against my designs, cutting features, fixing contrast failures and changing window behavior along the way.', 'HOW I WORK'],
     ['EXPERIENCE', 'UI/UX Design Intern — Flyrank AI', '', 'Built a Figma token-based design system that cut visual rework ~60% and sped up global UI updates ~90%, and consolidated redundant components and styles to cut the UI element count by over half. Paired 10+ competitive audits with desk research to design a fit-confirmation checkpoint and a 7-section information architecture with 3 annotated user flows.', 'WORK · 01'],
     ['EXPERIENCE', 'Product Design Intern — Stealth Startup', '', 'Led a Figma token-based design system from scratch for a product that had none, across two mobile apps and a desktop dashboard, as one of ~5 design interns reporting directly to the founder. Built interactive prototypes for engineering handoff, delivered ~30 new screens, and cut demo setup by 30+ minutes each. Under NDA; company details confidential.', 'WORK · 02'],
     ['LEADERSHIP', 'Mentoring the next wave of design interns', '', 'Mentored 2-3 design interns per session, 1:1 and in small groups, and led monthly workshops on responsive design and advanced Figma prototyping, including how to use Figma variables inside interactive prototypes.', 'MENTORSHIP'],
@@ -198,6 +199,7 @@
     SecureID: ['SecureID', 'Defining', 'Calm Verification', 'Analyst Triage', 'Analyst Pivot', 'Personas', 'Paper to Pixels', 'System Design', 'Impact & Outcome'],
     'Honda of Clear Lake': ['Honda of Clear Lake', 'The Problem', 'What We Found', 'From Violation to Fix', 'Catastrophic Findings', 'Fix List'],
     DevTective: ['DevTective', 'Momentum', 'Three Learners', 'Re-entry Design', 'The Screens', 'Design System', 'Capstone Scope'],
+    'Study Buddy': ['Study Buddy', 'The Problem', 'Designed First', 'Frame to Build', 'Working With AI', 'Human Review', 'The App', 'Companion & Progress', 'Next Steps'],
     Vextaro: ['Vextaro', 'Fit Anxiety', 'Marcus & Journey', 'The Checkpoint', 'Flows & Screens', 'System Design', "What's Next"],
   };
   const labels = slideLabels[caseStudy] || ['Overview', ...(note ? ['Context'] : []), ...[...body.querySelectorAll('.cs-section h2')].map((heading) => heading.textContent.trim())];
@@ -206,6 +208,7 @@
     'Honda of Clear Lake': '../assets/images/honda.png',
     DevTective: '../assets/images/devtective.png',
     Vextaro: '../assets/images/vextaro.png',
+    'Study Buddy': '../assets/images/study-buddy.png',
   };
   let current = 0;
   slides.forEach((slide, index) => {
