@@ -79,7 +79,7 @@ In the `:root` block, add this line directly after `--vextaro: #5aa3c9;`:
 ```html
           <a class="workspace-card card-studybuddy" href="case-studies/study-buddy.html" data-case-study="Study Buddy">
             <div class="card-art"><img src="assets/images/study-buddy.png" alt=""></div>
-            <div class="card-details"><div class="card-title"><div><h2>Study Buddy — Desktop Focus Companion</h2></div><b>···</b></div><strong class="card-role">Product Designer · AI-assisted build</strong><p class="card-problem"><b>Problem:</b> Hard-stop timers and notification blockers break study flow, and breaks get skipped.</p><div class="card-tags"><span>App</span><span>AI-assisted</span><span>Design Systems</span></div><p>Designed a floating desktop companion in Figma, then built it by directing AI through staged change lists and reviewing every round.</p></div>
+            <div class="card-details"><div class="card-title"><div><h2>Study Buddy — Desktop Focus Companion</h2></div><b>···</b></div><strong class="card-role">Product Designer · AI-assisted build</strong><p class="card-problem"><b>Problem:</b> Studying without structure: it is easy to drift to other sites, and breaks and water get forgotten.</p><div class="card-tags"><span>App</span><span>AI-assisted</span><span>Design Systems</span></div><p>Designed a floating desktop companion in Figma, then built it by directing AI through staged change lists and reviewing every round.</p></div>
           </a>
 ```
 
@@ -145,21 +145,21 @@ Create this file exactly as written. It reuses the structure of `vextaro.html`: 
 
   <section class="cs-body container">
     <div class="cs-section">
-      <h2>Focus without lockouts</h2>
+      <h2>Structure without the pressure</h2>
       <p>
-        Study tools tend to fight you. Hard-stop timers cut off a train of thought, blockers feel like
-        punishment, and static reminders are easy to dismiss on autopilot. Study Buddy takes a gentler
-        route: a small mascot named Mambo runs the session and asks for breaks with friendly overlays
-        that never lock the screen.
+        Studying well takes structure: timers for focus and breaks, reminders to drink water, and
+        blockers that point you back to the task. Study Buddy brings all of that together, with a small
+        mascot named Mambo to gamify the session and make it feel less pressured. The timers, reminders,
+        blockers and task times are all still there, and Mambo delivers them in a friendlier way.
       </p>
       <div class="reasoning-chain compact">
         <div class="chain-step">
           <span class="k">I noticed</span>
-          <span class="v">In my own study sessions, a timer that cut me off made me anxious about the timer instead of the work. I skipped water and breaks for hours, and opening Discord "for a second" often took the evening.</span>
+          <span class="v">In my own study sessions, I struggled to use my time well and stay focused. I would drift off to YouTube instead of studying, so I wanted a desktop and phone app that helps me concentrate and manage my time with timers and reminders, like drinking water.</span>
         </div>
         <div class="chain-step">
           <span class="k">So I designed</span>
-          <span class="v">An ambient companion that floats over the workspace, postpones a break with one tap (+30s, +1m, +5m) instead of a hard stop, and tucks itself away when you need the full screen.</span>
+          <span class="v">An ambient companion that floats over the workspace with timers, reminders and nudges, gamified through Mambo and levels. A break can be postponed with one tap (+30s, +1m, +5m), and the window tucks away when you need the full screen.</span>
         </div>
         <div class="chain-step">
           <span class="k">Evaluated via</span>
@@ -190,7 +190,7 @@ Create this file exactly as written. It reuses the structure of `vextaro.html`: 
       <div class="cs-figure-row cols-3">
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" alt="Figma frame of the hydration break overlay with a placeholder character" loading="lazy"></a><figcaption>Design: hydration break in Figma.</figcaption></figure>
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" alt="Built hydration break overlay with the Mambo character" loading="lazy"></a><figcaption>Built: the same break with Mambo.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" alt="Built distraction nudge overlay asking whether to keep or close Discord" loading="lazy"></a><figcaption>Built: the nudge. For now it is triggered from a developer control.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" alt="Built distraction nudge overlay asking whether to keep or close a distracting app" loading="lazy"></a><figcaption>Built: the nudge. For now it is triggered from a developer control.</figcaption></figure>
         </div>
     </div>
     <div class="cs-section">
@@ -223,7 +223,7 @@ Create this file exactly as written. It reuses the structure of `vextaro.html`: 
         <div class="cs-split-text">
           <h2>Where human review changed the product</h2>
           <ul>
-            <li>Cut features that added clutter: the Messages tab, a focus-timer pill and the strict-blocking options.</li>
+            <li>Cut features that added clutter: the Messages tab and a focus-timer pill.</li>
             <li>Made the window behave like a normal app: resizable, no fullscreen, and closing tucks it into Mambo.</li>
             <li>Found low-contrast text in light mode, such as buttons, tags and pills, then asked for WCAG AA contrast and sent targeted fixes. A formal audit is still to do.</li>
             <li>Replaced a mix of blue and purple with one purple palette, and added hover states to every desktop button.</li>
@@ -325,4 +325,4 @@ Create this file exactly as written. It reuses the structure of `vextaro.html`: 
 - On short laptop screens (about 720 px tall), slide 6 ("Where human review changed the product") scrolls inside itself. At 900 px tall it fits.
 - The Notepad in the app still shows "Cloud Synced" and "iPhone synced" labels while sync is not built. No notepad screenshots are used on the site. Hide or remove those labels in the app before you show the notepad anywhere.
 - The progress screenshot shows sample numbers, and it is captioned that way.
-- "In my own study sessions..." on slide 2 is written as your first-hand observation. Edit it if it is not accurate.
+- Slide 2 now says you drifted to YouTube and wanted timers and reminders on desktop and phone. Edit it if anything is off.
