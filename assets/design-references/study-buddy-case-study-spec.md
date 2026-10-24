@@ -7,7 +7,7 @@ Repo: `EricArielDeLaPaz/EricArielDeLaPaz.github.io`. This spec adds a new case s
 - Every HTML or code block below is the **final, exact text**. Use it verbatim.
 - Do not change anything that is not listed here.
 - Never invent facts, numbers or claims. Never use em dashes in new site copy (use commas).
-- Do not change the copy to say the app detects distracting apps, syncs to a phone, or was tested with other students. None of that is true yet.
+- Do not change the copy to say the app syncs to a phone, starts sessions automatically from a schedule or from opening an app (smart activation), or was tested with other students. None of that is true yet. It is true that the app nudges you when you open a listed app or website during a focus session.
 - Apostrophes inside single-quoted JS strings must be escaped (`\'`). One unescaped apostrophe breaks the whole site.
 - Credit wording: Eric articulated each change in plain language to Gemini, which structured it into prompts, and Gemini 4 Argon generated the code. Eric designed in Figma and reviewed every round. Keep that framing.
 
@@ -190,7 +190,7 @@ Create this file exactly as written. It reuses the structure of `vextaro.html`: 
       <div class="cs-figure-row cols-3">
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" alt="Figma frame of the hydration break overlay with a placeholder character" loading="lazy"></a><figcaption>Design: hydration break in Figma.</figcaption></figure>
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" alt="Built hydration break overlay with the Mambo character" loading="lazy"></a><figcaption>Built: the same break with Mambo.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" alt="Built distraction nudge overlay asking whether to keep or close a distracting app" loading="lazy"></a><figcaption>Built: the nudge. For now it is triggered from a developer control.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" alt="Built distraction nudge overlay asking whether to keep or close a distracting app" loading="lazy"></a><figcaption>Built: the nudge, shown when you open a listed app or site during a focus session.</figcaption></figure>
         </div>
     </div>
     <div class="cs-section">
@@ -242,8 +242,8 @@ Create this file exactly as written. It reuses the structure of `vextaro.html`: 
     <div class="cs-section">
       <h2>The desktop app</h2>
       <p>
-        Reminders you can edit, a schedule that wakes Mambo only during study blocks, and app rules that
-        define which sites and apps should trigger a nudge. Automatic detection of those apps is the next build.
+        Reminders you can edit, a schedule screen for your study blocks, and app rules that nudge you when you
+        open a listed app or site during a focus session. Starting sessions automatically from the schedule is the next build.
       </p>
       <div class="cs-figure-row cols-3">
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-reminders.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-reminders.png" alt="Reminders screen with editable reminder cards" loading="lazy"></a><figcaption>Reminders.</figcaption></figure>
@@ -269,7 +269,7 @@ Create this file exactly as written. It reuses the structure of `vextaro.html`: 
       </p>
       <ul>
         <li><strong>Test with students.</strong> This is the biggest gap and the first thing I plan to do.</li>
-        <li><strong>Real app detection.</strong> The nudge overlay works, but it is triggered from a developer control today.</li>
+        <li><strong>Smart activation.</strong> Opening a study app or site will start Mambo and your usual session automatically. The list is saved today, but it does not start sessions yet.</li>
         <li><strong>Mobile app, accounts and sync.</strong> Planned, not built. Notes and stats stay on the computer for now.</li>
         <li><strong>A formal accessibility check</strong> of both themes.</li>
       </ul>
