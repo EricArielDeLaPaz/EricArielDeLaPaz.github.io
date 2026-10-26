@@ -109,6 +109,10 @@
       heroIndex = (index + heroSlides.length) % heroSlides.length;
       canvas.querySelectorAll('.hero-slide').forEach((slide, i) => slide.classList.toggle('is-active', i === heroIndex));
       thumbs.querySelectorAll('.hero-thumb').forEach((thumb, i) => thumb.classList.toggle('is-active', i === heroIndex));
+      const activeThumb = thumbs.children[heroIndex], railBox = thumbs.closest('.hero-rail');
+      if (activeThumb && railBox && railBox.scrollWidth > railBox.clientWidth) {
+        railBox.scrollTo({ left: railBox.scrollLeft + activeThumb.getBoundingClientRect().left - railBox.getBoundingClientRect().left - 12, behavior: 'smooth' });
+      }
       document.querySelector('.hero-progress span').style.width = `${((heroIndex + 1) / heroSlides.length) * 100}%`;
     }
     document.querySelector('[data-hero-prev]').addEventListener('click', () => showHero(heroIndex - 1));
