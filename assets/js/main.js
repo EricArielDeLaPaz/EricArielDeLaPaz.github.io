@@ -4,7 +4,7 @@
   const main = document.querySelector('#workspace-main');
   if (!main || !document.querySelector('[data-file-title]')) return;
   const files = new Map();
-  const fixedFiles = [['hero', 'Hero', '▣']];
+  const fixedFiles = [['hero', 'Home', '▣']];
   let active = 'hero';
 
   const makeTab = (id, label, icon = '▣', closable = false) => {
@@ -26,8 +26,8 @@
   };
 
   fixedFiles.forEach(([id, label, icon]) => { files.set(id, { id, label }); makeTab(id, label, icon); });
-  files.set('previous', { id: 'previous', label: 'Previous Works' });
-  files.set('current', { id: 'current', label: 'Current Works' });
+  files.set('previous', { id: 'previous', label: 'Earlier Work' });
+  files.set('current', { id: 'current', label: 'Recent Work' });
 
   function openFile(id) {
     active = id;
@@ -77,12 +77,12 @@
   });
 
   const heroSlides = [
-    ['HERO', 'Junior Product Designer | Design Systems, Interaction Design & Advanced Prototyping', '', 'Based in Texas and open to work. I build token-based Figma design systems, high-fidelity interactive prototypes, and clean engineering handoff for web, mobile, and desktop products, and I ship working software with AI tools (Claude, Gemini, GitHub Copilot) while reviewing every iteration against user needs. Two concurrent internships now; B.S. in User Experience Design at WGU, expected November 2026.', 'INTRO'],
-    ['ABOUT ME', 'Precise decisions, not just good-looking screens.', '', 'I pair UX research and information architecture with advanced Figma prototyping, grounding every decision in competitive audits, desk research, and the complaints people actually have.', 'PROFILE'],
-    ['AI WORKFLOW', 'Fast, with a human in the loop.', '', 'I use AI to move quickly and I stay accountable for what ships. Study Buddy, my desktop focus app, took about 14 hours of active build time across 40+ commits, counted from commit timestamps. I designed it in Figma, directed the AI through staged change lists, and reviewed every round against my designs, cutting features, fixing contrast failures and changing window behavior along the way.', 'HOW I WORK'],
+    ['HERO', 'Junior product designer: research to clear flows, design systems, and working prototypes.', '', 'Based in Texas and open to work. I build token-based Figma design systems, high-fidelity interactive prototypes, and clean engineering handoff for web, mobile, and desktop products, and I ship working software with AI tools (Claude, Gemini, GitHub Copilot) while reviewing every iteration against user needs. Two concurrent internships now; B.S. in User Experience Design at WGU, expected November 2026.', 'INTRO'],
     ['EXPERIENCE', 'UI/UX Design Intern | Flyrank AI', '', 'Built a Figma token-based design system that cut visual rework by an estimated ~60% and made global UI updates an estimated ~90% faster, and consolidated redundant components and styles to cut the UI element count by over half. Paired 10+ competitive audits with desk research to design a fit-confirmation checkpoint, plus a 7-section information architecture and 3 annotated user flows.', 'WORK · 01'],
     ['EXPERIENCE', 'Product Design Intern | Stealth Startup', '', 'Led a Figma token-based design system from scratch for a product that had none, across two mobile apps and a desktop dashboard, as one of ~5 design interns reporting to the founder. Built interactive prototypes for engineering handoff, delivered ~30 new and refined screens, and cut demo setup and run time by 30+ minutes per demo, timed against the old process. Mentored 2-3 interns per session and led monthly Figma workshops. Under NDA; company details confidential.', 'WORK · 02'],
-    ['PROJECTS', 'Self-initiated and internship case studies', '', 'Study Buddy, an AI-assisted desktop focus app built in Electron, React, and TypeScript. SecureID, an identity-verification flow and analyst dashboard on one token system. Vextaro, a luxury formalwear rental app from my Flyrank internship. Devtective, a Google UX Certificate capstone. Honda of Clear Lake, a heuristic audit rated on a 0-4 severity scale. Open any of them from Current and Previous Works.', 'CASE STUDIES'],
+    ['ABOUT ME', 'Precise decisions, not just good-looking screens.', '', 'I pair UX research and information architecture with advanced Figma prototyping, grounding every decision in competitive audits, desk research, and the complaints people actually have.', 'PROFILE'],
+    ['AI WORKFLOW', 'Fast, with a human in the loop.', '', 'I use AI to move quickly and I stay accountable for what ships. Study Buddy, my desktop focus app, took about 14 hours of active build time across 40+ commits, counted from commit timestamps. I designed it in Figma, directed the AI through staged change lists, and reviewed every round against my designs, cutting features, fixing contrast failures and changing window behavior along the way.', 'HOW I WORK'],
+    ['PROJECTS', 'Self-initiated and internship case studies', '', 'Study Buddy, an AI-assisted desktop focus app built in Electron, React, and TypeScript. SecureID, an identity-verification flow and analyst dashboard on one token system. Vextaro, a luxury formalwear rental app from my Flyrank internship. Devtective, a Google UX Certificate capstone. Honda of Clear Lake, a heuristic audit rated on a 0-4 severity scale. Open any of them from Recent and Earlier Work.', 'CASE STUDIES'],
     ['EDUCATION', 'B.S. in User Experience Design, WGU', '', 'Expected November 2026, alongside the Google UX Design Professional Certificate (Coursera, expected November 2026). Coursework covers user-centered design, information architecture, wireframing, prototyping, accessibility, usability testing, and research methods, plus marketing and project management.', 'EDUCATION'],
     ['SKILLS + TOOLS', 'Research, systems, and craft', '', 'UX research, usability testing, information architecture, wireframing, prototyping, user flows, design systems, tokens & variables, responsive design, engineering handoff, and WCAG accessibility. I mainly build in Figma, with HTML and CSS, and use AI tools (Claude, Gemini, GitHub Copilot, Granola AI) in my workflow, including AI-assisted React and TypeScript for Study Buddy.', 'CAPABILITIES'],
     ['CONTACT', "Let\'s make something useful.", '', 'Open to junior product designer and UX/UI design roles, with a focus on design systems, interaction design, and AI-assisted work. Outside of design, I like Pokémon and cars. You can always reach me with the Contact button.', 'LINKS'],
