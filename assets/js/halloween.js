@@ -45,6 +45,7 @@
     '.hw-toast.is-on{transform:translate(-50%,0);opacity:1}' +
     '.hw-toast img{width:22px;height:25px;flex:none}' +
     '.hw-toast a{color:#c9a84c;font-weight:600;white-space:nowrap}' +
+    '.workspace-rail nav a.hw-nav span img{filter:none;width:16px;height:18px;opacity:.9}.workspace-rail nav a.hw-nav:hover span img{opacity:1}' +
     '@media (prefers-reduced-motion:reduce){.hw-ghost,.hw-toast{transition:none}.hw-ghost.hw-pop{animation:none}}';
   var style = document.createElement('style');
   style.textContent = css;
@@ -125,6 +126,18 @@
   }
   function slide(n) { return document.querySelectorAll('.case-study-slide')[n - 1]; }
 
+  /* ---------- "Ghost Hunt" link under Resume in the left rail ---------- */
+  function addNav() {
+    var nav = document.querySelector('.workspace-rail nav');
+    if (!nav || nav.querySelector('.hw-nav')) return;
+    var a = document.createElement('a');
+    a.className = 'hw-nav'; a.href = HUNT_URL;
+    var sp = document.createElement('span'), im = document.createElement('img');
+    im.src = GHOST_SRC; im.alt = ''; im.setAttribute('aria-hidden', 'true');
+    sp.appendChild(im); a.appendChild(sp); a.appendChild(document.createTextNode('Ghost Hunt'));
+    nav.appendChild(a);
+  }
+
   /* ---------- where each ghost hides ---------- */
   function place() {
     var b = document.body;
@@ -146,5 +159,6 @@
       behind(document.querySelector('[data-hero-next]'), 'home');                    // ghost 1
     }
   }
+  addNav();
   place();
 })();

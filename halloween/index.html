@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Halloween Ghost Hunt · Eric Ariel De La Paz</title>
+<title>Ghost Hunt · Eric Ariel De La Paz</title>
 <meta name="description" content="Seven little ghosts are hiding around my portfolio. Spoilers inside: this page shows where every one of them is.">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="../assets/images/profile.png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <style>
-  body.hw-page{ display:block; min-height:100vh; height:auto; overflow:auto; background:#0b0b0b; color:#f0ede8; font-family:'Raleway',Inter,sans-serif; }
-  .hw-wrapper{ max-width:760px; margin:0 auto; padding:56px 20px 72px; }
+  .hw-wrapper{ max-width:760px; margin:0 auto; }
   .hw-top{ display:flex; align-items:center; gap:18px; margin-bottom:10px; }
   .hw-top img{ width:64px; height:72px; flex:none; filter:drop-shadow(0 4px 14px rgba(201,168,76,.25)); animation:hw-bob 3.2s ease-in-out infinite; }
   @keyframes hw-bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } }
@@ -38,9 +37,10 @@
   .hw-item.is-found .hw-badge{ display:inline-block; }
   .hw-foot{ margin-top:30px; display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; justify-content:space-between; color:#aaa39b; font-size:13px; }
   .hw-foot a{ color:#c9a84c; font-weight:600; text-decoration:none; }
+  .workspace-rail nav a.hw-nav span img{ filter:none; width:16px; height:18px; opacity:.9; }
+  .workspace-rail nav a.hw-nav.is-active span img{ filter:none; opacity:1; }
   .hw-foot button{ padding:0; border:0; background:none; color:#aaa39b; font:inherit; text-decoration:underline; cursor:pointer; }
   @media (max-width:560px){
-    .hw-wrapper{ padding:36px 16px 56px; }
     .hw-item{ grid-template-columns:36px 1fr; }
     .hw-num{ width:36px; height:36px; }
     .hw-item h2{ grid-row:1; grid-column:2; }
@@ -49,8 +49,28 @@
   }
 </style>
 </head>
-<body class="hw-page">
-<main class="hw-wrapper">
+<body class="workspace-page">
+<div class="workspace-toolbar">
+  <div class="file-identity"><strong>DE LA PAZ</strong><span class="toolbar-divider"></span><span>Ghost Hunt</span><small>Eric Ariel De La Paz / Ghost Hunt</small></div>
+  <div class="toolbar-actions"><a class="toolbar-button toolbar-contact" href="mailto:ericforall247@gmail.com"><img src="../assets/icons/mail-01.svg" alt="" aria-hidden="true">Contact</a></div>
+</div>
+<div class="workspace-shell">
+  <aside class="workspace-rail" aria-label="Portfolio files">
+    <div class="rail-profile"><img src="../assets/images/profile.png" alt=""><div><strong>Eric Ariel De La Paz</strong><small>Junior Product Designer</small></div></div>
+    <nav>
+      <a href="../index.html#hero"><span><img src="../assets/icons/home-01.svg" alt="" aria-hidden="true"></span>Home</a>
+      <a href="../index.html#previous"><span><img src="../assets/icons/folder-closed.svg" alt="" aria-hidden="true"></span>Earlier Work</a>
+      <a href="../index.html#current"><span><img src="../assets/icons/briefcase-01.svg" alt="" aria-hidden="true"></span>Recent Work</a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><span><img src="../assets/icons/link-01.svg" alt="" aria-hidden="true"></span>LinkedIn</a>
+      <a href="../assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener"><span><img src="../assets/icons/file-01.svg" alt="" aria-hidden="true"></span>Resume</a>
+      <a class="hw-nav is-active" href="./" aria-current="page"><span><img src="../assets/images/ghost.svg" alt="" aria-hidden="true"></span>Ghost Hunt</a>
+    </nav>
+    <div class="rail-footer"><span class="status-dot"></span><span>Open to work</span></div>
+  </aside>
+  <main class="workspace-main" id="workspace-main">
+    <section class="workspace-file is-visible" aria-label="Ghost Hunt">
+      <div class="workspace-content">
+<div class="hw-wrapper">
   <div class="hw-top">
     <img src="../assets/images/ghost.svg" alt="">
     <div>
@@ -122,7 +142,11 @@
     <a href="../index.html#hero">&larr; Back to the portfolio</a>
     <button type="button" data-reset>Reset my found ghosts</button>
   </div>
-</main>
+</div>
+      </div>
+    </section>
+  </main>
+</div>
 <script>
 (function () {
   var FOUND = 'hw-found', HINTS = 'hw-hints', TOTAL = 7;
