@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halloween Ghost Hunt · Eric Ariel De La Paz</title>
+<meta name="description" content="Seven little ghosts are hiding around my portfolio. Spoilers inside: this page shows where every one of them is.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../assets/images/profile.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  body.hw-page{ display:block; min-height:100vh; height:auto; overflow:auto; background:#0b0b0b; color:#f0ede8; font-family:'Raleway',Inter,sans-serif; }
+  .hw-wrapper{ max-width:760px; margin:0 auto; padding:56px 20px 72px; }
+  .hw-top{ display:flex; align-items:center; gap:18px; margin-bottom:10px; }
+  .hw-top img{ width:64px; height:72px; flex:none; filter:drop-shadow(0 4px 14px rgba(201,168,76,.25)); animation:hw-bob 3.2s ease-in-out infinite; }
+  @keyframes hw-bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } }
+  .hw-eyebrow{ margin:0 0 6px; color:#c9a84c; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+  .hw-page h1{ margin:0; font-family:'EB Garamond',Georgia,serif; font-weight:600; font-size:clamp(30px,6vw,44px); line-height:1.1; color:#fbf7ee; }
+  .hw-lede{ margin:14px 0 6px; color:#c9c2b8; font-size:16px; line-height:1.6; max-width:58ch; }
+  .hw-spoiler{ margin:0 0 22px; color:#aaa39b; font-size:13px; }
+  .hw-progress{ display:flex; align-items:center; gap:14px; margin:0 0 24px; padding:14px 16px; border:1px solid #292929; border-radius:10px; background:#121212; }
+  .hw-bar{ flex:1; height:8px; border-radius:99px; background:#222; overflow:hidden; }
+  .hw-bar i{ display:block; height:100%; width:0; background:#c9a84c; transition:width .4s ease; }
+  .hw-count{ font-size:14px; font-weight:600; white-space:nowrap; }
+  .hw-list{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+  .hw-item{ display:grid; grid-template-columns:40px 1fr auto; gap:6px 14px; align-items:center; padding:16px; border:1px solid #292929; border-radius:10px; background:#141414; }
+  .hw-item.is-found{ border-color:#6f8f6b; }
+  .hw-num{ grid-row:1 / span 2; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; border:1px solid #c9a84c; color:#c9a84c; font:600 16px 'EB Garamond',serif; }
+  .hw-item h2{ margin:0; font:600 18px/1.25 'EB Garamond',Georgia,serif; color:#fbf7ee; }
+  .hw-item p{ margin:0; grid-column:2; color:#aaa39b; font-size:14px; line-height:1.5; }
+  .hw-go{ grid-column:3; grid-row:1 / span 2; padding:9px 14px; border:1px solid #c9a84c; border-radius:6px; color:#c9a84c; font-size:13px; font-weight:600; white-space:nowrap; text-decoration:none; }
+  button.hw-go{ background:none; font-family:inherit; cursor:pointer; }
+  .hw-go[hidden]{ display:none; }
+  .hw-go:hover{ background:#c9a84c; color:#0b0b0b; }
+  .is-scrambled{ color:#8b8478; letter-spacing:.03em; }
+  .hw-item h2 .is-scrambled{ color:#b9a566; }
+  .hw-badge{ display:none; margin-left:8px; padding:2px 8px; border-radius:99px; background:#6f8f6b; color:#0b0b0b; font:700 10px Raleway,sans-serif; letter-spacing:.06em; text-transform:uppercase; vertical-align:middle; }
+  .hw-item.is-found .hw-badge{ display:inline-block; }
+  .hw-foot{ margin-top:30px; display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; justify-content:space-between; color:#aaa39b; font-size:13px; }
+  .hw-foot a{ color:#c9a84c; font-weight:600; text-decoration:none; }
+  .hw-foot button{ padding:0; border:0; background:none; color:#aaa39b; font:inherit; text-decoration:underline; cursor:pointer; }
+  @media (max-width:560px){
+    .hw-wrapper{ padding:36px 16px 56px; }
+    .hw-item{ grid-template-columns:36px 1fr; }
+    .hw-num{ width:36px; height:36px; }
+    .hw-item h2{ grid-row:1; grid-column:2; }
+    .hw-item p{ grid-column:2; grid-row:2; }
+    .hw-go{ grid-column:1 / -1; grid-row:3; text-align:center; }
+  }
+</style>
+</head>
+<body class="hw-page">
+<main class="hw-wrapper">
+  <div class="hw-top">
+    <img src="../assets/images/ghost.svg" alt="">
+    <div>
+      <p class="hw-eyebrow">Halloween 2026</p>
+      <h1>Ghost hunt</h1>
+    </div>
+  </div>
+  <p class="hw-lede">Seven little ghosts are hiding around my portfolio. Hover over buttons and screenshots to find them (on a phone, tap once). Stuck? Every ghost has a scrambled hint. Press Hint to unscramble it.</p>
+  <p class="hw-spoiler">Only little hints here, no full spoilers.</p>
+
+  <div class="hw-progress" aria-live="polite">
+    <div class="hw-bar"><i data-bar></i></div>
+    <span class="hw-count" data-count>0 of 7 found</span>
+  </div>
+
+  <ol class="hw-list">
+    <li class="hw-item" data-ghost="home">
+      <span class="hw-num">1</span>
+      <h2><span data-scramble="Home">Home</span> <span class="hw-badge">Found</span></h2>
+      <button class="hw-go" type="button" data-reveal>Hint</button>
+      <a class="hw-go" href="../index.html#hero" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="Look near the controls that move the Home slides forward.">Look near the controls that move the Home slides forward.</p>
+    </li>
+    <li class="hw-item" data-ghost="secureid">
+      <span class="hw-num">2</span>
+      <h2><span data-scramble="SecureID">SecureID</span> <span class="hw-badge">Found</span></h2>
+      <button class="hw-go" type="button" data-reveal>Hint</button>
+      <a class="hw-go" href="../case-studies/secureid.html#slide-5" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="Look closely at a screenshot about too many choices.">Look closely at a screenshot about too many choices.</p>
+    </li>
+    <li class="hw-item" data-ghost="honda">
+      <span class="hw-num">3</span>
+      <h2><span data-scramble="Honda of Clear Lake">Honda of Clear Lake</span> <span class="hw-badge">Found</span></h2>
+      <button class="hw-go" type="button" data-reveal>Hint</button>
+      <a class="hw-go" href="../case-studies/honda.html#slide-5" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="One of the findings in the car dealership audit has company.">One of the findings in the car dealership audit has company.</p>
+    </li>
+    <li class="hw-item" data-ghost="study-buddy">
+      <span class="hw-num">4</span>
+      <h2><span data-scramble="Study Buddy">Study Buddy</span> <span class="hw-badge">Found</span></h2>
+      <button class="hw-go" type="button" data-reveal>Hint</button>
+      <a class="hw-go" href="../case-studies/study-buddy.html#slide-1" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="A button on the first slide of my focus app is not alone.">A button on the first slide of my focus app is not alone.</p>
+    </li>
+    <li class="hw-item" data-ghost="devtective">
+      <span class="hw-num">5</span>
+      <h2><span data-scramble="DevTective">DevTective</span> <span class="hw-badge">Found</span></h2>
+      <button class="hw-go" type="button" data-reveal>Hint</button>
+      <a class="hw-go" href="../case-studies/devtective.html#slide-5" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="Check the screens of the coding detective, near a corner.">Check the screens of the coding detective, near a corner.</p>
+    </li>
+    <li class="hw-item" data-ghost="vextaro">
+      <span class="hw-num">6</span>
+      <h2><span data-scramble="Vextaro">Vextaro</span> <span class="hw-badge">Found</span></h2>
+      <button class="hw-go" type="button" data-reveal>Hint</button>
+      <a class="hw-go" href="../case-studies/vextaro.html#slide-3" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="Marcus has a faint extra character in his story.">Marcus has a faint extra character in his story.</p>
+    </li>
+    <li class="hw-item" data-ghost="404">
+      <span class="hw-num">7</span>
+      <h2><span data-scramble="The 404 page">The 404 page</span> <span class="hw-badge">Found</span></h2>
+      <button class="hw-go" type="button" data-reveal>Hint</button>
+      <a class="hw-go" href="/ghosts-are-not-here" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="When you are lost, the way back has company.">When you are lost, the way back has company.</p>
+    </li>
+  </ol>
+
+  <div class="hw-foot">
+    <a href="../index.html#hero">&larr; Back to the portfolio</a>
+    <button type="button" data-reset>Reset my found ghosts</button>
+  </div>
+</main>
+<script>
+(function () {
+  var FOUND = 'hw-found', HINTS = 'hw-hints', TOTAL = 7;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  function read(key) { try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { return []; } }
+  function write(key, v) { try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {} }
+
+  /* shuffle the letters inside every word, keep spaces and punctuation where they are */
+  function shuffleWord(w) {
+    var chars = w.split(''), idx = [], i;
+    for (i = 0; i < chars.length; i++) if (/[A-Za-z0-9]/.test(chars[i])) idx.push(i);
+    if (idx.length < 2) return w;
+    var tries = 0, out;
+    do {
+      var vals = idx.map(function (k) { return chars[k]; });
+      for (i = vals.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var tmp = vals[i]; vals[i] = vals[j]; vals[j] = tmp; }
+      out = chars.slice(); idx.forEach(function (k, n) { out[k] = vals[n]; });
+      tries++;
+    } while (out.join('') === w && tries < 8);
+    return out.join('');
+  }
+  function scramble(text) { return text.split(' ').map(shuffleWord).join(' '); }
+
+  function setScrambled(el) {
+    el.textContent = scramble(el.dataset.scramble);
+    el.classList.add('is-scrambled');
+    el.setAttribute('aria-label', 'Scrambled text. Press the Hint button to read it.');
+  }
+  function unscramble(el, animate) {
+    var real = el.dataset.scramble;
+    el.removeAttribute('aria-label');
+    if (!animate || reduced) { el.textContent = real; el.classList.remove('is-scrambled'); return; }
+    var start = performance.now(), dur = 900;
+    (function tick(now) {
+      var t = Math.min(1, (now - start) / dur), keep = Math.floor(real.length * t), out = '';
+      for (var i = 0; i < real.length; i++) {
+        var c = real[i];
+        out += (i < keep || !/[A-Za-z0-9]/.test(c)) ? c : LETTERS[Math.floor(Math.random() * LETTERS.length)];
+      }
+      el.textContent = out;
+      if (t < 1) requestAnimationFrame(tick); else el.classList.remove('is-scrambled');
+    })(start);
+  }
+
+  function showLink(li, animate) {
+    li.querySelectorAll('[data-scramble]').forEach(function (el) { unscramble(el, animate); });
+    li.querySelector('[data-reveal]').hidden = true;
+    li.querySelector('a.hw-go').hidden = false;
+  }
+
+  function paint() {
+    var found = read(FOUND), hinted = read(HINTS), n = 0;
+    document.querySelectorAll('.hw-item').forEach(function (li) {
+      var id = li.dataset.ghost, on = found.indexOf(id) !== -1;
+      li.classList.toggle('is-found', on); if (on) n++;
+      if (on || hinted.indexOf(id) !== -1) showLink(li, false);
+    });
+    document.querySelector('[data-bar]').style.width = (n / TOTAL * 100) + '%';
+    document.querySelector('[data-count]').textContent = n >= TOTAL ? 'All 7 found. Happy Halloween!' : n + ' of ' + TOTAL + ' found';
+  }
+
+  document.querySelectorAll('.hw-item').forEach(function (li) {
+    li.querySelectorAll('[data-scramble]').forEach(setScrambled);
+    li.querySelector('[data-reveal]').addEventListener('click', function () {
+      var list = read(HINTS), id = li.dataset.ghost;
+      if (list.indexOf(id) === -1) { list.push(id); write(HINTS, list); }
+      showLink(li, true);
+      li.querySelector('a.hw-go').focus();
+    });
+  });
+  document.querySelector('[data-reset]').addEventListener('click', function () {
+    try { localStorage.removeItem(FOUND); localStorage.removeItem(HINTS); } catch (e) {}
+    location.reload();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
