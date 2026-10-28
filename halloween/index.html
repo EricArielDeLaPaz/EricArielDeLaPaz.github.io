@@ -15,7 +15,7 @@
   @keyframes hw-bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } }
   .hw-eyebrow{ margin:0 0 6px; color:#c9a84c; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
   .hw-page h1{ margin:0; font-family:'EB Garamond',Georgia,serif; font-weight:600; font-size:clamp(30px,6vw,44px); line-height:1.1; color:#fbf7ee; }
-  .hw-lede{ margin:14px 0 6px; color:#c9c2b8; font-size:16px; line-height:1.6; max-width:58ch; }
+  .hw-lede{ margin:14px 0 6px; color:#c9c2b8; font-size:16px; line-height:1.6; max-width:none; }
   .hw-spoiler{ margin:0 0 22px; color:#aaa39b; font-size:13px; }
   .hw-progress{ display:flex; align-items:center; gap:14px; margin:0 0 24px; padding:14px 16px; border:1px solid #292929; border-radius:10px; background:#121212; }
   .hw-bar{ flex:1; height:8px; border-radius:99px; background:#222; overflow:hidden; }
@@ -35,7 +35,7 @@
   .hw-item h2 .is-scrambled{ color:#b9a566; }
   .hw-badge{ display:none; margin-left:8px; padding:2px 8px; border-radius:99px; background:#6f8f6b; color:#0b0b0b; font:700 10px Raleway,sans-serif; letter-spacing:.06em; text-transform:uppercase; vertical-align:middle; }
   .hw-item.is-found .hw-badge{ display:inline-block; }
-  .hw-foot{ margin-top:30px; display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; justify-content:space-between; color:#aaa39b; font-size:13px; }
+  .hw-foot{ margin-top:30px; display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; justify-content:flex-end; color:#aaa39b; font-size:13px; }
   .hw-foot a{ color:#c9a84c; font-weight:600; text-decoration:none; }
   .workspace-rail nav a.hw-nav span img{ filter:none; width:16px; height:18px; opacity:.9; }
   .workspace-rail nav a.hw-nav.is-active span img{ filter:none; opacity:1; }
@@ -139,7 +139,6 @@
   </ol>
 
   <div class="hw-foot">
-    <a href="../index.html#hero">&larr; Back to the portfolio</a>
     <button type="button" data-reset>Reset my found ghosts</button>
   </div>
 </div>
