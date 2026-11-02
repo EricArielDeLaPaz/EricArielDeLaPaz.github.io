@@ -778,3 +778,9 @@ footer .copyright{ font-size:12.5px; color:var(--text-faint); }
   .hero-map li:nth-child(n)::after{ content:"↓"; position:absolute; left:50%; right:auto; top:auto; bottom:-27px; transform:translateX(-50%); font-size:18px; color:#c9a84c; }
   .hero-map li:nth-child(6)::after{ content:none; }
 }
+
+/* Home toolbar matches the case-study pages (48px) so the slide rail and bottom bar reach the screen bottom */
+@media(min-width:761px){
+  .workspace-page .workspace-toolbar{ height:48px; min-height:48px; padding:0 14px; box-sizing:border-box; }
+  .workspace-page .workspace-shell{ height:calc(100vh - 48px); }
+}
