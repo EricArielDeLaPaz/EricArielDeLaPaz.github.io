@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /halloween/
+
+Sitemap: https://ericarieldelapaz.tech/sitemap.xml
