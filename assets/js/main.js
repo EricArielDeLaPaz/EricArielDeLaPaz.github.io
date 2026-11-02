@@ -69,6 +69,19 @@
     }));
   });
 
+  // Long list cards by default on desktop; original card grid on mobile.
+  const desktopQuery = window.matchMedia('(min-width: 761px)');
+  const applyDefaultView = () => {
+    document.querySelectorAll('.view-toggle').forEach((toggle) => {
+      const grid = toggle.closest('.workspace-file')?.querySelector('.project-grid');
+      const view = desktopQuery.matches ? 'list' : 'grid';
+      grid?.classList.toggle('is-list', view === 'list');
+      toggle.querySelectorAll('[data-view]').forEach((item) => item.classList.toggle('selected', item.dataset.view === view));
+    });
+  };
+  applyDefaultView();
+  desktopQuery.addEventListener?.('change', applyDefaultView);
+
   document.querySelector('[data-share]')?.addEventListener('click', async (event) => {
     const button = event.currentTarget;
     try { await navigator.clipboard.writeText(window.location.href); button.textContent = 'Link copied'; }
