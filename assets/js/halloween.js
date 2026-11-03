@@ -6,7 +6,7 @@
 (function () {
   'use strict';
   var TOTAL = 7;
-  var SHOW_UNTIL = new Date('2026-11-04T00:00:00-06:00');
+  var SHOW_UNTIL = new Date('2026-11-09T00:00:00-06:00');
   var params = new URLSearchParams(location.search);
   if (new Date() > SHOW_UNTIL && !params.has('ghosts')) return;
 
@@ -14,7 +14,7 @@
   var jsUrl = script ? script.src : location.href;
   var GHOST_SRC = new URL('../images/ghost.svg', jsUrl).href;
   var HUNT_URL = new URL('../../halloween/', jsUrl).href;
-  var STORE = 'hw-found';
+  var STORE = 'hw-found-2';
 
   function readFound() { try { return JSON.parse(localStorage.getItem(STORE) || '[]'); } catch (e) { return []; } }
   function saveFound(list) { try { localStorage.setItem(STORE, JSON.stringify(list)); } catch (e) { /* private mode */ } }
@@ -45,7 +45,6 @@
     '.hw-toast.is-on{transform:translate(-50%,0);opacity:1}' +
     '.hw-toast img{width:22px;height:25px;flex:none}' +
     '.hw-toast a{color:#c9a84c;font-weight:600;white-space:nowrap}' +
-    '.workspace-rail nav a.hw-nav span img{filter:none;width:16px;height:18px;opacity:.9}.workspace-rail nav a.hw-nav:hover span img{opacity:1}' +
     '@media (prefers-reduced-motion:reduce){.hw-ghost,.hw-toast{transition:none}.hw-ghost.hw-pop{animation:none}}';
   var style = document.createElement('style');
   style.textContent = css;
@@ -124,18 +123,18 @@
     fig.appendChild(g);
     gate(fig, id);
   }
-  function slide(n) { return document.querySelectorAll('.case-study-slide')[n - 1]; }
+  function section(n) { return document.querySelectorAll('.cs-section')[n - 1]; }
 
-  /* ---------- "Ghost Hunt" link under Resume in the left rail ---------- */
+  /* ---------- "Ghost Hunt" link in the footer links ---------- */
   function addNav() {
-    var nav = document.querySelector('.workspace-rail nav');
-    if (!nav || nav.querySelector('.hw-nav')) return;
+    var row = document.querySelector('.sx-footer div, .foot-links');
+    if (!row || row.querySelector('.hw-nav')) return;
     var a = document.createElement('a');
     a.className = 'hw-nav'; a.href = HUNT_URL;
-    var sp = document.createElement('span'), im = document.createElement('img');
+    var im = document.createElement('img');
     im.src = GHOST_SRC; im.alt = ''; im.setAttribute('aria-hidden', 'true');
-    sp.appendChild(im); a.appendChild(sp); a.appendChild(document.createTextNode('Ghost Hunt'));
-    nav.appendChild(a);
+    a.appendChild(im); a.appendChild(document.createTextNode('Ghost Hunt'));
+    row.appendChild(a);
   }
 
   /* ---------- where each ghost hides ---------- */
@@ -144,19 +143,20 @@
     var study = b.dataset.caseStudy;
 
     if (b.classList.contains('error-page')) {
-      behind(document.querySelector('.error-page a'), '404');                         // ghost 7
+      behind(document.querySelector('.error-page a'), '404');                          // ghost 7
     } else if (study === 'SecureID') {
-      var s = slide(5); if (s) hidden(s.querySelectorAll('figure')[2], 'secureid', { top: '8px', right: '10px' });
+      var s = section(4); if (s) hidden(s.querySelectorAll('figure')[2], 'secureid', { top: '8px', right: '10px' });
     } else if (study === 'Honda of Clear Lake') {
-      var h = slide(5); if (h) behind(h.querySelectorAll('.hf-card')[2], 'honda', { right: true });
+      var h = section(4); if (h) behind(h.querySelectorAll('.hf-card')[2], 'honda', { right: true });
     } else if (study === 'Study Buddy') {
-      var sb = slide(1); if (sb) behind(sb.querySelectorAll('.cs-badge-row a')[1], 'study-buddy');
+      behind(document.querySelectorAll('.cs-hero .cs-badge-row a')[1], 'study-buddy');
     } else if (study === 'DevTective') {
-      var d = slide(5); if (d) hidden(d.querySelectorAll('figure')[1], 'devtective', { bottom: '34px', left: '10px' });
+      var d = section(5); if (d) hidden(d.querySelectorAll('figure')[1], 'devtective', { top: '8px', right: '10px' });   // new spot: the type specimen
     } else if (study === 'Vextaro') {
-      var v = slide(3); if (v) hidden(v.querySelectorAll('figure')[1], 'vextaro', { top: '8px', left: '10px' });
-    } else if (b.classList.contains('workspace-page')) {
-      behind(document.querySelector('[data-hero-next]'), 'home');                    // ghost 1
+      var v = section(4); if (v) hidden(v.querySelectorAll('figure')[2], 'vextaro', { bottom: '34px', right: '10px' });  // new spot: onboarding welcome
+    } else if (b.classList.contains('sx-page') && document.querySelector('.sx-hero')) {
+      var r = document.querySelectorAll('.sx-hero .sx-cta .sx-btn')[2];                // new spot: behind the Resume button
+      behind(r, 'home');                                                                 // ghost 1
     }
   }
   addNav();

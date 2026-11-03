@@ -8,13 +8,14 @@
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="../assets/images/profile.png">
 <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/scroll.css">
 <style>
   .hw-wrapper{ max-width:760px; margin:0 auto; }
   .hw-top{ display:flex; align-items:center; gap:18px; margin-bottom:10px; }
   .hw-top img{ width:64px; height:72px; flex:none; filter:drop-shadow(0 4px 14px rgba(201,168,76,.25)); animation:hw-bob 3.2s ease-in-out infinite; }
   @keyframes hw-bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } }
   .hw-eyebrow{ margin:0 0 6px; color:#c9a84c; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
-  .hw-page h1{ margin:0; font-family:'EB Garamond',Georgia,serif; font-weight:600; font-size:clamp(30px,6vw,44px); line-height:1.1; color:#fbf7ee; }
+  .hw-page h1{ margin:0; font-family:Cinzel,Georgia,serif; font-weight:600; font-size:clamp(30px,6vw,44px); line-height:1.1; color:#fbf7ee; }
   .hw-lede{ margin:14px 0 6px; color:#c9c2b8; font-size:16px; line-height:1.6; max-width:none; }
   .hw-spoiler{ margin:0 0 22px; color:#aaa39b; font-size:13px; }
   .hw-progress{ display:flex; align-items:center; gap:14px; margin:0 0 24px; padding:14px 16px; border:1px solid #292929; border-radius:10px; background:#121212; }
@@ -25,7 +26,7 @@
   .hw-item{ display:grid; grid-template-columns:40px 1fr auto; gap:6px 14px; align-items:center; padding:16px; border:1px solid #292929; border-radius:10px; background:#141414; }
   .hw-item.is-found{ border-color:#6f8f6b; }
   .hw-num{ grid-row:1 / span 2; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; border:1px solid #c9a84c; color:#c9a84c; font:600 16px 'EB Garamond',serif; }
-  .hw-item h2{ margin:0; font:600 18px/1.25 'EB Garamond',Georgia,serif; color:#fbf7ee; }
+  .hw-item h2{ margin:0; font:600 17px/1.25 Cinzel,Georgia,serif; color:#fbf7ee; }
   .hw-item p{ margin:0; grid-column:2; color:#aaa39b; font-size:14px; line-height:1.5; }
   .hw-go{ grid-column:3; grid-row:1 / span 2; padding:9px 14px; border:1px solid #c9a84c; border-radius:6px; color:#c9a84c; font-size:13px; font-weight:600; white-space:nowrap; text-decoration:none; }
   button.hw-go{ background:none; font-family:inherit; cursor:pointer; }
@@ -37,8 +38,6 @@
   .hw-item.is-found .hw-badge{ display:inline-block; }
   .hw-foot{ margin-top:30px; display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; justify-content:flex-end; color:#aaa39b; font-size:13px; }
   .hw-foot a{ color:#c9a84c; font-weight:600; text-decoration:none; }
-  .workspace-rail nav a.hw-nav span img{ filter:none; width:16px; height:18px; opacity:.9; }
-  .workspace-rail nav a.hw-nav.is-active span img{ filter:none; opacity:1; }
   .hw-foot button{ padding:0; border:0; background:none; color:#aaa39b; font:inherit; text-decoration:underline; cursor:pointer; }
   @media (max-width:560px){
     .hw-item{ grid-template-columns:36px 1fr; }
@@ -49,27 +48,20 @@
   }
 </style>
 </head>
-<body class="workspace-page">
-<div class="workspace-toolbar">
-  <div class="file-identity"><strong>DE LA PAZ</strong><span class="toolbar-divider"></span><span>Ghost Hunt</span><small>Eric Ariel De La Paz / Ghost Hunt</small></div>
-  <div class="toolbar-actions"><a class="toolbar-button toolbar-contact" href="mailto:ericforall247@gmail.com"><img src="../assets/icons/mail-01.svg" alt="" aria-hidden="true">Contact</a></div>
-</div>
-<div class="workspace-shell">
-  <aside class="workspace-rail" aria-label="Portfolio files">
-    <div class="rail-profile"><img src="../assets/images/profile.png" alt=""><div><strong>Eric Ariel De La Paz</strong><small>Junior Product Designer</small></div></div>
-    <nav>
-      <a href="../index.html#hero"><span><img src="../assets/icons/home-01.svg" alt="" aria-hidden="true"></span>Home</a>
-      <a href="../index.html#previous"><span><img src="../assets/icons/folder-closed.svg" alt="" aria-hidden="true"></span>Earlier Work</a>
-      <a href="../index.html#current"><span><img src="../assets/icons/briefcase-01.svg" alt="" aria-hidden="true"></span>Recent Work</a>
-      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><span><img src="../assets/icons/link-01.svg" alt="" aria-hidden="true"></span>LinkedIn</a>
-      <a href="../assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener"><span><img src="../assets/icons/file-01.svg" alt="" aria-hidden="true"></span>Resume</a>
-      <a class="hw-nav is-active" href="./" aria-current="page"><span><img src="../assets/images/ghost.svg" alt="" aria-hidden="true"></span>Ghost Hunt</a>
-    </nav>
-    <div class="rail-footer"><span class="status-dot"></span><span>Open to work</span></div>
-  </aside>
-  <main class="workspace-main" id="workspace-main">
-    <section class="workspace-file is-visible" aria-label="Ghost Hunt">
-      <div class="workspace-content">
+<body class="sx-page hw-page">
+<header class="sx-nav-wrap">
+  <nav class="sx-nav" aria-label="Primary">
+    <a class="sx-brand" href="../index.html" aria-label="Eric Ariel De La Paz, home"><img src="../assets/images/profile.png" alt="" width="28" height="28"><span>De La Paz</span></a>
+    <span class="sx-nav-sep" aria-hidden="true"></span>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+    <span class="sx-nav-sep" aria-hidden="true"></span>
+    <span class="sx-status"><i class="sx-dot" aria-hidden="true"></i><span>Open to work</span></span>
+  </nav>
+</header>
+<main class="sx-main"><div class="sx-wrap">
 <div class="hw-wrapper">
   <div class="hw-top">
     <img src="../assets/images/ghost.svg" alt="">
@@ -91,43 +83,43 @@
       <span class="hw-num">1</span>
       <h2><span data-scramble="Home">Home</span> <span class="hw-badge">Found</span></h2>
       <button class="hw-go" type="button" data-reveal>Hint</button>
-      <a class="hw-go" href="../index.html#hero" hidden>Take me there</a>
-      <p class="hw-hint" data-scramble="Look near the controls that move the Home slides forward.">Look near the controls that move the Home slides forward.</p>
+      <a class="hw-go" href="../index.html#top" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="Look behind the button that opens my resume.">Look behind the button that opens my resume.</p>
     </li>
     <li class="hw-item" data-ghost="secureid">
       <span class="hw-num">2</span>
       <h2><span data-scramble="SecureID">SecureID</span> <span class="hw-badge">Found</span></h2>
       <button class="hw-go" type="button" data-reveal>Hint</button>
-      <a class="hw-go" href="../case-studies/secureid.html#slide-5" hidden>Take me there</a>
+      <a class="hw-go" href="../case-studies/secureid.html#section-4" hidden>Take me there</a>
       <p class="hw-hint" data-scramble="Look closely at a screenshot about too many choices.">Look closely at a screenshot about too many choices.</p>
     </li>
     <li class="hw-item" data-ghost="honda">
       <span class="hw-num">3</span>
       <h2><span data-scramble="Honda of Clear Lake">Honda of Clear Lake</span> <span class="hw-badge">Found</span></h2>
       <button class="hw-go" type="button" data-reveal>Hint</button>
-      <a class="hw-go" href="../case-studies/honda.html#slide-5" hidden>Take me there</a>
+      <a class="hw-go" href="../case-studies/honda.html#section-4" hidden>Take me there</a>
       <p class="hw-hint" data-scramble="One of the findings in the car dealership audit has company.">One of the findings in the car dealership audit has company.</p>
     </li>
     <li class="hw-item" data-ghost="study-buddy">
       <span class="hw-num">4</span>
       <h2><span data-scramble="Study Buddy">Study Buddy</span> <span class="hw-badge">Found</span></h2>
       <button class="hw-go" type="button" data-reveal>Hint</button>
-      <a class="hw-go" href="../case-studies/study-buddy.html#slide-1" hidden>Take me there</a>
-      <p class="hw-hint" data-scramble="A button on the first slide of my focus app is not alone.">A button on the first slide of my focus app is not alone.</p>
+      <a class="hw-go" href="../case-studies/study-buddy.html" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="A button at the top of my focus app case study is not alone.">A button at the top of my focus app case study is not alone.</p>
     </li>
     <li class="hw-item" data-ghost="devtective">
       <span class="hw-num">5</span>
       <h2><span data-scramble="DevTective">DevTective</span> <span class="hw-badge">Found</span></h2>
       <button class="hw-go" type="button" data-reveal>Hint</button>
-      <a class="hw-go" href="../case-studies/devtective.html#slide-5" hidden>Take me there</a>
-      <p class="hw-hint" data-scramble="Check the screens of the coding detective, near a corner.">Check the screens of the coding detective, near a corner.</p>
+      <a class="hw-go" href="../case-studies/devtective.html#section-5" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="Look closely at the type specimen of the coding detective.">Look closely at the type specimen of the coding detective.</p>
     </li>
     <li class="hw-item" data-ghost="vextaro">
       <span class="hw-num">6</span>
       <h2><span data-scramble="Vextaro">Vextaro</span> <span class="hw-badge">Found</span></h2>
       <button class="hw-go" type="button" data-reveal>Hint</button>
-      <a class="hw-go" href="../case-studies/vextaro.html#slide-3" hidden>Take me there</a>
-      <p class="hw-hint" data-scramble="Marcus has a faint extra character in his story.">Marcus has a faint extra character in his story.</p>
+      <a class="hw-go" href="../case-studies/vextaro.html#section-4" hidden>Take me there</a>
+      <p class="hw-hint" data-scramble="A phone screen welcoming new renters has a faint visitor.">A phone screen welcoming new renters has a faint visitor.</p>
     </li>
     <li class="hw-item" data-ghost="404">
       <span class="hw-num">7</span>
@@ -142,13 +134,11 @@
     <button type="button" data-reset>Reset my found ghosts</button>
   </div>
 </div>
-      </div>
-    </section>
-  </main>
-</div>
+</div></main>
+<footer class="sx-footer sx-wrap"><span>© 2026 Eric Ariel De La Paz</span><div><a href="../index.html">Back to portfolio</a></div></footer>
 <script>
 (function () {
-  var FOUND = 'hw-found', HINTS = 'hw-hints', TOTAL = 7;
+  var FOUND = 'hw-found-2', HINTS = 'hw-hints-2', TOTAL = 7;
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   function read(key) { try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { return []; } }
