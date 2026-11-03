@@ -40,12 +40,8 @@
   <section class="cs-hero container">
     <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#current">Recent work</a> / Study Buddy</div>
     <h1>Study Buddy</h1>
-    <p class="tagline">
-      Study Buddy is a desktop focus companion. A small mascot, Mambo, runs your study sessions and asks
-      for breaks with friendly overlays instead of locking your screen. I designed it in Figma, then built it by
-      articulating each change in plain language to Gemini and directing Gemini 4 Argon to generate the code,
-      reviewing every round myself.
-    </p>
+    <p class="tagline">A desktop focus companion. A small mascot, Mambo, runs your study sessions and asks for breaks with friendly overlays instead of locking your screen. I designed it in Figma, then built it by directing AI and reviewing every round myself.</p>
+    <div class="impact-grid cs-glance"><div class="impact-stat"><div class="n">~14 hrs</div><div class="l">active build time, from commit timestamps</div></div><div class="impact-stat"><div class="n">40+</div><div class="l">commits, every round reviewed by me</div></div><div class="impact-stat"><div class="n">3</div><div class="l">desktop installers: Windows, Mac, Linux</div></div></div>
     <div class="cs-badge-row"><a href="https://github.com/EricArielDeLaPaz/study-buddy-desktop" target="_blank" rel="noopener"><span>View GitHub Repository</span></a><a href="https://www.linkedin.com/posts/eric-ariel-de-la-paz_uxdesign-productdesign-studentlife-ugcPost-7517057393239752704-cLUV/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwSUJgBsQv-5MDGy8Lu7UaL4Oxsc64LZLc" target="_blank" rel="noopener"><span>View LinkedIn Overlay Demo</span></a></div>
     <dl class="cs-meta">
       <div><dt>Role</dt><dd>Product designer, AI-assisted builder</dd></div>
@@ -58,35 +54,25 @@
   <section class="cs-body container">
     <div class="cs-section">
       <h2>Structure without the pressure</h2>
-      <p>
-        Studying well takes structure: timers for focus and breaks, reminders to drink water, and
-        blockers that point you back to the task. Study Buddy brings all of that together, with a small
-        mascot named Mambo to gamify the session and make it feel less pressured. The timers, reminders,
-        blockers and task times are all still there, and Mambo delivers them in a friendlier way.
-      </p>
+      <p>Focus and break timers, water reminders, and blockers, delivered in a friendlier way.</p>
       <div class="reasoning-chain compact">
         <div class="chain-step">
           <span class="k">I noticed</span>
-          <span class="v">In my own study sessions, I struggled to use my time well and stay focused. I would drift off to YouTube instead of studying, so I wanted a desktop and phone app that helps me concentrate and manage my time with timers and reminders, like drinking water.</span>
+          <span class="v">I drifted to YouTube during my own study sessions and wanted help focusing and managing my time.</span>
         </div>
         <div class="chain-step">
           <span class="k">So I designed</span>
-          <span class="v">An ambient companion that floats over the workspace with timers, reminders and nudges, gamified through Mambo and levels. A break can be postponed with one tap (+30s, +1m, +5m), and the window tucks away when you need the full screen.</span>
+          <span class="v">An ambient companion that floats over your work with timers, reminders and nudges. Postpone a break in one tap (+30s, +1m, +5m); the window tucks away for full screen.</span>
         </div>
         <div class="chain-step">
           <span class="k">Evaluated via</span>
-          <span class="v">Daily use by me, the first user. I have not tested with other students yet, and that is the first thing I plan to do next.</span>
+          <span class="v">Daily use by me, the first user. No student testing yet; that is the first next step.</span>
         </div>
       </div>
     </div>
     <div class="cs-section">
       <h2>Designed in Figma first</h2>
-      <p>
-        Before any code, I designed the desktop experience in Figma: the session, reminders, schedule,
-        app rules, progress and buddy screens, the break overlays, and the Mambo widget with animation
-        slots. Light and dark themes run on shared tokens, with Fredoka for the mascot's voice and timers
-        and DM Sans for the interface.
-      </p>
+      <p>Session, reminders, schedule, app rules, progress, buddy screens, break overlays, and the Mambo widget, in light and dark themes on shared tokens (Fredoka, DM Sans).</p>
       <div class="cs-figure-row cols-2">
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-session.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-session.png" alt="Figma design of the Study Buddy session screen" loading="lazy"></a><figcaption>Figma: the session screen, with presets, a study goal and the Mambo preview.</figcaption></figure>
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-buddy-studio.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-buddy-studio.png" alt="Figma design of the Buddy Studio screen with presets and animation slots" loading="lazy"></a><figcaption>Figma: Buddy Studio, where each animation is linked to a session, reminder or alert.</figcaption></figure>
@@ -94,11 +80,7 @@
     </div>
     <div class="cs-section">
       <h2>From frame to working overlay</h2>
-      <p>
-        The break overlay is the heart of the product: a calm card over your work, with a small plus to
-        postpone. The Figma frame had a placeholder for the character. The built version plays Mambo's
-        states, and a gentler nudge appears for a distracting site.
-      </p>
+      <p>The break overlay is the heart of the product: a calm card with a small plus to postpone. Figma held a placeholder; the build plays Mambo's states, with a gentler nudge for distracting sites.</p>
       <div class="cs-figure-row cols-3">
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" alt="Figma frame of the hydration break overlay with a placeholder character" loading="lazy"></a><figcaption>Design: hydration break in Figma.</figcaption></figure>
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" alt="Built hydration break overlay with the Mambo character" loading="lazy"></a><figcaption>Built: the same break with Mambo.</figcaption></figure>
@@ -107,21 +89,19 @@
     </div>
     <div class="cs-section">
       <h2>Working with AI, on purpose</h2>
-      <p>
-        I built Study Buddy by directing AI, and I kept the product decisions. Each round followed the same loop.
-      </p>
+      <p>I directed the AI and kept the product decisions. Each round followed one loop.</p>
       <div class="reasoning-chain is-row compact">
         <div class="chain-step">
           <span class="k">I designed</span>
-          <span class="v">Frames, tokens and reference screenshots in Figma. Every round started by comparing the running app to those frames.</span>
+          <span class="v">Frames, tokens and reference screenshots in Figma. Every round starts by comparing the running app to them.</span>
         </div>
         <div class="chain-step">
           <span class="k">I directed</span>
-          <span class="v">I wrote each change in plain language, and Gemini turned it into a structured prompt. Gemini 4 Argon generated the Electron, React and TypeScript code.</span>
+          <span class="v">I wrote each change in plain language; Gemini structured it into a prompt, and Gemini 4 Argon generated the Electron, React and TypeScript.</span>
         </div>
         <div class="chain-step">
           <span class="k">I reviewed</span>
-          <span class="v">I ran the app, clicked through every screen, and wrote the next change list. My saved transcripts show 10 rounds for stages 9 to 18.</span>
+          <span class="v">I ran the app, clicked every screen, and wrote the next change list. Saved transcripts show 10 rounds (stages 9 to 18).</span>
         </div>
       </div>
       <div class="impact-grid">
@@ -134,14 +114,7 @@
       <div class="cs-split" style="--split:1.25fr">
         <div class="cs-split-text">
           <h2>Where human review changed the product</h2>
-          <ul>
-            <li>Cut features that added clutter: the Messages tab and a focus-timer pill.</li>
-            <li>Made the window behave like a normal app: resizable, no fullscreen, and closing tucks it into Mambo.</li>
-            <li>Found low-contrast text in light mode, such as buttons, tags and pills, then asked for WCAG AA contrast and sent targeted fixes. A formal audit is still to do.</li>
-            <li>Replaced a mix of blue and purple with one purple palette, and added hover states to every desktop button.</li>
-            <li>Added a confirmation dialog before deleting an account, clearing the notepad, deleting a reminder or signing out.</li>
-            <li>Removed a cloud-sync card and an "iPhone connected" row from settings because they did not work yet.</li>
-          </ul>
+          <ul><li>Cut clutter: the Messages tab and a focus-timer pill</li><li>Made the window behave like a normal app: resizable, no fullscreen, close tucks into Mambo</li><li>Fixed low-contrast light-mode text against WCAG AA (formal audit still to do)</li><li>One purple palette instead of blue and purple, with hover states on every desktop button</li><li>Confirmation dialogs before delete, clear and sign-out actions</li><li>Removed settings that did not work yet (cloud sync, "iPhone connected")</li></ul>
         </div>
         <div class="cs-split-media">
           <div class="cs-figure-row cols-1 sm">
@@ -153,10 +126,7 @@
     </div>
     <div class="cs-section">
       <h2>The desktop app</h2>
-      <p>
-        Reminders you can edit, a schedule screen for your study blocks, and app rules that nudge you when you
-        open a listed app or site during a focus session. Starting sessions automatically from the schedule is the next build.
-      </p>
+      <p>Editable reminders, a schedule for study blocks, and app rules that nudge you when a listed app or site opens mid-session. Auto-starting sessions from the schedule is next.</p>
       <div class="cs-figure-row cols-3">
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-reminders.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-reminders.png" alt="Reminders screen with editable reminder cards" loading="lazy"></a><figcaption>Reminders.</figcaption></figure>
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-schedule.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-schedule.png" alt="Schedule screen with study time blocks" loading="lazy"></a><figcaption>Schedule.</figcaption></figure>
@@ -165,10 +135,7 @@
     </div>
     <div class="cs-section">
       <h2>Companions and progress</h2>
-      <p>
-        Mambo is the starting companion. Levels unlock more, and each companion's animations can be linked to a
-        reminder, a session or an alert. The progress screen tracks focus hours, streaks and level.
-      </p>
+      <p>Mambo is the starting companion; levels unlock more, and each companion's animations can link to a reminder, session or alert. A progress screen tracks focus hours, streaks and level.</p>
       <div class="cs-figure-row cols-2">
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-buddy-studio.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-buddy-studio.png" alt="Buddy Studio screen with companions and animation slots" loading="lazy"></a><figcaption>Buddy Studio.</figcaption></figure>
           <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-progress.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-progress.png" alt="Progress screen with focus hours, streak and companion level" loading="lazy"></a><figcaption>Progress. Numbers shown are sample data.</figcaption></figure>
@@ -176,15 +143,8 @@
     </div>
     <div class="cs-section">
       <h2>What's next</h2>
-      <p>
-        Study Buddy is in a rolling-update stage and the desktop app comes first.
-      </p>
-      <ul>
-        <li><strong>Test with students.</strong> This is the biggest gap and the first thing I plan to do.</li>
-        <li><strong>Smart activation.</strong> Opening a study app or site will start Mambo and your usual session automatically. The list is saved today, but it does not start sessions yet.</li>
-        <li><strong>Mobile app, accounts and sync.</strong> Planned, not built. Notes and stats stay on the computer for now.</li>
-        <li><strong>A formal accessibility check</strong> of both themes.</li>
-      </ul>
+      <p>Rolling updates, desktop first.</p>
+      <ul><li><strong>Test with students:</strong> the biggest gap and the first thing next</li><li><strong>Smart activation:</strong> opening a study app or site starts Mambo and a session (list saved, auto-start not built)</li><li><strong>Mobile app, accounts and sync:</strong> planned, not built</li><li><strong>Formal accessibility check</strong> of both themes</li></ul>
     </div>
   </section>
 
