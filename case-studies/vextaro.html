@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vextaro — Internship Capstone · Eric Ariel De La Paz</title>
-<meta name="description" content="A token-based design system and research-backed IA for a men's luxury formalwear rental app, built during a UX/UI design internship.">
+<meta name="description" content="A token-based design system, research-backed IA, and a high-fidelity prototype for a men's luxury formalwear rental app, built during a UX/UI design internship.">
 <link rel="canonical" href="https://ericarieldelapaz.tech/case-studies/vextaro.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vextaro — Internship Capstone · Eric Ariel De La Paz">
-<meta property="og:description" content="A token-based design system and research-backed IA for a men's luxury formalwear rental app, built during a UX/UI design internship.">
+<meta property="og:description" content="A token-based design system, research-backed IA, and a high-fidelity prototype for a men's luxury formalwear rental app, built during a UX/UI design internship.">
 <meta property="og:url" content="https://ericarieldelapaz.tech/case-studies/vextaro.html">
 <meta property="og:image" content="https://ericarieldelapaz.tech/assets/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -26,6 +26,8 @@
     <span class="sx-nav-sep" aria-hidden="true"></span>
     <a href="../index.html#work">Work</a>
     <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#process">Process</a>
+    <a href="../index.html#skills">Skills</a>
     <a href="../index.html#about">About</a>
     <a href="../index.html#contact">Contact</a>
     <span class="sx-nav-sep" aria-hidden="true"></span>
@@ -35,10 +37,10 @@
 <a class="sx-skip" href="#main">Skip to content</a>
 <main class="sx-main" id="main">
   <section class="cs-hero container">
-    <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Recent work</a> / Vextaro</div>
+    <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / Vextaro</div>
     <h1>Vextaro</h1>
     <p class="tagline">A men's luxury formalwear rental app. Renters can't try garments on before they ship, so fit uncertainty blocks booking.</p>
-    <div class="impact-grid cs-glance"><div class="impact-stat"><div class="n">~60%</div><div class="l">less visual rework (estimated)</div></div><div class="impact-stat"><div class="n">~90%</div><div class="l">faster global UI updates (estimated)</div></div><div class="impact-stat"><div class="n">7 + 3</div><div class="l">IA sections and annotated user flows</div></div></div>
+    <div class="impact-grid cs-glance"><div class="impact-stat"><div class="n">Tokens</div><div class="l">centralized semantic variables across mobile &amp; web</div></div><div class="impact-stat"><div class="n">9</div><div class="l">loading, empty, and error states designed</div></div><div class="impact-stat"><div class="n">7 + 3</div><div class="l">IA sections and annotated user flows</div></div></div>
     <div class="cs-badge-row"><span>Flyrank AI internship</span></div>
     <dl class="cs-meta">
       <div><dt>Role</dt><dd>UX/UI Design Intern</dd></div>
@@ -113,6 +115,53 @@
     </div>
 
     <div class="cs-section">
+      <h2>High-fidelity screens</h2>
+      <p>From welcome to checkout, built on the token system: onboarding with a fit quiz, sign-in, a home that starts from the occasion, a catalog with filters, and rent-or-buy product pages.</p>
+      <div class="cs-figure-row flex" style="--h:420px">
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-welcome.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-welcome.png" alt="Vextaro welcome screen" loading="lazy"></a><figcaption>Welcome.</figcaption></figure>
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-sign-in.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-sign-in.png" alt="Vextaro sign-in screen" loading="lazy"></a><figcaption>Sign in.</figcaption></figure>
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-home.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-home.png" alt="Vextaro home screen starting from the occasion" loading="lazy"></a><figcaption>Home, by occasion.</figcaption></figure>
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-product.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-product.png" alt="Vextaro product page with rent or buy choice" loading="lazy"></a><figcaption>Rent or buy, with size and price in the sticky bar.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>Measurements, sized the way clothes are</h2>
+          <p>A measurements editor replaces typing numbers. Each field steps the way that item is actually sized.</p>
+          <ul>
+            <li>Eight measurements: height, chest, neck, sleeve, waist, inseam, shoe size, hat size</li>
+            <li>Steps of 1 inch, 0.5 for neck and shoe size, 1/8 for hat size</li>
+            <li>Minus and plus buttons with a clear Cancel and Confirm</li>
+          </ul>
+        </div>
+        <div class="cs-split-media"><div class="cs-figure-row cols-1"><figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-measurements.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-measurements.png" alt="Vextaro measurements editor" loading="lazy"></a><figcaption>Measurements editor.</figcaption></figure></div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>An AI fit estimate, as a concept</h2>
+          <p>Vextaro has no AI feature today. I designed one as a labeled concept, to test how a size suggestion could earn trust instead of asking for it.</p>
+          <ul>
+            <li>Labeled "AI estimate", with a confidence level and a plain "Why this size?"</li>
+            <li>Admits it can be wrong, and a fit specialist confirms before shipping</li>
+            <li>Always correctable: Edit my measurements, Not my size, Ask a specialist</li>
+            <li>States for uncertain, slow, and corrected estimates, plus AI-surface documentation and an AI-usage log</li>
+          </ul>
+        </div>
+        <div class="cs-split-media"><div class="cs-figure-row cols-1"><figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-fit-estimate.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-fit-estimate.png" alt="Vextaro AI fit estimate concept screen" loading="lazy"></a><figcaption>Fit estimate concept: medium confidence, with reasons and an escape hatch.</figcaption></figure></div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>Designed for the unhappy path</h2>
+      <p>Catalog, cart, and wardrobe each have loading, empty, and error states, so no screen ends in a blank page. The whole flow is wired into a clickable prototype: welcome, sign-in or quiz, home, catalog, product, cart.</p>
+    </div>
+
+    <div class="cs-section">
       <h2>A system built to scale</h2>
       <ul><li>Figma token-based design system: variables, a 4-color semantic palette, and a type scale</li><li>Multi-state patterns (dropdowns, sheets, tabs, nav) documented for handoff</li><li>Consolidated redundant components and styles, cutting the UI element count by over half</li></ul>
       <div class="impact-grid">
@@ -124,7 +173,7 @@
 
     <div class="cs-section">
       <h2>What's next</h2>
-      <p>In progress: IA, user flows, wireframes and tokens are done, and high-fidelity screens are underway. Prototyping and engineering handoff come next.</p>
+      <p>Research, IA, flows, tokens, hi-fi screens, and the prototype are done. Next: a usability test with 3 participants (planned, not yet run), then an accessibility pass, this write-up, and an engineering handoff package. I will add findings here once testing is complete.</p>
     </div>
   </section>
 

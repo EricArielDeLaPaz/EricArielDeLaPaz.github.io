@@ -25,7 +25,7 @@
   }
 
   // Home: highlight the nav link for the section in view.
-  var spyMap = { work: 'work', experience: 'experience', process: 'experience', skills: 'experience', about: 'about', contact: 'contact' };
+  var spyMap = { work: 'work', experience: 'experience', process: 'process', skills: 'skills', about: 'about', contact: 'contact' };
   var navLinks = document.querySelectorAll('.sx-nav a[data-spy]');
   if (navLinks.length && 'IntersectionObserver' in window) {
     var spy = new IntersectionObserver(function (entries) {
