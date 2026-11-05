@@ -16,7 +16,13 @@
 <link rel="icon" type="image/png" href="../assets/images/profile.png">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/scroll.css">
-<style>:root{ --accent:var(--vextaro); }</style>
+<style>
+:root{ --accent:var(--vextaro); }
+.system-metrics .impact-stat{ padding:18px 16px; display:flex; flex-direction:column; justify-content:flex-start; text-align:left; }
+.system-metrics .stat-title{ font-size:13.5px; font-weight:700; color:var(--text); margin:6px 0 4px; font-family:'Raleway',sans-serif; }
+.system-metrics .l{ font-size:12px; line-height:1.45; color:var(--text-dim); margin-top:2px; }
+.system-takeaways{ margin-top:22px; }
+</style>
 </head>
 <body class="sx-page sx-case" data-case-study="Vextaro" data-accent="vextaro">
 
@@ -165,6 +171,7 @@
       </div>
     </div>
     </div>
+    </div>
 
     <div class="cs-section">
       <h2>Designed for the unhappy path</h2>
@@ -210,7 +217,7 @@
         <li><strong>Annotated screens:</strong> Product page, fit check, measurements editor, sign-in (with error state), and cart checkout.</li>
         <li><strong>Component index:</strong> Comprehensive table documenting 9 master components and 35 variants with interaction guidelines.</li>
         <li><strong>Production asset exports:</strong> Vector SVGs and raster PNGs configured at 1x, 2x, and 3x densities.</li>
-        <li><strong>Prototype QA:</strong> 146 interactive links validated with zero dead-ends or broken transitions.</li>
+        <li><strong>Prototype QA:</strong> Complete navigation flow validated with zero dead-ends or broken transitions across all branches.</li>
         <li><strong>Documented edge cases:</strong> Open architectural decisions explicitly logged in Figma for engineering review.</li>
       </ul>
       <div class="cs-figure-row cols-1">
@@ -220,13 +227,34 @@
 
     <div class="cs-section">
       <h2>A system built to scale</h2>
-      <ul>
-        <li><strong>Figma token architecture:</strong> Centralized variables for semantic color ramps, 8pt spatial grid, corner radii, and typographic scale.</li>
-        <li><strong>Multi-state component variants:</strong> Designed and documented interactive states (default, hover, active, focus, disabled, error) across sheets, tabs, chips, and modals.</li>
-        <li><strong>Redundancy elimination:</strong> Consolidated duplicate styles and detached layers, cutting the total component inventory by over half to ensure sustainable maintenance.</li>
-      </ul>
-      <div class="impact-grid">
-        <div class="impact-stat"><div class="n">15 / 15</div><div class="l">WCAG 2.2 AA checks audited &amp; resolved at the token level</div></div>
+      <p>Rather than designing disconnected mockups, I established a centralized Figma token architecture to ensure consistency, accessibility, and smooth developer handoff across the entire rental experience:</p>
+      
+      <div class="impact-grid system-metrics">
+        <div class="impact-stat">
+          <div class="n">50%+</div>
+          <div class="stat-title">Component Consolidation</div>
+          <div class="l">Cut 24 redundant styles into 9 master components with 35 interactive variants</div>
+        </div>
+        <div class="impact-stat">
+          <div class="n">15 / 15</div>
+          <div class="stat-title">WCAG 2.2 AA Audited</div>
+          <div class="l">Zero contrast failures; secondary text resolved at 8.31:1 ratio across all tokens</div>
+        </div>
+        <div class="impact-stat">
+          <div class="n">3 Flows</div>
+          <div class="stat-title">Zero-Dead-End Recovery</div>
+          <div class="l">Dedicated escalation paths for fit mismatches, date conflicts, and measurement overrides</div>
+        </div>
+      </div>
+
+      <div class="system-takeaways">
+        <ul>
+          <li><strong>Token hierarchy:</strong> Centralized Figma variables mapping primitive hex values to semantic roles (surface, brand, text, interactive states) across light and dark contexts.</li>
+          <li><strong>Interactive variants:</strong> Standardized states (default, hover, active, focus, error, disabled) across bottom sheets, occasion selector chips, and sticky booking bars.</li>
+          <li><strong>Production-ready handoff:</strong> Complete component index paired with numbered spatial redlines so frontend engineers can build without guesswork.</li>
+        </ul>
+      </div>
+    </div>
         <div class="impact-stat"><div class="n">35</div><div class="l">component variants documented in the handoff index</div></div>
         <div class="impact-stat"><div class="n">146</div><div class="l">prototype links QA'd across booking &amp; recovery flows</div></div>
       </div>
