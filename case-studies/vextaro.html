@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vextaro — Internship Capstone · Eric Ariel De La Paz</title>
-<meta name="description" content="A token-based design system, research-backed IA, and a high-fidelity prototype for a men's luxury formalwear rental app, built during a UX/UI design internship.">
+<meta name="description" content="A token-based design system, research-backed IA, a high-fidelity prototype, and an engineering hand-off for a men's luxury formalwear rental app, built during a UX/UI design internship.">
 <link rel="canonical" href="https://ericarieldelapaz.tech/case-studies/vextaro.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vextaro — Internship Capstone · Eric Ariel De La Paz">
-<meta property="og:description" content="A token-based design system, research-backed IA, and a high-fidelity prototype for a men's luxury formalwear rental app, built during a UX/UI design internship.">
+<meta property="og:description" content="A token-based design system, research-backed IA, a high-fidelity prototype, and an engineering hand-off for a men's luxury formalwear rental app, built during a UX/UI design internship.">
 <meta property="og:url" content="https://ericarieldelapaz.tech/case-studies/vextaro.html">
 <meta property="og:image" content="https://ericarieldelapaz.tech/assets/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -41,13 +41,11 @@
     <h1>Vextaro</h1>
     <p class="tagline">A men's luxury formalwear rental app. Renters can't try garments on before they ship, so fit uncertainty blocks booking.</p>
     <div class="impact-grid cs-glance"><div class="impact-stat"><div class="n">Tokens</div><div class="l">centralized semantic variables across mobile &amp; web</div></div><div class="impact-stat"><div class="n">9</div><div class="l">loading, empty, and error states designed</div></div><div class="impact-stat"><div class="n">7 + 3</div><div class="l">IA sections and annotated user flows</div></div></div>
-    <div class="cs-badge-row">
-  <a target="_blank" rel="noopener" href="https://www.figma.com/proto/fwsFyRAMmhGtRbqeYjq0mZ/Vextaro-Internship-Capstone?node-id=2166-2413&viewport=568%2C125%2C0.15&t=YoGlloEmnnFJQzVX-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2166%3A2413&page-id=2166%3A2410"><span>View Figma Prototype</span></a>
-</div>
+    <div class="cs-badge-row"><span>Flyrank AI internship</span></div>
     <dl class="cs-meta">
       <div><dt>Role</dt><dd>UX/UI Design Intern</dd></div>
       <div><dt>Team</dt><dd>Flyrank AI</dd></div>
-      <div><dt>Status</dt><dd>Active internship · Finalizing production UI</dd></div>
+      <div><dt>Status</dt><dd>Active internship</dd></div>
       <div><dt>Tools</dt><dd>Figma, Claude</dd></div>
     </dl>
   
@@ -84,7 +82,8 @@
                   </div>
                   <div class="chain-step">
                     <span class="k">Evaluated via</span>
-                    <span class="v">Cognitive walkthroughs across 3 core flows (onboarding, checkout, and sizing recovery) to ensure zero dead ends and immediate specialist escalation paths.</span>
+                    <span class="v">Flow walkthroughs: the checkpoint is reachable from booking and recovery, no dead ends.</span>
+                  </div>
                 </div>
         </div>
         <div class="cs-split-media">
@@ -98,8 +97,10 @@
     <div class="cs-section">
       <div class="cs-split" style="--split:1.15fr">
         <div class="cs-split-text">
-          <h2>Information architecture & recovery flows</h2>
-          <p>The 7-section site map and the annotated recovery flow with escalation paths.</p>
+          <h2>Flows and first screens</h2>
+          <p>
+            IA, recovery flow, and first hi-fi screen.
+          </p>
           <div class="cs-figure-row cols-1">
           <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/IA.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/IA.png" alt="Vextaro seven-section information architecture" loading="lazy"></a><figcaption>Information architecture, seven sections.</figcaption></figure>
         </div>
@@ -161,6 +162,41 @@
     </div>
 
     <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>Accessibility pass, fixed at the token level</h2>
+          <p>I computed contrast from the token hex values, then audited 15 checks against WCAG 2.2 AA: 7 passed, 5 were fixed, 3 are noted.</p>
+          <ul>
+            <li>Inactive and helper text used the disabled gray at 4.29:1, under the 4.5:1 minimum. One new secondary-text token (8.31:1) fixed it everywhere.</li>
+            <li>Selected chips relied on a subtle fill, so they gained a 2px outline and a semibold label</li>
+            <li>Text links were 16px tall, so their rows were padded to a 40px hit area</li>
+            <li>Added button focus states and an inline error state for sign-in</li>
+          </ul>
+        </div>
+        <div class="cs-split-media"><div class="cs-figure-row cols-1"><figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-accessibility-audit.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-accessibility-audit.png" alt="Vextaro accessibility audit table: 15 checks with result, evidence and fix" loading="lazy"></a><figcaption>The audit table from the hand-off page.</figcaption></figure></div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>Engineering hand-off</h2>
+      <p>The last deliverable is a hand-off page engineers can build from without asking me questions. Five key screens are annotated with measurements, behavior, and edge cases, not just spacing.</p>
+      <div class="cs-figure-row cols-1">
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/handoff-annotated-product.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/handoff-annotated-product.png" alt="Annotated Vextaro product page with numbered markers and a table of size, spacing, behavior and edge cases" loading="lazy"></a><figcaption>Product page: numbered markers, spacing, behavior, and edge cases.</figcaption></figure>
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/handoff-annotated-fit-check.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/handoff-annotated-fit-check.png" alt="Annotated Vextaro AI fit check screen with a table of size, spacing and behavior" loading="lazy"></a><figcaption>Fit check: the AI estimate is labeled, correctable, and never the only signal.</figcaption></figure>
+      </div>
+      <ul>
+        <li>Annotated: product page, fit check, measurements editor, sign-in with its error state, and cart</li>
+        <li>A component index covering 9 components and 35 variants, with usage notes</li>
+        <li>Production assets set up for export: SVG icons and PNG images at 1x, 2x, and 3x</li>
+        <li>A prototype QA pass: 146 links checked, none pointing at a missing screen</li>
+        <li>Open decisions listed for engineering, such as the size shown in the sticky bar and whether checkout waits on an unconfirmed size</li>
+      </ul>
+      <div class="cs-figure-row cols-1">
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/handoff-component-index.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/handoff-component-index.png" alt="Vextaro component index table: component, variants, states, usage" loading="lazy"></a><figcaption>The component index.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="cs-section">
       <h2>A system built to scale</h2>
       <ul><li>Figma token-based design system: variables, a 4-color semantic palette, and a type scale</li><li>Multi-state patterns (dropdowns, sheets, tabs, nav) documented for handoff</li><li>Consolidated redundant components and styles, cutting the UI element count by over half</li></ul>
       <div class="impact-grid">
@@ -171,14 +207,9 @@
     </div>
 
     <div class="cs-section">
-  <h2>Finalizing designs & engineering handoff</h2>
-  <p>Research, information architecture, tokenized design systems, and core responsive flows are established. Currently putting the final polish on edge-case screens and preparing the engineering package:</p>
-  <ul>
-    <li><strong>Final design polish:</strong> Completing final micro-interactions on the occasion filter bar and sticky checkout summary.</li>
-    <li><strong>Design token handoff:</strong> Documenting Figma variables (color ramps, spacing, radii) for direct translation into CSS custom properties.</li>
-    <li><strong>Design QA & edge cases:</strong> Stress-testing offline, slow-loading, and extreme size measurement inputs across mobile breakpoints.</li>
-  </ul>
-</div>
+      <h2>What's next</h2>
+      <p>Research, IA, flows, tokens, hi-fi screens, the prototype, the accessibility pass, and the engineering hand-off are done. The open decisions for engineering are listed in the Figma file.</p>
+    </div>
   </section>
 
   <div class="container">
