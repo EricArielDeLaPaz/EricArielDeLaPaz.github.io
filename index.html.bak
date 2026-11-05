@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eric Ariel De La Paz | Junior Product Designer, Texas</title>
-<meta name="description" content="Junior product designer in Texas: token-based Figma design systems, interactive prototypes, and engineering handoff. See case studies and get in touch.">
+<title>Eric Ariel De La Paz | Product Designer, Texas</title>
+<meta name="description" content="Product Designer in Texas: token-based Figma design systems, interactive prototypes, and engineering handoff. See case studies and get in touch.">
 <meta name="author" content="Eric Ariel De La Paz">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#070707">
 <link rel="canonical" href="https://ericarieldelapaz.tech/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Eric Ariel De La Paz">
-<meta property="og:title" content="Eric Ariel De La Paz | Junior Product Designer">
+<meta property="og:title" content="Eric Ariel De La Paz | Product Designer">
 <meta property="og:description" content="Token-based design systems, interactive prototypes, and engineering handoff. Case studies from Flyrank AI and self-initiated work.">
 <meta property="og:url" content="https://ericarieldelapaz.tech/">
 <meta property="og:image" content="https://ericarieldelapaz.tech/assets/images/og-image.png">
-<meta property="og:image:alt" content="Eric Ariel De La Paz, Junior Product Designer">
+<meta property="og:image:alt" content="Eric Ariel De La Paz, Product Designer">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Eric Ariel De La Paz | Junior Product Designer">
+<meta name="twitter:title" content="Eric Ariel De La Paz | Product Designer">
 <meta name="twitter:description" content="Token-based design systems, interactive prototypes, and engineering handoff.">
 <meta name="twitter:image" content="https://ericarieldelapaz.tech/assets/images/og-image.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://ericarieldelapaz.tech/#website", "url": "https://ericarieldelapaz.tech/", "name": "Eric Ariel De La Paz | Junior Product Designer Portfolio", "inLanguage": "en-US"}, {"@type": "Person", "@id": "https://ericarieldelapaz.tech/#person", "name": "Eric Ariel De La Paz", "url": "https://ericarieldelapaz.tech/", "image": "https://ericarieldelapaz.tech/assets/images/profile.png", "jobTitle": "Junior Product Designer", "description": "Junior product designer focused on design systems, interaction design, and prototyping.", "address": {"@type": "PostalAddress", "addressRegion": "TX", "addressCountry": "US"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "Western Governors University"}, "knowsAbout": ["UX design", "Product design", "Design systems", "Figma", "Prototyping", "Information architecture", "UX research", "Accessibility"], "sameAs": ["https://www.linkedin.com/in/eric-ariel-de-la-paz/", "https://github.com/EricArielDeLaPaz"]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://ericarieldelapaz.tech/#website", "url": "https://ericarieldelapaz.tech/", "name": "Eric Ariel De La Paz | Product Designer Portfolio", "inLanguage": "en-US"}, {"@type": "Person", "@id": "https://ericarieldelapaz.tech/#person", "name": "Eric Ariel De La Paz", "url": "https://ericarieldelapaz.tech/", "image": "https://ericarieldelapaz.tech/assets/images/profile.png", "jobTitle": "Product Designer", "description": "Product Designer focused on design systems, interaction design, and prototyping.", "address": {"@type": "PostalAddress", "addressRegion": "TX", "addressCountry": "US"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "Western Governors University"}, "knowsAbout": ["UX design", "Product design", "Design systems", "Figma", "Prototyping", "Information architecture", "UX research", "Accessibility"], "sameAs": ["https://www.linkedin.com/in/eric-ariel-de-la-paz/", "https://github.com/EricArielDeLaPaz"]}]}</script>
 <link rel="icon" type="image/png" href="assets/images/profile.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/scroll.css">
@@ -46,7 +46,7 @@
   <div class="sx-wrap sx-hero-grid">
     <div class="sx-hero-copy">
       <p class="sx-kicker"><i class="sx-dot" aria-hidden="true"></i> Hi, I'm Eric. Open to junior product design roles</p>
-      <h1 id="hero-title">Junior Product Designer: systems, flows, prototypes.</h1>
+      <h1 id="hero-title">Product Designer: systems, flows, prototypes.</h1>
       <p class="sx-lede">I design token-based Figma systems and clickable prototypes that engineers can build from. Texas-based, open to work.</p>
       <ul class="sx-badges" aria-label="At a glance">
         <li>Texas (Open to Remote &amp; Relocation)</li><li>2 Concurrent Design Internships (Flyrank AI &amp; Stealth Startup)</li><li>Design Systems &amp; Token Architecture</li><li>B.S. User Experience Design, Western Governors University</li>
@@ -199,7 +199,7 @@
   <div class="sx-wrap">
     <p class="sx-kicker">Contact</p>
     <h2 id="contact-title">Let's build something useful.</h2>
-    <p class="sx-sub">I am looking for a junior product designer role where I can build the system behind the screens. If your team is hiring, I would love to talk. Send me a note or connect on LinkedIn, and I can walk you through any case study.</p>
+    <p class="sx-sub">I am looking for a Product Designer role where I can build the system behind the screens. If your team is hiring, I would love to talk. Send me a note or connect on LinkedIn, and I can walk you through any case study.</p>
     <div class="sx-cta"><a class="sx-btn sx-btn-primary" href="mailto:ericforall247@gmail.com">Email me</a><a class="sx-btn" href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">Connect on LinkedIn</a><a class="sx-btn" href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a></div>
   </div>
 </section>
