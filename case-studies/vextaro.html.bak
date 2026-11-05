@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vextaro — Internship Capstone · Eric Ariel De La Paz</title>
+<meta name="description" content="A token-based design system, research-backed IA, a high-fidelity prototype, and an engineering hand-off for a men's luxury formalwear rental app, built during a UX/UI design internship.">
+<link rel="canonical" href="https://ericarieldelapaz.tech/case-studies/vextaro.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vextaro — Internship Capstone · Eric Ariel De La Paz">
+<meta property="og:description" content="A token-based design system, research-backed IA, a high-fidelity prototype, and an engineering hand-off for a men's luxury formalwear rental app, built during a UX/UI design internship.">
+<meta property="og:url" content="https://ericarieldelapaz.tech/case-studies/vextaro.html">
+<meta property="og:image" content="https://ericarieldelapaz.tech/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Eric Ariel De La Paz">
+<link rel="icon" type="image/png" href="../assets/images/profile.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/scroll.css">
+<style>:root{ --accent:var(--vextaro); }</style>
+</head>
+<body class="sx-page sx-case" data-case-study="Vextaro" data-accent="vextaro">
+
+<header class="sx-nav-wrap">
+  <nav class="sx-nav" aria-label="Primary">
+    <a class="sx-brand" href="../index.html" aria-label="Eric Ariel De La Paz, home"><img src="../assets/images/profile.png" alt="" width="28" height="28"><span>De La Paz</span></a>
+    <span class="sx-nav-sep" aria-hidden="true"></span>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#process">Process</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+    <span class="sx-nav-sep" aria-hidden="true"></span>
+    <span class="sx-status" title="Open to work"><i class="sx-dot" aria-hidden="true"></i><span>Open to work</span></span>
+  </nav>
+</header>
+<a class="sx-skip" href="#main">Skip to content</a>
+<main class="sx-main" id="main">
+  <section class="cs-hero container">
+    <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / Vextaro</div>
+    <h1>Vextaro</h1>
+    <p class="tagline">A men's luxury formalwear rental app. Renters can't try garments on before they ship, so fit uncertainty blocks booking.</p>
+    <div class="impact-grid cs-glance"><div class="impact-stat"><div class="n">Tokens</div><div class="l">centralized semantic variables across mobile &amp; web</div></div><div class="impact-stat"><div class="n">9</div><div class="l">loading, empty, and error states designed</div></div><div class="impact-stat"><div class="n">7 + 3</div><div class="l">IA sections and annotated user flows</div></div></div>
+    <div class="cs-badge-row"><span>Flyrank AI internship</span></div>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>UX/UI Design Intern</dd></div>
+      <div><dt>Team</dt><dd>Flyrank AI</dd></div>
+      <div><dt>Status</dt><dd>Active internship</dd></div>
+      <div><dt>Tools</dt><dd>Figma, Claude</dd></div>
+    </dl>
+  
+    <figure class="sx-cover"><img src="../assets/images/vextaro.png" alt="Vextaro project artwork" width="1200" height="600"></figure>
+  </section>
+
+  <section class="cs-body container">
+    <div class="cs-section">
+      <h2>Fit anxiety, not selection</h2>
+      <ul><li>10+ competitive audits and desk research (reviews, return rates)</li><li>Renters wanted a second opinion on fit, not more options</li><li>An outfit is a connected system, so fit became the product opportunity</li></ul>
+    </div>
+
+    <div class="cs-section">
+      <h2>Marcus and his journey</h2>
+      <p>Built from desk research: competitor reviews, return-rate data, style guides.</p>
+      <div class="cs-figure-row flex" style="--h:330px">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/Marcus.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/Marcus.png" alt="Persona card for Marcus, the primary Vextaro persona" loading="lazy"></a><figcaption>Marcus, primary persona.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/Emotional%20Journey%20Map.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/Emotional%20Journey%20Map.png" alt="Emotional journey map for Marcus across the rental experience" loading="lazy"></a><figcaption>Emotional journey map.</figcaption></figure>
+        </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>From complaint to checkpoint</h2>
+                <div class="reasoning-chain compact">
+                  <div class="chain-step">
+                    <span class="k">I learned</span>
+                    <span class="v">No competitor offered a human-backed fit check before checkout; reviews named the gap.</span>
+                  </div>
+                  <div class="chain-step">
+                    <span class="k">So I changed</span>
+                    <span class="v">A specialist fit-confirmation checkpoint in booking, plus a 7-section IA and 3 annotated flows (primary, onboarding, recovery with escalation).</span>
+                  </div>
+                  <div class="chain-step">
+                    <span class="k">Evaluated via</span>
+                    <span class="v">Flow walkthroughs: the checkpoint is reachable from booking and recovery, no dead ends.</span>
+                  </div>
+                </div>
+        </div>
+        <div class="cs-split-media">
+          <div class="cs-figure-row flex" style="--h:320px">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/fit-check%20wireframe.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/fit-check%20wireframe.png" alt="Wireframe of onboarding step 2 of 4, add your measurements, with a link to find a nearby measuring specialist" loading="lazy"></a><figcaption>Onboarding step 2 of 4: add measurements, or find a nearby measuring specialist.</figcaption></figure>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split" style="--split:1.15fr">
+        <div class="cs-split-text">
+          <h2>Flows and first screens</h2>
+          <p>
+            IA, recovery flow, and first hi-fi screen.
+          </p>
+          <div class="cs-figure-row cols-1">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/IA.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/IA.png" alt="Vextaro seven-section information architecture" loading="lazy"></a><figcaption>Information architecture, seven sections.</figcaption></figure>
+        </div>
+        </div>
+        <div class="cs-split-media">
+          <div class="cs-figure-row flex" style="--h:320px">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/recovery%20flow.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/recovery%20flow.png" alt="Vextaro recovery user flow with escalation" loading="lazy"></a><figcaption>Recovery flow.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/onboarding.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/onboarding.png" alt="Vextaro onboarding welcome screen" loading="lazy"></a><figcaption>Onboarding welcome.</figcaption></figure>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>High-fidelity screens</h2>
+      <p>From welcome to checkout, built on the token system: onboarding with a fit quiz, sign-in, a home that starts from the occasion, a catalog with filters, and rent-or-buy product pages.</p>
+      <div class="cs-figure-row flex" style="--h:420px">
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-welcome.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-welcome.png" alt="Vextaro welcome screen" loading="lazy"></a><figcaption>Welcome.</figcaption></figure>
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-sign-in.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-sign-in.png" alt="Vextaro sign-in screen" loading="lazy"></a><figcaption>Sign in.</figcaption></figure>
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-home.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-home.png" alt="Vextaro home screen starting from the occasion" loading="lazy"></a><figcaption>Home, by occasion.</figcaption></figure>
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-product.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-product.png" alt="Vextaro product page with rent or buy choice" loading="lazy"></a><figcaption>Rent or buy, with size and price in the sticky bar.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>Measurements, sized the way clothes are</h2>
+          <p>A measurements editor replaces typing numbers. Each field steps the way that item is actually sized.</p>
+          <ul>
+            <li>Eight measurements: height, chest, neck, sleeve, waist, inseam, shoe size, hat size</li>
+            <li>Steps of 1 inch, 0.5 for neck and shoe size, 1/8 for hat size</li>
+            <li>Minus and plus buttons with a clear Cancel and Confirm</li>
+          </ul>
+        </div>
+        <div class="cs-split-media"><div class="cs-figure-row cols-1"><figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-measurements.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-measurements.png" alt="Vextaro measurements editor" loading="lazy"></a><figcaption>Measurements editor.</figcaption></figure></div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>An AI fit estimate, as a concept</h2>
+          <p>Vextaro has no AI feature today. I designed one as a labeled concept, to test how a size suggestion could earn trust instead of asking for it.</p>
+          <ul>
+            <li>Labeled "AI estimate", with a confidence level and a plain "Why this size?"</li>
+            <li>Admits it can be wrong, and a fit specialist confirms before shipping</li>
+            <li>Always correctable: Edit my measurements, Not my size, Ask a specialist</li>
+            <li>States for uncertain, slow, and corrected estimates, plus AI-surface documentation and an AI-usage log</li>
+          </ul>
+        </div>
+        <div class="cs-split-media"><div class="cs-figure-row cols-1"><figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-fit-estimate.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-fit-estimate.png" alt="Vextaro AI fit estimate concept screen" loading="lazy"></a><figcaption>Fit estimate concept: medium confidence, with reasons and an escape hatch.</figcaption></figure></div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>Designed for the unhappy path</h2>
+      <p>Catalog, cart, and wardrobe each have loading, empty, and error states, so no screen ends in a blank page. The whole flow is wired into a clickable prototype: welcome, sign-in or quiz, home, catalog, product, cart.</p>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>Accessibility pass, fixed at the token level</h2>
+          <p>I computed contrast from the token hex values, then audited 15 checks against WCAG 2.2 AA: 7 passed, 5 were fixed, 3 are noted.</p>
+          <ul>
+            <li>Inactive and helper text used the disabled gray at 4.29:1, under the 4.5:1 minimum. One new secondary-text token (8.31:1) fixed it everywhere.</li>
+            <li>Selected chips relied on a subtle fill, so they gained a 2px outline and a semibold label</li>
+            <li>Text links were 16px tall, so their rows were padded to a 40px hit area</li>
+            <li>Added button focus states and an inline error state for sign-in</li>
+          </ul>
+        </div>
+        <div class="cs-split-media"><div class="cs-figure-row cols-1"><figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-accessibility-audit.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-accessibility-audit.png" alt="Vextaro accessibility audit table: 15 checks with result, evidence and fix" loading="lazy"></a><figcaption>The audit table from the hand-off page.</figcaption></figure></div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>Engineering hand-off</h2>
+      <p>The last deliverable is a hand-off page engineers can build from without asking me questions. Five key screens are annotated with measurements, behavior, and edge cases, not just spacing.</p>
+      <div class="cs-figure-row cols-1">
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/handoff-annotated-product.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/handoff-annotated-product.png" alt="Annotated Vextaro product page with numbered markers and a table of size, spacing, behavior and edge cases" loading="lazy"></a><figcaption>Product page: numbered markers, spacing, behavior, and edge cases.</figcaption></figure>
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/handoff-annotated-fit-check.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/handoff-annotated-fit-check.png" alt="Annotated Vextaro AI fit check screen with a table of size, spacing and behavior" loading="lazy"></a><figcaption>Fit check: the AI estimate is labeled, correctable, and never the only signal.</figcaption></figure>
+      </div>
+      <ul>
+        <li>Annotated: product page, fit check, measurements editor, sign-in with its error state, and cart</li>
+        <li>A component index covering 9 components and 35 variants, with usage notes</li>
+        <li>Production assets set up for export: SVG icons and PNG images at 1x, 2x, and 3x</li>
+        <li>A prototype QA pass: 146 links checked, none pointing at a missing screen</li>
+        <li>Open decisions listed for engineering, such as the size shown in the sticky bar and whether checkout waits on an unconfirmed size</li>
+      </ul>
+      <div class="cs-figure-row cols-1">
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/handoff-component-index.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/handoff-component-index.png" alt="Vextaro component index table: component, variants, states, usage" loading="lazy"></a><figcaption>The component index.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>A system built to scale</h2>
+      <ul><li>Figma token-based design system: variables, a 4-color semantic palette, and a type scale</li><li>Multi-state patterns (dropdowns, sheets, tabs, nav) documented for handoff</li><li>Consolidated redundant components and styles, cutting the UI element count by over half</li></ul>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">~60%</div><div class="l">less visual rework after tokens shipped</div></div>
+        <div class="impact-stat"><div class="n">~90%</div><div class="l">faster global UI updates</div></div>
+        <div class="impact-stat"><div class="n">7</div><div class="l">IA sections, 3 annotated user flows</div></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>What's next</h2>
+      <p>Research, IA, flows, tokens, hi-fi screens, the prototype, the accessibility pass, and the engineering hand-off are done. The open decisions for engineering are listed in the Figma file.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cs-nav-footer">
+      <a href="devtective.html">← DevTective</a>
+      <a href="../index.html#work">All work →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="container" style="margin-top:40px;">
+  <div class="foot-row">
+    <div class="foot-links">
+      <a href="mailto:ericforall247@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <span class="copyright">© 2026 Eric Ariel De La Paz</span>
+  </div>
+</footer>
+<script src="../assets/js/scroll.js"></script>
+<script src="../assets/js/halloween.js"></script>
+</body>
+</html>

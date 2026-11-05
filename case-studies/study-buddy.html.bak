@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Buddy — Desktop Focus Companion · Eric Ariel De La Paz</title>
+<meta name="description" content="A desktop focus companion designed in Figma and built by directing AI through staged change lists, with human review at every round.">
+<link rel="canonical" href="https://ericarieldelapaz.tech/case-studies/study-buddy.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Study Buddy — Desktop Focus Companion · Eric Ariel De La Paz">
+<meta property="og:description" content="A desktop focus companion designed in Figma and built by directing AI through staged change lists, with human review at every round.">
+<meta property="og:url" content="https://ericarieldelapaz.tech/case-studies/study-buddy.html">
+<meta property="og:image" content="https://ericarieldelapaz.tech/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Eric Ariel De La Paz">
+<link rel="icon" type="image/png" href="../assets/images/profile.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/scroll.css">
+<style>:root{ --accent:var(--studybuddy); }</style>
+</head>
+<body class="sx-page sx-case" data-case-study="Study Buddy" data-accent="studybuddy">
+
+<header class="sx-nav-wrap">
+  <nav class="sx-nav" aria-label="Primary">
+    <a class="sx-brand" href="../index.html" aria-label="Eric Ariel De La Paz, home"><img src="../assets/images/profile.png" alt="" width="28" height="28"><span>De La Paz</span></a>
+    <span class="sx-nav-sep" aria-hidden="true"></span>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#process">Process</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+    <span class="sx-nav-sep" aria-hidden="true"></span>
+    <span class="sx-status" title="Open to work"><i class="sx-dot" aria-hidden="true"></i><span>Open to work</span></span>
+  </nav>
+</header>
+<a class="sx-skip" href="#main">Skip to content</a>
+<main class="sx-main" id="main">
+  <section class="cs-hero container">
+    <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / Study Buddy</div>
+    <h1>Study Buddy</h1>
+    <p class="tagline">A desktop focus companion. A small mascot, Mambo, runs your study sessions and asks for breaks with friendly overlays instead of locking your screen. I designed it in Figma, then built it by directing AI and reviewing every round myself.</p>
+    <div class="impact-grid cs-glance"><div class="impact-stat"><div class="n">~14 hrs</div><div class="l">active build time, from commit timestamps</div></div><div class="impact-stat"><div class="n">40+</div><div class="l">commits, every round reviewed by me</div></div><div class="impact-stat"><div class="n">3</div><div class="l">desktop installers: Windows, Mac, Linux</div></div></div>
+    <div class="cs-badge-row"><a href="https://github.com/EricArielDeLaPaz/study-buddy-desktop" target="_blank" rel="noopener"><span>View GitHub Repository</span></a><a href="https://www.linkedin.com/posts/eric-ariel-de-la-paz_uxdesign-productdesign-studentlife-ugcPost-7517057393239752704-cLUV/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwSUJgBsQv-5MDGy8Lu7UaL4Oxsc64LZLc" target="_blank" rel="noopener"><span>View LinkedIn Overlay Demo</span></a></div>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Product designer, AI-assisted builder</dd></div>
+      <div><dt>Status</dt><dd>In progress, rolling updates</dd></div>
+      <div><dt>Platform</dt><dd>Desktop first, mobile next</dd></div>
+      <div><dt>Tools</dt><dd>Figma, Gemini 4 Argon</dd></div>
+    </dl>
+  
+    <figure class="sx-cover"><img src="../assets/images/study-buddy.png" alt="Study Buddy project artwork" width="1200" height="600"></figure>
+  </section>
+
+  <section class="cs-body container">
+    <div class="cs-section">
+      <h2>Structure without the pressure</h2>
+      <p>Focus and break timers, water reminders, and blockers, delivered in a friendlier way.</p>
+      <div class="reasoning-chain compact">
+        <div class="chain-step">
+          <span class="k">I noticed</span>
+          <span class="v">I drifted to YouTube during my own study sessions and wanted help focusing and managing my time.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">So I designed</span>
+          <span class="v">An ambient companion that floats over your work with timers, reminders and nudges. Postpone a break in one tap (+30s, +1m, +5m); the window tucks away for full screen.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">Evaluated via</span>
+          <span class="v">Dogfooding: I use it daily in my own study sessions, and every round is run and clicked through before the next change list.</span>
+        </div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <h2>Designed in Figma first</h2>
+      <p>Session, reminders, schedule, app rules, progress, buddy screens, break overlays, and the Mambo widget, in light and dark themes on shared tokens (Fredoka, DM Sans).</p>
+      <div class="cs-figure-row cols-2">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-session.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-session.png" alt="Figma design of the Study Buddy session screen" loading="lazy"></a><figcaption>Figma: the session screen, with presets, a study goal and the Mambo preview.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-buddy-studio.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-buddy-studio.png" alt="Figma design of the Buddy Studio screen with presets and animation slots" loading="lazy"></a><figcaption>Figma: Buddy Studio, where each animation is linked to a session, reminder or alert.</figcaption></figure>
+        </div>
+    </div>
+    <div class="cs-section">
+      <h2>From frame to working overlay</h2>
+      <p>The break overlay is the heart of the product: a calm card with a small plus to postpone. Figma held a placeholder; the build plays Mambo's states, with a gentler nudge for distracting sites.</p>
+      <div class="cs-figure-row cols-3">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" alt="Figma frame of the hydration break overlay with a placeholder character" loading="lazy"></a><figcaption>Design: hydration break in Figma.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" alt="Built hydration break overlay with the Mambo character" loading="lazy"></a><figcaption>Built: the same break with Mambo.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" alt="Built distraction nudge overlay asking whether to keep or close a distracting app" loading="lazy"></a><figcaption>Built: the nudge, shown when you open a listed app or site during a focus session.</figcaption></figure>
+        </div>
+    </div>
+    <div class="cs-section">
+      <h2>Working with AI, on purpose</h2>
+      <p>I directed the AI and kept the product decisions. Each round followed one loop.</p>
+      <div class="reasoning-chain is-row compact">
+        <div class="chain-step">
+          <span class="k">I designed</span>
+          <span class="v">Frames, tokens and reference screenshots in Figma. Every round starts by comparing the running app to them.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">I directed</span>
+          <span class="v">I wrote each change in plain language; Gemini structured it into a prompt, and Gemini 4 Argon generated the Electron, React and TypeScript.</span>
+        </div>
+        <div class="chain-step">
+          <span class="k">I reviewed</span>
+          <span class="v">I ran the app, clicked every screen, and wrote the next change list. Saved transcripts show 10 rounds (stages 9 to 18).</span>
+        </div>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-stat"><div class="n">~14 hrs</div><div class="l">active build time, from commit timestamps</div></div>
+        <div class="impact-stat"><div class="n">40+</div><div class="l">commits</div></div>
+        <div class="impact-stat"><div class="n">~15k</div><div class="l">lines of TypeScript and React</div></div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-split" style="--split:1.25fr">
+        <div class="cs-split-text">
+          <h2>Dogfooding and edge-case elimination</h2>
+          <p>I run the app myself every day, then write the next change list from what breaks, confuses, or feels unfinished. Fixes from those rounds:</p>
+          <ul><li>Cut clutter: the Messages tab and a focus-timer pill</li><li>Made the window behave like a normal app: resizable, no fullscreen, close tucks into Mambo</li><li>Fixed low-contrast light-mode text against WCAG AA (formal audit still to do)</li><li>One purple palette instead of blue and purple, with hover states on every desktop button</li><li>Confirmation dialogs before delete, clear and sign-out actions</li><li>Removed settings that did not work yet (cloud sync, "iPhone connected")</li></ul>
+        </div>
+        <div class="cs-split-media">
+          <div class="cs-figure-row cols-1 sm">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-session-dark.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-session-dark.png" alt="Study Buddy session screen in dark theme" loading="lazy"></a><figcaption>Dark theme.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-session-light.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-session-light.png" alt="Study Buddy session screen in light theme" loading="lazy"></a><figcaption>Light theme, after the contrast pass.</figcaption></figure>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <h2>The desktop app</h2>
+      <p>Editable reminders, a schedule for study blocks, and app rules that nudge you when a listed app or site opens mid-session. Auto-starting sessions from the schedule is next.</p>
+      <div class="cs-figure-row cols-3">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-reminders.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-reminders.png" alt="Reminders screen with editable reminder cards" loading="lazy"></a><figcaption>Reminders.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-schedule.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-schedule.png" alt="Schedule screen with study time blocks" loading="lazy"></a><figcaption>Schedule.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-app-rules.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-app-rules.png" alt="App rules screen listing apps and sites that trigger a nudge" loading="lazy"></a><figcaption>App rules.</figcaption></figure>
+        </div>
+    </div>
+    <div class="cs-section">
+      <h2>Companions and progress</h2>
+      <p>Mambo is the starting companion; levels unlock more, and each companion's animations can link to a reminder, session or alert. A progress screen tracks focus hours, streaks and level.</p>
+      <div class="cs-figure-row cols-2">
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-buddy-studio.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-buddy-studio.png" alt="Buddy Studio screen with companions and animation slots" loading="lazy"></a><figcaption>Buddy Studio.</figcaption></figure>
+          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-progress.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-progress.png" alt="Progress screen with focus hours, streak and companion level" loading="lazy"></a><figcaption>Progress. Numbers shown are sample data.</figcaption></figure>
+        </div>
+    </div>
+    <div class="cs-section">
+      <h2>What's next</h2>
+      <p>Rolling updates, desktop first.</p>
+      <ul><li><strong>Keep dogfooding:</strong> daily use and more edge-case sweeps on every release</li><li><strong>Smart activation:</strong> opening a study app or site starts Mambo and a session (list saved, auto-start not built)</li><li><strong>Mobile app, accounts and sync:</strong> planned, not built</li><li><strong>Formal accessibility check</strong> of both themes</li></ul>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cs-nav-footer">
+      <a href="vextaro.html">← Vextaro</a>
+      <a href="../index.html#work">All work →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="container" style="margin-top:40px;">
+  <div class="foot-row">
+    <div class="foot-links">
+      <a href="mailto:ericforall247@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <span class="copyright">© 2026 Eric Ariel De La Paz</span>
+  </div>
+</footer>
+<script src="../assets/js/scroll.js"></script>
+<script src="../assets/js/halloween.js"></script>
+</body>
+</html>
