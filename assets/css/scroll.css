@@ -108,7 +108,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .sx-case .impact-stat .n{ color:var(--accent); }
 .sx-case .cs-meta{ margin-top:30px; padding:22px 0 0; border-top:1px solid var(--border); border-radius:0; background:none; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
 .sx-cover{ margin:36px 0 0; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--card); }
-.sx-cover img{ width:100%; height:auto; max-height:320px; object-fit:cover; }
+.sx-cover img{ width:100%; height:auto; max-height:640px; object-fit:cover; }
 .sx-case .cs-body{ max-width:1180px; margin:0 auto; padding:40px 32px 24px; counter-reset:sec; }
 .sx-case .cs-section{ counter-increment:sec; max-width:none; margin:0 0 76px; padding-top:44px; border-top:1px solid var(--border); }
 .sx-case .cs-section > h2{ max-width:30ch; font-size:clamp(24px,3vw,34px); line-height:1.2; margin-bottom:18px; }
