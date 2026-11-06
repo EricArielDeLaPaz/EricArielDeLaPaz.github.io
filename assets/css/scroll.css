@@ -237,213 +237,174 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 
 
 /* ============================================================
-   SMOOTHNESS, INTERACTION & SCRUBBER LAYER (Apple / Linear Physics)
+   SMOOTHNESS, LENIS & TAILORED PROJECT HOVERS (Apple / Linear)
    ============================================================ */
 :root {
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* 1. Universal Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+/* Lenis Momentum Reset */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* 1. Case Study Accent Token Mapping */
+.sx-case { --accent: var(--gold, #d9ac54); }
+.sx-case[data-accent="secureid"] { --accent: var(--secureid, #d9ac54); }
+.sx-case[data-accent="honda"] { --accent: var(--honda, #e27d5a); }
+.sx-case[data-accent="devtective"] { --accent: var(--devtective, #9c8be8); }
+.sx-case[data-accent="vextaro"] { --accent: var(--vextaro, #5aa3c9); }
+.sx-case[data-accent="studybuddy"] { --accent: var(--studybuddy, #a594f9); }
+
+/* Accent-reactive selection & progress */
+.sx-case ::selection { background: var(--accent); color: #080808; }
+.sx-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 150;
+  background: var(--accent); box-shadow: 0 0 10px var(--accent);
 }
 
-/* 2. Interactive Prototype / Action Badges (View Figma Prototype, etc.) */
-.cs-badge-row a {
-  display: inline-flex;
-  text-decoration: none;
-  border-radius: 999px;
-  outline: none;
-}
+/* Accent-reactive breadcrumb, nav back link, active state */
+.sx-case .breadcrumb a:hover { color: var(--accent); }
+.sx-case .sx-nav .sx-back-link:hover { color: var(--accent) !important; }
+.sx-case .sx-nav a.is-active { color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+
+/* 2. Interactive Badges & Links (View Figma Prototype, GitHub Repo, LinkedIn Demo) */
+.cs-badge-row a { display: inline-flex; text-decoration: none; border-radius: 999px; outline: none; }
 .cs-badge-row a span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+  font-size: 12px; font-weight: 600; border-radius: 999px;
   background: color-mix(in srgb, var(--accent, var(--gold)) 12%, transparent);
   border: 1px solid color-mix(in srgb, var(--accent, var(--gold)) 55%, var(--border));
-  color: var(--accent, var(--gold));
-  cursor: pointer;
-  transition: transform 0.25s var(--ease-out-expo),
-              box-shadow 0.25s var(--ease-out-expo),
-              background-color 0.2s ease,
-              border-color 0.2s ease,
-              color 0.2s ease;
+  color: var(--accent, var(--gold)); cursor: pointer;
+  transition: transform 0.25s var(--ease-out-expo), box-shadow 0.25s var(--ease-out-expo),
+              background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
-.cs-badge-row a span::after {
-  content: "↗";
-  font-size: 11px;
-  line-height: 1;
-  transition: transform 0.25s var(--ease-out-expo);
-}
-.cs-badge-row a:hover span,
-.cs-badge-row a:focus-visible span {
+.cs-badge-row a span::after { content: "↗"; font-size: 11px; line-height: 1; transition: transform 0.25s var(--ease-out-expo); }
+.cs-badge-row a:hover span, .cs-badge-row a:focus-visible span {
   transform: translateY(-2px);
-  background: color-mix(in srgb, var(--accent, var(--gold)) 24%, transparent);
-  border-color: var(--gold-bright, #f0c878);
-  color: var(--gold-bright, #fff);
-  box-shadow: 0 4px 16px -2px color-mix(in srgb, var(--accent, var(--gold)) 40%, transparent),
-              0 0 0 1px color-mix(in srgb, var(--accent, var(--gold)) 30%, transparent);
+  background: color-mix(in srgb, var(--accent, var(--gold)) 25%, transparent);
+  border-color: var(--accent, var(--gold));
+  color: #ffffff;
+  box-shadow: 0 4px 18px -2px color-mix(in srgb, var(--accent, var(--gold)) 55%, transparent),
+              0 0 0 1px color-mix(in srgb, var(--accent, var(--gold)) 40%, transparent);
 }
-.cs-badge-row a:hover span::after {
-  transform: translate(2px, -2px);
+.cs-badge-row a:hover span::after { transform: translate(2px, -2px); }
+.cs-badge-row a:active span { transform: translateY(0px) scale(0.97); box-shadow: 0 2px 6px color-mix(in srgb, var(--accent, var(--gold)) 30%, transparent); }
+
+/* 3. Case Study Sequential Footer Navigation */
+.sx-case .cs-nav-footer a {
+  display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--card); color: var(--text); font-weight: 600;
+  transition: transform 0.25s var(--ease-out-expo), border-color 0.2s ease, box-shadow 0.25s var(--ease-out-expo), color 0.2s ease;
 }
-.cs-badge-row a:active span {
-  transform: translateY(0px) scale(0.97);
-  box-shadow: 0 2px 6px color-mix(in srgb, var(--accent, var(--gold)) 25%, transparent);
+.sx-case .cs-nav-footer a:hover, .sx-case .cs-nav-footer a:focus-visible {
+  border-color: var(--accent); color: var(--accent); transform: translateY(-3px);
+  box-shadow: 0 8px 24px -4px rgba(0,0,0,0.7), 0 0 0 1px var(--accent);
+}
+.sx-case .cs-nav-footer a:active { transform: translateY(0) scale(0.98); }
+
+/* 4. Case Study Buttons & CTAs */
+.sx-case .sx-btn:hover, .sx-case .sx-btn:focus-visible {
+  border-color: var(--accent); color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  box-shadow: 0 6px 20px -2px color-mix(in srgb, var(--accent) 45%, transparent), 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.sx-case .sx-btn-primary { background: var(--accent); border-color: var(--accent); color: #080808; }
+.sx-case .sx-btn-primary:hover, .sx-case .sx-btn-primary:focus-visible {
+  background: color-mix(in srgb, var(--accent) 85%, #ffffff); color: #080808;
+  box-shadow: 0 6px 22px -2px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
-/* 3. Interactive Outline Rail & Drag/Scrubber */
+/* 5. Outline Rail & Drag/Scrubber Project Accent */
 .sx-rail {
-  position: fixed;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 90;
-  display: none;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px 6px;
-  touch-action: none;
-  user-select: none;
+  position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 90;
+  display: none; flex-direction: column; gap: 8px; padding: 12px 6px;
+  touch-action: none; user-select: none;
 }
 .sx-rail::before {
-  content: "";
-  position: absolute;
-  top: 14px;
-  bottom: 14px;
-  left: 50%;
-  width: 1px;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.1);
-  z-index: -1;
-  transition: background-color 0.2s ease;
+  content: ""; position: absolute; top: 14px; bottom: 14px; left: 50%;
+  width: 1px; transform: translateX(-50%); background: rgba(255, 255, 255, 0.1);
+  z-index: -1; transition: background-color 0.2s ease;
 }
-.sx-rail.is-scrubbing::before {
-  background: rgba(201, 168, 76, 0.4);
-}
-.sx-rail a {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  outline: none;
-}
+.sx-rail.is-scrubbing::before { background: color-mix(in srgb, var(--accent) 40%, transparent); }
+.sx-rail a { position: relative; display: flex; align-items: center; justify-content: center; width: 18px; height: 18px; cursor: pointer; outline: none; }
 .sx-rail a::before {
-  content: "";
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%;
   background: var(--border, #292929);
-  transition: background-color 0.22s var(--ease-out-expo),
-              transform 0.22s var(--ease-out-expo),
-              box-shadow 0.22s var(--ease-out-expo);
+  transition: background-color 0.22s var(--ease-out-expo), transform 0.22s var(--ease-out-expo), box-shadow 0.22s var(--ease-out-expo);
 }
-.sx-rail a:hover::before,
-.sx-rail a.is-active::before,
-.sx-rail a.is-scrubbing-active::before {
-  background: var(--accent, var(--gold));
-  transform: scale(1.6);
-  box-shadow: 0 0 10px var(--accent, var(--gold));
+.sx-rail a:hover::before, .sx-rail a.is-active::before, .sx-rail a.is-scrubbing-active::before {
+  background: var(--accent); transform: scale(1.6); box-shadow: 0 0 12px var(--accent);
 }
 .sx-rail a span {
-  position: absolute;
-  right: 28px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(18, 15, 11, 0.95);
-  border: 1px solid rgba(201, 168, 76, 0.35);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-  font: 500 12.5px/1.2 'Inter', sans-serif;
-  color: var(--text, #f0ede8);
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
+  position: absolute; right: 28px; top: 50%; transform: translateY(-50%);
+  padding: 6px 12px; border-radius: 6px; background: rgba(18, 15, 11, 0.95);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); font: 500 12.5px/1.2 'Inter', sans-serif;
+  color: var(--text, #f0ede8); white-space: nowrap; opacity: 0; pointer-events: none;
   transition: opacity 0.18s ease, transform 0.18s var(--ease-out-expo);
 }
-.sx-rail a:hover span,
-.sx-rail a:focus-visible span,
-.sx-rail a.is-scrubbing-active span {
-  opacity: 1;
-  transform: translateY(-50%) translateX(-4px);
+.sx-rail a:hover span, .sx-rail a:focus-visible span, .sx-rail a.is-scrubbing-active span {
+  opacity: 1; transform: translateY(-50%) translateX(-4px);
 }
-@media (min-width: 1280px) {
-  .sx-rail { display: flex; }
-}
+@media (min-width: 1280px) { .sx-rail { display: flex; } }
 
-/* 4. Refined Deceleration on Section Reveals */
-.js .sx-reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.65s var(--ease-out-expo), transform 0.65s var(--ease-out-expo);
-  will-change: opacity, transform;
-}
-.js .sx-reveal.is-in { opacity: 1; transform: none; }
-.js .sx-reveal.is-in .workspace-card:nth-child(1) { transition-delay: 0.05s; }
-.js .sx-reveal.is-in .workspace-card:nth-child(2) { transition-delay: 0.12s; }
-.js .sx-reveal.is-in .workspace-card:nth-child(3) { transition-delay: 0.19s; }
-.js .sx-reveal.is-in .workspace-card:nth-child(4) { transition-delay: 0.26s; }
-.js .sx-reveal.is-in .workspace-card:nth-child(5) { transition-delay: 0.33s; }
-
-/* 5. Tactile Card Hover Micro-Interactions */
+/* 6. Homepage Project Cards (Tailored Individual Accent Glows) */
 .sx-projects .workspace-card {
   transition: transform 0.35s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.35s var(--ease-out-expo);
 }
 .sx-projects .workspace-card .card-art { overflow: hidden; border-radius: 8px 8px 0 0; }
 .sx-projects .workspace-card .card-art img { transition: transform 0.5s var(--ease-out-expo); will-change: transform; }
-.sx-projects .workspace-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(201, 168, 76, 0.45);
-  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(201, 168, 76, 0.22);
-}
 .sx-projects .workspace-card:hover .card-art img { transform: scale(1.025); }
-.sx-projects .workspace-card:hover .card-tags span:first-child { border-color: var(--gold); color: var(--gold-bright); }
 
-/* 6. Tactile Mechanical Buttons */
+/* Study Buddy (Purple) */
+.sx-projects .workspace-card.card-studybuddy:hover {
+  transform: translateY(-4px); border-color: rgba(165, 148, 249, 0.5);
+  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(165, 148, 249, 0.35);
+}
+.sx-projects .workspace-card.card-studybuddy:hover .card-tags span:first-child { border-color: var(--studybuddy, #a594f9); color: var(--studybuddy, #a594f9); }
+
+/* SecureID (Gold) */
+.sx-projects .workspace-card.card-secureid:hover {
+  transform: translateY(-4px); border-color: rgba(217, 172, 84, 0.5);
+  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(217, 172, 84, 0.35);
+}
+.sx-projects .workspace-card.card-secureid:hover .card-tags span:first-child { border-color: var(--secureid, #d9ac54); color: var(--gold-bright, #f0c878); }
+
+/* Vextaro (Cyan) */
+.sx-projects .workspace-card.card-vextaro:hover {
+  transform: translateY(-4px); border-color: rgba(90, 163, 201, 0.5);
+  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(90, 163, 201, 0.35);
+}
+.sx-projects .workspace-card.card-vextaro:hover .card-tags span:first-child { border-color: var(--vextaro, #5aa3c9); color: var(--vextaro, #5aa3c9); }
+
+/* Honda of Clear Lake (Coral) */
+.sx-projects .workspace-card.card-honda:hover {
+  transform: translateY(-4px); border-color: rgba(226, 125, 90, 0.5);
+  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(226, 125, 90, 0.35);
+}
+.sx-projects .workspace-card.card-honda:hover .card-tags span:first-child { border-color: var(--honda, #e27d5a); color: var(--honda, #e27d5a); }
+
+/* DevTective (Violet) */
+.sx-projects .workspace-card.card-devtective:hover {
+  transform: translateY(-4px); border-color: rgba(156, 139, 232, 0.5);
+  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(156, 139, 232, 0.35);
+}
+.sx-projects .workspace-card.card-devtective:hover .card-tags span:first-child { border-color: var(--devtective, #9c8be8); color: var(--devtective, #9c8be8); }
+
+/* 7. General Buttons & Lightbox */
 .sx-btn {
   transition: transform 0.22s var(--ease-out-expo), box-shadow 0.22s var(--ease-out-expo), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .sx-btn:hover, .sx-btn:focus-visible {
-  transform: translateY(-2px);
-  background: rgba(201, 168, 76, 0.14);
-  color: #f0cf74;
+  transform: translateY(-2px); background: rgba(201, 168, 76, 0.14); color: #f0cf74;
   box-shadow: 0 6px 20px -2px rgba(201, 168, 76, 0.35), 0 0 0 1px rgba(240, 207, 116, 0.3);
 }
 .sx-btn:active { transform: translateY(0px) scale(0.98); box-shadow: 0 2px 8px rgba(201, 168, 76, 0.2); transition-duration: 0.08s; }
 
-/* 7. Case Study Nav Footer Buttons */
-.sx-case .cs-nav-footer a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 22px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--card);
-  color: var(--text);
-  font-weight: 600;
-  transition: transform 0.25s var(--ease-out-expo), border-color 0.2s ease, box-shadow 0.25s var(--ease-out-expo), color 0.2s ease;
-}
-.sx-case .cs-nav-footer a:hover, .sx-case .cs-nav-footer a:focus-visible {
-  border-color: var(--accent);
-  color: var(--gold-bright);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px -4px rgba(0,0,0,0.7), 0 0 0 1px var(--accent);
-}
-.sx-case .cs-nav-footer a:active { transform: translateY(0) scale(0.98); }
-
-/* 8. Minimalist Inline Lightbox */
 .sx-lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(8,8,8,0.92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease-out-expo); cursor: zoom-out; }
 .sx-lightbox.is-open { opacity: 1; pointer-events: auto; }
 .sx-lightbox img { max-width: 94vw; max-height: 90vh; object-fit: contain; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 24px 60px -12px rgba(0,0,0,0.9); transform: scale(0.96); transition: transform 0.35s var(--ease-out-expo); }
