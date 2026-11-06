@@ -103,26 +103,46 @@ function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;valu
     }
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-    var secs = [].slice.call(document.querySelectorAll('.cs-section'));
-    var rail = document.createElement('nav'); rail.className = 'sx-rail'; rail.setAttribute('aria-label', 'Sections');
+    // Collect hero (Case Study Info) + all sections
+    var hero = document.querySelector('.cs-hero') || document.querySelector('.sx-main') || document.querySelector('main');
+    var bodySecs = [].slice.call(document.querySelectorAll('.cs-section'));
+    var secs = [];
+    if (hero) {
+      if (!hero.id) hero.id = 'case-study-info';
+      hero.dataset.railTitle = 'Case Study Info';
+      secs.push(hero);
+    }
+    secs = secs.concat(bodySecs);
+
+    var rail = document.createElement('nav');
+    rail.className = 'sx-rail';
+    rail.setAttribute('aria-label', 'Sections');
+
     var links = secs.map(function (s, i) {
-      var h = s.querySelector('h2'); var title = h ? h.textContent.trim() : 'Section ' + (i + 1);
-      s.id = s.id || 'section-' + (i + 1);
-      var a = document.createElement('a'); a.href = '#' + s.id; a.setAttribute('aria-label', title);
+      var title = s.dataset.railTitle;
+      if (!title) {
+        var h = s.querySelector('h2');
+        title = h ? h.textContent.trim() : 'Section ' + i;
+      }
+      s.id = s.id || (i === 0 ? 'case-study-info' : 'section-' + i);
+      var a = document.createElement('a');
+      a.href = '#' + s.id;
+      a.setAttribute('aria-label', title);
       a.innerHTML = '<span>' + title.replace(/</g, '&lt;') + '</span>';
-      rail.appendChild(a); return a;
+      rail.appendChild(a);
+      return a;
     });
     document.body.appendChild(rail);
 
     // Initial hash positioning
-    if (/^#section-\d+$/.test(location.hash)) {
+    if (/^#section-\d+$/.test(location.hash) || location.hash === '#case-study-info') {
       var target = document.getElementById(location.hash.slice(1));
       if (target) setTimeout(function () { scrollToTarget(target, 88); }, 50);
     }
 
     // Scrubber & smooth navigation mechanics
     var isScrubbing = false;
-    var activeScrubIdx = -1;
+    var activeScrubIdx = 0;
     var isAutoScrolling = false;
     var autoScrollTimer = null;
 
@@ -132,6 +152,9 @@ function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;valu
         a.classList.toggle('is-scrubbing-active', isScrubbing && j === index);
       });
     }
+
+    // Default top dot active
+    setActiveDot(0);
 
     function getClosestDotIndex(clientY) {
       var closest = 0;
@@ -153,12 +176,29 @@ function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;valu
       isAutoScrolling = true;
       clearTimeout(autoScrollTimer);
       setActiveDot(index);
-      scrollToTarget(secs[index], 88);
+      if (index === 0) {
+        if (lenis) {
+          lenis.scrollTo(0, { duration: 1.15 });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } else {
+        scrollToTarget(secs[index], 88);
+      }
       if (history.replaceState) history.replaceState(null, '', '#' + secs[index].id);
       autoScrollTimer = setTimeout(function () {
         isAutoScrolling = false;
       }, 750);
     }
+
+    // Top scroll check listener: highlights Case Study Info at top of page
+    function checkTop() {
+      if (isScrubbing || isAutoScrolling) return;
+      if (window.scrollY < 180) {
+        setActiveDot(0);
+      }
+    }
+    window.addEventListener('scroll', checkTop, { passive: true });
 
     // Pointer events on rail for press-and-scrub
     rail.addEventListener('pointerdown', function (e) {
@@ -207,13 +247,17 @@ function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;valu
     if ('IntersectionObserver' in window) {
       var so = new IntersectionObserver(function (entries) {
         if (isScrubbing || isAutoScrolling) return;
+        if (window.scrollY < 180) {
+          setActiveDot(0);
+          return;
+        }
         entries.forEach(function (e) {
           if (e.isIntersecting) {
             var i = secs.indexOf(e.target);
             if (i !== -1) setActiveDot(i);
           }
         });
-      }, { rootMargin: '-35% 0px -55% 0px' });
+      }, { rootMargin: '-25% 0px -60% 0px' });
       secs.forEach(function (s) { so.observe(s); });
     }
   }

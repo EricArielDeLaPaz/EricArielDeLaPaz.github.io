@@ -318,7 +318,7 @@ html.lenis, html.lenis body { height: auto; }
   box-shadow: 0 6px 22px -2px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
-/* 5. Outline Rail & Drag/Scrubber Project Accent */
+/* 5. Outline Rail & Persistent Active Section Labels */
 .sx-rail {
   position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 90;
   display: none; flex-direction: column; gap: 8px; padding: 12px 6px;
@@ -345,10 +345,23 @@ html.lenis, html.lenis body { height: auto; }
   border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); font: 500 12.5px/1.2 'Inter', sans-serif;
   color: var(--text, #f0ede8); white-space: nowrap; opacity: 0; pointer-events: none;
-  transition: opacity 0.18s ease, transform 0.18s var(--ease-out-expo);
+  transition: opacity 0.2s ease, transform 0.2s var(--ease-out-expo);
+}
+
+/* Active dot text label is ALWAYS visible as you scroll */
+.sx-rail a.is-active span {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+/* When hovering another dot on the rail, prioritize the hovered dot */
+.sx-rail:hover a.is-active:not(:hover) span {
+  opacity: 0;
+  transform: translateY(-50%);
 }
 .sx-rail a:hover span, .sx-rail a:focus-visible span, .sx-rail a.is-scrubbing-active span {
-  opacity: 1; transform: translateY(-50%) translateX(-4px);
+  opacity: 1 !important;
+  transform: translateY(-50%) translateX(-4px) !important;
 }
 @media (min-width: 1280px) { .sx-rail { display: flex; } }
 
@@ -411,6 +424,41 @@ html.lenis, html.lenis body { height: auto; }
 .sx-lightbox.is-open img { transform: scale(1); }
 .sx-lightbox-close { position: absolute; top: 20px; right: 24px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; border-radius: 50%; width: 36px; height: 36px; display: grid; place-items: center; font-size: 18px; cursor: pointer; transition: background 0.2s ease; }
 .sx-lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+/* 8. Mobile Nav Brand (Avatar + DE LA PAZ) Visibility Guarantee */
+@media (max-width: 700px) {
+  .sx-nav .sx-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 3px 8px 3px 4px !important;
+    flex-shrink: 0 !important;
+  }
+  .sx-nav .sx-brand img {
+    display: block !important;
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 1px solid var(--gold-dim) !important;
+    flex-shrink: 0 !important;
+  }
+  .sx-nav .sx-brand span {
+    display: inline-block !important;
+    font-family: Cinzel, Georgia, serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--text) !important;
+    white-space: nowrap !important;
+  }
+  .sx-nav {
+    max-width: 96vw !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .js .sx-reveal, .sx-projects .workspace-card, .sx-projects .workspace-card .card-art img, .sx-btn, .sx-lightbox, .sx-lightbox img, .cs-badge-row a span { transition: none !important; transform: none !important; }
