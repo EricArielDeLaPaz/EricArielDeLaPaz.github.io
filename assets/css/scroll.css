@@ -242,6 +242,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 :root {
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Lenis Momentum Reset */
@@ -250,7 +251,63 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* 1. Case Study Accent Token Mapping */
+/* 1. Sliding Gliding Indicator Pill for Nav (Framer Motion style) */
+.sx-nav {
+  position: relative;
+}
+.sx-nav-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 999px;
+  background: rgba(217, 172, 84, 0.16);
+  border: 1px solid rgba(217, 172, 84, 0.35);
+  box-shadow: 0 0 20px -2px rgba(217, 172, 84, 0.3);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: transform 0.38s var(--ease-out-expo),
+              width 0.38s var(--ease-out-expo),
+              height 0.38s var(--ease-out-expo),
+              opacity 0.22s ease,
+              background-color 0.25s ease,
+              border-color 0.25s ease;
+  will-change: transform, width, height;
+}
+
+/* Ensure links and brand sit above the gliding pill */
+.sx-nav a,
+.sx-nav .sx-brand,
+.sx-nav .sx-status,
+.sx-nav .sx-nav-sep {
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove static jump background so the pill glides smoothly behind them */
+.sx-nav a.is-active,
+.sx-nav a:hover,
+.sx-nav a:focus-visible {
+  background: transparent !important;
+}
+.sx-nav a.is-active {
+  color: var(--gold-bright);
+}
+
+/* On Case Study Pages: Nav pill matches case study accent color */
+.sx-case .sx-nav-pill {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 42%, transparent);
+  box-shadow: 0 0 20px -2px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.sx-case .sx-nav a.is-active,
+.sx-case .sx-nav .sx-back-link {
+  color: var(--accent) !important;
+}
+
+/* 2. Case Study Accent Token Mapping */
 .sx-case { --accent: var(--gold, #d9ac54); }
 .sx-case[data-accent="secureid"] { --accent: var(--secureid, #d9ac54); }
 .sx-case[data-accent="honda"] { --accent: var(--honda, #e27d5a); }
@@ -265,12 +322,11 @@ html.lenis, html.lenis body { height: auto; }
   background: var(--accent); box-shadow: 0 0 10px var(--accent);
 }
 
-/* Accent-reactive breadcrumb, nav back link, active state */
+/* Accent-reactive breadcrumb, nav back link */
 .sx-case .breadcrumb a:hover { color: var(--accent); }
 .sx-case .sx-nav .sx-back-link:hover { color: var(--accent) !important; }
-.sx-case .sx-nav a.is-active { color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
 
-/* 2. Interactive Badges & Links (View Figma Prototype, GitHub Repo, LinkedIn Demo) */
+/* 3. Interactive Badges & Links (View Figma Prototype, GitHub Repo, LinkedIn Demo) */
 .cs-badge-row a { display: inline-flex; text-decoration: none; border-radius: 999px; outline: none; }
 .cs-badge-row a span {
   display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
@@ -293,7 +349,7 @@ html.lenis, html.lenis body { height: auto; }
 .cs-badge-row a:hover span::after { transform: translate(2px, -2px); }
 .cs-badge-row a:active span { transform: translateY(0px) scale(0.97); box-shadow: 0 2px 6px color-mix(in srgb, var(--accent, var(--gold)) 30%, transparent); }
 
-/* 3. Case Study Sequential Footer Navigation */
+/* 4. Case Study Sequential Footer Navigation */
 .sx-case .cs-nav-footer a {
   display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px;
   border: 1px solid var(--border); border-radius: var(--radius-sm);
@@ -306,7 +362,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 .sx-case .cs-nav-footer a:active { transform: translateY(0) scale(0.98); }
 
-/* 4. Case Study Buttons & CTAs */
+/* 5. Case Study Buttons & CTAs */
 .sx-case .sx-btn:hover, .sx-case .sx-btn:focus-visible {
   border-color: var(--accent); color: var(--accent);
   background: color-mix(in srgb, var(--accent) 14%, transparent);
@@ -318,7 +374,7 @@ html.lenis, html.lenis body { height: auto; }
   box-shadow: 0 6px 22px -2px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
-/* 5. Outline Rail & Persistent Active Section Labels */
+/* 6. Outline Rail & Persistent Active Section Labels */
 .sx-rail {
   position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 90;
   display: none; flex-direction: column; gap: 8px; padding: 12px 6px;
@@ -365,50 +421,211 @@ html.lenis, html.lenis body { height: auto; }
 }
 @media (min-width: 1280px) { .sx-rail { display: flex; } }
 
-/* 6. Homepage Project Cards (Tailored Individual Accent Glows) */
+/* ============================================================
+   WORK SECTION CARDS: FULL-SURFACE COHESIVE BRAND HOVERS
+   When hovering, the ENTIRE card harmonizes in that project's color.
+   ============================================================ */
+
 .sx-projects .workspace-card {
-  transition: transform 0.35s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.35s var(--ease-out-expo);
+  position: relative;
+  transition: transform 0.38s var(--ease-out-expo),
+              border-color 0.3s ease,
+              box-shadow 0.38s var(--ease-out-expo),
+              background 0.35s ease;
+  will-change: transform, box-shadow;
 }
-.sx-projects .workspace-card .card-art { overflow: hidden; border-radius: 8px 8px 0 0; }
-.sx-projects .workspace-card .card-art img { transition: transform 0.5s var(--ease-out-expo); will-change: transform; }
-.sx-projects .workspace-card:hover .card-art img { transform: scale(1.025); }
+.sx-projects .workspace-card .card-art {
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+.sx-projects .workspace-card .card-art img {
+  transition: transform 0.5s var(--ease-out-expo);
+  will-change: transform;
+}
+.sx-projects .workspace-card .card-title h2 {
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+.sx-projects .workspace-card .card-role {
+  transition: color 0.25s ease;
+}
+.sx-projects .workspace-card .card-problem b {
+  transition: color 0.25s ease;
+}
+.sx-projects .workspace-card .card-tags span {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
 
-/* Study Buddy (Purple) */
+/* 1. Study Buddy (Purple: #a594f9) */
 .sx-projects .workspace-card.card-studybuddy:hover {
-  transform: translateY(-4px); border-color: rgba(165, 148, 249, 0.5);
-  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(165, 148, 249, 0.35);
+  transform: translateY(-5px);
+  border-color: rgba(165, 148, 249, 0.7);
+  background: radial-gradient(850px 320px at 50% -10%, rgba(165, 148, 249, 0.12), #141414 75%);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
+              0 20px 48px -10px rgba(0, 0, 0, 0.85),
+              0 0 24px -4px rgba(165, 148, 249, 0.35),
+              0 0 0 1px rgba(165, 148, 249, 0.4);
 }
-.sx-projects .workspace-card.card-studybuddy:hover .card-tags span:first-child { border-color: var(--studybuddy, #a594f9); color: var(--studybuddy, #a594f9); }
+.sx-projects .workspace-card.card-studybuddy:hover .card-art img {
+  transform: scale(1.028);
+}
+.sx-projects .workspace-card.card-studybuddy:hover .card-title h2 {
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(165, 148, 249, 0.4);
+}
+.sx-projects .workspace-card.card-studybuddy:hover .card-role {
+  color: #a594f9 !important;
+}
+.sx-projects .workspace-card.card-studybuddy:hover .card-problem b {
+  color: #a594f9 !important;
+}
+.sx-projects .workspace-card.card-studybuddy:hover .card-tags span:first-child {
+  background: rgba(165, 148, 249, 0.22);
+  border-color: #a594f9;
+  color: #ffffff;
+}
+.sx-projects .workspace-card.card-studybuddy:hover .card-tags span:not(:first-child) {
+  background: rgba(165, 148, 249, 0.08);
+  border-color: rgba(165, 148, 249, 0.4);
+  color: #e2dcff;
+}
 
-/* SecureID (Gold) */
+/* 2. SecureID (Gold: #d9ac54 / #f0c878) */
 .sx-projects .workspace-card.card-secureid:hover {
-  transform: translateY(-4px); border-color: rgba(217, 172, 84, 0.5);
-  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(217, 172, 84, 0.35);
+  transform: translateY(-5px);
+  border-color: rgba(217, 172, 84, 0.7);
+  background: radial-gradient(850px 320px at 50% -10%, rgba(217, 172, 84, 0.12), #141414 75%);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
+              0 20px 48px -10px rgba(0, 0, 0, 0.85),
+              0 0 24px -4px rgba(217, 172, 84, 0.35),
+              0 0 0 1px rgba(217, 172, 84, 0.4);
 }
-.sx-projects .workspace-card.card-secureid:hover .card-tags span:first-child { border-color: var(--secureid, #d9ac54); color: var(--gold-bright, #f0c878); }
+.sx-projects .workspace-card.card-secureid:hover .card-art img {
+  transform: scale(1.028);
+}
+.sx-projects .workspace-card.card-secureid:hover .card-title h2 {
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(217, 172, 84, 0.4);
+}
+.sx-projects .workspace-card.card-secureid:hover .card-role {
+  color: #f0c878 !important;
+}
+.sx-projects .workspace-card.card-secureid:hover .card-problem b {
+  color: #f0c878 !important;
+}
+.sx-projects .workspace-card.card-secureid:hover .card-tags span:first-child {
+  background: rgba(217, 172, 84, 0.22);
+  border-color: #d9ac54;
+  color: #ffffff;
+}
+.sx-projects .workspace-card.card-secureid:hover .card-tags span:not(:first-child) {
+  background: rgba(217, 172, 84, 0.08);
+  border-color: rgba(217, 172, 84, 0.4);
+  color: #f6ebd2;
+}
 
-/* Vextaro (Cyan) */
+/* 3. Vextaro (Cyan / Electric Blue: #5aa3c9) */
 .sx-projects .workspace-card.card-vextaro:hover {
-  transform: translateY(-4px); border-color: rgba(90, 163, 201, 0.5);
-  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(90, 163, 201, 0.35);
+  transform: translateY(-5px);
+  border-color: rgba(90, 163, 201, 0.7);
+  background: radial-gradient(850px 320px at 50% -10%, rgba(90, 163, 201, 0.12), #141414 75%);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
+              0 20px 48px -10px rgba(0, 0, 0, 0.85),
+              0 0 24px -4px rgba(90, 163, 201, 0.35),
+              0 0 0 1px rgba(90, 163, 201, 0.4);
 }
-.sx-projects .workspace-card.card-vextaro:hover .card-tags span:first-child { border-color: var(--vextaro, #5aa3c9); color: var(--vextaro, #5aa3c9); }
+.sx-projects .workspace-card.card-vextaro:hover .card-art img {
+  transform: scale(1.028);
+}
+.sx-projects .workspace-card.card-vextaro:hover .card-title h2 {
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(90, 163, 201, 0.4);
+}
+.sx-projects .workspace-card.card-vextaro:hover .card-role {
+  color: #5aa3c9 !important;
+}
+.sx-projects .workspace-card.card-vextaro:hover .card-problem b {
+  color: #5aa3c9 !important;
+}
+.sx-projects .workspace-card.card-vextaro:hover .card-tags span:first-child {
+  background: rgba(90, 163, 201, 0.22);
+  border-color: #5aa3c9;
+  color: #ffffff;
+}
+.sx-projects .workspace-card.card-vextaro:hover .card-tags span:not(:first-child) {
+  background: rgba(90, 163, 201, 0.08);
+  border-color: rgba(90, 163, 201, 0.4);
+  color: #d8edf7;
+}
 
-/* Honda of Clear Lake (Coral) */
+/* 4. Honda of Clear Lake (Coral: #e27d5a) */
 .sx-projects .workspace-card.card-honda:hover {
-  transform: translateY(-4px); border-color: rgba(226, 125, 90, 0.5);
-  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(226, 125, 90, 0.35);
+  transform: translateY(-5px);
+  border-color: rgba(226, 125, 90, 0.7);
+  background: radial-gradient(850px 320px at 50% -10%, rgba(226, 125, 90, 0.12), #141414 75%);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
+              0 20px 48px -10px rgba(0, 0, 0, 0.85),
+              0 0 24px -4px rgba(226, 125, 90, 0.35),
+              0 0 0 1px rgba(226, 125, 90, 0.4);
 }
-.sx-projects .workspace-card.card-honda:hover .card-tags span:first-child { border-color: var(--honda, #e27d5a); color: var(--honda, #e27d5a); }
+.sx-projects .workspace-card.card-honda:hover .card-art img {
+  transform: scale(1.028);
+}
+.sx-projects .workspace-card.card-honda:hover .card-title h2 {
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(226, 125, 90, 0.4);
+}
+.sx-projects .workspace-card.card-honda:hover .card-role {
+  color: #e27d5a !important;
+}
+.sx-projects .workspace-card.card-honda:hover .card-problem b {
+  color: #e27d5a !important;
+}
+.sx-projects .workspace-card.card-honda:hover .card-tags span:first-child {
+  background: rgba(226, 125, 90, 0.22);
+  border-color: #e27d5a;
+  color: #ffffff;
+}
+.sx-projects .workspace-card.card-honda:hover .card-tags span:not(:first-child) {
+  background: rgba(226, 125, 90, 0.08);
+  border-color: rgba(226, 125, 90, 0.4);
+  color: #f7ded6;
+}
 
-/* DevTective (Violet) */
+/* 5. DevTective (Violet: #9c8be8) */
 .sx-projects .workspace-card.card-devtective:hover {
-  transform: translateY(-4px); border-color: rgba(156, 139, 232, 0.5);
-  box-shadow: 0 4px 20px -2px rgba(0,0,0,0.7), 0 16px 36px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(156, 139, 232, 0.35);
+  transform: translateY(-5px);
+  border-color: rgba(156, 139, 232, 0.7);
+  background: radial-gradient(850px 320px at 50% -10%, rgba(156, 139, 232, 0.12), #141414 75%);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
+              0 20px 48px -10px rgba(0, 0, 0, 0.85),
+              0 0 24px -4px rgba(156, 139, 232, 0.35),
+              0 0 0 1px rgba(156, 139, 232, 0.4);
 }
-.sx-projects .workspace-card.card-devtective:hover .card-tags span:first-child { border-color: var(--devtective, #9c8be8); color: var(--devtective, #9c8be8); }
+.sx-projects .workspace-card.card-devtective:hover .card-art img {
+  transform: scale(1.028);
+}
+.sx-projects .workspace-card.card-devtective:hover .card-title h2 {
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(156, 139, 232, 0.4);
+}
+.sx-projects .workspace-card.card-devtective:hover .card-role {
+  color: #9c8be8 !important;
+}
+.sx-projects .workspace-card.card-devtective:hover .card-problem b {
+  color: #9c8be8 !important;
+}
+.sx-projects .workspace-card.card-devtective:hover .card-tags span:first-child {
+  background: rgba(156, 139, 232, 0.22);
+  border-color: #9c8be8;
+  color: #ffffff;
+}
+.sx-projects .workspace-card.card-devtective:hover .card-tags span:not(:first-child) {
+  background: rgba(156, 139, 232, 0.08);
+  border-color: rgba(156, 139, 232, 0.4);
+  color: #dedaf7;
+}
 
-/* 7. General Buttons & Lightbox */
+/* 7. Buttons & Lightbox */
 .sx-btn {
   transition: transform 0.22s var(--ease-out-expo), box-shadow 0.22s var(--ease-out-expo), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
@@ -416,7 +633,7 @@ html.lenis, html.lenis body { height: auto; }
   transform: translateY(-2px); background: rgba(201, 168, 76, 0.14); color: #f0cf74;
   box-shadow: 0 6px 20px -2px rgba(201, 168, 76, 0.35), 0 0 0 1px rgba(240, 207, 116, 0.3);
 }
-.sx-btn:active { transform: translateY(0px) scale(0.98); box-shadow: 0 2px 8px rgba(201, 168, 76, 0.2); transition-duration: 0.08s; }
+.sx-btn:active { transform: translateY(0px) scale(0.97); box-shadow: 0 2px 8px rgba(201, 168, 76, 0.2); transition-duration: 0.08s; }
 
 .sx-lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(8,8,8,0.92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease-out-expo); cursor: zoom-out; }
 .sx-lightbox.is-open { opacity: 1; pointer-events: auto; }
@@ -461,5 +678,5 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js .sx-reveal, .sx-projects .workspace-card, .sx-projects .workspace-card .card-art img, .sx-btn, .sx-lightbox, .sx-lightbox img, .cs-badge-row a span { transition: none !important; transform: none !important; }
+  .js .sx-reveal, .sx-projects .workspace-card, .sx-projects .workspace-card .card-art img, .sx-btn, .sx-lightbox, .sx-lightbox img, .cs-badge-row a span, .sx-nav-pill { transition: none !important; transform: none !important; }
 }
