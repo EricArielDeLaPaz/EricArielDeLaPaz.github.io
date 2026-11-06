@@ -237,446 +237,279 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 
 
 /* ============================================================
-   SMOOTHNESS, LENIS & TAILORED PROJECT HOVERS (Apple / Linear)
+   SMOOTHNESS, ORIGINAL NAV HOVER & CASE STUDY ACCENT THEMES
    ============================================================ */
-:root {
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --spring: cubic-bezier(0.16, 1, 0.3, 1);
+
+/* Buttery smooth page scrolling */
+html {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 88px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
 }
 
-/* Lenis Momentum Reset */
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis.lenis-stopped { overflow: hidden; }
-
-/* 1. Sliding Gliding Indicator Pill for Nav (Framer Motion style) */
-.sx-nav {
-  position: relative;
+/* Original frosted pill navigation: smooth hover transitions */
+.sx-nav a {
+  transition: background-color 0.22s ease, color 0.22s ease;
 }
-.sx-nav-pill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-radius: 999px;
-  background: rgba(217, 172, 84, 0.16);
-  border: 1px solid rgba(217, 172, 84, 0.35);
-  box-shadow: 0 0 20px -2px rgba(217, 172, 84, 0.3);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0;
-  transition: transform 0.38s var(--ease-out-expo),
-              width 0.38s var(--ease-out-expo),
-              height 0.38s var(--ease-out-expo),
-              opacity 0.22s ease,
-              background-color 0.25s ease,
-              border-color 0.25s ease;
-  will-change: transform, width, height;
-}
-
-/* Ensure links and brand sit above the gliding pill */
-.sx-nav a,
-.sx-nav .sx-brand,
-.sx-nav .sx-status,
-.sx-nav .sx-nav-sep {
-  position: relative;
-  z-index: 1;
-}
-
-/* Remove static jump background so the pill glides smoothly behind them */
-.sx-nav a.is-active,
 .sx-nav a:hover,
 .sx-nav a:focus-visible {
-  background: transparent !important;
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.09) !important;
 }
 .sx-nav a.is-active {
-  color: var(--gold-bright);
+  color: var(--gold-bright) !important;
+  background: rgba(217, 172, 84, 0.16) !important;
 }
 
-/* On Case Study Pages: Nav pill matches case study accent color */
-.sx-case .sx-nav-pill {
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  border-color: color-mix(in srgb, var(--accent) 42%, transparent);
-  box-shadow: 0 0 20px -2px color-mix(in srgb, var(--accent) 35%, transparent);
-}
-.sx-case .sx-nav a.is-active,
-.sx-case .sx-nav .sx-back-link {
-  color: var(--accent) !important;
-}
-
-/* 2. Case Study Accent Token Mapping */
-.sx-case { --accent: var(--gold, #d9ac54); }
-.sx-case[data-accent="secureid"] { --accent: var(--secureid, #d9ac54); }
-.sx-case[data-accent="honda"] { --accent: var(--honda, #e27d5a); }
-.sx-case[data-accent="devtective"] { --accent: var(--devtective, #9c8be8); }
-.sx-case[data-accent="vextaro"] { --accent: var(--vextaro, #5aa3c9); }
-.sx-case[data-accent="studybuddy"] { --accent: var(--studybuddy, #a594f9); }
-
-/* Accent-reactive selection & progress */
-.sx-case ::selection { background: var(--accent); color: #080808; }
-.sx-progress {
-  position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 150;
-  background: var(--accent); box-shadow: 0 0 10px var(--accent);
-}
-
-/* Accent-reactive breadcrumb, nav back link */
-.sx-case .breadcrumb a:hover { color: var(--accent); }
-.sx-case .sx-nav .sx-back-link:hover { color: var(--accent) !important; }
-
-/* 3. Interactive Badges & Links (View Figma Prototype, GitHub Repo, LinkedIn Demo) */
-.cs-badge-row a { display: inline-flex; text-decoration: none; border-radius: 999px; outline: none; }
-.cs-badge-row a span {
-  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
-  font-size: 12px; font-weight: 600; border-radius: 999px;
-  background: color-mix(in srgb, var(--accent, var(--gold)) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent, var(--gold)) 55%, var(--border));
-  color: var(--accent, var(--gold)); cursor: pointer;
-  transition: transform 0.25s var(--ease-out-expo), box-shadow 0.25s var(--ease-out-expo),
-              background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-.cs-badge-row a span::after { content: "↗"; font-size: 11px; line-height: 1; transition: transform 0.25s var(--ease-out-expo); }
-.cs-badge-row a:hover span, .cs-badge-row a:focus-visible span {
-  transform: translateY(-2px);
-  background: color-mix(in srgb, var(--accent, var(--gold)) 25%, transparent);
-  border-color: var(--accent, var(--gold));
-  color: #ffffff;
-  box-shadow: 0 4px 18px -2px color-mix(in srgb, var(--accent, var(--gold)) 55%, transparent),
-              0 0 0 1px color-mix(in srgb, var(--accent, var(--gold)) 40%, transparent);
-}
-.cs-badge-row a:hover span::after { transform: translate(2px, -2px); }
-.cs-badge-row a:active span { transform: translateY(0px) scale(0.97); box-shadow: 0 2px 6px color-mix(in srgb, var(--accent, var(--gold)) 30%, transparent); }
-
-/* 4. Case Study Sequential Footer Navigation */
-.sx-case .cs-nav-footer a {
-  display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px;
-  border: 1px solid var(--border); border-radius: var(--radius-sm);
-  background: var(--card); color: var(--text); font-weight: 600;
-  transition: transform 0.25s var(--ease-out-expo), border-color 0.2s ease, box-shadow 0.25s var(--ease-out-expo), color 0.2s ease;
-}
-.sx-case .cs-nav-footer a:hover, .sx-case .cs-nav-footer a:focus-visible {
-  border-color: var(--accent); color: var(--accent); transform: translateY(-3px);
-  box-shadow: 0 8px 24px -4px rgba(0,0,0,0.7), 0 0 0 1px var(--accent);
-}
-.sx-case .cs-nav-footer a:active { transform: translateY(0) scale(0.98); }
-
-/* 5. Case Study Buttons & CTAs */
-.sx-case .sx-btn:hover, .sx-case .sx-btn:focus-visible {
-  border-color: var(--accent); color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  box-shadow: 0 6px 20px -2px color-mix(in srgb, var(--accent) 45%, transparent), 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
-}
-.sx-case .sx-btn-primary { background: var(--accent); border-color: var(--accent); color: #080808; }
-.sx-case .sx-btn-primary:hover, .sx-case .sx-btn-primary:focus-visible {
-  background: color-mix(in srgb, var(--accent) 85%, #ffffff); color: #080808;
-  box-shadow: 0 6px 22px -2px color-mix(in srgb, var(--accent) 55%, transparent);
-}
-
-/* 6. Outline Rail & Persistent Active Section Labels */
-.sx-rail {
-  position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 90;
-  display: none; flex-direction: column; gap: 8px; padding: 12px 6px;
-  touch-action: none; user-select: none;
-}
-.sx-rail::before {
-  content: ""; position: absolute; top: 14px; bottom: 14px; left: 50%;
-  width: 1px; transform: translateX(-50%); background: rgba(255, 255, 255, 0.1);
-  z-index: -1; transition: background-color 0.2s ease;
-}
-.sx-rail.is-scrubbing::before { background: color-mix(in srgb, var(--accent) 40%, transparent); }
-.sx-rail a { position: relative; display: flex; align-items: center; justify-content: center; width: 18px; height: 18px; cursor: pointer; outline: none; }
-.sx-rail a::before {
-  content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--border, #292929);
-  transition: background-color 0.22s var(--ease-out-expo), transform 0.22s var(--ease-out-expo), box-shadow 0.22s var(--ease-out-expo);
-}
-.sx-rail a:hover::before, .sx-rail a.is-active::before, .sx-rail a.is-scrubbing-active::before {
-  background: var(--accent); transform: scale(1.6); box-shadow: 0 0 12px var(--accent);
-}
-.sx-rail a span {
-  position: absolute; right: 28px; top: 50%; transform: translateY(-50%);
-  padding: 6px 12px; border-radius: 6px; background: rgba(18, 15, 11, 0.95);
-  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); font: 500 12.5px/1.2 'Inter', sans-serif;
-  color: var(--text, #f0ede8); white-space: nowrap; opacity: 0; pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s var(--ease-out-expo);
-}
-
-/* Active dot text label is ALWAYS visible as you scroll */
-.sx-rail a.is-active span {
-  opacity: 1;
-  transform: translateY(-50%) translateX(-4px);
-}
-
-/* When hovering another dot on the rail, prioritize the hovered dot */
-.sx-rail:hover a.is-active:not(:hover) span {
-  opacity: 0;
-  transform: translateY(-50%);
-}
-.sx-rail a:hover span, .sx-rail a:focus-visible span, .sx-rail a.is-scrubbing-active span {
-  opacity: 1 !important;
-  transform: translateY(-50%) translateX(-4px) !important;
-}
-@media (min-width: 1280px) { .sx-rail { display: flex; } }
-
-/* ============================================================
-   WORK SECTION CARDS: FULL-SURFACE COHESIVE BRAND HOVERS
-   When hovering, the ENTIRE card harmonizes in that project's color.
-   ============================================================ */
-
-.sx-projects .workspace-card {
-  position: relative;
-  transition: transform 0.38s var(--ease-out-expo),
-              border-color 0.3s ease,
-              box-shadow 0.38s var(--ease-out-expo),
-              background 0.35s ease;
-  will-change: transform, box-shadow;
-}
-.sx-projects .workspace-card .card-art {
-  overflow: hidden;
-  border-radius: 8px 8px 0 0;
-}
-.sx-projects .workspace-card .card-art img {
-  transition: transform 0.5s var(--ease-out-expo);
-  will-change: transform;
-}
-.sx-projects .workspace-card .card-title h2 {
-  transition: color 0.25s ease, text-shadow 0.25s ease;
-}
-.sx-projects .workspace-card .card-role {
-  transition: color 0.25s ease;
-}
-.sx-projects .workspace-card .card-problem b {
-  transition: color 0.25s ease;
-}
-.sx-projects .workspace-card .card-tags span {
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-}
-
-/* 1. Study Buddy (Purple: #a594f9) */
-.sx-projects .workspace-card.card-studybuddy:hover {
-  transform: translateY(-5px);
-  border-color: rgba(165, 148, 249, 0.7);
-  background: radial-gradient(850px 320px at 50% -10%, rgba(165, 148, 249, 0.12), #141414 75%);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
-              0 20px 48px -10px rgba(0, 0, 0, 0.85),
-              0 0 24px -4px rgba(165, 148, 249, 0.35),
-              0 0 0 1px rgba(165, 148, 249, 0.4);
-}
-.sx-projects .workspace-card.card-studybuddy:hover .card-art img {
-  transform: scale(1.028);
-}
-.sx-projects .workspace-card.card-studybuddy:hover .card-title h2 {
-  color: #ffffff;
-  text-shadow: 0 0 24px rgba(165, 148, 249, 0.4);
-}
-.sx-projects .workspace-card.card-studybuddy:hover .card-role {
-  color: #a594f9 !important;
-}
-.sx-projects .workspace-card.card-studybuddy:hover .card-problem b {
-  color: #a594f9 !important;
-}
-.sx-projects .workspace-card.card-studybuddy:hover .card-tags span:first-child {
-  background: rgba(165, 148, 249, 0.22);
-  border-color: #a594f9;
-  color: #ffffff;
-}
-.sx-projects .workspace-card.card-studybuddy:hover .card-tags span:not(:first-child) {
-  background: rgba(165, 148, 249, 0.08);
-  border-color: rgba(165, 148, 249, 0.4);
-  color: #e2dcff;
-}
-
-/* 2. SecureID (Gold: #d9ac54 / #f0c878) */
-.sx-projects .workspace-card.card-secureid:hover {
-  transform: translateY(-5px);
-  border-color: rgba(217, 172, 84, 0.7);
-  background: radial-gradient(850px 320px at 50% -10%, rgba(217, 172, 84, 0.12), #141414 75%);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
-              0 20px 48px -10px rgba(0, 0, 0, 0.85),
-              0 0 24px -4px rgba(217, 172, 84, 0.35),
-              0 0 0 1px rgba(217, 172, 84, 0.4);
-}
-.sx-projects .workspace-card.card-secureid:hover .card-art img {
-  transform: scale(1.028);
-}
-.sx-projects .workspace-card.card-secureid:hover .card-title h2 {
-  color: #ffffff;
-  text-shadow: 0 0 24px rgba(217, 172, 84, 0.4);
-}
-.sx-projects .workspace-card.card-secureid:hover .card-role {
-  color: #f0c878 !important;
-}
-.sx-projects .workspace-card.card-secureid:hover .card-problem b {
-  color: #f0c878 !important;
-}
-.sx-projects .workspace-card.card-secureid:hover .card-tags span:first-child {
-  background: rgba(217, 172, 84, 0.22);
-  border-color: #d9ac54;
-  color: #ffffff;
-}
-.sx-projects .workspace-card.card-secureid:hover .card-tags span:not(:first-child) {
-  background: rgba(217, 172, 84, 0.08);
-  border-color: rgba(217, 172, 84, 0.4);
-  color: #f6ebd2;
-}
-
-/* 3. Vextaro (Cyan / Electric Blue: #5aa3c9) */
-.sx-projects .workspace-card.card-vextaro:hover {
-  transform: translateY(-5px);
-  border-color: rgba(90, 163, 201, 0.7);
-  background: radial-gradient(850px 320px at 50% -10%, rgba(90, 163, 201, 0.12), #141414 75%);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
-              0 20px 48px -10px rgba(0, 0, 0, 0.85),
-              0 0 24px -4px rgba(90, 163, 201, 0.35),
-              0 0 0 1px rgba(90, 163, 201, 0.4);
-}
-.sx-projects .workspace-card.card-vextaro:hover .card-art img {
-  transform: scale(1.028);
-}
-.sx-projects .workspace-card.card-vextaro:hover .card-title h2 {
-  color: #ffffff;
-  text-shadow: 0 0 24px rgba(90, 163, 201, 0.4);
-}
-.sx-projects .workspace-card.card-vextaro:hover .card-role {
-  color: #5aa3c9 !important;
-}
-.sx-projects .workspace-card.card-vextaro:hover .card-problem b {
-  color: #5aa3c9 !important;
-}
-.sx-projects .workspace-card.card-vextaro:hover .card-tags span:first-child {
-  background: rgba(90, 163, 201, 0.22);
-  border-color: #5aa3c9;
-  color: #ffffff;
-}
-.sx-projects .workspace-card.card-vextaro:hover .card-tags span:not(:first-child) {
-  background: rgba(90, 163, 201, 0.08);
-  border-color: rgba(90, 163, 201, 0.4);
-  color: #d8edf7;
-}
-
-/* 4. Honda of Clear Lake (Coral: #e27d5a) */
-.sx-projects .workspace-card.card-honda:hover {
-  transform: translateY(-5px);
-  border-color: rgba(226, 125, 90, 0.7);
-  background: radial-gradient(850px 320px at 50% -10%, rgba(226, 125, 90, 0.12), #141414 75%);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
-              0 20px 48px -10px rgba(0, 0, 0, 0.85),
-              0 0 24px -4px rgba(226, 125, 90, 0.35),
-              0 0 0 1px rgba(226, 125, 90, 0.4);
-}
-.sx-projects .workspace-card.card-honda:hover .card-art img {
-  transform: scale(1.028);
-}
-.sx-projects .workspace-card.card-honda:hover .card-title h2 {
-  color: #ffffff;
-  text-shadow: 0 0 24px rgba(226, 125, 90, 0.4);
-}
-.sx-projects .workspace-card.card-honda:hover .card-role {
-  color: #e27d5a !important;
-}
-.sx-projects .workspace-card.card-honda:hover .card-problem b {
-  color: #e27d5a !important;
-}
-.sx-projects .workspace-card.card-honda:hover .card-tags span:first-child {
-  background: rgba(226, 125, 90, 0.22);
-  border-color: #e27d5a;
-  color: #ffffff;
-}
-.sx-projects .workspace-card.card-honda:hover .card-tags span:not(:first-child) {
-  background: rgba(226, 125, 90, 0.08);
-  border-color: rgba(226, 125, 90, 0.4);
-  color: #f7ded6;
-}
-
-/* 5. DevTective (Violet: #9c8be8) */
-.sx-projects .workspace-card.card-devtective:hover {
-  transform: translateY(-5px);
-  border-color: rgba(156, 139, 232, 0.7);
-  background: radial-gradient(850px 320px at 50% -10%, rgba(156, 139, 232, 0.12), #141414 75%);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7),
-              0 20px 48px -10px rgba(0, 0, 0, 0.85),
-              0 0 24px -4px rgba(156, 139, 232, 0.35),
-              0 0 0 1px rgba(156, 139, 232, 0.4);
-}
-.sx-projects .workspace-card.card-devtective:hover .card-art img {
-  transform: scale(1.028);
-}
-.sx-projects .workspace-card.card-devtective:hover .card-title h2 {
-  color: #ffffff;
-  text-shadow: 0 0 24px rgba(156, 139, 232, 0.4);
-}
-.sx-projects .workspace-card.card-devtective:hover .card-role {
-  color: #9c8be8 !important;
-}
-.sx-projects .workspace-card.card-devtective:hover .card-problem b {
-  color: #9c8be8 !important;
-}
-.sx-projects .workspace-card.card-devtective:hover .card-tags span:first-child {
-  background: rgba(156, 139, 232, 0.22);
-  border-color: #9c8be8;
-  color: #ffffff;
-}
-.sx-projects .workspace-card.card-devtective:hover .card-tags span:not(:first-child) {
-  background: rgba(156, 139, 232, 0.08);
-  border-color: rgba(156, 139, 232, 0.4);
-  color: #dedaf7;
-}
-
-/* 7. Buttons & Lightbox */
-.sx-btn {
-  transition: transform 0.22s var(--ease-out-expo), box-shadow 0.22s var(--ease-out-expo), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-.sx-btn:hover, .sx-btn:focus-visible {
-  transform: translateY(-2px); background: rgba(201, 168, 76, 0.14); color: #f0cf74;
-  box-shadow: 0 6px 20px -2px rgba(201, 168, 76, 0.35), 0 0 0 1px rgba(240, 207, 116, 0.3);
-}
-.sx-btn:active { transform: translateY(0px) scale(0.97); box-shadow: 0 2px 8px rgba(201, 168, 76, 0.2); transition-duration: 0.08s; }
-
-.sx-lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(8,8,8,0.92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease-out-expo); cursor: zoom-out; }
-.sx-lightbox.is-open { opacity: 1; pointer-events: auto; }
-.sx-lightbox img { max-width: 94vw; max-height: 90vh; object-fit: contain; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 24px 60px -12px rgba(0,0,0,0.9); transform: scale(0.96); transition: transform 0.35s var(--ease-out-expo); }
-.sx-lightbox.is-open img { transform: scale(1); }
-.sx-lightbox-close { position: absolute; top: 20px; right: 24px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; border-radius: 50%; width: 36px; height: 36px; display: grid; place-items: center; font-size: 18px; cursor: pointer; transition: background 0.2s ease; }
-.sx-lightbox-close:hover { background: rgba(255,255,255,0.2); }
-
-/* 8. Mobile Nav Brand (Avatar + DE LA PAZ) Visibility Guarantee */
+/* Mobile Nav Brand (Avatar + DE LA PAZ) visibility */
 @media (max-width: 700px) {
   .sx-nav .sx-brand {
     display: inline-flex !important;
     align-items: center !important;
     gap: 7px !important;
     padding: 3px 8px 3px 4px !important;
-    flex-shrink: 0 !important;
   }
   .sx-nav .sx-brand img {
-    display: block !important;
+    display: inline-block !important;
     width: 26px !important;
     height: 26px !important;
     border-radius: 50% !important;
-    object-fit: cover !important;
-    border: 1px solid var(--gold-dim) !important;
-    flex-shrink: 0 !important;
   }
   .sx-nav .sx-brand span {
     display: inline-block !important;
     font-family: Cinzel, Georgia, serif !important;
     font-size: 13px !important;
     font-weight: 600 !important;
-    letter-spacing: 0.08em !important;
     text-transform: uppercase !important;
     color: var(--text) !important;
-    white-space: nowrap !important;
-  }
-  .sx-nav {
-    max-width: 96vw !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .js .sx-reveal, .sx-projects .workspace-card, .sx-projects .workspace-card .card-art img, .sx-btn, .sx-lightbox, .sx-lightbox img, .cs-badge-row a span, .sx-nav-pill { transition: none !important; transform: none !important; }
+/* ------------------------------------------------------------
+   WORK SECTION CARDS: PRESERVE EXACT DESKTOP/MOBILE LAYOUT
+   Desktop: Horizontal (180px 1fr) via .project-grid.is-list
+   Mobile: Square-ish vertical cards
+   Hover: Highlight only that project's accent color
+   ------------------------------------------------------------ */
+.project-grid .workspace-card {
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
+.project-grid .workspace-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Study Buddy: Purple */
+.project-grid .workspace-card.card-studybuddy:hover {
+  border-color: #a594f9 !important;
+  box-shadow: 0 6px 24px -4px rgba(165, 148, 249, 0.3) !important;
+}
+.project-grid .workspace-card.card-studybuddy:hover .card-role,
+.project-grid .workspace-card.card-studybuddy:hover .card-outcome b {
+  color: #a594f9 !important;
+}
+
+/* SecureID: Gold */
+.project-grid .workspace-card.card-secureid:hover {
+  border-color: #d9ac54 !important;
+  box-shadow: 0 6px 24px -4px rgba(217, 172, 84, 0.3) !important;
+}
+.project-grid .workspace-card.card-secureid:hover .card-role,
+.project-grid .workspace-card.card-secureid:hover .card-outcome b {
+  color: #f0c878 !important;
+}
+
+/* Vextaro: Blue / Cyan */
+.project-grid .workspace-card.card-vextaro:hover {
+  border-color: #5aa3c9 !important;
+  box-shadow: 0 6px 24px -4px rgba(90, 163, 201, 0.3) !important;
+}
+.project-grid .workspace-card.card-vextaro:hover .card-role,
+.project-grid .workspace-card.card-vextaro:hover .card-outcome b {
+  color: #5aa3c9 !important;
+}
+
+/* Honda: Coral */
+.project-grid .workspace-card.card-honda:hover {
+  border-color: #e27d5a !important;
+  box-shadow: 0 6px 24px -4px rgba(226, 125, 90, 0.3) !important;
+}
+.project-grid .workspace-card.card-honda:hover .card-role,
+.project-grid .workspace-card.card-honda:hover .card-outcome b {
+  color: #e27d5a !important;
+}
+
+/* DevTective: Violet */
+.project-grid .workspace-card.card-devtective:hover {
+  border-color: #9c8be8 !important;
+  box-shadow: 0 6px 24px -4px rgba(156, 139, 232, 0.3) !important;
+}
+.project-grid .workspace-card.card-devtective:hover .card-role,
+.project-grid .workspace-card.card-devtective:hover .card-outcome b {
+  color: #9c8be8 !important;
+}
+
+/* ------------------------------------------------------------
+   CASE STUDY PAGES: UNIVERSAL ACCENT COLOR THEME
+   Everything white/gold turns into that study's color:
+   Vextaro -> Blue (#5aa3c9)
+   Study Buddy -> Purple (#a594f9)
+   Honda -> Coral (#e27d5a)
+   DevTective -> Violet (#9c8be8)
+   SecureID -> Gold (#d9ac54)
+   ------------------------------------------------------------ */
+.sx-case {
+  --gold: var(--accent);
+  --gold-bright: var(--accent);
+  --gold-dim: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+/* Nav on case study page */
+.sx-case .sx-nav a.is-active,
+.sx-case .sx-nav .sx-back-link {
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 16%, transparent) !important;
+}
+.sx-case .sx-nav a:hover {
+  color: var(--accent) !important;
+}
+
+/* Breadcrumbs & headings */
+.sx-case .breadcrumb a:hover {
+  color: var(--accent) !important;
+}
+.sx-case .cs-section > h2::before,
+.sx-case .cs-split-text > h2::before {
+  color: var(--accent) !important;
+}
+
+/* Impact stats & metadata */
+.sx-case .impact-stat .n {
+  color: var(--accent) !important;
+}
+.sx-case .cs-meta dt {
+  color: var(--accent) !important;
+}
+
+/* Reasoning chain steps */
+.sx-case .chain-step .k {
+  color: var(--accent) !important;
+}
+.sx-case .chain-step .v b {
+  color: var(--accent) !important;
+}
+
+/* Badges (View Figma Prototype, etc.) */
+.sx-case .cs-badge-row a span {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.sx-case .cs-badge-row a:hover span {
+  background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
+  box-shadow: 0 4px 18px -2px color-mix(in srgb, var(--accent) 45%, transparent) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.sx-case .sx-btn {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+.sx-case .sx-btn:hover,
+.sx-case .sx-btn:focus-visible {
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+  background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 45%, transparent) !important;
+}
+.sx-case .sx-btn-primary {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #080808 !important;
+}
+.sx-case .sx-btn-primary:hover {
+  background: color-mix(in srgb, var(--accent) 85%, #ffffff) !important;
+  color: #080808 !important;
+}
+
+/* Footer next/prev navigation */
+.sx-case .cs-nav-footer a:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 30%, transparent) !important;
+}
+
+/* Floating outline rail (dots on the side for navigation) */
+.sx-rail {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+@media (min-width: 900px) {
+  .sx-rail {
+    display: flex !important;
+  }
+}
+.sx-rail a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.sx-rail a::before {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border, #333);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sx-rail a:hover::before,
+.sx-rail a.is-active::before {
+  background: var(--accent) !important;
+  transform: scale(1.6);
+  box-shadow: 0 0 10px var(--accent) !important;
+}
+.sx-rail a span {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px 11px;
+  border-radius: 6px;
+  background: rgba(18, 15, 11, 0.95);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  font: 500 12px/1.2 'Inter', sans-serif;
+  color: var(--text, #f0ede8);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.sx-rail a.is-active span,
+.sx-rail a:hover span,
+.sx-rail a:focus-visible span {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-3px);
+}
+
+/* Lightbox */
+.sx-lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(8,8,8,0.92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; cursor: zoom-out; }
+.sx-lightbox.is-open { opacity: 1; pointer-events: auto; }
+.sx-lightbox img { max-width: 94vw; max-height: 90vh; object-fit: contain; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 24px 60px -12px rgba(0,0,0,0.9); transform: scale(0.96); transition: transform 0.25s ease; }
+.sx-lightbox.is-open img { transform: scale(1); }
+.sx-lightbox-close { position: absolute; top: 20px; right: 24px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; border-radius: 50%; width: 36px; height: 36px; display: grid; place-items: center; font-size: 18px; cursor: pointer; }
+.sx-lightbox-close:hover { background: rgba(255,255,255,0.2); }
