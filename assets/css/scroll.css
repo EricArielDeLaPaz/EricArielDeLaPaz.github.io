@@ -818,3 +818,148 @@ html {
 .sx-lightbox.is-open img { transform: scale(1); }
 .sx-lightbox-close { position: absolute; top: 20px; right: 24px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; border-radius: 50%; width: 36px; height: 36px; display: grid; place-items: center; font-size: 18px; cursor: pointer; }
 .sx-lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+
+/* ============================================================
+   HIGH-END BUTTON & FOOTER ICONS
+   Clean, crisp inline vector SVGs with currentColor & micro-motion
+   ============================================================ */
+.sx-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+}
+.sx-btn .sx-btn-icon {
+  display: inline-block !important;
+  width: 15px !important;
+  height: 15px !important;
+  flex-shrink: 0 !important;
+  stroke-width: 1.85 !important;
+  transition: transform 0.22s var(--ease-motion) !important;
+}
+.sx-btn:hover .sx-btn-icon {
+  transform: translateY(-1.5px);
+}
+.sx-btn-primary:hover .sx-btn-icon {
+  transform: translateY(2px);
+}
+
+/* Case study badge row action buttons */
+.cs-badge-row a span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+.cs-badge-row a .sx-btn-icon {
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0 !important;
+  stroke-width: 1.85 !important;
+  transition: transform 0.22s var(--ease-motion) !important;
+}
+.cs-badge-row a:hover .sx-btn-icon {
+  transform: scale(1.12);
+}
+
+/* Case study previous/next navigation buttons */
+.cs-nav-footer a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+}
+.cs-nav-footer a .sx-btn-icon {
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0 !important;
+  stroke-width: 2 !important;
+  transition: transform 0.22s var(--ease-motion) !important;
+}
+.cs-nav-footer a:first-child:hover .sx-btn-icon {
+  transform: translateX(-3px);
+}
+.cs-nav-footer a:last-child:hover .sx-btn-icon {
+  transform: translateX(3px);
+}
+
+/* Footer icons & spacing */
+.sx-footer a,
+.foot-links a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.sx-footer-icon {
+  display: inline-block !important;
+  width: 13px !important;
+  height: 13px !important;
+  flex-shrink: 0 !important;
+  opacity: 0.8 !important;
+  stroke-width: 1.85 !important;
+  transition: opacity 0.2s var(--ease-motion), transform 0.2s var(--ease-motion) !important;
+}
+.sx-footer a:hover .sx-footer-icon,
+.foot-links a:hover .sx-footer-icon {
+  opacity: 1 !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   CASE STUDY FOOTER SPACING & HARMONY
+   Proper top spacing relative to bottom and side spacing
+   ============================================================ */
+.sx-case > footer.container {
+  margin-top: 80px !important;
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+  border-top: 1px solid var(--border-soft) !important;
+}
+.sx-case > footer.container .foot-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+.sx-case > footer.container .foot-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+}
+.sx-case > footer.container .foot-links a {
+  color: var(--text-dim) !important;
+  font-size: 13.5px !important;
+  transition: color 0.2s var(--ease-motion) !important;
+}
+.sx-case > footer.container .foot-links a:hover {
+  color: var(--accent, var(--gold)) !important;
+}
+
+@media (max-width: 700px) {
+  .sx-case > footer.container {
+    margin-top: 48px !important;
+    padding-top: 36px !important;
+    padding-bottom: 40px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .sx-case > footer.container .foot-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px !important;
+  }
+  .sx-case > footer.container .foot-links {
+    justify-content: center !important;
+    gap: 18px !important;
+  }
+  .sx-case .cs-nav-footer {
+    margin-top: 32px !important;
+    padding: 20px 0 0 !important;
+    gap: 12px !important;
+  }
+}

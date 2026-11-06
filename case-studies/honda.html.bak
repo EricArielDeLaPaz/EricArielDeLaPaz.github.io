@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Honda of Clear Lake — Heuristic Evaluation · Eric Ariel De La Paz</title>
+<title>Honda of Clear Lake — Dealership Website Usability Audit · Eric Ariel De La Paz</title>
 <meta name="description" content="Heuristic evaluation of the Honda of Clear Lake dealership website using Nielsen's 10 heuristics, with severity-ranked findings and specific fixes.">
 <link rel="canonical" href="https://ericarieldelapaz.tech/case-studies/honda.html">
 <meta property="og:type" content="article">
@@ -40,9 +40,9 @@
     <figure class="sx-cover"><img src="../assets/images/honda.png" alt="Honda project artwork" width="1200" height="600"></figure>
     <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / Honda of Clear Lake</div>
     <h1>Honda of Clear Lake</h1>
-    <p class="tagline">A usability audit of a real dealership website against Nielsen's 10 heuristics, finding where shoppers lose confidence.</p>
+    <p class="tagline">A usability audit of a live dealership website against Nielsen's 10 heuristics, identifying 31 friction points where shoppers lose confidence.</p>
     <div class="impact-grid cs-glance"><div class="impact-stat"><div class="n">10</div><div class="l">Nielsen heuristics evaluated</div></div><div class="impact-stat"><div class="n">31</div><div class="l">findings, rated 0–4 for severity</div></div><div class="impact-stat"><div class="n">3</div><div class="l">catastrophic findings, each with a fix</div></div></div>
-    <div class="cs-badge-row"><span>Heuristic evaluation</span></div>
+    <div class="cs-badge-row"><span>Responsive Dealership Website</span><span>Heuristic Evaluation</span></div>
     <dl class="cs-meta">
       <div><dt>Role</dt><dd>Solo UX Auditor</dd></div>
       <div><dt>Team</dt><dd>Solo project</dd></div>
@@ -141,8 +141,13 @@
     </div>
 
     <div class="cs-section">
-      <h2>A fix list, not a critique</h2>
-      <p>Each violation is tied to a heuristic, rated by severity, and paired with a fix.</p>
+      <h2>A fix list, not a critique: Engineering punch list</h2>
+      <p>Rather than delivering subjective design critiques, I translated findings into a phased engineering punch list prioritized by user impact and implementation complexity:</p>
+      <ul>
+        <li><strong>Phase 1 (Immediate Hotfixes):</strong> Recenter the dealership map embed to reveal cut-off controls and decouple the search input focus state from main-page scroll locks.</li>
+        <li><strong>Phase 2 (Accessibility &amp; Compliance):</strong> Restore the global accessibility assistive panel across all checkout steps to ensure ADA compliance.</li>
+        <li><strong>Phase 3 (Conversion Optimization):</strong> Re-architect inventory filter persistence so applied vehicle trims and financing filters don't wipe on page refreshes.</li>
+      </ul>
     </div>
   </section>
 
