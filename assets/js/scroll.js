@@ -1,193 +1,122 @@
-function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;value=0;from=0;to=0;currentTime=0;lerp;duration;easing;onUpdate;advance(i){if(!this.isRunning)return;let e=!1;if(this.duration&&this.easing){this.currentTime+=i;const s=t(0,this.currentTime/this.duration,1);e=s>=1;const o=e?1:this.easing(s);this.value=this.from+(this.to-this.from)*o}else this.lerp?(this.value=function(t,i,e,s){return function(t,i,e){return(1-e)*t+e*i}(t,i,1-Math.exp(-e*s))}(this.value,this.to,60*this.lerp,i),Math.round(this.value)===this.to&&(this.value=this.to,e=!0)):(this.value=this.to,e=!0);e&&this.stop(),this.onUpdate?.(this.value,e)}stop(){this.isRunning=!1}fromTo(t,i,{lerp:e,duration:s,easing:o,onStart:n,onUpdate:r}){this.from=this.value=t,this.to=i,this.lerp=e,this.duration=s,this.easing=o,this.currentTime=0,this.isRunning=!0,n?.(),this.onUpdate=r}};var e=class{constructor(t,i,{autoResize:e=!0,debounce:s=250}={}){this.wrapper=t,this.content=i,e&&(this.debouncedResize=function(t,i){let e;return function(...s){let o=this;clearTimeout(e),e=setTimeout((()=>{e=void 0,t.apply(o,s)}),i)}}(this.resize,s),this.wrapper instanceof Window?window.addEventListener("resize",this.debouncedResize,!1):(this.wrapperResizeObserver=new ResizeObserver(this.debouncedResize),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(this.debouncedResize),this.contentResizeObserver.observe(this.content)),this.resize()}width=0;height=0;scrollHeight=0;scrollWidth=0;debouncedResize;wrapperResizeObserver;contentResizeObserver;destroy(){this.wrapperResizeObserver?.disconnect(),this.contentResizeObserver?.disconnect(),this.wrapper===window&&this.debouncedResize&&window.removeEventListener("resize",this.debouncedResize,!1)}resize=()=>{this.onWrapperResize(),this.onContentResize()};onWrapperResize=()=>{this.wrapper instanceof Window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)};onContentResize=()=>{this.wrapper instanceof Window?(this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth):(this.scrollHeight=this.wrapper.scrollHeight,this.scrollWidth=this.wrapper.scrollWidth)};get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}},s=class{events={};emit(t,...i){let e=this.events[t]||[];for(let t=0,s=e.length;t<s;t++)e[t]?.(...i)}on(t,i){return this.events[t]?.push(i)||(this.events[t]=[i]),()=>{this.events[t]=this.events[t]?.filter((t=>i!==t))}}off(t,i){this.events[t]=this.events[t]?.filter((t=>i!==t))}destroy(){this.events={}}},o=100/6,n={passive:!1},r=class{constructor(t,i={wheelMultiplier:1,touchMultiplier:1}){this.element=t,this.options=i,window.addEventListener("resize",this.onWindowResize,!1),this.onWindowResize(),this.element.addEventListener("wheel",this.onWheel,n),this.element.addEventListener("touchstart",this.onTouchStart,n),this.element.addEventListener("touchmove",this.onTouchMove,n),this.element.addEventListener("touchend",this.onTouchEnd,n)}touchStart={x:0,y:0};lastDelta={x:0,y:0};window={width:0,height:0};emitter=new s;on(t,i){return this.emitter.on(t,i)}destroy(){this.emitter.destroy(),window.removeEventListener("resize",this.onWindowResize,!1),this.element.removeEventListener("wheel",this.onWheel,n),this.element.removeEventListener("touchstart",this.onTouchStart,n),this.element.removeEventListener("touchmove",this.onTouchMove,n),this.element.removeEventListener("touchend",this.onTouchEnd,n)}onTouchStart=t=>{const{clientX:i,clientY:e}=t.targetTouches?t.targetTouches[0]:t;this.touchStart.x=i,this.touchStart.y=e,this.lastDelta={x:0,y:0},this.emitter.emit("scroll",{deltaX:0,deltaY:0,event:t})};onTouchMove=t=>{const{clientX:i,clientY:e}=t.targetTouches?t.targetTouches[0]:t,s=-(i-this.touchStart.x)*this.options.touchMultiplier,o=-(e-this.touchStart.y)*this.options.touchMultiplier;this.touchStart.x=i,this.touchStart.y=e,this.lastDelta={x:s,y:o},this.emitter.emit("scroll",{deltaX:s,deltaY:o,event:t})};onTouchEnd=t=>{this.emitter.emit("scroll",{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:t})};onWheel=t=>{let{deltaX:i,deltaY:e,deltaMode:s}=t;i*=1===s?o:2===s?this.window.width:1,e*=1===s?o:2===s?this.window.height:1,i*=this.options.wheelMultiplier,e*=this.options.wheelMultiplier,this.emitter.emit("scroll",{deltaX:i,deltaY:e,event:t})};onWindowResize=()=>{this.window={width:window.innerWidth,height:window.innerHeight}}},Lenis=class{_isScrolling=!1;_isStopped=!1;_isLocked=!1;_preventNextNativeScrollEvent=!1;_resetVelocityTimeout=null;__rafID=null;isTouching;time=0;userData={};lastVelocity=0;velocity=0;direction=0;options;targetScroll;animatedScroll;animate=new i;emitter=new s;dimensions;virtualScroll;constructor({wrapper:t=window,content:i=document.documentElement,eventsTarget:s=t,smoothWheel:o=!0,syncTouch:n=!1,syncTouchLerp:l=.075,touchInertiaMultiplier:h=35,duration:a,easing:c=t=>Math.min(1,1.001-Math.pow(2,-10*t)),lerp:p=.1,infinite:d=!1,orientation:u="vertical",gestureOrientation:m="vertical",touchMultiplier:v=1,wheelMultiplier:S=1,autoResize:w=!0,prevent:g,virtualScroll:f,overscroll:y=!0,autoRaf:E=!1,anchors:T=!1,__experimental__naiveDimensions:z=!1}={}){window.lenisVersion="1.1.20",t&&t!==document.documentElement||(t=window),this.options={wrapper:t,content:i,eventsTarget:s,smoothWheel:o,syncTouch:n,syncTouchLerp:l,touchInertiaMultiplier:h,duration:a,easing:c,lerp:p,infinite:d,gestureOrientation:m,orientation:u,touchMultiplier:v,wheelMultiplier:S,autoResize:w,prevent:g,virtualScroll:f,overscroll:y,autoRaf:E,anchors:T,__experimental__naiveDimensions:z},this.dimensions=new e(t,i,{autoResize:w}),this.updateClassName(),this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.addEventListener("scrollend",this.onScrollEnd,{capture:!0}),this.options.anchors&&this.options.wrapper===window&&this.options.wrapper.addEventListener("click",this.onClick,!1),this.options.wrapper.addEventListener("pointerdown",this.onPointerDown,!1),this.virtualScroll=new r(s,{touchMultiplier:v,wheelMultiplier:S}),this.virtualScroll.on("scroll",this.onVirtualScroll),this.options.autoRaf&&(this.__rafID=requestAnimationFrame(this.raf))}destroy(){this.emitter.destroy(),this.options.wrapper.removeEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.removeEventListener("scrollend",this.onScrollEnd,{capture:!0}),this.options.wrapper.removeEventListener("pointerdown",this.onPointerDown,!1),this.options.anchors&&this.options.wrapper===window&&this.options.wrapper.removeEventListener("click",this.onClick,!1),this.virtualScroll.destroy(),this.dimensions.destroy(),this.cleanUpClassName(),this.__rafID&&cancelAnimationFrame(this.__rafID)}on(t,i){return this.emitter.on(t,i)}off(t,i){return this.emitter.off(t,i)}onScrollEnd=t=>{t instanceof CustomEvent||"smooth"!==this.isScrolling&&!1!==this.isScrolling||t.stopPropagation()};dispatchScrollendEvent=()=>{this.options.wrapper.dispatchEvent(new CustomEvent("scrollend",{bubbles:this.options.wrapper===window,detail:{lenisScrollEnd:!0}}))};setScroll(t){this.isHorizontal?this.options.wrapper.scrollTo({left:t,behavior:"instant"}):this.options.wrapper.scrollTo({top:t,behavior:"instant"})}onClick=t=>{const i=t.composedPath().find((t=>t instanceof HTMLAnchorElement&&t.getAttribute("href")?.startsWith("#")));if(i){const t=i.getAttribute("href");if(t){const i="object"==typeof this.options.anchors&&this.options.anchors?this.options.anchors:void 0;this.scrollTo(t,i)}}};onPointerDown=t=>{1===t.button&&this.reset()};onVirtualScroll=t=>{if("function"==typeof this.options.virtualScroll&&!1===this.options.virtualScroll(t))return;const{deltaX:i,deltaY:e,event:s}=t;if(this.emitter.emit("virtual-scroll",{deltaX:i,deltaY:e,event:s}),s.ctrlKey)return;if(s.lenisStopPropagation)return;const o=s.type.includes("touch"),n=s.type.includes("wheel");this.isTouching="touchstart"===s.type||"touchmove"===s.type;const r=0===i&&0===e;if(this.options.syncTouch&&o&&"touchstart"===s.type&&r&&!this.isStopped&&!this.isLocked)return void this.reset();const l="vertical"===this.options.gestureOrientation&&0===e||"horizontal"===this.options.gestureOrientation&&0===i;if(r||l)return;let h=s.composedPath();h=h.slice(0,h.indexOf(this.rootElement));const a=this.options.prevent;if(h.find((t=>t instanceof HTMLElement&&("function"==typeof a&&a?.(t)||t.hasAttribute?.("data-lenis-prevent")||o&&t.hasAttribute?.("data-lenis-prevent-touch")||n&&t.hasAttribute?.("data-lenis-prevent-wheel")))))return;if(this.isStopped||this.isLocked)return void s.preventDefault();if(!(this.options.syncTouch&&o||this.options.smoothWheel&&n))return this.isScrolling="native",this.animate.stop(),void(s.lenisStopPropagation=!0);let c=e;"both"===this.options.gestureOrientation?c=Math.abs(e)>Math.abs(i)?e:i:"horizontal"===this.options.gestureOrientation&&(c=i),(!this.options.overscroll||this.options.infinite||this.options.wrapper!==window&&(this.animatedScroll>0&&this.animatedScroll<this.limit||0===this.animatedScroll&&e>0||this.animatedScroll===this.limit&&e<0))&&(s.lenisStopPropagation=!0),s.preventDefault();const p=o&&this.options.syncTouch,d=o&&"touchstart"====s.type&&Math.abs(c)>5;d&&(c=this.velocity*this.options.touchInertiaMultiplier),this.scrollTo(this.targetScroll+c,{programmatic:!1,...p?{lerp:d?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}})};resize(){this.dimensions.resize(),this.animatedScroll=this.targetScroll=this.actualScroll,this.emit()}emit(){this.emitter.emit("scroll",this)}onNativeScroll=()=>{if(null!==this._resetVelocityTimeout&&(clearTimeout(this._resetVelocityTimeout),this._resetVelocityTimeout=null),this._preventNextNativeScrollEvent)this._preventNextNativeScrollEvent=!1;else if(!1===this.isScrolling||"native"===this.isScrolling){const t=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity,this.velocity=this.animatedScroll-t,this.direction=Math.sign(this.animatedScroll-t),this.isStopped||(this.isScrolling="native"),this.emit(),0!==this.velocity&&(this._resetVelocityTimeout=setTimeout((()=>{this.lastVelocity=this.velocity,this.velocity=0,this.isScrolling=!1,this.emit()}),400))}};reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity=0,this.animate.stop()}start(){this.isStopped&&(this.reset(),this.isStopped=!1)}stop(){this.isStopped||(this.reset(),this.isStopped=!0)}raf=t=>{const i=t-(this.time||t);this.time=t,this.animate.advance(.001*i),this.options.autoRaf&&(this.__rafID=requestAnimationFrame(this.raf))};scrollTo(i,{offset:e=0,immediate:s=!1,lock:o=!1,duration:n=this.options.duration,easing:r=this.options.easing,lerp:l=this.options.lerp,onStart:h,onComplete:a,force:c=!1,programmatic:p=!0,userData:d}={}){if(!this.isStopped&&!this.isLocked||c){if("string"==typeof i&&["top","left","start"].includes(i))i=0;else if("string"==typeof i&&["bottom","right","end"].includes(i))i=this.limit;else{let t;if("string"==typeof i?t=document.querySelector(i):i instanceof HTMLElement&&i?.nodeType&&(t=i),t){if(this.options.wrapper!==window){const t=this.options.wrapper.addEventListener("resize",this.onWindowResize,!1),this.onWindowResize(),t=this.rootElement.getBoundingClientRect();e-=this.isHorizontal?t.left:t.top}const p=i=moveTo=this.isHorizontal?i.scrollLeft??i.scrollLeft:i.scrollX??i.scrollX:i.offsetLeft:i.scrollTop??i.scrollTop:i.scrollY??i.scrollY:i.offsetTop;i=Math.round(p+e),this.options.infinite?p&&(this.targetScroll=this.animatedScroll=this.scroll):i=t(0,i,this.limit),i===this.targetScroll)return h?.(this),void a?.(this);if(this.userData=d??{},s)return this.animatedScroll=this.targetScroll=i,this.setScroll(this.scroll),this.reset(),this.preventNextNativeScrollEvent(),this.emit(),a?.(this),this.userData={},void requestAnimationFrame((()=>{this.dispatchScrollendEvent()}));p||(this.targetScroll=i),this.animate.fromTo(this.animatedScroll,i,{duration:n,easing:r,lerp:l,onStart:()=>{o&&(this.isLocked=!0),this.isScrolling="smooth",h?.(this)},onUpdate:(t,i)=>{this.isScrolling="smooth",this.lastVelocity=this.velocity,this.velocity=t-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=t,this.setScroll(this.scroll),p&&(this.targetScroll=t),i||this.emit(),i&&(this.resize(),this.emit(),a?.(this),this.userData={},void requestAnimationFrame((()=>{this.dispatchScrollendEvent()})),this.preventNextNativeScrollEvent())}})}}}preventNextNativeScrollEvent(){this._preventNextNativeScrollEvent=!0,requestAnimationFrame((()=>{this._preventNextNativeScrollEvent=!1}))}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.options.__experimental__naiveDimensions?this.isHorizontal?this.rootElement.scrollWidth-this.rootElement.clientWidth:this.rootElement.scrollHeight-this.rootElement.clientHeight:this.dimensions.limit[this.isHorizontal?"x":"y"]}get isHorizontal(){return"horizontal"===this.options.orientation}get actualScroll(){const t=this.options.wrapper*�ɕ��ɸ�ѡ�̹��!�ɥ齹х��й͍ɽ��`��й͍ɽ��1����й͍ɽ��d��й͍ɽ��Q�����Ё͍ɽ�����ɕ��ɸ�ѡ�̹��ѥ��̹������є����ѡ�̹�����ѕ�M�ɽ�����ѡ�̹����а�Е��������ѡ�̹�����ѕ�M�ɽ���مȁб����Ё�ɽ�ɕ�̠����ɸ�����ѡ�̹��������ѡ�̹͍ɽ���ѡ�̹��������Ё��M�ɽ��������ɕ��ɸ�ѡ�̹}��M�ɽ������͕Ё��M�ɽ������Х�ѡ�̹}��M�ɽ��������И��ѡ�̹}��M�ɽ������бѡ�̹����ѕ����9���������Ё��Mѽ�������ɕ��ɸ�ѡ�̹}��Mѽ�����͕Ё��Mѽ�����Х�ѡ�̹}��Mѽ�������И��ѡ�̹}��Mѽ�����бѡ�̹����ѕ����9���������Ё��1��������ɕ��ɸ�ѡ�̹}��1������͕Ё��1������Х�ѡ�̹}��1��������И��ѡ�̹}��1������бѡ�̹����ѕ����9���������Ё��M���Ѡ���ɕ��ɸ�͵��Ѡ����ѡ�̹��M�ɽ��������Ё�����9��������Ё�􉱕��̈�ɕ��ɸ�ѡ�̹��Mѽ�������Ь􈁱���̵�ѽ�������ѡ�̹��1��������Ь􈁱���̵���������ѡ�̹��M�ɽ��������Ь􈁱���̵͍ɽ���������͵��Ѡ����ѡ�̹��M�ɽ��������Ь􈁱���̵͵��Ѡ���������ѕ����9������ѡ�̹�����U�����9������ѡ�̹ɽ�������й�����9�������ѡ�̹ɽ�������й�����9�����ѡ�̹�����9�������ɥ���������U�����9������ѡ�̹ɽ�������й�����9����ѡ�̹ɽ�������й�����9����ɕ�����������̠�qܬ����������ɥ�����흱����Q��̹1�����1���̱������Q��̹1���̹�ɽѽ�����1���̹�ɽѽ����켼��ͽ�ɍ�5������UI0�����̹�����̹���
-;
-
-// Scrolling portfolio: nav highlight, reveal-on-scroll, default project view, case-study outline.
+// Scrolling portfolio: smooth scroll, nav highlight, card layout, outline dots, lightbox.
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Initialize Lenis Smooth Scroll Engine (Linear/Apple inertia for desktop)
-  var lenis = null;
-  if (!reduce && typeof Lenis !== 'undefined') {
-    try {
-      lenis = new Lenis({
-        duration: 1.15,
-        easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-        smoothWheel: true,
-        wheelMultiplier: 1.0,
-        touchMultiplier: 1.2,
-      });
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-    } catch (_) {}
-  }
-
-  // Universal smooth scroll helper (uses Lenis for buttery-smooth deceleration)
-  function scrollToTarget(target, offset) {
-    if (!target) return;
-    offset = (offset !== undefined) ? offset : 88;
-    if (lenis) {
-      lenis.scrollTo(target, { offset: -offset, duration: 1.15 });
-    } else {
-      var targetY = target.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({
-        top: Math.max(0, targetY),
-        behavior: 'smooth'
-      });
+  // Buttery-smooth scroll helper
+  function smoothScrollTo(targetY) {
+    if (reduce) {
+      window.scrollTo(0, targetY);
+      return;
     }
+    window.scrollTo({
+      top: Math.max(0, targetY),
+      behavior: 'smooth'
+    });
   }
 
-  // Sliding Gliding Pill Navigation Indicator
-  var nav = document.querySelector('.sx-nav');
-  var pill = null;
-  var updatePillActive = function () {};
-
-  if (nav) {
-    pill = document.createElement('div');
-    pill.className = 'sx-nav-pill';
-    nav.prepend(pill);
-
-    function movePillTo(el) {
-      if (!el || !el.offsetParent) {
-        pill.style.opacity = '0';
-        return;
-      }
-      var navRect = nav.getBoundingClientRect();
-      var elRect = el.getBoundingClientRect();
-      var x = elRect.left - navRect.left + nav.scrollLeft;
-      var y = elRect.top - navRect.top;
-      var w = elRect.width;
-      var h = elRect.height;
-
-      pill.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
-      pill.style.width = w + 'px';
-      pill.style.height = h + 'px';
-      pill.style.opacity = '1';
-    }
-
-    updatePillActive = function () {
-      var activeLink = nav.querySelector('a.is-active') || nav.querySelector('.sx-back-link');
-      if (activeLink) {
-        movePillTo(activeLink);
-      } else {
-        pill.style.opacity = '0';
-      }
-    };
-
-    var navLinks = nav.querySelectorAll('a[data-spy], a.sx-back-link');
-    navLinks.forEach(function (a) {
-      a.addEventListener('mouseenter', function () {
-        movePillTo(a);
-      });
-      a.addEventListener('focus', function () {
-        movePillTo(a);
-      });
-    });
-
-    nav.addEventListener('mouseleave', function () {
-      updatePillActive();
-    });
-
-    window.addEventListener('resize', updatePillActive, { passive: true });
-    setTimeout(updatePillActive, 100);
-  }
-
-  // Intercept all on-page hash clicks (nav, hero buttons, page jumps)
+  // Intercept on-page hash links for smooth scroll with fixed header offset
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href*="#"]');
-    if (!a || a.closest('.sx-rail')) return;
+    if (!a) return;
     var href = a.getAttribute('href');
     if (!href || href === '#') return;
-    var hashIndex = href.indexOf('#');
-    if (hashIndex === -1) return;
-    var hash = href.slice(hashIndex);
-    var path = href.slice(0, hashIndex);
+    var hashIdx = href.indexOf('#');
+    if (hashIdx === -1) return;
+    var hash = href.slice(hashIdx);
+    var path = href.slice(0, hashIdx);
     if (!path || path === location.pathname || path === location.pathname.split('/').pop() || href.startsWith('#')) {
       var target = document.querySelector(hash);
       if (target) {
         e.preventDefault();
-        scrollToTarget(target, 88);
+        var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
+        smoothScrollTo(y);
         if (history.pushState) history.pushState(null, '', hash);
-        if (nav) {
-          nav.querySelectorAll('a[data-spy]').forEach(function (lnk) {
-            lnk.classList.toggle('is-active', lnk === a);
-          });
-          updatePillActive();
-        }
       }
     }
   });
 
-  // Long project cards on desktop, stacked cards on phones.
+  // Long horizontal cards on desktop, stacked vertical cards on mobile
   var mq = window.matchMedia('(min-width: 761px)');
   function applyView() {
-    document.querySelectorAll('.sx-projects').forEach(function (g) { g.classList.toggle('is-list', mq.matches); });
+    document.querySelectorAll('.sx-projects').forEach(function (g) {
+      g.classList.toggle('is-list', mq.matches);
+    });
   }
   applyView();
   if (mq.addEventListener) mq.addEventListener('change', applyView);
 
-  // Reveal sections as they scroll into view.
+  // Reveal sections on scroll
   var reveal = document.querySelectorAll('.sx-section, .sx-statbar, .cs-section');
   reveal.forEach(function (el) { el.classList.add('sx-reveal'); });
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
     reveal.forEach(function (el) { io.observe(el); });
   } else {
     reveal.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  // Home: highlight the nav link for the section in view & glide pill.
+  // Home: active nav link indicator
   var spyMap = { work: 'work', experience: 'experience', process: 'process', skills: 'skills', about: 'about', contact: 'contact' };
-  var spyLinks = document.querySelectorAll('.sx-nav a[data-spy]');
-  if (spyLinks.length && 'IntersectionObserver' in window) {
+  var navLinks = document.querySelectorAll('.sx-nav a[data-spy]');
+  if (navLinks.length && 'IntersectionObserver' in window) {
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         var key = spyMap[e.target.id];
-        spyLinks.forEach(function (a) { a.classList.toggle('is-active', a.dataset.spy === key); });
-        updatePillActive();
+        navLinks.forEach(function (a) {
+          a.classList.toggle('is-active', a.dataset.spy === key);
+        });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    Object.keys(spyMap).forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
+    Object.keys(spyMap).forEach(function (id) {
+      var s = document.getElementById(id);
+      if (s) spy.observe(s);
+    });
   }
 
-  // Case studies: progress bar + interactive outline rail with scrub-to-section
+  // Case study: progress bar & floating outline rail with dots
   if (document.body.classList.contains('sx-case')) {
-    var bar = document.createElement('div'); bar.className = 'sx-progress'; document.body.appendChild(bar);
+    var bar = document.createElement('div');
+    bar.className = 'sx-progress';
+    document.body.appendChild(bar);
     function onScroll() {
       var h = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
     }
-    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     // Collect hero (Case Study Info) + all sections
-    var hero = document.querySelector('.cs-hero') || document.querySelector('.sx-main') || document.querySelector('main');
+    var hero = document.querySelector('.cs-hero');
     var bodySecs = [].slice.call(document.querySelectorAll('.cs-section'));
-    var secs = [];
+    var allSecs = [];
     if (hero) {
-      if (!hero.id) hero.id = 'case-study-info';
+      hero.id = hero.id || 'case-study-info';
       hero.dataset.railTitle = 'Case Study Info';
-      secs.push(hero);
+      allSecs.push(hero);
     }
-    secs = secs.concat(bodySecs);
+    allSecs = allSecs.concat(bodySecs);
 
     var rail = document.createElement('nav');
     rail.className = 'sx-rail';
     rail.setAttribute('aria-label', 'Sections');
 
-    var links = secs.map(function (s, i) {
+    var links = allSecs.map(function (s, i) {
       var title = s.dataset.railTitle;
       if (!title) {
         var h = s.querySelector('h2');
         title = h ? h.textContent.trim() : 'Section ' + i;
       }
-      s.id = s.id || (i === 0 ? 'case-study-info' : 'section-' + i);
+      s.id = s.id || 'section-' + i;
       var a = document.createElement('a');
       a.href = '#' + s.id;
       a.setAttribute('aria-label', title);
@@ -198,127 +127,38 @@ function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;valu
     document.body.appendChild(rail);
 
     // Initial hash positioning
-    if (/^#section-d+$/.test(location.hash) || location.hash === '#case-study-info') {
-      var target = document.getElementById(location.hash.slice(1));
-      if (target) setTimeout(function () { scrollToTarget(target, 88); }, 50);
-    }
-
-    // Scrubber & smooth navigation mechanics
-    var isScrubbing = false;
-    var activeScrubIdx = 0;
-    var isAutoScrolling = false;
-    var autoScrollTimer = null;
-
-    function setActiveDot(index) {
-      links.forEach(function (a, j) {
-        a.classList.toggle('is-active', j === index);
-        a.classList.toggle('is-scrubbing-active', isScrubbing && j === index);
-      });
-    }
-
-    setActiveDot(0);
-
-    function getClosestDotIndex(clientY) {
-      var closest = 0;
-      var minDist = Infinity;
-      links.forEach(function (a, i) {
-        var rect = a.getBoundingClientRect();
-        var midY = rect.top + rect.height / 2;
-        var dist = Math.abs(clientY - midY);
-        if (dist < minDist) {
-          minDist = dist;
-          closest = i;
-        }
-      });
-      return closest;
-    }
-
-    function goToSection(index) {
-      if (index < 0 || index >= secs.length) return;
-      isAutoScrolling = true;
-      clearTimeout(autoScrollTimer);
-      setActiveDot(index);
-      if (index === 0) {
-        if (lenis) {
-          lenis.scrollTo(0, { duration: 1.15 });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      } else {
-        scrollToTarget(secs[index], 88);
+    if (location.hash) {
+      var target = document.querySelector(location.hash);
+      if (target) {
+        setTimeout(function () {
+          var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
+          smoothScrollTo(y);
+        }, 50);
       }
-      if (history.replaceState) history.replaceState(null, '', '#' + secs[index].id);
-      autoScrollTimer = setTimeout(function () {
-        isAutoScrolling = false;
-      }, 750);
     }
 
-    function checkTop() {
-      if (isScrubbing || isAutoScrolling) return;
+    // Scroll spy for outline dots
+    function updateActiveDot() {
       if (window.scrollY < 180) {
-        setActiveDot(0);
+        links.forEach(function (a, j) { a.classList.toggle('is-active', j === 0); });
+        return;
       }
-    }
-    window.addEventListener('scroll', checkTop, { passive: true });
-
-    // Pointer events on rail for press-and-scrub
-    rail.addEventListener('pointerdown', function (e) {
-      if (e.button !== undefined && e.button !== 0) return;
-      isScrubbing = true;
-      rail.classList.add('is-scrubbing');
-      if (rail.setPointerCapture) {
-        try { rail.setPointerCapture(e.pointerId); } catch (_) {}
-      }
-      activeScrubIdx = getClosestDotIndex(e.clientY);
-      setActiveDot(activeScrubIdx);
-    });
-
-    rail.addEventListener('pointermove', function (e) {
-      if (!isScrubbing) return;
-      e.preventDefault();
-      var idx = getClosestDotIndex(e.clientY);
-      if (idx !== activeScrubIdx) {
-        activeScrubIdx = idx;
-        setActiveDot(activeScrubIdx);
-      }
-    });
-
-    function endScrub(e) {
-      if (!isScrubbing) return;
-      isScrubbing = false;
-      rail.classList.remove('is-scrubbing');
-      if (rail.releasePointerCapture && e.pointerId !== undefined) {
-        try { rail.releasePointerCapture(e.pointerId); } catch (_) {}
-      }
-      goToSection(activeScrubIdx);
-    }
-
-    rail.addEventListener('pointerup', endScrub);
-    rail.addEventListener('pointercancel', endScrub);
-
-    // Regular click fallback
-    links.forEach(function (a, i) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        goToSection(i);
+      var scrollPos = window.scrollY + 220;
+      var currentIdx = 0;
+      allSecs.forEach(function (s, i) {
+        if (s.offsetTop <= scrollPos) {
+          currentIdx = i;
+        }
       });
-    });
-
-    // Observer: keep dot highlight in sync with page scroll
-    if ('IntersectionObserver' in window) {
-      var rSpy = new IntersectionObserver(function (entries) {
-        if (isScrubbing || isAutoScrolling) return;
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          var idx = secs.indexOf(e.target);
-          if (idx !== -1) setActiveDot(idx);
-        });
-      }, { rootMargin: '-40% 0px -55% 0px' });
-      secs.forEach(function (s) { rSpy.observe(s); });
+      links.forEach(function (a, j) {
+        a.classList.toggle('is-active', j === currentIdx);
+      });
     }
+    window.addEventListener('scroll', updateActiveDot, { passive: true });
+    updateActiveDot();
   }
 
-  // Lightbox for case study figures and zoomed images
+  // Lightbox for case study figures
   var lb = document.createElement('div');
   lb.className = 'sx-lightbox';
   lb.setAttribute('role', 'dialog');

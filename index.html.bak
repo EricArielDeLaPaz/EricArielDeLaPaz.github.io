@@ -135,18 +135,6 @@
     <div class="sx-exp">
       <article class="sx-exp-card">
         <header>
-          <h3>UI/UX Design Intern</h3>
-          <p>Flyrank AI · Jul 2026 – Nov 2026 · Remote</p>
-        </header>
-        <ul class="hero-bullets">
-          <li><strong>Design Systems Architecture:</strong> Built a centralized Figma token system (variables, 4-color semantic palette, type scale), eliminating per-screen rework across mobile and web.</li>
-          <li><strong>User Research &amp; Checkpoint:</strong> Synthesized 10+ competitive audits into a pre-checkout fit-confirmation checkpoint to resolve rental sizing anxiety.</li>
-          <li><strong>Accessibility &amp; Design QA:</strong> Audited 15 checks against WCAG 2.2 AA at the token level, resolving text contrast (4.29:1 → 8.31:1) and touch target sizes.</li>
-          <li><strong>Engineering Handoff:</strong> Documented 35 component variants, annotated redlines, and 146 interactive prototype connections for developer handoff.</li>
-        </ul>
-      </article>
-      <article class="sx-exp-card">
-        <header>
           <h3>Product Design Intern</h3>
           <p>Stealth Startup · Jul 2026 – Present · Remote</p>
         </header>
@@ -156,6 +144,18 @@
           <li><strong>Feature Delivery:</strong> Designed and handed off ~30 responsive screens and modal overlays collaborating directly with engineering and founders.</li>
           <li><strong>Mentorship &amp; Workshops:</strong> Mentored 2–3 design interns per session and led monthly Figma workshops on Auto Layout and variables.</li>
           <li class="hero-note">Under NDA; company details confidential.</li>
+        </ul>
+      </article>
+      <article class="sx-exp-card">
+        <header>
+          <h3>UI/UX Design Intern</h3>
+          <p>Flyrank AI · Jul 2026 – Nov 2026 · Remote</p>
+        </header>
+        <ul class="hero-bullets">
+          <li><strong>Design Systems Architecture:</strong> Built a centralized Figma token system (variables, 4-color semantic palette, type scale), eliminating per-screen rework across mobile and web.</li>
+          <li><strong>User Research &amp; Checkpoint:</strong> Synthesized 10+ competitive audits into a pre-checkout fit-confirmation checkpoint to resolve rental sizing anxiety.</li>
+          <li><strong>Accessibility &amp; Design QA:</strong> Audited 15 checks against WCAG 2.2 AA at the token level, resolving text contrast (4.29:1 → 8.31:1) and touch target sizes.</li>
+          <li><strong>Engineering Handoff:</strong> Documented 35 component variants, annotated redlines, and 146 interactive prototype connections for developer handoff.</li>
         </ul>
       </article>
     </div>
