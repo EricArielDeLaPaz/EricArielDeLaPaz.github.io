@@ -235,12 +235,154 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 @media (max-width:860px){ .persona-grid{ grid-template-columns:1fr; } }
 @media (max-width:480px){ .persona-cols{ grid-template-columns:1fr; } }
 
+
 /* ============================================================
-   SMOOTHNESS & INTERACTIVITY LAYER (Apple / Linear Physics)
+   SMOOTHNESS, INTERACTION & SCRUBBER LAYER (Apple / Linear Physics)
    ============================================================ */
 :root {
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
+/* 1. Universal Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+/* 2. Interactive Prototype / Action Badges (View Figma Prototype, etc.) */
+.cs-badge-row a {
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 999px;
+  outline: none;
+}
+.cs-badge-row a span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent, var(--gold)) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, var(--gold)) 55%, var(--border));
+  color: var(--accent, var(--gold));
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-out-expo),
+              box-shadow 0.25s var(--ease-out-expo),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+}
+.cs-badge-row a span::after {
+  content: "↗";
+  font-size: 11px;
+  line-height: 1;
+  transition: transform 0.25s var(--ease-out-expo);
+}
+.cs-badge-row a:hover span,
+.cs-badge-row a:focus-visible span {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent, var(--gold)) 24%, transparent);
+  border-color: var(--gold-bright, #f0c878);
+  color: var(--gold-bright, #fff);
+  box-shadow: 0 4px 16px -2px color-mix(in srgb, var(--accent, var(--gold)) 40%, transparent),
+              0 0 0 1px color-mix(in srgb, var(--accent, var(--gold)) 30%, transparent);
+}
+.cs-badge-row a:hover span::after {
+  transform: translate(2px, -2px);
+}
+.cs-badge-row a:active span {
+  transform: translateY(0px) scale(0.97);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--accent, var(--gold)) 25%, transparent);
+}
+
+/* 3. Interactive Outline Rail & Drag/Scrubber */
+.sx-rail {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 6px;
+  touch-action: none;
+  user-select: none;
+}
+.sx-rail::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  transition: background-color 0.2s ease;
+}
+.sx-rail.is-scrubbing::before {
+  background: rgba(201, 168, 76, 0.4);
+}
+.sx-rail a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  outline: none;
+}
+.sx-rail a::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border, #292929);
+  transition: background-color 0.22s var(--ease-out-expo),
+              transform 0.22s var(--ease-out-expo),
+              box-shadow 0.22s var(--ease-out-expo);
+}
+.sx-rail a:hover::before,
+.sx-rail a.is-active::before,
+.sx-rail a.is-scrubbing-active::before {
+  background: var(--accent, var(--gold));
+  transform: scale(1.6);
+  box-shadow: 0 0 10px var(--accent, var(--gold));
+}
+.sx-rail a span {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(18, 15, 11, 0.95);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  font: 500 12.5px/1.2 'Inter', sans-serif;
+  color: var(--text, #f0ede8);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s var(--ease-out-expo);
+}
+.sx-rail a:hover span,
+.sx-rail a:focus-visible span,
+.sx-rail a.is-scrubbing-active span {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
+}
+@media (min-width: 1280px) {
+  .sx-rail { display: flex; }
+}
+
+/* 4. Refined Deceleration on Section Reveals */
 .js .sx-reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -253,6 +395,8 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .js .sx-reveal.is-in .workspace-card:nth-child(3) { transition-delay: 0.19s; }
 .js .sx-reveal.is-in .workspace-card:nth-child(4) { transition-delay: 0.26s; }
 .js .sx-reveal.is-in .workspace-card:nth-child(5) { transition-delay: 0.33s; }
+
+/* 5. Tactile Card Hover Micro-Interactions */
 .sx-projects .workspace-card {
   transition: transform 0.35s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.35s var(--ease-out-expo);
 }
@@ -265,6 +409,8 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 }
 .sx-projects .workspace-card:hover .card-art img { transform: scale(1.025); }
 .sx-projects .workspace-card:hover .card-tags span:first-child { border-color: var(--gold); color: var(--gold-bright); }
+
+/* 6. Tactile Mechanical Buttons */
 .sx-btn {
   transition: transform 0.22s var(--ease-out-expo), box-shadow 0.22s var(--ease-out-expo), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
@@ -275,15 +421,36 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
   box-shadow: 0 6px 20px -2px rgba(201, 168, 76, 0.35), 0 0 0 1px rgba(240, 207, 116, 0.3);
 }
 .sx-btn:active { transform: translateY(0px) scale(0.98); box-shadow: 0 2px 8px rgba(201, 168, 76, 0.2); transition-duration: 0.08s; }
-.sx-rail { padding: 8px 4px; }
-.sx-rail::before { content: ''; position: absolute; top: 10px; bottom: 10px; left: 50%; width: 1px; transform: translateX(-50%); background: rgba(255,255,255,0.08); z-index: -1; }
-.sx-rail a.is-active::before { box-shadow: 0 0 10px var(--accent); }
+
+/* 7. Case Study Nav Footer Buttons */
+.sx-case .cs-nav-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--text);
+  font-weight: 600;
+  transition: transform 0.25s var(--ease-out-expo), border-color 0.2s ease, box-shadow 0.25s var(--ease-out-expo), color 0.2s ease;
+}
+.sx-case .cs-nav-footer a:hover, .sx-case .cs-nav-footer a:focus-visible {
+  border-color: var(--accent);
+  color: var(--gold-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px -4px rgba(0,0,0,0.7), 0 0 0 1px var(--accent);
+}
+.sx-case .cs-nav-footer a:active { transform: translateY(0) scale(0.98); }
+
+/* 8. Minimalist Inline Lightbox */
 .sx-lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(8,8,8,0.92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease-out-expo); cursor: zoom-out; }
 .sx-lightbox.is-open { opacity: 1; pointer-events: auto; }
 .sx-lightbox img { max-width: 94vw; max-height: 90vh; object-fit: contain; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 24px 60px -12px rgba(0,0,0,0.9); transform: scale(0.96); transition: transform 0.35s var(--ease-out-expo); }
 .sx-lightbox.is-open img { transform: scale(1); }
 .sx-lightbox-close { position: absolute; top: 20px; right: 24px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; border-radius: 50%; width: 36px; height: 36px; display: grid; place-items: center; font-size: 18px; cursor: pointer; transition: background 0.2s ease; }
 .sx-lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
 @media (prefers-reduced-motion: reduce) {
-  .js .sx-reveal, .sx-projects .workspace-card, .sx-projects .workspace-card .card-art img, .sx-btn, .sx-lightbox, .sx-lightbox img { transition: none !important; transform: none !important; }
+  .js .sx-reveal, .sx-projects .workspace-card, .sx-projects .workspace-card .card-art img, .sx-btn, .sx-lightbox, .sx-lightbox img, .cs-badge-row a span { transition: none !important; transform: none !important; }
 }

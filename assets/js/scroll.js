@@ -12,6 +12,37 @@
   applyView();
   if (mq.addEventListener) mq.addEventListener('change', applyView);
 
+  // Universal smooth scroll helper for desktop & mobile
+  function scrollToTarget(target, offset) {
+    if (!target) return;
+    offset = (offset !== undefined) ? offset : 88;
+    var targetY = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({
+      top: Math.max(0, targetY),
+      behavior: 'smooth'
+    });
+  }
+
+  // Intercept on-page hash clicks (navbar, hero CTAs) for buttery smooth scrolling
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href*="#"]');
+    if (!a || a.closest('.sx-rail')) return;
+    var href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    var hashIndex = href.indexOf('#');
+    if (hashIndex === -1) return;
+    var hash = href.slice(hashIndex);
+    var path = href.slice(0, hashIndex);
+    if (!path || path === location.pathname || path === location.pathname.split('/').pop() || href.startsWith('#')) {
+      var target = document.querySelector(hash);
+      if (target) {
+        e.preventDefault();
+        scrollToTarget(target, 88);
+        if (history.pushState) history.pushState(null, '', hash);
+      }
+    }
+  });
+
   // Reveal sections as they scroll into view.
   var reveal = document.querySelectorAll('.sx-section, .sx-statbar, .cs-section');
   reveal.forEach(function (el) { el.classList.add('sx-reveal'); });
@@ -38,7 +69,7 @@
     Object.keys(spyMap).forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
   }
 
-  // Case studies: progress bar + section outline dots.
+  // Case studies: progress bar + interactive outline rail with scrub-to-section
   if (document.body.classList.contains('sx-case')) {
     var bar = document.createElement('div'); bar.className = 'sx-progress'; document.body.appendChild(bar);
     function onScroll() {
@@ -57,17 +88,112 @@
       rail.appendChild(a); return a;
     });
     document.body.appendChild(rail);
-    if (/^#section-\d+$/.test(location.hash)) { var target = document.getElementById(location.hash.slice(1)); if (target) setTimeout(function () { target.scrollIntoView(); }, 50); }
+
+    // Initial hash positioning
+    if (/^#section-\d+$/.test(location.hash)) {
+      var target = document.getElementById(location.hash.slice(1));
+      if (target) setTimeout(function () { scrollToTarget(target, 88); }, 50);
+    }
+
+    // Scrubber & smooth navigation mechanics
+    var isScrubbing = false;
+    var activeScrubIdx = -1;
+    var isAutoScrolling = false;
+    var autoScrollTimer = null;
+
+    function setActiveDot(index) {
+      links.forEach(function (a, j) {
+        a.classList.toggle('is-active', j === index);
+        a.classList.toggle('is-scrubbing-active', isScrubbing && j === index);
+      });
+    }
+
+    function getClosestDotIndex(clientY) {
+      var closest = 0;
+      var minDist = Infinity;
+      links.forEach(function (a, i) {
+        var rect = a.getBoundingClientRect();
+        var midY = rect.top + rect.height / 2;
+        var dist = Math.abs(clientY - midY);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = i;
+        }
+      });
+      return closest;
+    }
+
+    function goToSection(index) {
+      if (index < 0 || index >= secs.length) return;
+      isAutoScrolling = true;
+      clearTimeout(autoScrollTimer);
+      setActiveDot(index);
+      scrollToTarget(secs[index], 88);
+      if (history.replaceState) history.replaceState(null, '', '#' + secs[index].id);
+      autoScrollTimer = setTimeout(function () {
+        isAutoScrolling = false;
+      }, 750);
+    }
+
+    // Pointer events on rail for press-and-scrub
+    rail.addEventListener('pointerdown', function (e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      isScrubbing = true;
+      rail.classList.add('is-scrubbing');
+      if (rail.setPointerCapture) {
+        try { rail.setPointerCapture(e.pointerId); } catch (_) {}
+      }
+      activeScrubIdx = getClosestDotIndex(e.clientY);
+      setActiveDot(activeScrubIdx);
+    });
+
+    rail.addEventListener('pointermove', function (e) {
+      if (!isScrubbing) return;
+      e.preventDefault();
+      var idx = getClosestDotIndex(e.clientY);
+      if (idx !== activeScrubIdx) {
+        activeScrubIdx = idx;
+        setActiveDot(activeScrubIdx);
+      }
+    });
+
+    function finishScrub(e) {
+      if (!isScrubbing) return;
+      isScrubbing = false;
+      rail.classList.remove('is-scrubbing');
+      if (rail.releasePointerCapture && e.pointerId !== undefined) {
+        try { rail.releasePointerCapture(e.pointerId); } catch (_) {}
+      }
+      if (activeScrubIdx >= 0) {
+        goToSection(activeScrubIdx);
+      }
+    }
+
+    rail.addEventListener('pointerup', finishScrub);
+    rail.addEventListener('pointercancel', finishScrub);
+
+    links.forEach(function (a, i) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        goToSection(i);
+      });
+    });
+
     if ('IntersectionObserver' in window) {
       var so = new IntersectionObserver(function (entries) {
+        if (isScrubbing || isAutoScrolling) return;
         entries.forEach(function (e) {
-          if (e.isIntersecting) { var i = secs.indexOf(e.target); links.forEach(function (a, j) { a.classList.toggle('is-active', i === j); }); }
+          if (e.isIntersecting) {
+            var i = secs.indexOf(e.target);
+            if (i !== -1) setActiveDot(i);
+          }
         });
-      }, { rootMargin: '-40% 0px -55% 0px' });
+      }, { rootMargin: '-35% 0px -55% 0px' });
       secs.forEach(function (s) { so.observe(s); });
     }
   }
-  // Inline Lightbox
+
+  // Inline Non-Intrusive Lightbox
   var lb = document.createElement('div');
   lb.className = 'sx-lightbox';
   lb.setAttribute('role', 'dialog');
