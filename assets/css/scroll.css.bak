@@ -237,10 +237,18 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 
 
 /* ============================================================
-   SMOOTHNESS, ORIGINAL NAV HOVER & CASE STUDY ACCENT THEMES
+   MOTION DESIGN PRINCIPLES (Motion/Framer Motion Inspired)
+   Strictly preserving original layouts, typography, and styling.
    ============================================================ */
 
-/* Buttery smooth page scrolling */
+:root {
+  /* Motion standard snappy deceleration & spring curves */
+  --ease-motion: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-motion-soft: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-motion-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+/* Buttery smooth page scrolling with fixed header offset */
 html {
   scroll-behavior: smooth !important;
   scroll-padding-top: 88px;
@@ -249,41 +257,101 @@ html {
   html { scroll-behavior: auto !important; }
 }
 
-/* Original frosted pill navigation: smooth hover transitions */
+/* Motion-style smooth section reveals on scroll */
+.sx-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--ease-motion), transform 0.65s var(--ease-motion);
+  will-change: opacity, transform;
+}
+.sx-reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------
+   NAVIGATION: Frosted pill hover with Motion micro-interactions
+   ------------------------------------------------------------ */
 .sx-nav a {
-  transition: background-color 0.22s ease, color 0.22s ease;
+  transition: background-color 0.24s var(--ease-motion),
+              color 0.24s var(--ease-motion),
+              transform 0.24s var(--ease-motion);
 }
 .sx-nav a:hover,
 .sx-nav a:focus-visible {
   color: var(--text) !important;
   background: rgba(255, 255, 255, 0.09) !important;
+  transform: translateY(-1px);
+}
+/* Tactile Motion whileTap physical feedback */
+.sx-nav a:active {
+  transform: scale(0.96);
 }
 .sx-nav a.is-active {
   color: var(--gold-bright) !important;
   background: rgba(217, 172, 84, 0.16) !important;
 }
 
-/* Mobile Nav Brand (Avatar + DE LA PAZ) visibility */
+/* ------------------------------------------------------------
+   MOBILE NAVIGATION: Generous Spacing for Profile & De La Paz
+   ------------------------------------------------------------ */
 @media (max-width: 700px) {
+  .sx-nav {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 5px 8px !important;
+    max-width: 96vw !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  /* Avatar + "DE LA PAZ" button */
   .sx-nav .sx-brand {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 7px !important;
-    padding: 3px 8px 3px 4px !important;
+    gap: 8px !important;
+    padding: 4px 10px 4px 5px !important;
+    margin-right: 6px !important;
+    flex-shrink: 0 !important;
+    transition: opacity 0.2s var(--ease-motion), transform 0.2s var(--ease-motion);
+  }
+  .sx-nav .sx-brand:active {
+    transform: scale(0.96);
   }
   .sx-nav .sx-brand img {
-    display: inline-block !important;
+    display: block !important;
     width: 26px !important;
     height: 26px !important;
     border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 1px solid var(--gold-dim) !important;
+    flex-shrink: 0 !important;
   }
   .sx-nav .sx-brand span {
     display: inline-block !important;
     font-family: Cinzel, Georgia, serif !important;
     font-size: 13px !important;
     font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
     text-transform: uppercase !important;
     color: var(--text) !important;
+    white-space: nowrap !important;
+  }
+  /* Elegant divider between "DE LA PAZ" and "Work" nav button */
+  .sx-nav .sx-brand + .sx-nav-sep,
+  .sx-nav > .sx-nav-sep:first-of-type {
+    display: block !important;
+    width: 1px !important;
+    height: 18px !important;
+    margin: 0 8px 0 2px !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    flex-shrink: 0 !important;
+  }
+  .sx-nav a {
+    padding: 5px 11px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -291,68 +359,149 @@ html {
    WORK SECTION CARDS: PRESERVE EXACT DESKTOP/MOBILE LAYOUT
    Desktop: Horizontal (180px 1fr) via .project-grid.is-list
    Mobile: Square-ish vertical cards
-   Hover: Highlight only that project's accent color
+   Hover: Dynamic card elevation & project-colored tags
    ------------------------------------------------------------ */
-.project-grid .workspace-card {
-  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+.project-grid .workspace-card,
+.sx-projects .workspace-card {
+  transition: transform 0.28s var(--ease-motion),
+              border-color 0.28s var(--ease-motion),
+              box-shadow 0.28s var(--ease-motion);
 }
-.project-grid .workspace-card:hover {
+.project-grid .workspace-card:hover,
+.sx-projects .workspace-card:hover {
   transform: translateY(-3px);
 }
+.project-grid .workspace-card:active,
+.sx-projects .workspace-card:active {
+  transform: translateY(-1px) scale(0.995);
+}
 
-/* Study Buddy: Purple */
-.project-grid .workspace-card.card-studybuddy:hover {
+/* Base tag transitions */
+.project-grid .workspace-card .card-tags span,
+.sx-projects .workspace-card .card-tags span {
+  transition: background-color 0.28s var(--ease-motion),
+              border-color 0.28s var(--ease-motion),
+              color 0.28s var(--ease-motion);
+}
+
+/* 1. Study Buddy: Purple (#a594f9) */
+.project-grid .workspace-card.card-studybuddy:hover,
+.sx-projects .workspace-card.card-studybuddy:hover {
   border-color: #a594f9 !important;
-  box-shadow: 0 6px 24px -4px rgba(165, 148, 249, 0.3) !important;
+  box-shadow: 0 8px 28px -4px rgba(165, 148, 249, 0.32) !important;
 }
 .project-grid .workspace-card.card-studybuddy:hover .card-role,
 .project-grid .workspace-card.card-studybuddy:hover .card-outcome b {
   color: #a594f9 !important;
 }
+.project-grid .workspace-card.card-studybuddy:hover .card-tags span,
+.sx-projects .workspace-card.card-studybuddy:hover .card-tags span {
+  background: rgba(165, 148, 249, 0.12) !important;
+  border-color: rgba(165, 148, 249, 0.45) !important;
+  color: #e2dcff !important;
+}
+.project-grid .workspace-card.card-studybuddy:hover .card-tags span:first-child,
+.sx-projects .workspace-card.card-studybuddy:hover .card-tags span:first-child {
+  background: rgba(165, 148, 249, 0.24) !important;
+  border-color: #a594f9 !important;
+  color: #ffffff !important;
+}
 
-/* SecureID: Gold */
-.project-grid .workspace-card.card-secureid:hover {
+/* 2. SecureID: Gold (#d9ac54) */
+.project-grid .workspace-card.card-secureid:hover,
+.sx-projects .workspace-card.card-secureid:hover {
   border-color: #d9ac54 !important;
-  box-shadow: 0 6px 24px -4px rgba(217, 172, 84, 0.3) !important;
+  box-shadow: 0 8px 28px -4px rgba(217, 172, 84, 0.32) !important;
 }
 .project-grid .workspace-card.card-secureid:hover .card-role,
 .project-grid .workspace-card.card-secureid:hover .card-outcome b {
   color: #f0c878 !important;
 }
+.project-grid .workspace-card.card-secureid:hover .card-tags span,
+.sx-projects .workspace-card.card-secureid:hover .card-tags span {
+  background: rgba(217, 172, 84, 0.12) !important;
+  border-color: rgba(217, 172, 84, 0.45) !important;
+  color: #f6ebd2 !important;
+}
+.project-grid .workspace-card.card-secureid:hover .card-tags span:first-child,
+.sx-projects .workspace-card.card-secureid:hover .card-tags span:first-child {
+  background: rgba(217, 172, 84, 0.24) !important;
+  border-color: #d9ac54 !important;
+  color: #ffffff !important;
+}
 
-/* Vextaro: Blue / Cyan */
-.project-grid .workspace-card.card-vextaro:hover {
+/* 3. Vextaro: Blue / Cyan (#5aa3c9) */
+.project-grid .workspace-card.card-vextaro:hover,
+.sx-projects .workspace-card.card-vextaro:hover {
   border-color: #5aa3c9 !important;
-  box-shadow: 0 6px 24px -4px rgba(90, 163, 201, 0.3) !important;
+  box-shadow: 0 8px 28px -4px rgba(90, 163, 201, 0.32) !important;
 }
 .project-grid .workspace-card.card-vextaro:hover .card-role,
 .project-grid .workspace-card.card-vextaro:hover .card-outcome b {
   color: #5aa3c9 !important;
 }
+.project-grid .workspace-card.card-vextaro:hover .card-tags span,
+.sx-projects .workspace-card.card-vextaro:hover .card-tags span {
+  background: rgba(90, 163, 201, 0.12) !important;
+  border-color: rgba(90, 163, 201, 0.45) !important;
+  color: #d8edf7 !important;
+}
+.project-grid .workspace-card.card-vextaro:hover .card-tags span:first-child,
+.sx-projects .workspace-card.card-vextaro:hover .card-tags span:first-child {
+  background: rgba(90, 163, 201, 0.24) !important;
+  border-color: #5aa3c9 !important;
+  color: #ffffff !important;
+}
 
-/* Honda: Coral */
-.project-grid .workspace-card.card-honda:hover {
+/* 4. Honda: Coral (#e27d5a) */
+.project-grid .workspace-card.card-honda:hover,
+.sx-projects .workspace-card.card-honda:hover {
   border-color: #e27d5a !important;
-  box-shadow: 0 6px 24px -4px rgba(226, 125, 90, 0.3) !important;
+  box-shadow: 0 8px 28px -4px rgba(226, 125, 90, 0.32) !important;
 }
 .project-grid .workspace-card.card-honda:hover .card-role,
 .project-grid .workspace-card.card-honda:hover .card-outcome b {
   color: #e27d5a !important;
 }
+.project-grid .workspace-card.card-honda:hover .card-tags span,
+.sx-projects .workspace-card.card-honda:hover .card-tags span {
+  background: rgba(226, 125, 90, 0.12) !important;
+  border-color: rgba(226, 125, 90, 0.45) !important;
+  color: #f7ded6 !important;
+}
+.project-grid .workspace-card.card-honda:hover .card-tags span:first-child,
+.sx-projects .workspace-card.card-honda:hover .card-tags span:first-child {
+  background: rgba(226, 125, 90, 0.24) !important;
+  border-color: #e27d5a !important;
+  color: #ffffff !important;
+}
 
-/* DevTective: Violet */
-.project-grid .workspace-card.card-devtective:hover {
+/* 5. DevTective: Violet (#9c8be8) */
+.project-grid .workspace-card.card-devtective:hover,
+.sx-projects .workspace-card.card-devtective:hover {
   border-color: #9c8be8 !important;
-  box-shadow: 0 6px 24px -4px rgba(156, 139, 232, 0.3) !important;
+  box-shadow: 0 8px 28px -4px rgba(156, 139, 232, 0.32) !important;
 }
 .project-grid .workspace-card.card-devtective:hover .card-role,
 .project-grid .workspace-card.card-devtective:hover .card-outcome b {
   color: #9c8be8 !important;
 }
+.project-grid .workspace-card.card-devtective:hover .card-tags span,
+.sx-projects .workspace-card.card-devtective:hover .card-tags span {
+  background: rgba(156, 139, 232, 0.12) !important;
+  border-color: rgba(156, 139, 232, 0.45) !important;
+  color: #dedaf7 !important;
+}
+.project-grid .workspace-card.card-devtective:hover .card-tags span:first-child,
+.sx-projects .workspace-card.card-devtective:hover .card-tags span:first-child {
+  background: rgba(156, 139, 232, 0.24) !important;
+  border-color: #9c8be8 !important;
+  color: #ffffff !important;
+}
 
 /* ------------------------------------------------------------
    CASE STUDY PAGES: UNIVERSAL ACCENT COLOR THEME
-   Everything white/gold turns into that study's color:
+   All white/gold elements adapt to the specific case study accent:
    Vextaro -> Blue (#5aa3c9)
    Study Buddy -> Purple (#a594f9)
    Honda -> Coral (#e27d5a)
@@ -400,11 +549,14 @@ html {
   color: var(--accent) !important;
 }
 
-/* Badges (View Figma Prototype, etc.) */
+/* Badges (View Figma Prototype, etc.) with Motion whileHover & whileTap */
 .sx-case .cs-badge-row a span {
   border-color: var(--accent) !important;
   color: var(--accent) !important;
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  transition: transform 0.24s var(--ease-motion),
+              background-color 0.24s var(--ease-motion),
+              box-shadow 0.24s var(--ease-motion),
+              color 0.24s var(--ease-motion);
 }
 .sx-case .cs-badge-row a:hover span {
   background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
@@ -412,11 +564,18 @@ html {
   color: #ffffff !important;
   transform: translateY(-2px);
 }
+.sx-case .cs-badge-row a:active span {
+  transform: translateY(0) scale(0.97);
+}
 
 /* Buttons */
 .sx-case .sx-btn {
   border-color: var(--accent) !important;
   color: var(--accent) !important;
+  transition: transform 0.24s var(--ease-motion),
+              background-color 0.24s var(--ease-motion),
+              box-shadow 0.24s var(--ease-motion),
+              color 0.24s var(--ease-motion);
 }
 .sx-case .sx-btn:hover,
 .sx-case .sx-btn:focus-visible {
@@ -424,6 +583,10 @@ html {
   color: #ffffff !important;
   background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
   box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 45%, transparent) !important;
+  transform: translateY(-2px);
+}
+.sx-case .sx-btn:active {
+  transform: translateY(0) scale(0.97);
 }
 .sx-case .sx-btn-primary {
   background: var(--accent) !important;
@@ -433,16 +596,29 @@ html {
 .sx-case .sx-btn-primary:hover {
   background: color-mix(in srgb, var(--accent) 85%, #ffffff) !important;
   color: #080808 !important;
+  transform: translateY(-2px);
 }
 
 /* Footer next/prev navigation */
+.sx-case .cs-nav-footer a {
+  transition: transform 0.24s var(--ease-motion),
+              border-color 0.24s var(--ease-motion),
+              box-shadow 0.24s var(--ease-motion),
+              color 0.24s var(--ease-motion);
+}
 .sx-case .cs-nav-footer a:hover {
   border-color: var(--accent) !important;
   color: var(--accent) !important;
   box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 30%, transparent) !important;
+  transform: translateY(-2px);
+}
+.sx-case .cs-nav-footer a:active {
+  transform: translateY(0) scale(0.98);
 }
 
-/* Floating outline rail (dots on the side for navigation) */
+/* ------------------------------------------------------------
+   FLOATING OUTLINE RAIL (Desktop Navigation Dots)
+   ------------------------------------------------------------ */
 .sx-rail {
   position: fixed;
   right: 18px;
@@ -452,6 +628,8 @@ html {
   display: none;
   flex-direction: column;
   gap: 8px;
+  touch-action: none;
+  user-select: none;
 }
 @media (min-width: 900px) {
   .sx-rail {
@@ -463,8 +641,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
 }
 .sx-rail a::before {
@@ -474,7 +652,9 @@ html {
   height: 7px;
   border-radius: 50%;
   background: var(--border, #333);
-  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.25s var(--ease-motion),
+              transform 0.25s var(--ease-motion),
+              box-shadow 0.25s var(--ease-motion);
 }
 .sx-rail a:hover::before,
 .sx-rail a.is-active::before {
@@ -497,7 +677,8 @@ html {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition: opacity 0.2s var(--ease-motion),
+              transform 0.2s var(--ease-motion);
 }
 .sx-rail a.is-active span,
 .sx-rail a:hover span,

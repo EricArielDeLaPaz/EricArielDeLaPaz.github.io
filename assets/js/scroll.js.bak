@@ -1,22 +1,40 @@
-// Scrolling portfolio: smooth scroll, nav highlight, card layout, outline dots, lightbox.
+// Scrolling portfolio: Motion smooth scroll, nav highlight, card layout, outline rail & lightbox.
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Buttery-smooth scroll helper
-  function smoothScrollTo(targetY) {
+  // RAF Motion smooth scroll engine (Physics-inspired easing curve)
+  function motionScrollTo(targetY, duration) {
     if (reduce) {
       window.scrollTo(0, targetY);
       return;
     }
-    window.scrollTo({
-      top: Math.max(0, targetY),
-      behavior: 'smooth'
-    });
+    var startY = window.pageYOffset || document.documentElement.scrollTop;
+    var diff = targetY - startY;
+    if (Math.abs(diff) < 2) return;
+    duration = duration || Math.min(850, Math.max(380, Math.abs(diff) * 0.45));
+    var startTime = null;
+
+    // Motion easeOutQuint deceleration curve
+    function ease(t) {
+      return 1 - Math.pow(1 - t, 4);
+    }
+
+    function step(now) {
+      if (!startTime) startTime = now;
+      var elapsed = now - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = ease(progress);
+      window.scrollTo(0, Math.round(startY + diff * eased));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
   }
 
-  // Intercept on-page hash links for smooth scroll with fixed header offset
+  // Intercept anchor hash links for smooth glide with header offset
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href*="#"]');
     if (!a) return;
@@ -31,7 +49,7 @@
       if (target) {
         e.preventDefault();
         var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
-        smoothScrollTo(y);
+        motionScrollTo(Math.max(0, y));
         if (history.pushState) history.pushState(null, '', hash);
       }
     }
@@ -40,15 +58,15 @@
   // Long horizontal cards on desktop, stacked vertical cards on mobile
   var mq = window.matchMedia('(min-width: 761px)');
   function applyView() {
-    document.querySelectorAll('.sx-projects').forEach(function (g) {
+    document.querySelectorAll('.sx-projects, .project-grid').forEach(function (g) {
       g.classList.toggle('is-list', mq.matches);
     });
   }
   applyView();
   if (mq.addEventListener) mq.addEventListener('change', applyView);
 
-  // Reveal sections on scroll
-  var reveal = document.querySelectorAll('.sx-section, .sx-statbar, .cs-section');
+  // Reveal sections on scroll with Motion spring curve
+  var reveal = document.querySelectorAll('.sx-section, .sx-statbar, .cs-section, .workspace-card, .sx-exp-card');
   reveal.forEach(function (el) { el.classList.add('sx-reveal'); });
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
@@ -58,7 +76,7 @@
           io.unobserve(e.target);
         }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
     reveal.forEach(function (el) { io.observe(el); });
   } else {
     reveal.forEach(function (el) { el.classList.add('is-in'); });
@@ -83,11 +101,12 @@
     });
   }
 
-  // Case study: progress bar & floating outline rail with dots
+  // Case study: progress bar & interactive floating outline rail
   if (document.body.classList.contains('sx-case')) {
     var bar = document.createElement('div');
     bar.className = 'sx-progress';
     document.body.appendChild(bar);
+
     function onScroll() {
       var h = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
@@ -108,7 +127,7 @@
 
     var rail = document.createElement('nav');
     rail.className = 'sx-rail';
-    rail.setAttribute('aria-label', 'Sections');
+    rail.setAttribute('aria-label', 'Case study outline');
 
     var links = allSecs.map(function (s, i) {
       var title = s.dataset.railTitle;
@@ -132,7 +151,7 @@
       if (target) {
         setTimeout(function () {
           var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
-          smoothScrollTo(y);
+          motionScrollTo(Math.max(0, y));
         }, 50);
       }
     }
@@ -156,6 +175,52 @@
     }
     window.addEventListener('scroll', updateActiveDot, { passive: true });
     updateActiveDot();
+
+    // Dot Scrubbing: Press, drag through dots, and release to navigate
+    var isScrubbing = false;
+    var scrubbedIdx = 0;
+
+    function handleScrub(clientY) {
+      var closestIdx = 0;
+      var minDistance = Infinity;
+      links.forEach(function (a, idx) {
+        var rect = a.getBoundingClientRect();
+        var centerY = rect.top + rect.height / 2;
+        var dist = Math.abs(clientY - centerY);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestIdx = idx;
+        }
+      });
+      scrubbedIdx = closestIdx;
+      links.forEach(function (a, idx) {
+        a.classList.toggle('is-active', idx === closestIdx);
+      });
+    }
+
+    rail.addEventListener('pointerdown', function (e) {
+      isScrubbing = true;
+      try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+      handleScrub(e.clientY);
+    });
+
+    rail.addEventListener('pointermove', function (e) {
+      if (!isScrubbing) return;
+      handleScrub(e.clientY);
+    });
+
+    function finishScrub(e) {
+      if (!isScrubbing) return;
+      isScrubbing = false;
+      try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
+      var targetSec = allSecs[scrubbedIdx];
+      if (targetSec) {
+        var y = targetSec.getBoundingClientRect().top + window.pageYOffset - 88;
+        motionScrollTo(Math.max(0, y));
+      }
+    }
+    rail.addEventListener('pointerup', finishScrub);
+    rail.addEventListener('pointercancel', finishScrub);
   }
 
   // Lightbox for case study figures
@@ -171,7 +236,7 @@
   document.addEventListener('click', function(e) {
     var l = e.target.closest('a.cs-zoom, .cs-section figure img');
     if (!l) return;
-    if (l.tagName === 'A' && /.(png|jpe?g|webp|gif)$/i.test(l.href)) { e.preventDefault(); openLB(l.href, l.title); }
+    if (l.tagName === 'A' && /\.(png|jpe?g|webp|gif)$/i.test(l.href)) { e.preventDefault(); openLB(l.href, l.title); }
     else if (l.tagName === 'IMG' && l.closest('.cs-section figure')) { openLB(l.src, l.alt); }
   });
   lb.addEventListener('click', function(e) { if (e.target === lb || e.target === lbC) closeLB(); });
