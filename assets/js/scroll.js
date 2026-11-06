@@ -67,4 +67,22 @@
       secs.forEach(function (s) { so.observe(s); });
     }
   }
+  // Inline Lightbox
+  var lb = document.createElement('div');
+  lb.className = 'sx-lightbox';
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-label', 'Image preview');
+  lb.innerHTML = '<button class="sx-lightbox-close" aria-label="Close">&times;</button><img src="" alt="" />';
+  document.body.appendChild(lb);
+  var lbI = lb.querySelector('img'), lbC = lb.querySelector('.sx-lightbox-close');
+  function openLB(s, a) { lbI.src = s; lbI.alt = a || ''; lb.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+  function closeLB() { lb.classList.remove('is-open'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function(e) {
+    var l = e.target.closest('a.cs-zoom, .cs-section figure img');
+    if (!l) return;
+    if (l.tagName === 'A' && /\.(png|jpe?g|webp|gif)$/i.test(l.href)) { e.preventDefault(); openLB(l.href, l.title); }
+    else if (l.tagName === 'IMG' && l.closest('.cs-section figure')) { openLB(l.src, l.alt); }
+  });
+  lb.addEventListener('click', function(e) { if (e.target === lb || e.target === lbC) closeLB(); });
+  window.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLB(); });
 })();
