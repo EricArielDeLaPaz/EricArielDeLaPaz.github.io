@@ -1,40 +1,26 @@
-// Scrolling portfolio: Motion smooth scroll, nav highlight, card layout, outline rail & lightbox.
+// Scrolling portfolio: Hardware-accelerated smooth scroll, nav highlight, card layout, outline rail & lightbox.
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // RAF Motion smooth scroll engine (Physics-inspired easing curve)
-  function motionScrollTo(targetY, duration) {
-    if (reduce) {
-      window.scrollTo(0, targetY);
-      return;
+  // Reliable hardware-accelerated smooth scroll helper (runs on compositor thread)
+  function smoothScrollToTarget(target) {
+    if (!target) return;
+    try {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } catch (err) {
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
+      window.scrollTo({
+        top: Math.max(0, y),
+        behavior: 'smooth'
+      });
     }
-    var startY = window.pageYOffset || document.documentElement.scrollTop;
-    var diff = targetY - startY;
-    if (Math.abs(diff) < 2) return;
-    duration = duration || Math.min(850, Math.max(380, Math.abs(diff) * 0.45));
-    var startTime = null;
-
-    // Motion easeOutQuint deceleration curve
-    function ease(t) {
-      return 1 - Math.pow(1 - t, 4);
-    }
-
-    function step(now) {
-      if (!startTime) startTime = now;
-      var elapsed = now - startTime;
-      var progress = Math.min(elapsed / duration, 1);
-      var eased = ease(progress);
-      window.scrollTo(0, Math.round(startY + diff * eased));
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    }
-    requestAnimationFrame(step);
   }
 
-  // Intercept anchor hash links for smooth glide with header offset
+  // Intercept anchor hash links for smooth glide with fixed header offset
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href*="#"]');
     if (!a) return;
@@ -48,8 +34,7 @@
       var target = document.querySelector(hash);
       if (target) {
         e.preventDefault();
-        var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
-        motionScrollTo(Math.max(0, y));
+        smoothScrollToTarget(target);
         if (history.pushState) history.pushState(null, '', hash);
       }
     }
@@ -68,7 +53,7 @@
   // Reveal sections on scroll with Motion spring curve
   var reveal = document.querySelectorAll('.sx-section, .sx-statbar, .cs-section, .workspace-card, .sx-exp-card');
   reveal.forEach(function (el) { el.classList.add('sx-reveal'); });
-  if ('IntersectionObserver' in window && !reduce) {
+  if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
@@ -150,8 +135,7 @@
       var target = document.querySelector(location.hash);
       if (target) {
         setTimeout(function () {
-          var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
-          motionScrollTo(Math.max(0, y));
+          smoothScrollToTarget(target);
         }, 50);
       }
     }
@@ -215,8 +199,7 @@
       try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
       var targetSec = allSecs[scrubbedIdx];
       if (targetSec) {
-        var y = targetSec.getBoundingClientRect().top + window.pageYOffset - 88;
-        motionScrollTo(Math.max(0, y));
+        smoothScrollToTarget(targetSec);
       }
     }
     rail.addEventListener('pointerup', finishScrub);

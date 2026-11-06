@@ -237,7 +237,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 
 
 /* ============================================================
-   MOTION DESIGN PRINCIPLES (Motion/Framer Motion Inspired)
+   MOTION DESIGN (Serena & Joshua Lucas Inspired)
    Strictly preserving original layouts, typography, and styling.
    ============================================================ */
 
@@ -248,34 +248,69 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
   --ease-motion-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
 }
 
-/* Buttery smooth page scrolling: hardware-accelerated compositor landing */
+/* Ensure smooth programmatic scroll without compositor queue collisions */
 html {
-  scroll-behavior: smooth !important;
-  scroll-padding-top: 88px;
-}
-.sx-section, .cs-section, .cs-hero, #top, [id] {
-  scroll-margin-top: 88px !important;
+  scroll-behavior: auto !important;
 }
 
-/* Motion-style smooth section reveals on scroll */
-.sx-reveal {
+/* ------------------------------------------------------------
+   JOSHUA LUCAS (STADIA) SCROLL-DRIVEN REVEALS
+   ------------------------------------------------------------ */
+.js .sx-reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.65s var(--ease-motion), transform 0.65s var(--ease-motion);
+  transform: translateY(24px);
+  transition: opacity 0.68s var(--ease-motion), transform 0.68s var(--ease-motion);
   will-change: opacity, transform;
 }
-.sx-reveal.is-in {
+.js .sx-reveal.is-in {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Mockups, Figures & Project Cards: Subtle depth scale reveal */
+.js .cs-section figure.sx-reveal,
+.js .workspace-card.sx-reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 0.75s var(--ease-motion),
+              transform 0.75s var(--ease-motion),
+              border-color 0.28s var(--ease-motion),
+              box-shadow 0.28s var(--ease-motion);
+}
+.js .cs-section figure.sx-reveal.is-in,
+.js .workspace-card.sx-reveal.is-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered Reasoning Chain steps */
+.chain-step.sx-reveal:nth-child(1) { transition-delay: 0.04s; }
+.chain-step.sx-reveal:nth-child(2) { transition-delay: 0.10s; }
+.chain-step.sx-reveal:nth-child(3) { transition-delay: 0.16s; }
+.chain-step.sx-reveal:nth-child(4) { transition-delay: 0.22s; }
+.chain-step.sx-reveal:nth-child(5) { transition-delay: 0.28s; }
+
+/* Staggered Impact Stat badges */
+.impact-stat.sx-reveal:nth-child(1) { transition-delay: 0.04s; }
+.impact-stat.sx-reveal:nth-child(2) { transition-delay: 0.12s; }
+.impact-stat.sx-reveal:nth-child(3) { transition-delay: 0.20s; }
+
 /* ------------------------------------------------------------
-   NAVIGATION: Frosted pill hover with Motion micro-interactions
+   NAVIGATION (Serena Inspired Interactivity)
+   Frosted glass capsule, fluid active pill & tactile micro-interactions
    ------------------------------------------------------------ */
+.sx-nav {
+  transition: border-color 0.3s var(--ease-motion),
+              box-shadow 0.3s var(--ease-motion),
+              background-color 0.3s var(--ease-motion);
+}
 .sx-nav a {
-  transition: background-color 0.24s var(--ease-motion),
-              color 0.24s var(--ease-motion),
-              transform 0.24s var(--ease-motion);
+  position: relative;
+  transition: background-color 0.25s var(--ease-motion),
+              color 0.25s var(--ease-motion),
+              border-color 0.25s var(--ease-motion),
+              box-shadow 0.25s var(--ease-motion),
+              transform 0.25s var(--ease-motion);
 }
 .sx-nav a:hover,
 .sx-nav a:focus-visible {
@@ -287,13 +322,176 @@ html {
 .sx-nav a:active {
   transform: scale(0.96);
 }
+/* Glowing active pill */
 .sx-nav a.is-active {
   color: var(--gold-bright) !important;
   background: rgba(217, 172, 84, 0.16) !important;
+  border: 1px solid rgba(217, 172, 84, 0.35) !important;
+  box-shadow: 0 0 16px -2px rgba(217, 172, 84, 0.25) !important;
+  transform: scale(1.02);
 }
 
 /* ------------------------------------------------------------
-   MOBILE NAVIGATION: Generous Spacing for Profile & De La Paz
+   CASE STUDY PAGES: ACCENT THEME & NAV STROKE TRANSFORMATION
+   Stroke around the nav capsule matches each project color
+   ------------------------------------------------------------ */
+.sx-case {
+  --gold: var(--accent);
+  --gold-bright: var(--accent);
+  --gold-dim: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+/* Nav capsule stroke & ambient colored glow */
+.sx-case .sx-nav {
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent) !important;
+  box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.7),
+              0 0 24px -4px color-mix(in srgb, var(--accent) 30%, transparent),
+              0 1px 0 rgba(255, 255, 255, 0.05) inset !important;
+}
+.sx-case .sx-nav .sx-brand img {
+  border-color: var(--accent) !important;
+}
+.sx-case .sx-nav .sx-nav-sep {
+  background: color-mix(in srgb, var(--accent) 35%, transparent) !important;
+}
+.sx-case .sx-nav a.is-active,
+.sx-case .sx-nav .sx-back-link {
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 18%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent) !important;
+  box-shadow: 0 0 14px -2px color-mix(in srgb, var(--accent) 35%, transparent) !important;
+}
+.sx-case .sx-nav a:hover,
+.sx-case .sx-nav a:focus-visible {
+  color: #ffffff !important;
+  background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
+}
+.sx-case .sx-dot {
+  background: var(--accent) !important;
+}
+.sx-case .sx-dot::after {
+  border-color: var(--accent) !important;
+}
+
+/* Breadcrumbs & headings */
+.sx-case .breadcrumb a:hover {
+  color: var(--accent) !important;
+}
+.sx-case .cs-section > h2::before,
+.sx-case .cs-split-text > h2::before {
+  color: var(--accent) !important;
+}
+
+/* Impact stats & metadata */
+.sx-case .impact-stat .n {
+  color: var(--accent) !important;
+}
+.sx-case .cs-meta dt {
+  color: var(--accent) !important;
+}
+
+/* Reasoning chain steps */
+.sx-case .chain-step .k {
+  color: var(--accent) !important;
+}
+.sx-case .chain-step .v b {
+  color: var(--accent) !important;
+}
+
+/* Case study buttons (View Figma Prototype, Capstone Deck, Demo) */
+.cs-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+.cs-badge-row a {
+  display: inline-flex;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.cs-badge-row a span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--accent) !important;
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  transition: transform 0.24s var(--ease-motion),
+              background-color 0.24s var(--ease-motion),
+              box-shadow 0.24s var(--ease-motion),
+              color 0.24s var(--ease-motion);
+}
+.cs-badge-row a span::after {
+  content: "↗";
+  font-size: 12px;
+  line-height: 1;
+}
+.cs-badge-row a:hover span {
+  background: color-mix(in srgb, var(--accent) 24%, transparent) !important;
+  box-shadow: 0 4px 18px -2px color-mix(in srgb, var(--accent) 45%, transparent) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+.cs-badge-row a:active span {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Buttons */
+.sx-case .sx-btn {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  transition: transform 0.24s var(--ease-motion),
+              background-color 0.24s var(--ease-motion),
+              box-shadow 0.24s var(--ease-motion),
+              color 0.24s var(--ease-motion);
+}
+.sx-case .sx-btn:hover,
+.sx-case .sx-btn:focus-visible {
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+  background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 45%, transparent) !important;
+  transform: translateY(-2px);
+}
+.sx-case .sx-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+.sx-case .sx-btn-primary {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #080808 !important;
+}
+.sx-case .sx-btn-primary:hover {
+  background: color-mix(in srgb, var(--accent) 85%, #ffffff) !important;
+  color: #080808 !important;
+  transform: translateY(-2px);
+}
+
+/* Footer next/prev navigation */
+.sx-case .cs-nav-footer a {
+  transition: transform 0.24s var(--ease-motion),
+              border-color 0.24s var(--ease-motion),
+              box-shadow 0.24s var(--ease-motion),
+              color 0.24s var(--ease-motion);
+}
+.sx-case .cs-nav-footer a:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 30%, transparent) !important;
+  transform: translateY(-2px);
+}
+.sx-case .cs-nav-footer a:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ------------------------------------------------------------
+   MOBILE NAVIGATION & BUTTON SPACING
    ------------------------------------------------------------ */
 @media (max-width: 700px) {
   .sx-nav {
@@ -305,7 +503,6 @@ html {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
   }
-  /* Avatar + "DE LA PAZ" button */
   .sx-nav .sx-brand {
     display: inline-flex !important;
     align-items: center !important;
@@ -337,7 +534,6 @@ html {
     color: var(--text) !important;
     white-space: nowrap !important;
   }
-  /* Elegant divider between "DE LA PAZ" and "Work" nav button */
   .sx-nav .sx-brand + .sx-nav-sep,
   .sx-nav > .sx-nav-sep:first-of-type {
     display: block !important;
@@ -352,6 +548,52 @@ html {
     font-size: 13px !important;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
+  }
+
+  /* Case study prototype buttons & footer on mobile */
+  .cs-badge-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin: 18px 0 28px !important;
+  }
+  .cs-badge-row > span {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    border-radius: 999px !important;
+  }
+  .cs-badge-row a {
+    display: flex !important;
+    flex: 1 1 100% !important;
+    min-width: 220px !important;
+  }
+  .cs-badge-row a span {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 10px 18px !important;
+    font-size: 13.5px !important;
+  }
+  .cs-meta {
+    margin-top: 24px !important;
+    gap: 16px 14px !important;
+  }
+  .cs-nav-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 24px 0 32px !important;
+  }
+  .cs-nav-footer a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 12px 18px !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    background: var(--card) !important;
+    font-size: 14px !important;
   }
 }
 
@@ -376,7 +618,6 @@ html {
   transform: translateY(-1px) scale(0.995);
 }
 
-/* Base tag transitions */
 .project-grid .workspace-card .card-tags span,
 .sx-projects .workspace-card .card-tags span {
   transition: background-color 0.28s var(--ease-motion),
@@ -497,193 +738,6 @@ html {
   background: rgba(156, 139, 232, 0.24) !important;
   border-color: #9c8be8 !important;
   color: #ffffff !important;
-}
-
-/* ------------------------------------------------------------
-   CASE STUDY PAGES: UNIVERSAL ACCENT COLOR THEME
-   ------------------------------------------------------------ */
-.sx-case {
-  --gold: var(--accent);
-  --gold-bright: var(--accent);
-  --gold-dim: color-mix(in srgb, var(--accent) 55%, transparent);
-}
-
-/* Nav on case study page */
-.sx-case .sx-nav a.is-active,
-.sx-case .sx-nav .sx-back-link {
-  color: var(--accent) !important;
-  background: color-mix(in srgb, var(--accent) 16%, transparent) !important;
-}
-.sx-case .sx-nav a:hover {
-  color: var(--accent) !important;
-}
-
-/* Breadcrumbs & headings */
-.sx-case .breadcrumb a:hover {
-  color: var(--accent) !important;
-}
-.sx-case .cs-section > h2::before,
-.sx-case .cs-split-text > h2::before {
-  color: var(--accent) !important;
-}
-
-/* Impact stats & metadata */
-.sx-case .impact-stat .n {
-  color: var(--accent) !important;
-}
-.sx-case .cs-meta dt {
-  color: var(--accent) !important;
-}
-
-/* Reasoning chain steps */
-.sx-case .chain-step .k {
-  color: var(--accent) !important;
-}
-.sx-case .chain-step .v b {
-  color: var(--accent) !important;
-}
-
-/* ------------------------------------------------------------
-   CASE STUDY ACTION BUTTONS & MOBILE SPACING
-   (View Figma Prototype, Capstone Deck, GitHub Repo, Demo)
-   ------------------------------------------------------------ */
-.cs-badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin: 16px 0 24px;
-}
-.cs-badge-row a {
-  display: inline-flex;
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-}
-.cs-badge-row a span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  border-radius: 999px !important;
-  border: 1px solid var(--accent) !important;
-  color: var(--accent) !important;
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  transition: transform 0.24s var(--ease-motion),
-              background-color 0.24s var(--ease-motion),
-              box-shadow 0.24s var(--ease-motion),
-              color 0.24s var(--ease-motion);
-}
-.cs-badge-row a span::after {
-  content: "↗";
-  font-size: 12px;
-  line-height: 1;
-}
-.cs-badge-row a:hover span {
-  background: color-mix(in srgb, var(--accent) 24%, transparent) !important;
-  box-shadow: 0 4px 18px -2px color-mix(in srgb, var(--accent) 45%, transparent) !important;
-  color: #ffffff !important;
-  transform: translateY(-2px);
-}
-.cs-badge-row a:active span {
-  transform: translateY(0) scale(0.97);
-}
-
-/* Buttons */
-.sx-case .sx-btn {
-  border-color: var(--accent) !important;
-  color: var(--accent) !important;
-  transition: transform 0.24s var(--ease-motion),
-              background-color 0.24s var(--ease-motion),
-              box-shadow 0.24s var(--ease-motion),
-              color 0.24s var(--ease-motion);
-}
-.sx-case .sx-btn:hover,
-.sx-case .sx-btn:focus-visible {
-  border-color: var(--accent) !important;
-  color: #ffffff !important;
-  background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 45%, transparent) !important;
-  transform: translateY(-2px);
-}
-.sx-case .sx-btn:active {
-  transform: translateY(0) scale(0.97);
-}
-.sx-case .sx-btn-primary {
-  background: var(--accent) !important;
-  border-color: var(--accent) !important;
-  color: #080808 !important;
-}
-.sx-case .sx-btn-primary:hover {
-  background: color-mix(in srgb, var(--accent) 85%, #ffffff) !important;
-  color: #080808 !important;
-  transform: translateY(-2px);
-}
-
-/* Footer next/prev navigation */
-.sx-case .cs-nav-footer a {
-  transition: transform 0.24s var(--ease-motion),
-              border-color 0.24s var(--ease-motion),
-              box-shadow 0.24s var(--ease-motion),
-              color 0.24s var(--ease-motion);
-}
-.sx-case .cs-nav-footer a:hover {
-  border-color: var(--accent) !important;
-  color: var(--accent) !important;
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 30%, transparent) !important;
-  transform: translateY(-2px);
-}
-.sx-case .cs-nav-footer a:active {
-  transform: translateY(0) scale(0.98);
-}
-
-/* Mobile Spacing for Case Study Badges, Buttons & Footers */
-@media (max-width: 700px) {
-  .cs-badge-row {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 10px !important;
-    margin: 18px 0 28px !important;
-  }
-  .cs-badge-row > span {
-    padding: 6px 12px !important;
-    font-size: 12px !important;
-    border-radius: 999px !important;
-  }
-  .cs-badge-row a {
-    display: flex !important;
-    flex: 1 1 100% !important;
-    min-width: 220px !important;
-  }
-  .cs-badge-row a span {
-    width: 100% !important;
-    justify-content: center !important;
-    min-height: 44px !important;
-    padding: 10px 18px !important;
-    font-size: 13.5px !important;
-  }
-  .cs-meta {
-    margin-top: 24px !important;
-    gap: 16px 14px !important;
-  }
-  .cs-nav-footer {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    padding: 24px 0 32px !important;
-  }
-  .cs-nav-footer a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 44px !important;
-    padding: 12px 18px !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-sm) !important;
-    background: var(--card) !important;
-    font-size: 14px !important;
-  }
 }
 
 /* ------------------------------------------------------------
