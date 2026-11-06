@@ -1,26 +1,57 @@
-// Scrolling portfolio: Hardware-accelerated smooth scroll, nav highlight, card layout, outline rail & lightbox.
+// Scrolling portfolio: Serena nav interactivity, Joshua Lucas reveals, silky smooth scroll & outline dots.
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
 
-  // Reliable hardware-accelerated smooth scroll helper (runs on compositor thread)
-  function smoothScrollToTarget(target) {
-    if (!target) return;
-    try {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    } catch (err) {
-      var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
-      window.scrollTo({
-        top: Math.max(0, y),
-        behavior: 'smooth'
-      });
+  // Cancel any native jump so pure JS RAF controls smooth motion without compositor fight
+  document.documentElement.style.scrollBehavior = 'auto';
+
+  // Buttery pure JS smooth scroll with Motion easeOutQuart physics
+  var activeScrollAnim = null;
+  function smoothScrollTo(targetY, duration) {
+    if (activeScrollAnim) cancelAnimationFrame(activeScrollAnim);
+    var startY = window.pageYOffset || document.documentElement.scrollTop;
+    var distance = targetY - startY;
+    if (Math.abs(distance) < 2) return;
+
+    duration = duration || Math.min(850, Math.max(420, Math.abs(distance) * 0.42));
+    var startTime = null;
+
+    function easeOutQuart(t) {
+      return 1 - Math.pow(1 - t, 4);
     }
+
+    function step(now) {
+      if (!startTime) startTime = now;
+      var elapsed = now - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = easeOutQuart(progress);
+
+      window.scrollTo(0, Math.round(startY + distance * eased));
+
+      if (progress < 1) {
+        activeScrollAnim = requestAnimationFrame(step);
+      } else {
+        activeScrollAnim = null;
+      }
+    }
+
+    // Cancel gracefully on mousewheel or touch
+    function cancelScroll() {
+      if (activeScrollAnim) {
+        cancelAnimationFrame(activeScrollAnim);
+        activeScrollAnim = null;
+      }
+      window.removeEventListener('wheel', cancelScroll);
+      window.removeEventListener('touchmove', cancelScroll);
+    }
+    window.addEventListener('wheel', cancelScroll, { passive: true, once: true });
+    window.addEventListener('touchmove', cancelScroll, { passive: true, once: true });
+
+    activeScrollAnim = requestAnimationFrame(step);
   }
 
-  // Intercept anchor hash links for smooth glide with fixed header offset
+  // Intercept anchor hash links: scroll directly to section header with perfect breathing room below nav
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href*="#"]');
     if (!a) return;
@@ -34,7 +65,15 @@
       var target = document.querySelector(hash);
       if (target) {
         e.preventDefault();
-        smoothScrollToTarget(target);
+        // Target the internal kicker / heading so it aligns with header text ~24px below floating nav
+        var header = target.querySelector('.sx-kicker, h2, h1');
+        var targetY;
+        if (header && header !== target && hash !== '#top') {
+          targetY = header.getBoundingClientRect().top + window.pageYOffset - 84;
+        } else {
+          targetY = (hash === '#top') ? 0 : (target.getBoundingClientRect().top + window.pageYOffset - 84);
+        }
+        smoothScrollTo(Math.max(0, targetY));
         if (history.pushState) history.pushState(null, '', hash);
       }
     }
@@ -50,25 +89,49 @@
   applyView();
   if (mq.addEventListener) mq.addEventListener('change', applyView);
 
-  // Reveal sections on scroll with Motion spring curve
-  var reveal = document.querySelectorAll('.sx-section, .sx-statbar, .cs-section, .workspace-card, .sx-exp-card');
-  reveal.forEach(function (el) { el.classList.add('sx-reveal'); });
+  // Joshua Lucas style scroll reveals: observe sections, cards, figures, reasoning steps & stats
+  var revealSelectors = [
+    '.sx-section',
+    '.cs-section',
+    '.workspace-card',
+    '.sx-exp-card',
+    '.cs-section figure',
+    '.chain-step',
+    '.impact-stat',
+    '.timeline-table-wrap',
+    '.note-box',
+    '.sx-statbar li'
+  ];
+  var revealElements = document.querySelectorAll(revealSelectors.join(', '));
+  revealElements.forEach(function (el) { el.classList.add('sx-reveal'); });
+
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-in');
-          io.unobserve(e.target);
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          observer.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
-    reveal.forEach(function (el) { io.observe(el); });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.08
+    });
+    revealElements.forEach(function (el) { observer.observe(el); });
   } else {
-    reveal.forEach(function (el) { el.classList.add('is-in'); });
+    revealElements.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  // Home: active nav link indicator
-  var spyMap = { work: 'work', experience: 'experience', process: 'process', skills: 'skills', about: 'about', contact: 'contact' };
+  // Home: active nav link indicator (Serena style active tracking)
+  var spyMap = {
+    top: 'top',
+    work: 'work',
+    experience: 'experience',
+    process: 'process',
+    skills: 'skills',
+    about: 'about',
+    contact: 'contact'
+  };
   var navLinks = document.querySelectorAll('.sx-nav a[data-spy]');
   if (navLinks.length && 'IntersectionObserver' in window) {
     var spy = new IntersectionObserver(function (entries) {
@@ -79,7 +142,7 @@
           a.classList.toggle('is-active', a.dataset.spy === key);
         });
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
+    }, { rootMargin: '-35% 0px -50% 0px' });
     Object.keys(spyMap).forEach(function (id) {
       var s = document.getElementById(id);
       if (s) spy.observe(s);
@@ -135,7 +198,8 @@
       var target = document.querySelector(location.hash);
       if (target) {
         setTimeout(function () {
-          smoothScrollToTarget(target);
+          var y = target.getBoundingClientRect().top + window.pageYOffset - 84;
+          smoothScrollTo(Math.max(0, y));
         }, 50);
       }
     }
@@ -199,7 +263,11 @@
       try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
       var targetSec = allSecs[scrubbedIdx];
       if (targetSec) {
-        smoothScrollToTarget(targetSec);
+        var header = targetSec.querySelector('.sx-kicker, h2, h1');
+        var targetY = (header && header !== targetSec)
+          ? (header.getBoundingClientRect().top + window.pageYOffset - 84)
+          : (targetSec.getBoundingClientRect().top + window.pageYOffset - 84);
+        smoothScrollTo(Math.max(0, targetY));
       }
     }
     rail.addEventListener('pointerup', finishScrub);
