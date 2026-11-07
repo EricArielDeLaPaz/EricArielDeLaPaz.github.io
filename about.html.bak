@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Eric Ariel De La Paz — Product Designer &amp; Aspiring Design Engineer</title>
+  <meta name="description" content="The story, creative fuel, morning routines, anime favorites, and childhood Nintendo DS memories of Eric Ariel De La Paz.">
+  <link rel="icon" type="image/png" href="assets/images/profile.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/scroll.css">
+</head>
+<body class="sx-page is-light" data-nav="about">
+  <a class="sx-skip" href="#main">Skip to content</a>
+  
+  
+  <header class="sx-nav-wrap">
+    <nav class="sx-nav" aria-label="Main navigation">
+      <a class="sx-brand" href="index.html" aria-label="Eric Ariel De La Paz, home">
+        <img src="assets/images/profile.png" alt="" width="28" height="28">
+        <span>De La Paz</span>
+      </a>
+      <span class="sx-nav-sep" aria-hidden="true"></span>
+      <a href="index.html" class="sx-nav-link">Home</a>
+      <a href="about.html" class="sx-nav-link is-active">About</a>
+      <a href="playground.html" class="sx-nav-link">Playground</a>
+      <button type="button" class="sx-nav-info-btn" id="infoBtn" aria-expanded="false" aria-controls="infoPopover" title="Open Quick Contact & Info">
+        <span>Info</span>
+        <svg class="sx-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <span class="sx-nav-sep" aria-hidden="true"></span>
+      <span class="sx-status" title="Open to work"><i class="sx-dot" aria-hidden="true"></i><span>Open to work</span></span>
+    </nav>
+
+    <!-- Floating Info Dropdown Drawer -->
+    <div class="sx-info-popover" id="infoPopover" role="dialog" aria-modal="false" aria-label="Quick contact & information" hidden>
+      <div class="info-card">
+        <div class="info-header">
+          <div class="info-avatar-row">
+            <img src="assets/images/profile.png" alt="Eric Ariel De La Paz" class="info-avatar">
+            <div>
+              <strong class="info-name">Eric Ariel De La Paz</strong>
+              <span class="info-role">Product Designer</span>
+            </div>
+          </div>
+        </div>
+        <p class="info-bio">Building tokenized Figma systems, interaction prototypes, and engineering-ready workflows. Texas-based, open to remote and relocation.</p>
+        <div class="info-actions">
+          <button type="button" class="info-btn info-btn-copy" id="copyEmailBtn" data-email="ericforall247@gmail.com" title="Click to copy email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span class="btn-label">Copy Email</span>
+            <span class="copy-toast" id="copyToast" aria-live="polite">Copied!</span>
+          </button>
+          <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener" class="info-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener" class="info-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener" class="info-btn info-btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+            <span>Resume</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="sx-main" id="main">
+    <div class="sx-wrap">
+      
+    
+    
+    <aside class="mini-eric-banner is-header" aria-label="Mini Eric dialogue">
+      <div class="mini-eric-char" title="Click Mini Eric!">
+        <svg class="mini-eric-avatar" width="82" height="120" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mini Eric thumbs up anime chibi avatar">
+  <defs>
+    <pattern id="head-tweed" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0 3 L3 0 L6 3 L3 6 Z" fill="#4d4c47"/>
+      <path d="M0 0 L1.5 1.5 L0 3 Z" fill="#3a3935"/>
+      <path d="M6 0 L4.5 1.5 L6 3 Z" fill="#3a3935"/>
+      <path d="M3 3 L4.5 4.5 L3 6 Z" fill="#5c5b55"/>
+      <path d="M3 3 L1.5 4.5 L3 6 Z" fill="#5c5b55"/>
+    </pattern>
+    <linearGradient id="head-maroonLining" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a151b"/>
+      <stop offset="100%" stop-color="#6b1d26"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="50" cy="146" rx="34" ry="4" fill="rgba(35, 25, 10, 0.14)"/>
+
+  <!-- Trench Coat Back Flaps / Maroon Lining (Behind Legs) -->
+  <path d="M22 92 C16 112, 14 132, 20 138 C23 134, 28 116, 32 94 Z" fill="url(#head-maroonLining)"/>
+  <path d="M78 92 C84 112, 86 132, 80 138 C77 134, 72 116, 68 94 Z" fill="url(#head-maroonLining)"/>
+  <path d="M19 138 C14 126, 17 106, 23 90 L26 92 C21 110, 19 126, 21 138 Z" fill="#383632"/>
+  <path d="M81 138 C86 126, 83 106, 77 90 L74 92 C79 110, 81 126, 79 138 Z" fill="#383632"/>
+
+  <!-- Legs: Dark Charcoal Trousers -->
+  <path d="M38 96 L36 132 L46 132 L47 98 Z" fill="#2c2d30"/>
+  <path d="M53 98 L54 132 L64 132 L62 96 Z" fill="#2c2d30"/>
+  <line x1="41" y1="116" x2="43" y2="128" stroke="#1f2022" stroke-width="1.2"/>
+  <line x1="59" y1="116" x2="57" y2="128" stroke="#1f2022" stroke-width="1.2"/>
+
+  <!-- Shoes: Dark Brown / Black Oxford Shoes -->
+  <ellipse cx="40" cy="138" rx="8" ry="4.5" fill="#1c1815"/>
+  <ellipse cx="60" cy="138" rx="8" ry="4.5" fill="#1c1815"/>
+  <rect x="33" y="138" width="14" height="3" rx="1.5" fill="#110e0c"/>
+  <rect x="53" y="138" width="14" height="3" rx="1.5" fill="#110e0c"/>
+  <ellipse cx="38" cy="136" rx="4" ry="1.5" fill="#38322c"/>
+  <ellipse cx="58" cy="136" rx="4" ry="1.5" fill="#38322c"/>
+
+  <!-- White Inner Dress Shirt & Collar -->
+  <path d="M44 60 L50 78 L56 60 Z" fill="#f4f3ef"/>
+  <line x1="50" y1="64" x2="50" y2="76" stroke="#d5d3cb" stroke-width="1.2"/>
+  <circle cx="50" cy="70" r="1" fill="#716f68"/>
+
+  <!-- Tweed Buttoned Vest / Waistcoat -->
+  <path d="M38 74 L44 62 L50 78 L56 62 L62 74 L60 102 L50 96 L40 102 Z" fill="#484641"/>
+  <path d="M38 74 L44 62 L50 78 L56 62 L62 74 L60 102 L50 96 L40 102 Z" fill="url(#head-tweed)" opacity="0.6"/>
+  <circle cx="50" cy="82" r="1.3" fill="#23221f"/>
+  <circle cx="50" cy="88" r="1.3" fill="#23221f"/>
+  <circle cx="50" cy="94" r="1.3" fill="#23221f"/>
+
+  <!-- Open Tweed Overcoat / Trench Coat -->
+  <path d="M29 60 L40 60 L42 82 L38 122 L27 126 L24 88 Z" fill="#52504a"/>
+  <path d="M29 60 L40 60 L42 82 L38 122 L27 126 L24 88 Z" fill="url(#head-tweed)" opacity="0.65"/>
+  <path d="M36 60 L43 78 L37 84 L32 68 Z" fill="#3f3d38"/>
+  <rect x="29" y="100" width="10" height="9" rx="1.5" fill="#46443f" stroke="#363430" stroke-width="0.8"/>
+  <circle cx="40" cy="90" r="1.8" fill="#c49a3c" stroke="#8c6a20" stroke-width="0.6"/>
+  <circle cx="39" cy="104" r="1.8" fill="#c49a3c" stroke="#8c6a20" stroke-width="0.6"/>
+
+  <path d="M71 60 L60 60 L58 82 L62 122 L73 126 L76 88 Z" fill="#52504a"/>
+  <path d="M71 60 L60 60 L58 82 L62 122 L73 126 L76 88 Z" fill="url(#head-tweed)" opacity="0.65"/>
+  <path d="M64 60 L57 78 L63 84 L68 68 Z" fill="#3f3d38"/>
+  <rect x="61" y="100" width="10" height="9" rx="1.5" fill="#46443f" stroke="#363430" stroke-width="0.8"/>
+
+  <!-- Left Arm & Hand (Fist at Side) -->
+  <path d="M71 64 L79 88 C79 92, 76 96, 72 96 L67 86" fill="#4b4944"/>
+  <path d="M71 64 L79 88 C79 92, 76 96, 72 96 L67 86" fill="url(#head-tweed)" opacity="0.6"/>
+  <rect x="66" y="90" width="9" height="3" rx="1" fill="#441217"/>
+  <circle cx="70" cy="98" r="4.5" fill="#d8a77d" stroke="#b37e54" stroke-width="0.8"/>
+
+  <!-- Right Arm & Hand: THUMBS UP 👍 -->
+  <path d="M29 64 L21 82 C20 86, 24 90, 28 88 L33 76" fill="#4b4944"/>
+  <path d="M29 64 L21 82 C20 86, 24 90, 28 88 L33 76" fill="url(#head-tweed)" opacity="0.6"/>
+  <rect x="23" y="80" width="9" height="3" rx="1" fill="#441217" transform="rotate(-20 23 80)"/>
+  
+  <g class="thumbs-up">
+    <rect x="19" y="70" width="9" height="11" rx="4" fill="#d8a77d" stroke="#875338" stroke-width="1.2"/>
+    <line x1="20" y1="74" x2="26" y2="74" stroke="#875338" stroke-width="1"/>
+    <line x1="20" y1="77" x2="26" y2="77" stroke="#875338" stroke-width="1"/>
+    <path d="M22 72 C22 64, 25 61, 26 61 C28 61, 28 65, 27 72 Z" fill="#d8a77d" stroke="#875338" stroke-width="1.2"/>
+  </g>
+
+  <!-- Neck -->
+  <rect x="45" y="50" width="10" height="9" rx="2" fill="#c9976b"/>
+
+  <!-- Chibi Head Base -->
+  <ellipse cx="50" cy="38" rx="26" ry="22" fill="#d8a77d"/>
+  <circle cx="24" cy="40" r="4.5" fill="#c9976b"/>
+  <circle cx="76" cy="40" r="4.5" fill="#c9976b"/>
+
+  <!-- Messy Dark Anime Hair -->
+  <path d="M22 38 C20 24, 28 12, 50 12 C72 12, 80 24, 78 38 C72 26, 62 18, 50 18 C38 18, 28 26, 22 38 Z" fill="#201a17"/>
+  <path d="M20 40 Q24 48 22 56 Q28 48 26 40 Z" fill="#201a17"/>
+  <path d="M80 40 Q76 48 78 56 Q72 48 74 40 Z" fill="#201a17"/>
+  <path d="M29 32 Q36 42 42 36 Q34 32 29 32 Z" fill="#201a17"/>
+  <path d="M71 32 Q64 42 58 36 Q66 32 71 32 Z" fill="#201a17"/>
+
+  <!-- Big Round Goggles / Glasses (Grey Lenses, Black Frame) -->
+  <circle cx="37" cy="40" r="11" fill="#141416"/>
+  <circle cx="37" cy="40" r="8.5" fill="#9ba1a6"/>
+  <circle cx="37" cy="40" r="8.5" fill="none" stroke="#2b2d30" stroke-width="1.2"/>
+  <path d="M32 35 L40 43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="41" cy="37" r="1.2" fill="#ffffff" opacity="0.8"/>
+
+  <circle cx="63" cy="40" r="11" fill="#141416"/>
+  <circle cx="63" cy="40" r="8.5" fill="#9ba1a6"/>
+  <circle cx="63" cy="40" r="8.5" fill="none" stroke="#2b2d30" stroke-width="1.2"/>
+  <path d="M58 35 L66 43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="67" cy="37" r="1.2" fill="#ffffff" opacity="0.8"/>
+
+  <rect x="46" y="38" width="8" height="4" rx="2" fill="#141416"/>
+
+  <!-- Warm Chibi Smile below goggles -->
+  <path d="M46 51 Q50 54 54 51" stroke="#875338" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <ellipse cx="28" cy="46" rx="3.5" ry="2" fill="rgba(217, 119, 87, 0.28)"/>
+  <ellipse cx="72" cy="46" rx="3.5" ry="2" fill="rgba(217, 119, 87, 0.28)"/>
+
+  <!-- Tweed Newsboy / Flat Cap -->
+  <path d="M22 28 C26 36, 42 38, 50 38 C58 38, 74 36, 78 28 C70 32, 58 33, 50 33 C42 33, 30 32, 22 28 Z" fill="#d9d6ce" stroke="#201e1b" stroke-width="1.5"/>
+  <path d="M19 28 C16 16, 26 4, 50 4 C74 4, 84 16, 81 28 C74 30, 64 31, 50 31 C36 31, 26 30, 19 28 Z" fill="#52504a" stroke="#201e1b" stroke-width="1.8"/>
+  <path d="M19 28 C16 16, 26 4, 50 4 C74 4, 84 16, 81 28 C74 30, 64 31, 50 31 C36 31, 26 30, 19 28 Z" fill="url(#head-tweed)" opacity="0.7"/>
+  <ellipse cx="50" cy="5" rx="4" ry="2" fill="#302e2a" stroke="#201e1b" stroke-width="1"/>
+  <path d="M50 5 Q42 16 35 28" stroke="#363430" stroke-width="1.4" fill="none"/>
+  <path d="M50 5 Q58 16 65 28" stroke="#363430" stroke-width="1.4" fill="none"/>
+  <polygon points="31,10 39,12 37,21 29,19" fill="#f0ede6" stroke="#2a2926" stroke-width="1.2"/>
+</svg>
+      </div>
+      <div class="mini-eric-bubble">
+        <span class="mini-eric-tag">MINI ERIC</span>
+        <p class="mini-eric-text">Welcome to my story! Here is what drives my craft—anime, morning routines, gaming, and high design standards.</p>
+      </div>
+    </aside>
+
+      <!-- Hero Header -->
+      <header class="about-hero">
+        <p class="sx-kicker"><i class="sx-dot" aria-hidden="true"></i> The Story Behind The Screens</p>
+        <h1 class="about-title">Designing systems behind the screens. Grounded in craft, fueled by curiosity.</h1>
+        <p class="about-lede">I am a Product Designer with a background in tokenized design systems, clickable high-fidelity prototyping, and engineering handoffs. Born and raised in Texas of Mexican heritage, my foundation is built on discipline, craft, and an obsession with how complex software fits together.</p>
+      </header>
+
+      <!-- The Daily Foundation -->
+      <section class="about-section" id="foundations">
+        <div class="section-badge"><span>01</span> Daily Foundations</div>
+        <h2 class="section-heading">How I start and stay grounded</h2>
+        <div class="foundations-grid">
+          <!-- Bible Card -->
+          <article class="foundation-card card-bible">
+            <div class="bible-cover">
+              <span class="bible-cross">✝</span>
+              <span class="bible-gold-spine"></span>
+              <span class="bible-ribbon"></span>
+              <span class="bible-emboss">HOLY BIBLE</span>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Daily Read</span>
+              <h3>A Chapter a Day</h3>
+              <p>In the mornings, I always go ahead and read a chapter of the most popular book in the world. It provides perspective, humility, and calm intention before jumping into Figma, tokens, or complex engineering challenges.</p>
+            </div>
+          </article>
+
+          <!-- Water / Hydration Card -->
+          <article class="foundation-card card-water">
+            <div class="water-glass-art">
+              <div class="water-level"></div>
+              <span class="water-drop">💧</span>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Wellness Habit</span>
+              <h3>Water Is Healthy</h3>
+              <p>Drink-wise, I love water—it's great for you and keeps you sharp all day. Always stay hydrated! (This exact routine is what inspired the hydration break in my Study Buddy desktop app!).</p>
+            </div>
+          </article>
+
+          <!-- Downtime Card -->
+          <article class="foundation-card card-downtime">
+            <div class="downtime-art"><span class="play-chip">▶</span></div>
+            <div class="card-body">
+              <span class="card-tag">Downtime &amp; Humor</span>
+              <h3>Laughter &amp; Relaxation</h3>
+              <p>In my free time, I mainly watch anime and explore YouTube, watching funny videos and relatable skits. Keeping humor and curiosity close keeps the creative tank full.</p>
+            </div>
+          </article>
+
+          <!-- Popeyes Comfort Fuel Card -->
+          <article class="foundation-card card-popeyes">
+            <div class="popeyes-art">
+              <span class="popeyes-emoji">🍗</span>
+              
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Comfort Fuel</span>
+              <h3>Popeyes 5pc Mild Combo</h3>
+              <p>When it comes to comfort food, nothing beats Popeyes. My absolute go-to order is the 5pc chicken tender mild combo—crispy, seasoned just right, and the ultimate reward after deep design sprints.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Anime Wall (Megan Yap / Case Study Hover Reveal) -->
+      <section class="about-section" id="anime">
+        <div class="section-badge"><span>02</span> Creative Fuel</div>
+        <div class="section-head-row">
+          <div>
+            <h2 class="section-heading">Top Anime &amp; Stories That Stick</h2>
+            <p class="sx-sub">Hover over any poster to reveal the story of why it inspires my creative craft.</p>
+          </div>
+          <div class="watching-pill" title="Currently finishing season!">
+            <span class="watching-dot"></span>
+            <span>Currently Watching: <strong>Black Clover</strong> (Wrapping up the season!)</span>
+          </div>
+        </div>
+
+        <div class="anime-grid">
+          <!-- 1. Naruto -->
+          <div class="anime-card" tabindex="0">
+            <div class="anime-poster anime-naruto">
+              <div class="anime-kanji">ナルト</div>
+              <span class="anime-num">01</span>
+              <div class="anime-cover-title">
+                <h3>Naruto</h3>
+                <span>NARUTO - ナルト -</span>
+              </div>
+            </div>
+            <div class="anime-reveal">
+              <span class="reveal-tag">Lifelong Inspiration</span>
+              <h4>The Underdog Work Ethic</h4>
+              <p>I grew up with Naruto and loved each part of it. It's stuck with me for a long time and is globally recognized for a reason: it taught me perseverance, teamwork, and seeing a difficult path through to the very end.</p>
+            </div>
+          </div>
+
+          <!-- 2. Bleach -->
+          <div class="anime-card" tabindex="0">
+            <div class="anime-poster anime-bleach">
+              <div class="anime-kanji">ブリーチ</div>
+              <span class="anime-num">02</span>
+              <div class="anime-cover-title">
+                <h3>Bleach</h3>
+                <span>BLEACH - ブリーチ -</span>
+              </div>
+            </div>
+            <div class="anime-reveal">
+              <span class="reveal-tag">Equilibrium &amp; Style</span>
+              <h4>World Stability &amp; Insane Drip</h4>
+              <p>Besides the unmatched visual style and fashion drip, I really like the concept of different beings (Soul Reapers, Hollows, Quincies) and how they each serve a distinct purpose to bring balance and stability to the world. Recently finished the full series!</p>
+            </div>
+          </div>
+
+          <!-- 3. World Trigger -->
+          <div class="anime-card" tabindex="0">
+            <div class="anime-poster anime-worldtrigger">
+              <div class="anime-kanji">ワールドトリガー</div>
+              <span class="anime-num">03</span>
+              <div class="anime-cover-title">
+                <h3>World Trigger</h3>
+                <span>WORLD TRIGGER</span>
+              </div>
+            </div>
+            <div class="anime-reveal">
+              <span class="reveal-tag">Tactics &amp; Systems</span>
+              <h4>Strategy &amp; Weapon Concepts</h4>
+              <p>It's been a while since I've watched it, but I loved the deliberate team battle tactics, character concepts, and the creative weapon mechanics they used. Pure tactical problem-solving.</p>
+            </div>
+          </div>
+
+          <!-- 4. Spirited Away -->
+          <div class="anime-card" tabindex="0">
+            <div class="anime-poster anime-spiritedaway">
+              <div class="anime-kanji">千と千尋</div>
+              <span class="anime-num">04</span>
+              <div class="anime-cover-title">
+                <h3>Spirited Away</h3>
+                <span>Studio Ghibli</span>
+              </div>
+            </div>
+            <div class="anime-reveal">
+              <span class="reveal-tag">Ghibli Magic</span>
+              <h4>The Dragon Shirt Origin</h4>
+              <p>My first Studio Ghibli movie! Why did I watch it? I bought a shirt of the characters at a store solely because I thought Haku the dragon looked amazing—so naturally, I had to watch the movie then, and it became an instant masterpiece in my book.</p>
+            </div>
+          </div>
+
+          <!-- 5. Hell's Paradise -->
+          <div class="anime-card" tabindex="0">
+            <div class="anime-poster anime-hellsparadise">
+              <div class="anime-kanji">地獄楽</div>
+              <span class="anime-num">05</span>
+              <div class="anime-cover-title">
+                <h3>Hell's Paradise</h3>
+                <span>Jigokuraku</span>
+              </div>
+            </div>
+            <div class="anime-reveal">
+              <span class="reveal-tag">Unshakable Resolve</span>
+              <h4>Gabimaru's Focus &amp; Eerie Ecology</h4>
+              <p>I like the overall story, the deadly island mysteries, and Gabimaru's quiet, determined personality—fighting through insurmountable odds driven by his love and promise to return home.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nintendo DS Lite Interactive Vault -->
+      <section class="about-section" id="nintendo-ds-section">
+        <div class="section-badge"><span>03</span> Childhood Vault</div>
+        <div class="section-head-row">
+          <div>
+            <h2 class="section-heading">My Nintendo DS Lite (Crimson &amp; Black)</h2>
+            <p class="sx-sub">Click the closed DS below to flip open the dual screens and explore my childhood Pokémon memories.</p>
+          </div>
+        </div>
+
+        
+  <div class="ds-container" id="nintendoDs" aria-label="Interactive Crimson Red Nintendo DS Lite">
+    <!-- Closed Lid State -->
+    <div class="ds-lid" id="dsLid" role="button" tabindex="0" aria-label="Click to flip open Nintendo DS Lite">
+      <div class="ds-lid-face">
+        <div class="ds-lid-sheen"></div>
+        <div class="ds-emblem">
+          <span class="ds-sq ds-sq-1"></span>
+          <span class="ds-sq ds-sq-2"></span>
+        </div>
+        <span class="ds-engraving">Nintendo DS Lite</span>
+        <div class="ds-open-prompt">
+          <span class="ds-sparkle">✦</span>
+          <span>Click to Flip Open DS</span>
+          <span class="ds-sparkle">✦</span>
+        </div>
+      </div>
+      <div class="ds-hinge-band"></div>
+    </div>
+
+    <!-- Opened Console State -->
+    <div class="ds-console" id="dsConsole" hidden>
+      <!-- Top Bezel & Backlit Screen -->
+      <div class="ds-top-housing">
+        <div class="ds-top-bezel">
+          <div class="ds-speaker ds-speaker-l"><i></i><i></i><i></i><i></i></div>
+          <div class="ds-screen ds-top-screen">
+            <div class="ds-top-bar">
+              <span class="ds-top-title" id="dsCartridgeTitle">POKÉMON BLACK</span>
+              <span class="ds-top-batt">BATT ■■■</span>
+            </div>
+            <div class="ds-screen-stage" id="dsScreenStage">
+              <!-- Rendered via JS based on active cartridge -->
+            </div>
+          </div>
+          <div class="ds-speaker ds-speaker-r"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <button type="button" class="ds-close-btn" id="dsCloseBtn" title="Snap DS lid closed">✕ Close Lid</button>
+      </div>
+
+      <!-- Center Hinge & LEDs -->
+      <div class="ds-hinge-middle">
+        <div class="ds-mic">MIC.</div>
+        <div class="ds-leds">
+          <span class="ds-led ds-led-pwr" title="Power"></span>
+          <span class="ds-led ds-led-chr" title="Battery"></span>
+        </div>
+      </div>
+
+      <!-- Bottom Housing & Touch Screen -->
+      <div class="ds-bottom-housing">
+        <!-- D-Pad Left -->
+        <div class="ds-dpad-col">
+          <div class="ds-dpad">
+            <button type="button" class="dpad-key dpad-up" aria-label="D-pad Up"></button>
+            <button type="button" class="dpad-key dpad-left" id="dpadLeft" aria-label="Previous Game">◀</button>
+            <div class="dpad-core"></div>
+            <button type="button" class="dpad-key dpad-right" id="dpadRight" aria-label="Next Game">▶</button>
+            <button type="button" class="dpad-key dpad-down" aria-label="D-pad Down"></button>
+          </div>
+        </div>
+
+        <!-- Touch Screen Center -->
+        <div class="ds-screen ds-touch-screen">
+          <div class="ds-touch-body" id="dsTouchBody">
+            <!-- Dynamic Cartridge Details & Memory Note -->
+          </div>
+          <div class="ds-touch-controls">
+            <button type="button" class="ds-touch-nav-btn" id="touchPrev">◀ Prev</button>
+            <span class="ds-touch-indicator" id="touchIndicator">1 / 4</span>
+            <button type="button" class="ds-touch-nav-btn" id="touchNext">Next ▶</button>
+          </div>
+        </div>
+
+        <!-- Action Buttons Right -->
+        <div class="ds-abxy-col">
+          <div class="ds-abxy">
+            <button type="button" class="ds-btn ds-btn-x" aria-label="X">X</button>
+            <button type="button" class="ds-btn ds-btn-y" aria-label="Y">Y</button>
+            <button type="button" class="ds-btn ds-btn-b" aria-label="B">B</button>
+            <button type="button" class="ds-btn ds-btn-a" id="dsBtnA" aria-label="A">A</button>
+          </div>
+          <div class="ds-start-select">
+            <button type="button" class="ds-pill-btn" aria-label="Select">SELECT</button>
+            <button type="button" class="ds-pill-btn" aria-label="Start">START</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </section>
+
+      
+    
+    
+    <aside class="mini-eric-banner is-footer" aria-label="Mini Eric dialogue">
+      <div class="mini-eric-char" title="Click Mini Eric!">
+        <svg class="mini-eric-avatar" width="70" height="104" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mini Eric thumbs up anime chibi avatar">
+  <defs>
+    <pattern id="foot-tweed" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0 3 L3 0 L6 3 L3 6 Z" fill="#4d4c47"/>
+      <path d="M0 0 L1.5 1.5 L0 3 Z" fill="#3a3935"/>
+      <path d="M6 0 L4.5 1.5 L6 3 Z" fill="#3a3935"/>
+      <path d="M3 3 L4.5 4.5 L3 6 Z" fill="#5c5b55"/>
+      <path d="M3 3 L1.5 4.5 L3 6 Z" fill="#5c5b55"/>
+    </pattern>
+    <linearGradient id="foot-maroonLining" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a151b"/>
+      <stop offset="100%" stop-color="#6b1d26"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="50" cy="146" rx="34" ry="4" fill="rgba(35, 25, 10, 0.14)"/>
+
+  <!-- Trench Coat Back Flaps / Maroon Lining (Behind Legs) -->
+  <path d="M22 92 C16 112, 14 132, 20 138 C23 134, 28 116, 32 94 Z" fill="url(#foot-maroonLining)"/>
+  <path d="M78 92 C84 112, 86 132, 80 138 C77 134, 72 116, 68 94 Z" fill="url(#foot-maroonLining)"/>
+  <path d="M19 138 C14 126, 17 106, 23 90 L26 92 C21 110, 19 126, 21 138 Z" fill="#383632"/>
+  <path d="M81 138 C86 126, 83 106, 77 90 L74 92 C79 110, 81 126, 79 138 Z" fill="#383632"/>
+
+  <!-- Legs: Dark Charcoal Trousers -->
+  <path d="M38 96 L36 132 L46 132 L47 98 Z" fill="#2c2d30"/>
+  <path d="M53 98 L54 132 L64 132 L62 96 Z" fill="#2c2d30"/>
+  <line x1="41" y1="116" x2="43" y2="128" stroke="#1f2022" stroke-width="1.2"/>
+  <line x1="59" y1="116" x2="57" y2="128" stroke="#1f2022" stroke-width="1.2"/>
+
+  <!-- Shoes: Dark Brown / Black Oxford Shoes -->
+  <ellipse cx="40" cy="138" rx="8" ry="4.5" fill="#1c1815"/>
+  <ellipse cx="60" cy="138" rx="8" ry="4.5" fill="#1c1815"/>
+  <rect x="33" y="138" width="14" height="3" rx="1.5" fill="#110e0c"/>
+  <rect x="53" y="138" width="14" height="3" rx="1.5" fill="#110e0c"/>
+  <ellipse cx="38" cy="136" rx="4" ry="1.5" fill="#38322c"/>
+  <ellipse cx="58" cy="136" rx="4" ry="1.5" fill="#38322c"/>
+
+  <!-- White Inner Dress Shirt & Collar -->
+  <path d="M44 60 L50 78 L56 60 Z" fill="#f4f3ef"/>
+  <line x1="50" y1="64" x2="50" y2="76" stroke="#d5d3cb" stroke-width="1.2"/>
+  <circle cx="50" cy="70" r="1" fill="#716f68"/>
+
+  <!-- Tweed Buttoned Vest / Waistcoat -->
+  <path d="M38 74 L44 62 L50 78 L56 62 L62 74 L60 102 L50 96 L40 102 Z" fill="#484641"/>
+  <path d="M38 74 L44 62 L50 78 L56 62 L62 74 L60 102 L50 96 L40 102 Z" fill="url(#foot-tweed)" opacity="0.6"/>
+  <circle cx="50" cy="82" r="1.3" fill="#23221f"/>
+  <circle cx="50" cy="88" r="1.3" fill="#23221f"/>
+  <circle cx="50" cy="94" r="1.3" fill="#23221f"/>
+
+  <!-- Open Tweed Overcoat / Trench Coat -->
+  <path d="M29 60 L40 60 L42 82 L38 122 L27 126 L24 88 Z" fill="#52504a"/>
+  <path d="M29 60 L40 60 L42 82 L38 122 L27 126 L24 88 Z" fill="url(#foot-tweed)" opacity="0.65"/>
+  <path d="M36 60 L43 78 L37 84 L32 68 Z" fill="#3f3d38"/>
+  <rect x="29" y="100" width="10" height="9" rx="1.5" fill="#46443f" stroke="#363430" stroke-width="0.8"/>
+  <circle cx="40" cy="90" r="1.8" fill="#c49a3c" stroke="#8c6a20" stroke-width="0.6"/>
+  <circle cx="39" cy="104" r="1.8" fill="#c49a3c" stroke="#8c6a20" stroke-width="0.6"/>
+
+  <path d="M71 60 L60 60 L58 82 L62 122 L73 126 L76 88 Z" fill="#52504a"/>
+  <path d="M71 60 L60 60 L58 82 L62 122 L73 126 L76 88 Z" fill="url(#foot-tweed)" opacity="0.65"/>
+  <path d="M64 60 L57 78 L63 84 L68 68 Z" fill="#3f3d38"/>
+  <rect x="61" y="100" width="10" height="9" rx="1.5" fill="#46443f" stroke="#363430" stroke-width="0.8"/>
+
+  <!-- Left Arm & Hand (Fist at Side) -->
+  <path d="M71 64 L79 88 C79 92, 76 96, 72 96 L67 86" fill="#4b4944"/>
+  <path d="M71 64 L79 88 C79 92, 76 96, 72 96 L67 86" fill="url(#foot-tweed)" opacity="0.6"/>
+  <rect x="66" y="90" width="9" height="3" rx="1" fill="#441217"/>
+  <circle cx="70" cy="98" r="4.5" fill="#d8a77d" stroke="#b37e54" stroke-width="0.8"/>
+
+  <!-- Right Arm & Hand: THUMBS UP 👍 -->
+  <path d="M29 64 L21 82 C20 86, 24 90, 28 88 L33 76" fill="#4b4944"/>
+  <path d="M29 64 L21 82 C20 86, 24 90, 28 88 L33 76" fill="url(#foot-tweed)" opacity="0.6"/>
+  <rect x="23" y="80" width="9" height="3" rx="1" fill="#441217" transform="rotate(-20 23 80)"/>
+  
+  <g class="thumbs-up">
+    <rect x="19" y="70" width="9" height="11" rx="4" fill="#d8a77d" stroke="#875338" stroke-width="1.2"/>
+    <line x1="20" y1="74" x2="26" y2="74" stroke="#875338" stroke-width="1"/>
+    <line x1="20" y1="77" x2="26" y2="77" stroke="#875338" stroke-width="1"/>
+    <path d="M22 72 C22 64, 25 61, 26 61 C28 61, 28 65, 27 72 Z" fill="#d8a77d" stroke="#875338" stroke-width="1.2"/>
+  </g>
+
+  <!-- Neck -->
+  <rect x="45" y="50" width="10" height="9" rx="2" fill="#c9976b"/>
+
+  <!-- Chibi Head Base -->
+  <ellipse cx="50" cy="38" rx="26" ry="22" fill="#d8a77d"/>
+  <circle cx="24" cy="40" r="4.5" fill="#c9976b"/>
+  <circle cx="76" cy="40" r="4.5" fill="#c9976b"/>
+
+  <!-- Messy Dark Anime Hair -->
+  <path d="M22 38 C20 24, 28 12, 50 12 C72 12, 80 24, 78 38 C72 26, 62 18, 50 18 C38 18, 28 26, 22 38 Z" fill="#201a17"/>
+  <path d="M20 40 Q24 48 22 56 Q28 48 26 40 Z" fill="#201a17"/>
+  <path d="M80 40 Q76 48 78 56 Q72 48 74 40 Z" fill="#201a17"/>
+  <path d="M29 32 Q36 42 42 36 Q34 32 29 32 Z" fill="#201a17"/>
+  <path d="M71 32 Q64 42 58 36 Q66 32 71 32 Z" fill="#201a17"/>
+
+  <!-- Big Round Goggles / Glasses (Grey Lenses, Black Frame) -->
+  <circle cx="37" cy="40" r="11" fill="#141416"/>
+  <circle cx="37" cy="40" r="8.5" fill="#9ba1a6"/>
+  <circle cx="37" cy="40" r="8.5" fill="none" stroke="#2b2d30" stroke-width="1.2"/>
+  <path d="M32 35 L40 43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="41" cy="37" r="1.2" fill="#ffffff" opacity="0.8"/>
+
+  <circle cx="63" cy="40" r="11" fill="#141416"/>
+  <circle cx="63" cy="40" r="8.5" fill="#9ba1a6"/>
+  <circle cx="63" cy="40" r="8.5" fill="none" stroke="#2b2d30" stroke-width="1.2"/>
+  <path d="M58 35 L66 43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="67" cy="37" r="1.2" fill="#ffffff" opacity="0.8"/>
+
+  <rect x="46" y="38" width="8" height="4" rx="2" fill="#141416"/>
+
+  <!-- Warm Chibi Smile below goggles -->
+  <path d="M46 51 Q50 54 54 51" stroke="#875338" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <ellipse cx="28" cy="46" rx="3.5" ry="2" fill="rgba(217, 119, 87, 0.28)"/>
+  <ellipse cx="72" cy="46" rx="3.5" ry="2" fill="rgba(217, 119, 87, 0.28)"/>
+
+  <!-- Tweed Newsboy / Flat Cap -->
+  <path d="M22 28 C26 36, 42 38, 50 38 C58 38, 74 36, 78 28 C70 32, 58 33, 50 33 C42 33, 30 32, 22 28 Z" fill="#d9d6ce" stroke="#201e1b" stroke-width="1.5"/>
+  <path d="M19 28 C16 16, 26 4, 50 4 C74 4, 84 16, 81 28 C74 30, 64 31, 50 31 C36 31, 26 30, 19 28 Z" fill="#52504a" stroke="#201e1b" stroke-width="1.8"/>
+  <path d="M19 28 C16 16, 26 4, 50 4 C74 4, 84 16, 81 28 C74 30, 64 31, 50 31 C36 31, 26 30, 19 28 Z" fill="url(#foot-tweed)" opacity="0.7"/>
+  <ellipse cx="50" cy="5" rx="4" ry="2" fill="#302e2a" stroke="#201e1b" stroke-width="1"/>
+  <path d="M50 5 Q42 16 35 28" stroke="#363430" stroke-width="1.4" fill="none"/>
+  <path d="M50 5 Q58 16 65 28" stroke="#363430" stroke-width="1.4" fill="none"/>
+  <polygon points="31,10 39,12 37,21 29,19" fill="#f0ede6" stroke="#2a2926" stroke-width="1.2"/>
+</svg>
+      </div>
+      <div class="mini-eric-bubble">
+        <span class="mini-eric-tag">MINI ERIC</span>
+        <p class="mini-eric-text">Thanks for getting to know me! Ready to see my work or test out the Nintendo DS in the playground?</p>
+      </div>
+    </aside>
+    </div>
+  </main>
+
+  
+  <footer class="sx-footer sx-wrap">
+    <span>© 2026 Eric Ariel De La Paz</span>
+    <div>
+      <a href="mailto:ericforall247@gmail.com"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Email</span></a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a>
+      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><span>GitHub</span></a>
+    </div>
+  </footer>
+  <script src="assets/js/scroll.js"></script>
+</body>
+</html>

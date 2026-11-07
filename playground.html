@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground | Eric Ariel De La Paz — Design Engineering Lab</title>
+  <meta name="description" content="Interactive experiments, token playgrounds, and working micro-apps by Eric Ariel De La Paz.">
+  <link rel="icon" type="image/png" href="assets/images/profile.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/scroll.css">
+</head>
+<body class="sx-page is-light" data-nav="playground">
+  <a class="sx-skip" href="#main">Skip to content</a>
+  
+  
+  <header class="sx-nav-wrap">
+    <nav class="sx-nav" aria-label="Main navigation">
+      <a class="sx-brand" href="index.html" aria-label="Eric Ariel De La Paz, home">
+        <img src="assets/images/profile.png" alt="" width="28" height="28">
+        <span>De La Paz</span>
+      </a>
+      <span class="sx-nav-sep" aria-hidden="true"></span>
+      <a href="index.html" class="sx-nav-link">Home</a>
+      <a href="about.html" class="sx-nav-link">About</a>
+      <a href="playground.html" class="sx-nav-link is-active">Playground</a>
+      <button type="button" class="sx-nav-info-btn" id="infoBtn" aria-expanded="false" aria-controls="infoPopover" title="Open Quick Contact & Info">
+        <span>Info</span>
+        <svg class="sx-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <span class="sx-nav-sep" aria-hidden="true"></span>
+      <span class="sx-status" title="Open to work"><i class="sx-dot" aria-hidden="true"></i><span>Open to work</span></span>
+    </nav>
+
+    <!-- Floating Info Dropdown Drawer -->
+    <div class="sx-info-popover" id="infoPopover" role="dialog" aria-modal="false" aria-label="Quick contact & information" hidden>
+      <div class="info-card">
+        <div class="info-header">
+          <div class="info-avatar-row">
+            <img src="assets/images/profile.png" alt="Eric Ariel De La Paz" class="info-avatar">
+            <div>
+              <strong class="info-name">Eric Ariel De La Paz</strong>
+              <span class="info-role">Product Designer</span>
+            </div>
+          </div>
+        </div>
+        <p class="info-bio">Building tokenized Figma systems, interaction prototypes, and engineering-ready workflows. Texas-based, open to remote and relocation.</p>
+        <div class="info-actions">
+          <button type="button" class="info-btn info-btn-copy" id="copyEmailBtn" data-email="ericforall247@gmail.com" title="Click to copy email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span class="btn-label">Copy Email</span>
+            <span class="copy-toast" id="copyToast" aria-live="polite">Copied!</span>
+          </button>
+          <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener" class="info-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener" class="info-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener" class="info-btn info-btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+            <span>Resume</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="sx-main" id="main">
+    <div class="sx-wrap">
+      
+    
+    
+    <aside class="mini-eric-banner is-header" aria-label="Mini Eric dialogue">
+      <div class="mini-eric-char" title="Click Mini Eric!">
+        <img src="assets/images/mini-eric-thumbsup.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
+      </div>
+      <div class="mini-eric-bubble">
+        <div class="mini-eric-name">Mini Eric </div>
+        <p class="mini-eric-text">Welcome to the lab! Test out the interactive Nintendo DS and browse upcoming engineering projects.</p>
+      </div>
+    </aside>
+
+      <!-- Hero Header -->
+      <header class="about-hero">
+        <p class="sx-kicker"><i class="sx-dot" aria-hidden="true"></i> The Design Engineering Sandbox</p>
+        <h1 class="about-title">Creative coding, token experiments, and playful interactions.</h1>
+        <p class="about-lede">A space where I test interaction physics, build micro-apps like Study Buddy, and explore where design systems meet production-ready code.</p>
+      </header>
+
+      <!-- Experiment 1: The Nintendo DS Lite Interactive Console -->
+      <section class="about-section" id="lab-nintendo-ds">
+        <div class="section-badge"><span>01</span> Handheld Nostalgia</div>
+        <div class="section-head-row">
+          <div>
+            <h2 class="section-heading">Interactive Nintendo DS Lite (Crimson &amp; Black)</h2>
+            <p class="sx-sub">Click the closed lid below to flip open the dual screens and test out the D-Pad and touch controls.</p>
+          </div>
+        </div>
+
+        
+  <div class="ds-container" id="nintendoDs" aria-label="Interactive Crimson Red Nintendo DS Lite">
+    <!-- Closed Lid State -->
+    <div class="ds-lid" id="dsLid" role="button" tabindex="0" aria-label="Click to flip open Nintendo DS Lite">
+      <div class="ds-lid-face">
+        <div class="ds-lid-sheen"></div>
+        <div class="ds-emblem">
+          <span class="ds-sq ds-sq-1"></span>
+          <span class="ds-sq ds-sq-2"></span>
+        </div>
+        <span class="ds-engraving">Nintendo DS Lite</span>
+        <div class="ds-open-prompt">
+          <span class="ds-sparkle">✦</span>
+          <span>Click to Flip Open DS</span>
+          <span class="ds-sparkle">✦</span>
+        </div>
+      </div>
+      <div class="ds-hinge-band"></div>
+    </div>
+
+    <!-- Opened Console State -->
+    <div class="ds-console" id="dsConsole" hidden>
+      <!-- Top Bezel & Backlit Screen -->
+      <div class="ds-top-housing">
+        <div class="ds-top-bezel">
+          <div class="ds-speaker ds-speaker-l"><i></i><i></i><i></i><i></i></div>
+          <div class="ds-screen ds-top-screen">
+            <div class="ds-top-bar">
+              <span class="ds-top-title" id="dsCartridgeTitle">POKÉMON BLACK</span>
+              <span class="ds-top-batt">BATT ■■■</span>
+            </div>
+            <div class="ds-screen-stage" id="dsScreenStage">
+              <!-- Rendered via JS based on active cartridge -->
+            </div>
+          </div>
+          <div class="ds-speaker ds-speaker-r"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <button type="button" class="ds-close-btn" id="dsCloseBtn" title="Snap DS lid closed">✕ Close Lid</button>
+      </div>
+
+      <!-- Center Hinge & LEDs -->
+      <div class="ds-hinge-middle">
+        <div class="ds-mic">MIC.</div>
+        <div class="ds-leds">
+          <span class="ds-led ds-led-pwr" title="Power"></span>
+          <span class="ds-led ds-led-chr" title="Battery"></span>
+        </div>
+      </div>
+
+      <!-- Bottom Housing & Touch Screen -->
+      <div class="ds-bottom-housing">
+        <!-- D-Pad Left -->
+        <div class="ds-dpad-col">
+          <div class="ds-dpad">
+            <button type="button" class="dpad-key dpad-up" aria-label="D-pad Up"></button>
+            <button type="button" class="dpad-key dpad-left" id="dpadLeft" aria-label="Previous Game">◀</button>
+            <div class="dpad-core"></div>
+            <button type="button" class="dpad-key dpad-right" id="dpadRight" aria-label="Next Game">▶</button>
+            <button type="button" class="dpad-key dpad-down" aria-label="D-pad Down"></button>
+          </div>
+        </div>
+
+        <!-- Touch Screen Center -->
+        <div class="ds-screen ds-touch-screen">
+          <div class="ds-touch-body" id="dsTouchBody">
+            <!-- Dynamic Cartridge Details & Memory Note -->
+          </div>
+          <div class="ds-touch-controls">
+            <button type="button" class="ds-touch-nav-btn" id="touchPrev">◀ Prev</button>
+            <span class="ds-touch-indicator" id="touchIndicator">1 / 4</span>
+            <button type="button" class="ds-touch-nav-btn" id="touchNext">Next ▶</button>
+          </div>
+        </div>
+
+        <!-- Action Buttons Right -->
+        <div class="ds-abxy-col">
+          <div class="ds-abxy">
+            <button type="button" class="ds-btn ds-btn-x" aria-label="X">X</button>
+            <button type="button" class="ds-btn ds-btn-y" aria-label="Y">Y</button>
+            <button type="button" class="ds-btn ds-btn-b" aria-label="B">B</button>
+            <button type="button" class="ds-btn ds-btn-a" id="dsBtnA" aria-label="A">A</button>
+          </div>
+          <div class="ds-start-select">
+            <button type="button" class="ds-pill-btn" aria-label="Select">SELECT</button>
+            <button type="button" class="ds-pill-btn" aria-label="Start">START</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </section>
+
+      <!-- Experiment 2: Study Buddy Desktop Web Simulator -->
+      <section class="about-section" id="lab-studybuddy">
+        <div class="section-badge"><span>02</span> Shipped Product</div>
+        <div class="section-head-row">
+          <div>
+            <h2 class="section-heading">Study Buddy — Focus &amp; Break Companion</h2>
+            <p class="sx-sub">A cross-platform desktop utility designed to maintain flow state through gentle pomodoro intervals and scheduled hydration check-ins. Built with Electron and Gemini 4 Argon, packaged across macOS, Windows, and Linux.</p>
+          </div>
+        </div>
+        <div class="sb-showcase-card">
+          <div class="sb-showcase-frame">
+            <img src="assets/images/study-buddy.png" alt="Study Buddy Desktop Focus Companion preview" class="sb-showcase-img" loading="lazy">
+            <div class="sb-showcase-overlay">
+              <span class="sb-showcase-badge">Desktop Companion • Electron &amp; AI</span>
+            </div>
+          </div>
+          <div class="sb-showcase-caption">
+            <h3>Study Buddy — Focus &amp; Break Companion</h3>
+            <p>A lightweight desktop companion app designed to keep students in flow with gentle break nudges and study presets. Built with Gemini 4 Argon and Electron.</p>
+            <div class="sb-showcase-links">
+              <a href="https://github.com/EricArielDeLaPaz/study-buddy-desktop" target="_blank" rel="noopener" class="sx-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                <span>GitHub Repo</span>
+              </a>
+              <a href="case-studies/study-buddy.html" class="sx-btn sx-btn-primary">
+                <span>View Full Case Study</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <!-- Experiment 4: AI Design Library Teaser -->
+      <section class="about-section" id="lab-ai-teaser">
+        <div class="section-badge"><span>04</span> Future Release</div>
+        <div class="ai-teaser-card">
+          <div class="ai-teaser-copy">
+            <span class="ai-chip">In Development</span>
+            <h2>AI Design Library &amp; Font Pairing Database</h2>
+            <p>A dual-purpose knowledge repository designed for both humans and AI agents. It curates high-contrast font pairings, tested token scales, and structured system prompts for Claude, Gemini, and v0 to build pristine, production-grade user interfaces.</p>
+            <div class="ai-teaser-tags">
+              <span>Font Pairings</span><span>WCAG Contrast Matrices</span><span>Claude/Gemini Skill System</span><span>Figma Tokens</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+    
+    
+    <aside class="mini-eric-banner is-footer" aria-label="Mini Eric dialogue">
+      <div class="mini-eric-char" title="Click Mini Eric!">
+        <img src="assets/images/mini-eric-thumbsup.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
+      </div>
+      <div class="mini-eric-bubble">
+        <div class="mini-eric-name">Mini Eric </div>
+        <p class="mini-eric-text">Hope you enjoyed the playground! The crimson & black DS is always open for a quick spin.</p>
+      </div>
+    </aside>
+    </div>
+  </main>
+
+  
+  <footer class="sx-footer sx-wrap">
+    <span>© 2026 Eric Ariel De La Paz</span>
+    <div>
+      <a href="mailto:ericforall247@gmail.com"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Email</span></a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a>
+      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><span>GitHub</span></a>
+    </div>
+  </footer>
+  <script src="assets/js/scroll.js"></script>
+</body>
+</html>

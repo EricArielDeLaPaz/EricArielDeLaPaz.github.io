@@ -1,211 +1,586 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eric Ariel De La Paz | Product Designer, Texas</title>
-<meta name="description" content="Product Designer in Texas: token-based Figma design systems, interactive prototypes, and engineering handoff. See case studies and get in touch.">
-<meta name="author" content="Eric Ariel De La Paz">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#070707">
-<link rel="canonical" href="https://ericarieldelapaz.tech/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Eric Ariel De La Paz">
-<meta property="og:title" content="Eric Ariel De La Paz | Product Designer">
-<meta property="og:description" content="Token-based design systems, interactive prototypes, and engineering handoff. Case studies from Flyrank AI and self-initiated work.">
-<meta property="og:url" content="https://ericarieldelapaz.tech/">
-<meta property="og:image" content="https://ericarieldelapaz.tech/assets/images/og-image.png">
-<meta property="og:image:alt" content="Eric Ariel De La Paz, Product Designer">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Eric Ariel De La Paz | Product Designer">
-<meta name="twitter:description" content="Token-based design systems, interactive prototypes, and engineering handoff.">
-<meta name="twitter:image" content="https://ericarieldelapaz.tech/assets/images/og-image.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://ericarieldelapaz.tech/#website", "url": "https://ericarieldelapaz.tech/", "name": "Eric Ariel De La Paz | Product Designer Portfolio", "inLanguage": "en-US"}, {"@type": "Person", "@id": "https://ericarieldelapaz.tech/#person", "name": "Eric Ariel De La Paz", "url": "https://ericarieldelapaz.tech/", "image": "https://ericarieldelapaz.tech/assets/images/profile.png", "jobTitle": "Product Designer", "description": "Product Designer focused on design systems, interaction design, and prototyping.", "address": {"@type": "PostalAddress", "addressRegion": "TX", "addressCountry": "US"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "Western Governors University"}, "knowsAbout": ["UX design", "Product design", "Design systems", "Figma", "Prototyping", "Information architecture", "UX research", "Accessibility"], "sameAs": ["https://www.linkedin.com/in/eric-ariel-de-la-paz/", "https://github.com/EricArielDeLaPaz"]}]}</script>
-<link rel="icon" type="image/png" href="assets/images/profile.png">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/scroll.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Ariel De La Paz | Product Designer, Texas</title>
+  <meta name="description" content="Portfolio of Eric Ariel De La Paz, a Product Designer focused on design systems, token architecture, interaction design, and clickable prototypes.">
+  <link rel="icon" type="image/png" href="assets/images/profile.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/scroll.css">
 </head>
-<body class="sx-page">
-<a class="sx-skip" href="#work">Skip to work</a>
-<header class="sx-nav-wrap">
-  <nav class="sx-nav" aria-label="Primary">
-    <a class="sx-brand" href="#top" aria-label="Eric Ariel De La Paz, home"><img src="assets/images/profile.png" alt="" width="28" height="28"><span>De La Paz</span></a>
-    <span class="sx-nav-sep" aria-hidden="true"></span>
-    <a href="#work" data-spy="work">Work</a>
-    <a href="#experience" data-spy="experience">Experience</a>
-    <a href="#process" data-spy="process">Process</a>
-    <a href="#skills" data-spy="skills">Skills</a>
-    <a href="#about" data-spy="about">About</a>
-    <a href="#contact" data-spy="contact">Contact</a>
-    <span class="sx-nav-sep" aria-hidden="true"></span>
-    <span class="sx-status" title="Open to work"><i class="sx-dot" aria-hidden="true"></i><span>Open to work</span></span>
-  </nav>
-</header>
-<main id="top">
-<section class="sx-hero" aria-labelledby="hero-title">
-  <div class="sx-wrap sx-hero-grid">
-    <div class="sx-hero-copy">
-      <p class="sx-kicker"><i class="sx-dot" aria-hidden="true"></i> Hi, I'm Eric. Open to Product Design roles</p>
-      <h1 id="hero-title">Product Designer: systems, flows, prototypes.</h1>
-      <p class="sx-lede">I design token-based Figma systems and clickable prototypes that engineers can build from. Texas-based, open to work.</p>
-      <ul class="sx-badges" aria-label="At a glance">
-        <li>Texas (Open to Remote &amp; Relocation)</li><li>2 Concurrent Design Internships (Flyrank AI &amp; Stealth Startup)</li><li>Design Systems &amp; Token Architecture</li><li>B.S. User Experience Design, Western Governors University</li>
-      </ul>
-      <div class="sx-cta"><a class="sx-btn" href="mailto:ericforall247@gmail.com"><svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Email</span></a><a class="sx-btn" href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a><a class="sx-btn" href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener"><svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg><span>Resume</span></a><a class="sx-btn sx-btn-primary" href="#work"><svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg><span>View my work</span></a></div>
-    </div>
-    <figure class="sx-portrait"><img src="assets/images/profile.png" alt="Eric Ariel De La Paz" width="320" height="427" fetchpriority="high"></figure>
-  </div>
-  <ul class="sx-statbar sx-wrap" aria-label="Highlights">
-    <li class="is-text"><b>Design Tokens</b><span>Centralized semantic variables across mobile &amp; web</span></li>
-    <li class="is-text"><b>Global Scale</b><span>One token update propagates across all components</span></li>
-    <li><b>~30</b><span>screens designed and refined</span></li>
-    <li><b>30+ min</b><span>saved per prototype demo</span></li>
-  </ul>
-</section>
+<body class="sx-page is-light" data-nav="home">
+  <a class="sx-skip" href="#work">Skip to work</a>
+  
+  
+  <header class="sx-nav-wrap">
+    <nav class="sx-nav" aria-label="Main navigation">
+      <a class="sx-brand" href="index.html" aria-label="Eric Ariel De La Paz, home">
+        <img src="assets/images/profile.png" alt="" width="28" height="28">
+        <span>De La Paz</span>
+      </a>
+      <span class="sx-nav-sep" aria-hidden="true"></span>
+      <a href="index.html" class="sx-nav-link is-active">Home</a>
+      <a href="about.html" class="sx-nav-link">About</a>
+      <a href="playground.html" class="sx-nav-link">Playground</a>
+      <button type="button" class="sx-nav-info-btn" id="infoBtn" aria-expanded="false" aria-controls="infoPopover" title="Open Quick Contact & Info">
+        <span>Info</span>
+        <svg class="sx-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <span class="sx-nav-sep" aria-hidden="true"></span>
+      <span class="sx-status" title="Open to work"><i class="sx-dot" aria-hidden="true"></i><span>Open to work</span></span>
+    </nav>
 
-<section class="sx-section" id="work" aria-labelledby="work-title">
-  <div class="sx-wrap">
-    <p class="sx-kicker">Selected work</p>
-    <h2 id="work-title">Case studies</h2>
-    <p class="sx-sub">Self-initiated and internship projects. Open any one for the full story.</p>
-    <div class="project-grid sx-projects">
-<a class="workspace-card card-studybuddy" href="case-studies/study-buddy.html" data-case-study="Study Buddy">
-            <div class="card-art"><img loading="lazy" src="assets/images/study-buddy.png" alt="Study Buddy desktop focus companion app"></div>
-            <div class="card-details">
-              <div class="card-title"><div><h2>Study Buddy — Desktop Focus Companion</h2></div></div>
-              <strong class="card-role">Solo Product Designer</strong>
-              <div class="card-tags"><span>Desktop App (Windows / Mac / Linux)</span><span>Design Systems</span><span>AI-Assisted Build</span><span>Interactive Overlay</span><span>WCAG AA</span></div>
-              <p class="card-problem"><b>Problem:</b> Unstructured study sessions lead to digital distraction, while rigid timers disrupt deep focus.</p>
-              <p>Designed a floating desktop overlay in Figma, then built and shipped cross-platform installers by directing AI through staged commits.</p>
-              <p class="card-outcome"><b>Outcome:</b> Shipped working installers across 3 operating systems in ~14 hours of build time. Dogfooded daily to eliminate edge cases.</p>
+    <!-- Floating Info Dropdown Drawer -->
+    <div class="sx-info-popover" id="infoPopover" role="dialog" aria-modal="false" aria-label="Quick contact & information" hidden>
+      <div class="info-card">
+        <div class="info-header">
+          <div class="info-avatar-row">
+            <img src="assets/images/profile.png" alt="Eric Ariel De La Paz" class="info-avatar">
+            <div>
+              <strong class="info-name">Eric Ariel De La Paz</strong>
+              <span class="info-role">Product Designer</span>
             </div>
+          </div>
+        </div>
+        <p class="info-bio">Building tokenized Figma systems, interaction prototypes, and engineering-ready workflows. Texas-based, open to remote and relocation.</p>
+        <div class="info-actions">
+          <button type="button" class="info-btn info-btn-copy" id="copyEmailBtn" data-email="ericforall247@gmail.com" title="Click to copy email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span class="btn-label">Copy Email</span>
+            <span class="copy-toast" id="copyToast" aria-live="polite">Copied!</span>
+          </button>
+          <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener" class="info-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <span>LinkedIn</span>
           </a>
-<a class="workspace-card card-secureid" href="case-studies/secureid.html" data-case-study="SecureID">
-            <div class="card-art"><img loading="lazy" src="assets/images/secureid.png" alt="SecureID identity-verification flow and analyst dashboard"></div>
-            <div class="card-details">
-              <div class="card-title"><div><h2>SecureID — Identity Verification &amp; Analyst Review Platform</h2></div></div>
-              <strong class="card-role">Solo Product Designer</strong>
-              <div class="card-tags"><span>Dual-Sided: Mobile &amp; SaaS Dashboard</span><span>Design Tokens</span><span>Clickable Prototype</span><span>Case Triage UX</span><span>Progressive Disclosure</span></div>
-              <p class="card-problem"><b>Problem:</b> Anxious mobile users faced verification drop-off, while fraud analysts struggled with cluttered review queues.</p>
-              <p>Designed an end-user mobile verification journey and a high-throughput desktop analyst dashboard on 1 unified token architecture.</p>
-              <p class="card-outcome"><b>Outcome:</b> 1 shared token system across mobile &amp; web, a 3-action analyst triage pattern (Approve, Escalate, Reject), and a verified Figma prototype.</p>
-            </div>
+          <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener" class="info-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <span>GitHub</span>
           </a>
-<a class="workspace-card card-vextaro" href="case-studies/vextaro.html" data-case-study="Vextaro">
-            <div class="card-art"><img loading="lazy" src="assets/images/vextaro.png" alt="Vextaro luxury formalwear rental app"></div>
-            <div class="card-details">
-              <div class="card-title"><div><h2>Vextaro — Luxury Formalwear Rental App &amp; System</h2></div></div>
-              <strong class="card-role">UX/UI Design Intern · Flyrank AI</strong>
-              <div class="card-tags"><span>Mobile App (iOS &amp; Android)</span><span>Design Systems &amp; Tokens</span><span>UX Research &amp; IA</span><span>WCAG 2.2 AA Audit</span><span>Engineering Handoff</span></div>
-              <p class="card-problem"><b>Problem:</b> Renters cannot try formalwear on before it ships, making fit uncertainty the #1 checkout blocker.</p>
-              <p>Led competitive research to design a specialist fit-confirmation checkpoint, tokenized UI system, and an accessible high-fidelity prototype.</p>
-              <p class="card-outcome"><b>Outcome:</b> 7-section IA, 15/15 WCAG AA contrast checks passed, 35 component variants documented, and a developer-ready handoff package.</p>
-            </div>
+          <a href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener" class="info-btn info-btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+            <span>Resume</span>
           </a>
-<a class="workspace-card card-honda" href="case-studies/honda.html" data-case-study="Honda of Clear Lake">
-            <div class="card-art"><img loading="lazy" src="assets/images/honda.png" alt="Honda of Clear Lake website heuristic evaluation"></div>
-            <div class="card-details">
-              <div class="card-title"><div><h2>Honda of Clear Lake — Dealership Website Usability Audit</h2></div></div>
-              <strong class="card-role">Solo UX Auditor</strong>
-              <div class="card-tags"><span>Responsive Dealership Website</span><span>Heuristic Evaluation</span><span>Nielsen's 10 Heuristics</span><span>Severity Rating (0–4)</span><span>Conversion Optimization</span></div>
-              <p class="card-problem"><b>Problem:</b> Car buyers experienced severe friction finding real-time pricing, trade-in values, and financing terms.</p>
-              <p>Audited the live dealership site against Nielsen's 10 heuristics, identifying 31 usability violations across core conversion paths.</p>
-              <p class="card-outcome"><b>Outcome:</b> Ranked findings on a 0–4 severity scale with annotated redesign proposals and an engineering punch list for 3 critical blockers.</p>
-            </div>
-          </a>
-<a class="workspace-card card-devtective" href="case-studies/devtective.html" data-case-study="DevTective">
-            <div class="card-art"><img loading="lazy" src="assets/images/devtective.png" alt="DevTective coding progress tracker app"></div>
-            <div class="card-details">
-              <div class="card-title"><div><h2>DevTective — Developer Learning Progress &amp; Habit Tracker</h2></div></div>
-              <strong class="card-role">Solo UX Designer</strong>
-              <div class="card-tags"><span>Mobile Web App</span><span>Google UX Certificate</span><span>User Research</span><span>Journey Mapping</span><span>Wireframe to Prototype</span></div>
-              <p class="card-problem"><b>Problem:</b> Self-taught coders face high drop-off rates due to cognitive overload and lack of structured milestone tracking.</p>
-              <p>Conducted user interviews, mapped emotional journeys, and designed low-to-high fidelity flows to help beginners sustain daily learning habits.</p>
-              <p class="card-outcome"><b>Outcome:</b> Completed end-to-end UX research foundation, personas, wireframes, and responsive interactive prototype.</p>
-            </div>
-          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="sx-section" id="experience" aria-labelledby="exp-title">
-  <div class="sx-wrap">
-    <p class="sx-kicker">Experience</p>
-    <h2 id="exp-title">Two design internships, running in parallel</h2>
-    <div class="sx-exp">
-      <article class="sx-exp-card">
-        <header>
-          <h3>Product Design Intern</h3>
-          <p>Stealth Startup · Jul 2026 – Present · Remote</p>
-        </header>
-        <ul class="hero-bullets">
-          <li><strong>End-to-End System Creation:</strong> Led a token-based Figma system from scratch across 2 mobile apps and a desktop dashboard as 1 of ~5 design interns.</li>
-          <li><strong>High-Fidelity Prototyping:</strong> Built complex prototypes with conditional logic and typeable fields, saving 30+ minutes of setup per founder demo.</li>
-          <li><strong>Feature Delivery:</strong> Designed and handed off ~30 responsive screens and modal overlays collaborating directly with engineering and founders.</li>
-          <li><strong>Mentorship &amp; Workshops:</strong> Mentored 2–3 design interns per session and led monthly Figma workshops on Auto Layout and variables.</li>
-          <li class="hero-note">Under NDA; company details confidential.</li>
+  <main class="sx-main" id="main">
+    <div class="sx-wrap">
+      
+    
+    
+    <aside class="mini-eric-banner is-header" aria-label="Mini Eric dialogue">
+      <div class="mini-eric-char" title="Click Mini Eric!">
+        <svg class="mini-eric-avatar" width="82" height="120" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mini Eric thumbs up anime chibi avatar">
+  <defs>
+    <pattern id="head-tweed" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0 3 L3 0 L6 3 L3 6 Z" fill="#4d4c47"/>
+      <path d="M0 0 L1.5 1.5 L0 3 Z" fill="#3a3935"/>
+      <path d="M6 0 L4.5 1.5 L6 3 Z" fill="#3a3935"/>
+      <path d="M3 3 L4.5 4.5 L3 6 Z" fill="#5c5b55"/>
+      <path d="M3 3 L1.5 4.5 L3 6 Z" fill="#5c5b55"/>
+    </pattern>
+    <linearGradient id="head-maroonLining" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a151b"/>
+      <stop offset="100%" stop-color="#6b1d26"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="50" cy="146" rx="34" ry="4" fill="rgba(35, 25, 10, 0.14)"/>
+
+  <!-- Trench Coat Back Flaps / Maroon Lining (Behind Legs) -->
+  <path d="M22 92 C16 112, 14 132, 20 138 C23 134, 28 116, 32 94 Z" fill="url(#head-maroonLining)"/>
+  <path d="M78 92 C84 112, 86 132, 80 138 C77 134, 72 116, 68 94 Z" fill="url(#head-maroonLining)"/>
+  <path d="M19 138 C14 126, 17 106, 23 90 L26 92 C21 110, 19 126, 21 138 Z" fill="#383632"/>
+  <path d="M81 138 C86 126, 83 106, 77 90 L74 92 C79 110, 81 126, 79 138 Z" fill="#383632"/>
+
+  <!-- Legs: Dark Charcoal Trousers -->
+  <path d="M38 96 L36 132 L46 132 L47 98 Z" fill="#2c2d30"/>
+  <path d="M53 98 L54 132 L64 132 L62 96 Z" fill="#2c2d30"/>
+  <line x1="41" y1="116" x2="43" y2="128" stroke="#1f2022" stroke-width="1.2"/>
+  <line x1="59" y1="116" x2="57" y2="128" stroke="#1f2022" stroke-width="1.2"/>
+
+  <!-- Shoes: Dark Brown / Black Oxford Shoes -->
+  <ellipse cx="40" cy="138" rx="8" ry="4.5" fill="#1c1815"/>
+  <ellipse cx="60" cy="138" rx="8" ry="4.5" fill="#1c1815"/>
+  <rect x="33" y="138" width="14" height="3" rx="1.5" fill="#110e0c"/>
+  <rect x="53" y="138" width="14" height="3" rx="1.5" fill="#110e0c"/>
+  <ellipse cx="38" cy="136" rx="4" ry="1.5" fill="#38322c"/>
+  <ellipse cx="58" cy="136" rx="4" ry="1.5" fill="#38322c"/>
+
+  <!-- White Inner Dress Shirt & Collar -->
+  <path d="M44 60 L50 78 L56 60 Z" fill="#f4f3ef"/>
+  <line x1="50" y1="64" x2="50" y2="76" stroke="#d5d3cb" stroke-width="1.2"/>
+  <circle cx="50" cy="70" r="1" fill="#716f68"/>
+
+  <!-- Tweed Buttoned Vest / Waistcoat -->
+  <path d="M38 74 L44 62 L50 78 L56 62 L62 74 L60 102 L50 96 L40 102 Z" fill="#484641"/>
+  <path d="M38 74 L44 62 L50 78 L56 62 L62 74 L60 102 L50 96 L40 102 Z" fill="url(#head-tweed)" opacity="0.6"/>
+  <circle cx="50" cy="82" r="1.3" fill="#23221f"/>
+  <circle cx="50" cy="88" r="1.3" fill="#23221f"/>
+  <circle cx="50" cy="94" r="1.3" fill="#23221f"/>
+
+  <!-- Open Tweed Overcoat / Trench Coat -->
+  <path d="M29 60 L40 60 L42 82 L38 122 L27 126 L24 88 Z" fill="#52504a"/>
+  <path d="M29 60 L40 60 L42 82 L38 122 L27 126 L24 88 Z" fill="url(#head-tweed)" opacity="0.65"/>
+  <path d="M36 60 L43 78 L37 84 L32 68 Z" fill="#3f3d38"/>
+  <rect x="29" y="100" width="10" height="9" rx="1.5" fill="#46443f" stroke="#363430" stroke-width="0.8"/>
+  <circle cx="40" cy="90" r="1.8" fill="#c49a3c" stroke="#8c6a20" stroke-width="0.6"/>
+  <circle cx="39" cy="104" r="1.8" fill="#c49a3c" stroke="#8c6a20" stroke-width="0.6"/>
+
+  <path d="M71 60 L60 60 L58 82 L62 122 L73 126 L76 88 Z" fill="#52504a"/>
+  <path d="M71 60 L60 60 L58 82 L62 122 L73 126 L76 88 Z" fill="url(#head-tweed)" opacity="0.65"/>
+  <path d="M64 60 L57 78 L63 84 L68 68 Z" fill="#3f3d38"/>
+  <rect x="61" y="100" width="10" height="9" rx="1.5" fill="#46443f" stroke="#363430" stroke-width="0.8"/>
+
+  <!-- Left Arm & Hand (Fist at Side) -->
+  <path d="M71 64 L79 88 C79 92, 76 96, 72 96 L67 86" fill="#4b4944"/>
+  <path d="M71 64 L79 88 C79 92, 76 96, 72 96 L67 86" fill="url(#head-tweed)" opacity="0.6"/>
+  <rect x="66" y="90" width="9" height="3" rx="1" fill="#441217"/>
+  <circle cx="70" cy="98" r="4.5" fill="#d8a77d" stroke="#b37e54" stroke-width="0.8"/>
+
+  <!-- Right Arm & Hand: THUMBS UP 👍 -->
+  <path d="M29 64 L21 82 C20 86, 24 90, 28 88 L33 76" fill="#4b4944"/>
+  <path d="M29 64 L21 82 C20 86, 24 90, 28 88 L33 76" fill="url(#head-tweed)" opacity="0.6"/>
+  <rect x="23" y="80" width="9" height="3" rx="1" fill="#441217" transform="rotate(-20 23 80)"/>
+  
+  <g class="thumbs-up">
+    <rect x="19" y="70" width="9" height="11" rx="4" fill="#d8a77d" stroke="#875338" stroke-width="1.2"/>
+    <line x1="20" y1="74" x2="26" y2="74" stroke="#875338" stroke-width="1"/>
+    <line x1="20" y1="77" x2="26" y2="77" stroke="#875338" stroke-width="1"/>
+    <path d="M22 72 C22 64, 25 61, 26 61 C28 61, 28 65, 27 72 Z" fill="#d8a77d" stroke="#875338" stroke-width="1.2"/>
+  </g>
+
+  <!-- Neck -->
+  <rect x="45" y="50" width="10" height="9" rx="2" fill="#c9976b"/>
+
+  <!-- Chibi Head Base -->
+  <ellipse cx="50" cy="38" rx="26" ry="22" fill="#d8a77d"/>
+  <circle cx="24" cy="40" r="4.5" fill="#c9976b"/>
+  <circle cx="76" cy="40" r="4.5" fill="#c9976b"/>
+
+  <!-- Messy Dark Anime Hair -->
+  <path d="M22 38 C20 24, 28 12, 50 12 C72 12, 80 24, 78 38 C72 26, 62 18, 50 18 C38 18, 28 26, 22 38 Z" fill="#201a17"/>
+  <path d="M20 40 Q24 48 22 56 Q28 48 26 40 Z" fill="#201a17"/>
+  <path d="M80 40 Q76 48 78 56 Q72 48 74 40 Z" fill="#201a17"/>
+  <path d="M29 32 Q36 42 42 36 Q34 32 29 32 Z" fill="#201a17"/>
+  <path d="M71 32 Q64 42 58 36 Q66 32 71 32 Z" fill="#201a17"/>
+
+  <!-- Big Round Goggles / Glasses (Grey Lenses, Black Frame) -->
+  <circle cx="37" cy="40" r="11" fill="#141416"/>
+  <circle cx="37" cy="40" r="8.5" fill="#9ba1a6"/>
+  <circle cx="37" cy="40" r="8.5" fill="none" stroke="#2b2d30" stroke-width="1.2"/>
+  <path d="M32 35 L40 43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="41" cy="37" r="1.2" fill="#ffffff" opacity="0.8"/>
+
+  <circle cx="63" cy="40" r="11" fill="#141416"/>
+  <circle cx="63" cy="40" r="8.5" fill="#9ba1a6"/>
+  <circle cx="63" cy="40" r="8.5" fill="none" stroke="#2b2d30" stroke-width="1.2"/>
+  <path d="M58 35 L66 43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="67" cy="37" r="1.2" fill="#ffffff" opacity="0.8"/>
+
+  <rect x="46" y="38" width="8" height="4" rx="2" fill="#141416"/>
+
+  <!-- Warm Chibi Smile below goggles -->
+  <path d="M46 51 Q50 54 54 51" stroke="#875338" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <ellipse cx="28" cy="46" rx="3.5" ry="2" fill="rgba(217, 119, 87, 0.28)"/>
+  <ellipse cx="72" cy="46" rx="3.5" ry="2" fill="rgba(217, 119, 87, 0.28)"/>
+
+  <!-- Tweed Newsboy / Flat Cap -->
+  <path d="M22 28 C26 36, 42 38, 50 38 C58 38, 74 36, 78 28 C70 32, 58 33, 50 33 C42 33, 30 32, 22 28 Z" fill="#d9d6ce" stroke="#201e1b" stroke-width="1.5"/>
+  <path d="M19 28 C16 16, 26 4, 50 4 C74 4, 84 16, 81 28 C74 30, 64 31, 50 31 C36 31, 26 30, 19 28 Z" fill="#52504a" stroke="#201e1b" stroke-width="1.8"/>
+  <path d="M19 28 C16 16, 26 4, 50 4 C74 4, 84 16, 81 28 C74 30, 64 31, 50 31 C36 31, 26 30, 19 28 Z" fill="url(#head-tweed)" opacity="0.7"/>
+  <ellipse cx="50" cy="5" rx="4" ry="2" fill="#302e2a" stroke="#201e1b" stroke-width="1"/>
+  <path d="M50 5 Q42 16 35 28" stroke="#363430" stroke-width="1.4" fill="none"/>
+  <path d="M50 5 Q58 16 65 28" stroke="#363430" stroke-width="1.4" fill="none"/>
+  <polygon points="31,10 39,12 37,21 29,19" fill="#f0ede6" stroke="#2a2926" stroke-width="1.2"/>
+</svg>
+      </div>
+      <div class="mini-eric-bubble">
+        <span class="mini-eric-tag">MINI ERIC</span>
+        <p class="mini-eric-text">Hey! I'm Mini Eric. I see you're looking at my work—you must be looking to hire me!</p>
+      </div>
+    </aside>
+
+      <!-- Hero Section -->
+      <section class="sx-hero sx-reveal" id="hero">
+        <div class="sx-hero-grid">
+          <div class="sx-hero-copy">
+            <p class="sx-kicker"><i class="sx-dot" aria-hidden="true"></i> Hi, I'm Eric. Open to product design roles</p>
+            <h1 id="hero-title">Product Designer: systems, flows, prototypes.</h1>
+            <p class="sx-lede">I design token-based Figma systems and clickable prototypes that engineers can build from. Texas-based, open to work.</p>
+            <ul class="sx-badges" aria-label="At a glance">
+              <li>Texas (Open to Remote &amp; Relocation)</li>
+              <li>8 months of Internship experience (Flyrank AI &amp; Stealth Startup)</li>
+              <li>Design Systems &amp; Token Architecture</li>
+              <li>B.S. User Experience Design, Western Governors University</li>
+            </ul>
+            <div class="sx-cta">
+              <a class="sx-btn" href="mailto:ericforall247@gmail.com">
+                <svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>Email</span>
+              </a>
+              <a class="sx-btn" href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">
+                <svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a class="sx-btn" href="assets/Eric_De_La_Paz_Resume.pdf" target="_blank" rel="noopener">
+                <svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+                <span>Resume</span>
+              </a>
+              <a class="sx-btn sx-btn-primary" href="#work">View my work</a>
+            </div>
+          </div>
+          <figure class="sx-portrait">
+            <img src="assets/images/profile.png" alt="Eric Ariel De La Paz" width="320" height="427" fetchpriority="high">
+          </figure>
+        </div>
+
+        <ul class="sx-statbar" aria-label="Highlights">
+          <li class="is-text"><b>Design Tokens</b><span>Centralized semantic variables across mobile &amp; web</span></li>
+          <li class="is-text"><b>Clickable Flows</b><span>9-state interactive branches with zero dead-ends</span></li>
+          <li class="is-text"><b>WCAG 2.2 AA</b><span>15/15 color contrast checks documented in tokens</span></li>
+          <li class="is-text"><b>Implementation Ready</b><span>Production-aligned token bindings, responsive constraints, and variant states</span></li>
         </ul>
-      </article>
-      <article class="sx-exp-card">
-        <header>
-          <h3>UI/UX Design Intern</h3>
-          <p>Flyrank AI · Jul 2026 – Nov 2026 · Remote</p>
-        </header>
-        <ul class="hero-bullets">
-          <li><strong>Design Systems Architecture:</strong> Built a centralized Figma token system (variables, 4-color semantic palette, type scale), eliminating per-screen rework across mobile and web.</li>
-          <li><strong>User Research &amp; Checkpoint:</strong> Synthesized 10+ competitive audits into a pre-checkout fit-confirmation checkpoint to resolve rental sizing anxiety.</li>
-          <li><strong>Accessibility &amp; Design QA:</strong> Audited 15 checks against WCAG 2.2 AA at the token level, resolving text contrast (4.29:1 → 8.31:1) and touch target sizes.</li>
-          <li><strong>Engineering Handoff:</strong> Documented 35 component variants, annotated redlines, and 146 interactive prototype connections for developer handoff.</li>
-        </ul>
-      </article>
+      </section>
+
+      <!-- Selected Works Section (Megan Yap Style Cards) -->
+      <section class="sx-section sx-reveal" id="work">
+        <p class="sx-kicker">Selected Works</p>
+        <h2 id="work-title">Case studies &amp; systems</h2>
+        <p class="sx-sub">Self-initiated, certificate capstones, and internship projects. Click any project to open the full craft breakdown.</p>
+
+        <div class="megan-work-grid">
+          <!-- 1. Study Buddy -->
+          <article class="megan-card card-theme-studybuddy">
+            <a href="case-studies/study-buddy.html" class="megan-card-link" aria-label="View Study Buddy case study">
+              <div class="megan-card-preview">
+                <img loading="lazy" src="assets/images/study-buddy.png" alt="Study Buddy desktop focus companion app" class="megan-card-img">
+                <span class="megan-card-pill">Desktop App · Electron &amp; AI</span>
+              </div>
+              <div class="megan-card-content">
+                <div class="megan-meta-row">
+                  <span class="megan-role">Solo Product Designer</span>
+                  <span class="megan-year">2026</span>
+                </div>
+                <h3 class="megan-title">Study Buddy — Desktop Focus Companion</h3>
+                <p class="megan-desc">A lightweight desktop companion app designed to keep students in flow with gentle break nudges and study presets.</p>
+                <div class="megan-tags">
+                  <span>Windows / Mac / Linux</span><span>Design Systems</span><span>AI-Assisted Build</span><span>WCAG AA</span>
+                </div>
+                <div class="megan-outcome-banner">
+                  <strong>Outcome:</strong> Shipped working installers across 3 OS in ~14h build time. Dogfooded daily to eliminate edge cases.
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- 2. SecureID -->
+          <article class="megan-card card-theme-secureid">
+            <a href="case-studies/secureid.html" class="megan-card-link" aria-label="View SecureID case study">
+              <div class="megan-card-preview">
+                <img loading="lazy" src="assets/images/secureid.png" alt="SecureID identity verification platform" class="megan-card-img">
+                <span class="megan-card-pill">Dual-Sided: Mobile &amp; SaaS</span>
+              </div>
+              <div class="megan-card-content">
+                <div class="megan-meta-row">
+                  <span class="megan-role">Solo Product Designer</span>
+                  <span class="megan-year">2026</span>
+                </div>
+                <h3 class="megan-title">SecureID — Identity Verification &amp; Analyst Platform</h3>
+                <p class="megan-desc">End-to-end identity onboarding flow paired with a high-density triage dashboard for compliance analysts.</p>
+                <div class="megan-tags">
+                  <span>Design Tokens</span><span>Clickable Prototype</span><span>Case Triage UX</span><span>Progressive Disclosure</span>
+                </div>
+                <div class="megan-outcome-banner">
+                  <strong>Outcome:</strong> 1 shared token system across mobile &amp; web, 3-action analyst triage, and verified Figma prototype.
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- 3. Vextaro -->
+          <article class="megan-card card-theme-vextaro">
+            <a href="case-studies/vextaro.html" class="megan-card-link" aria-label="View Vextaro case study">
+              <div class="megan-card-preview">
+                <img loading="lazy" src="assets/images/vextaro.png" alt="Vextaro luxury formalwear rental app" class="megan-card-img">
+                <span class="megan-card-pill">Mobile App · Flyrank AI Internship</span>
+              </div>
+              <div class="megan-card-content">
+                <div class="megan-meta-row">
+                  <span class="megan-role">UX/UI Design Intern · Flyrank AI</span>
+                  <span class="megan-year">Completed</span>
+                </div>
+                <h3 class="megan-title">Vextaro — Luxury Formalwear Rental App &amp; System</h3>
+                <p class="megan-desc">A token-based design system, research-backed IA, 9-state high-fidelity prototype, and developer handoff for men's formalwear rental.</p>
+                <div class="megan-tags">
+                  <span>Mobile App (iOS &amp; Android)</span><span>Tokens</span><span>UX Research &amp; IA</span><span>WCAG 2.2 AA</span>
+                </div>
+                <div class="megan-outcome-banner">
+                  <strong>Outcome:</strong> 7-section IA, 15/15 WCAG AA contrast checks passed, 35 component variants documented.
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- 4. Honda of Clear Lake -->
+          <article class="megan-card card-theme-honda">
+            <a href="case-studies/honda.html" class="megan-card-link" aria-label="View Honda of Clear Lake case study">
+              <div class="megan-card-preview">
+                <img loading="lazy" src="assets/images/honda.png" alt="Honda of Clear Lake dealership heuristic evaluation" class="megan-card-img">
+                <span class="megan-card-pill">UX Audit · Dealership Web</span>
+              </div>
+              <div class="megan-card-content">
+                <div class="megan-meta-row">
+                  <span class="megan-role">Solo UX Auditor</span>
+                  <span class="megan-year">2026</span>
+                </div>
+                <h3 class="megan-title">Honda of Clear Lake — Website Usability Audit</h3>
+                <p class="megan-desc">Heuristic evaluation of an active dealership website using Nielsen's 10 principles with prioritized redesign solutions.</p>
+                <div class="megan-tags">
+                  <span>Responsive Web</span><span>Heuristic Evaluation</span><span>Severity Scale (0–4)</span><span>Conversion UX</span>
+                </div>
+                <div class="megan-outcome-banner">
+                  <strong>Outcome:</strong> Ranked findings on 0–4 scale with annotated redesign proposals and engineering punch lists.
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- 5. DevTective -->
+          <article class="megan-card card-theme-devtective">
+            <a href="case-studies/devtective.html" class="megan-card-link" aria-label="View DevTective case study">
+              <div class="megan-card-preview">
+                <img loading="lazy" src="assets/images/devtective.png" alt="DevTective developer habit tracker app" class="megan-card-img">
+                <span class="megan-card-pill">Google UX Certificate Capstone</span>
+              </div>
+              <div class="megan-card-content">
+                <div class="megan-meta-row">
+                  <span class="megan-role">Solo UX Designer</span>
+                  <span class="megan-year">2026</span>
+                </div>
+                <h3 class="megan-title">DevTective — Developer Learning Progress Tracker</h3>
+                <p class="megan-desc">Mobile web app helping self-taught programmers build persistent coding habits, track milestones, and reflect on progress.</p>
+                <div class="megan-tags">
+                  <span>Mobile Web App</span><span>User Research</span><span>Journey Mapping</span><span>Wireframe to Prototype</span>
+                </div>
+                <div class="megan-outcome-banner">
+                  <strong>Outcome:</strong> Complete 5-phase Google UX design certificate capstone with user testing iterations.
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="sx-section sx-reveal" id="experience">
+        <p class="sx-kicker">Track Record</p>
+        <h2 id="experience-title">Experience &amp; Internships</h2>
+        <div class="experience-list">
+          <!-- Stealth Startup -->
+          <article class="exp-row-card">
+            <div class="exp-header">
+              <div>
+                <span class="exp-company">Stealth Startup</span>
+                <h3 class="exp-role">Product Designer</h3>
+              </div>
+              <span class="exp-badge active"><i class="sx-dot"></i> Active</span>
+            </div>
+            <div class="exp-meta-line">Jul 2026 – Present • Remote • Full-time internship</div>
+            <p class="exp-copy">Leading end-to-end product design across mobile and desktop surfaces. Collaborating directly with founders and engineering to design design-token systems, conduct usability sessions, and hand off production-ready Figma specs.</p>
+          </article>
+
+          <!-- Flyrank AI -->
+          <article class="exp-row-card">
+            <div class="exp-header">
+              <div>
+                <span class="exp-company">Flyrank AI</span>
+                <h3 class="exp-role">UX/UI Design Intern</h3>
+              </div>
+              <span class="exp-badge completed">Completed</span>
+            </div>
+            <div class="exp-meta-line">Jul 2026 – Nov 2026 • Remote • 8-week internship</div>
+            <p class="exp-copy">Delivered Vextaro, a men's luxury formalwear rental app. Built a 35-variant tokenized component system, passed 15/15 WCAG 2.2 AA contrast checks, mapped a 7-section IA, and authored a 9-state high-fidelity prototype with complete developer handoff.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="sx-section sx-reveal sx-contact" id="contact">
+        
+    
+    
+    <aside class="mini-eric-banner is-footer" aria-label="Mini Eric dialogue">
+      <div class="mini-eric-char" title="Click Mini Eric!">
+        <svg class="mini-eric-avatar" width="70" height="104" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mini Eric thumbs up anime chibi avatar">
+  <defs>
+    <pattern id="foot-tweed" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0 3 L3 0 L6 3 L3 6 Z" fill="#4d4c47"/>
+      <path d="M0 0 L1.5 1.5 L0 3 Z" fill="#3a3935"/>
+      <path d="M6 0 L4.5 1.5 L6 3 Z" fill="#3a3935"/>
+      <path d="M3 3 L4.5 4.5 L3 6 Z" fill="#5c5b55"/>
+      <path d="M3 3 L1.5 4.5 L3 6 Z" fill="#5c5b55"/>
+    </pattern>
+    <linearGradient id="foot-maroonLining" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a151b"/>
+      <stop offset="100%" stop-color="#6b1d26"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="50" cy="146" rx="34" ry="4" fill="rgba(35, 25, 10, 0.14)"/>
+
+  <!-- Trench Coat Back Flaps / Maroon Lining (Behind Legs) -->
+  <path d="M22 92 C16 112, 14 132, 20 138 C23 134, 28 116, 32 94 Z" fill="url(#foot-maroonLining)"/>
+  <path d="M78 92 C84 112, 86 132, 80 138 C77 134, 72 116, 68 94 Z" fill="url(#foot-maroonLining)"/>
+  <path d="M19 138 C14 126, 17 106, 23 90 L26 92 C21 110, 19 126, 21 138 Z" fill="#383632"/>
+  <path d="M81 138 C86 126, 83 106, 77 90 L74 92 C79 110, 81 126, 79 138 Z" fill="#383632"/>
+
+  <!-- Legs: Dark Charcoal Trousers -->
+  <path d="M38 96 L36 132 L46 132 L47 98 Z" fill="#2c2d30"/>
+  <path d="M53 98 L54 132 L64 132 L62 96 Z" fill="#2c2d30"/>
+  <line x1="41" y1="116" x2="43" y2="128" stroke="#1f2022" stroke-width="1.2"/>
+  <line x1="59" y1="116" x2="57" y2="128" stroke="#1f2022" stroke-width="1.2"/>
+
+  <!-- Shoes: Dark Brown / Black Oxford Shoes -->
+  <ellipse cx="40" cy="138" rx="8" ry="4.5" fill="#1c1815"/>
+  <ellipse cx="60" cy="138" rx="8" ry="4.5" fill="#1c1815"/>
+  <rect x="33" y="138" width="14" height="3" rx="1.5" fill="#110e0c"/>
+  <rect x="53" y="138" width="14" height="3" rx="1.5" fill="#110e0c"/>
+  <ellipse cx="38" cy="136" rx="4" ry="1.5" fill="#38322c"/>
+  <ellipse cx="58" cy="136" rx="4" ry="1.5" fill="#38322c"/>
+
+  <!-- White Inner Dress Shirt & Collar -->
+  <path d="M44 60 L50 78 L56 60 Z" fill="#f4f3ef"/>
+  <line x1="50" y1="64" x2="50" y2="76" stroke="#d5d3cb" stroke-width="1.2"/>
+  <circle cx="50" cy="70" r="1" fill="#716f68"/>
+
+  <!-- Tweed Buttoned Vest / Waistcoat -->
+  <path d="M38 74 L44 62 L50 78 L56 62 L62 74 L60 102 L50 96 L40 102 Z" fill="#484641"/>
+  <path d="M38 74 L44 62 L50 78 L56 62 L62 74 L60 102 L50 96 L40 102 Z" fill="url(#foot-tweed)" opacity="0.6"/>
+  <circle cx="50" cy="82" r="1.3" fill="#23221f"/>
+  <circle cx="50" cy="88" r="1.3" fill="#23221f"/>
+  <circle cx="50" cy="94" r="1.3" fill="#23221f"/>
+
+  <!-- Open Tweed Overcoat / Trench Coat -->
+  <path d="M29 60 L40 60 L42 82 L38 122 L27 126 L24 88 Z" fill="#52504a"/>
+  <path d="M29 60 L40 60 L42 82 L38 122 L27 126 L24 88 Z" fill="url(#foot-tweed)" opacity="0.65"/>
+  <path d="M36 60 L43 78 L37 84 L32 68 Z" fill="#3f3d38"/>
+  <rect x="29" y="100" width="10" height="9" rx="1.5" fill="#46443f" stroke="#363430" stroke-width="0.8"/>
+  <circle cx="40" cy="90" r="1.8" fill="#c49a3c" stroke="#8c6a20" stroke-width="0.6"/>
+  <circle cx="39" cy="104" r="1.8" fill="#c49a3c" stroke="#8c6a20" stroke-width="0.6"/>
+
+  <path d="M71 60 L60 60 L58 82 L62 122 L73 126 L76 88 Z" fill="#52504a"/>
+  <path d="M71 60 L60 60 L58 82 L62 122 L73 126 L76 88 Z" fill="url(#foot-tweed)" opacity="0.65"/>
+  <path d="M64 60 L57 78 L63 84 L68 68 Z" fill="#3f3d38"/>
+  <rect x="61" y="100" width="10" height="9" rx="1.5" fill="#46443f" stroke="#363430" stroke-width="0.8"/>
+
+  <!-- Left Arm & Hand (Fist at Side) -->
+  <path d="M71 64 L79 88 C79 92, 76 96, 72 96 L67 86" fill="#4b4944"/>
+  <path d="M71 64 L79 88 C79 92, 76 96, 72 96 L67 86" fill="url(#foot-tweed)" opacity="0.6"/>
+  <rect x="66" y="90" width="9" height="3" rx="1" fill="#441217"/>
+  <circle cx="70" cy="98" r="4.5" fill="#d8a77d" stroke="#b37e54" stroke-width="0.8"/>
+
+  <!-- Right Arm & Hand: THUMBS UP 👍 -->
+  <path d="M29 64 L21 82 C20 86, 24 90, 28 88 L33 76" fill="#4b4944"/>
+  <path d="M29 64 L21 82 C20 86, 24 90, 28 88 L33 76" fill="url(#foot-tweed)" opacity="0.6"/>
+  <rect x="23" y="80" width="9" height="3" rx="1" fill="#441217" transform="rotate(-20 23 80)"/>
+  
+  <g class="thumbs-up">
+    <rect x="19" y="70" width="9" height="11" rx="4" fill="#d8a77d" stroke="#875338" stroke-width="1.2"/>
+    <line x1="20" y1="74" x2="26" y2="74" stroke="#875338" stroke-width="1"/>
+    <line x1="20" y1="77" x2="26" y2="77" stroke="#875338" stroke-width="1"/>
+    <path d="M22 72 C22 64, 25 61, 26 61 C28 61, 28 65, 27 72 Z" fill="#d8a77d" stroke="#875338" stroke-width="1.2"/>
+  </g>
+
+  <!-- Neck -->
+  <rect x="45" y="50" width="10" height="9" rx="2" fill="#c9976b"/>
+
+  <!-- Chibi Head Base -->
+  <ellipse cx="50" cy="38" rx="26" ry="22" fill="#d8a77d"/>
+  <circle cx="24" cy="40" r="4.5" fill="#c9976b"/>
+  <circle cx="76" cy="40" r="4.5" fill="#c9976b"/>
+
+  <!-- Messy Dark Anime Hair -->
+  <path d="M22 38 C20 24, 28 12, 50 12 C72 12, 80 24, 78 38 C72 26, 62 18, 50 18 C38 18, 28 26, 22 38 Z" fill="#201a17"/>
+  <path d="M20 40 Q24 48 22 56 Q28 48 26 40 Z" fill="#201a17"/>
+  <path d="M80 40 Q76 48 78 56 Q72 48 74 40 Z" fill="#201a17"/>
+  <path d="M29 32 Q36 42 42 36 Q34 32 29 32 Z" fill="#201a17"/>
+  <path d="M71 32 Q64 42 58 36 Q66 32 71 32 Z" fill="#201a17"/>
+
+  <!-- Big Round Goggles / Glasses (Grey Lenses, Black Frame) -->
+  <circle cx="37" cy="40" r="11" fill="#141416"/>
+  <circle cx="37" cy="40" r="8.5" fill="#9ba1a6"/>
+  <circle cx="37" cy="40" r="8.5" fill="none" stroke="#2b2d30" stroke-width="1.2"/>
+  <path d="M32 35 L40 43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="41" cy="37" r="1.2" fill="#ffffff" opacity="0.8"/>
+
+  <circle cx="63" cy="40" r="11" fill="#141416"/>
+  <circle cx="63" cy="40" r="8.5" fill="#9ba1a6"/>
+  <circle cx="63" cy="40" r="8.5" fill="none" stroke="#2b2d30" stroke-width="1.2"/>
+  <path d="M58 35 L66 43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="67" cy="37" r="1.2" fill="#ffffff" opacity="0.8"/>
+
+  <rect x="46" y="38" width="8" height="4" rx="2" fill="#141416"/>
+
+  <!-- Warm Chibi Smile below goggles -->
+  <path d="M46 51 Q50 54 54 51" stroke="#875338" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <ellipse cx="28" cy="46" rx="3.5" ry="2" fill="rgba(217, 119, 87, 0.28)"/>
+  <ellipse cx="72" cy="46" rx="3.5" ry="2" fill="rgba(217, 119, 87, 0.28)"/>
+
+  <!-- Tweed Newsboy / Flat Cap -->
+  <path d="M22 28 C26 36, 42 38, 50 38 C58 38, 74 36, 78 28 C70 32, 58 33, 50 33 C42 33, 30 32, 22 28 Z" fill="#d9d6ce" stroke="#201e1b" stroke-width="1.5"/>
+  <path d="M19 28 C16 16, 26 4, 50 4 C74 4, 84 16, 81 28 C74 30, 64 31, 50 31 C36 31, 26 30, 19 28 Z" fill="#52504a" stroke="#201e1b" stroke-width="1.8"/>
+  <path d="M19 28 C16 16, 26 4, 50 4 C74 4, 84 16, 81 28 C74 30, 64 31, 50 31 C36 31, 26 30, 19 28 Z" fill="url(#foot-tweed)" opacity="0.7"/>
+  <ellipse cx="50" cy="5" rx="4" ry="2" fill="#302e2a" stroke="#201e1b" stroke-width="1"/>
+  <path d="M50 5 Q42 16 35 28" stroke="#363430" stroke-width="1.4" fill="none"/>
+  <path d="M50 5 Q58 16 65 28" stroke="#363430" stroke-width="1.4" fill="none"/>
+  <polygon points="31,10 39,12 37,21 29,19" fill="#f0ede6" stroke="#2a2926" stroke-width="1.2"/>
+</svg>
+      </div>
+      <div class="mini-eric-bubble">
+        <span class="mini-eric-tag">MINI ERIC</span>
+        <p class="mini-eric-text">Thanks for reviewing my portfolio! Let's connect—I'd love to chat about product design roles.</p>
+      </div>
+    </aside>
+        <p class="sx-kicker">Get in Touch</p>
+        <h2 id="contact-title">Let's build something useful.</h2>
+        <p class="sx-sub">I am looking for a Product Designer role where I can build the system behind the screens. If your team is hiring, I would love to talk. Send me an email or connect on LinkedIn.</p>
+        <div class="sx-cta">
+          <a class="sx-btn sx-btn-primary" href="mailto:ericforall247@gmail.com">
+            <svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>Email</span>
+          </a>
+          <a class="sx-btn" href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">
+            <svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <span>Connect on LinkedIn</span>
+          </a>
+          <a class="sx-btn" href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">
+            <svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
+  </main>
 
-<section class="sx-section" id="process" aria-labelledby="process-title">
-  <div class="sx-wrap">
-    <p class="sx-kicker">How I work</p>
-    <h2 id="process-title">Fast, with a human in the loop.</h2>
-    <p class="sx-sub">My AI-assisted process, with Study Buddy as the example.</p>
-    <ol class="hero-flow hero-map"><li><b>01</b><strong>Design first</strong><span>I design the product in Figma before any code exists.</span><em><i>Study Buddy:</i> a floating desktop focus companion, designed screen by screen.</em></li><li><b>02</b><strong>Write staged change lists</strong><span>I break the build into small, ordered requests for the AI.</span><em><i>Study Buddy:</i> the app was built in stages, one change list at a time.</em></li><li><b>03</b><strong>AI builds a round</strong><span>The AI writes the code for that stage.</span><em><i>Study Buddy:</i> Electron, React, and TypeScript across 40+ commits.</em></li><li><b>04</b><strong>Review against designs</strong><span>I check every round against my Figma designs.</span><em><i>Study Buddy:</i> each round compared with the original screens.</em></li><li><b>05</b><strong>Decide and correct</strong><span>I cut, fix, and redirect what does not hold up.</span><em><i>Study Buddy:</i> cut features, fixed contrast failures, changed window behavior.</em></li><li><b>06</b><strong>Ship</strong><span>I repeat steps 3 to 5 until it is ready to use.</span><em><i>Study Buddy:</i> about 14 hours of active build time; Windows, Mac, and Linux installers.</em></li></ol>
-    <p class="hero-flow-tools">I use AI to move quickly and stay accountable for what ships. Build time counted from commit timestamps.</p>
-  </div>
-</section>
-
-<section class="sx-section" id="skills" aria-labelledby="skills-title">
-  <div class="sx-wrap">
-    <p class="sx-kicker">Skills and tools</p>
-    <h2 id="skills-title">From research to engineering handoff</h2>
-    <ol class="hero-flow"><li><b>01 · Understand</b><span>UX research</span><span>Usability testing</span><span>Information architecture</span><span>User flows</span></li><li><b>02 · Systematize</b><span>Design systems</span><span>Tokens &amp; variables</span><span>Responsive design</span><span>WCAG accessibility</span></li><li><b>03 · Prototype</b><span>Wireframing</span><span>Interactive prototyping</span><span>Figma</span><span>HTML &amp; CSS</span></li><li><b>04 · Hand off</b><span>Engineering handoff</span><span>Specs &amp; annotations</span><span>AI-assisted React &amp; TypeScript</span></li></ol>
-    <p class="hero-flow-tools">AI in my workflow: Claude, Gemini, GitHub Copilot, Granola AI. Every output reviewed against user needs.</p>
-  </div>
-</section>
-
-<section class="sx-section" id="about" aria-labelledby="about-title">
-  <div class="sx-wrap sx-about">
+  
+  <footer class="sx-footer sx-wrap">
+    <span>© 2026 Eric Ariel De La Paz</span>
     <div>
-      <p class="sx-kicker">About</p>
-      <h2 id="about-title">Precise decisions, not just good-looking screens.</h2>
-      <p class="sx-sub">I pair UX research and information architecture with advanced Figma prototyping, grounding every decision in competitive audits, desk research, and the complaints people actually have.</p>
+      <a href="mailto:ericforall247@gmail.com"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Email</span></a>
+      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a>
+      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><span>GitHub</span></a>
     </div>
-    <div>
-      <p class="sx-kicker">Education</p>
-      <div class="hero-edu"><div class="hero-edu-card"><span>DEGREE</span><strong>B.S. in User Experience Design</strong><small>Western Governors University · expected Nov 2026</small></div><div class="hero-edu-card"><span>CERTIFICATE</span><strong>Google UX Design Professional Certificate</strong><small>Coursera · expected Nov 2026</small></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sx-section sx-contact" id="contact" aria-labelledby="contact-title">
-  <div class="sx-wrap">
-    <p class="sx-kicker">Contact</p>
-    <h2 id="contact-title">Let's build something useful.</h2>
-    <p class="sx-sub">I am looking for a Product Designer role where I can build the system behind the screens. If your team is hiring, I would love to talk. Send me a note or connect on LinkedIn, and I can walk you through any case study.</p>
-    <div class="sx-cta"><a class="sx-btn sx-btn-primary" href="mailto:ericforall247@gmail.com"><svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Email</span></a><a class="sx-btn" href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg><span>Connect on LinkedIn</span></a><a class="sx-btn" href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener"><svg class="sx-btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><span>GitHub</span></a></div>
-  </div>
-</section>
-</main>
-<footer class="sx-footer sx-wrap"><span>© 2026 Eric Ariel De La Paz</span><div><a href="mailto:ericforall247@gmail.com"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Email</span></a><a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a><a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener"><svg class="sx-footer-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><span>GitHub</span></a></div></footer>
-<script src="assets/js/scroll.js"></script>
-<script src="assets/js/halloween.js"></script>
+  </footer>
+  <script src="assets/js/scroll.js"></script>
 </body>
 </html>
