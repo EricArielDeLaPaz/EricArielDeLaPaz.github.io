@@ -10,17 +10,14 @@ const indexPath = 'index.html';
 if (fs.existsSync(indexPath)) {
   let indexHtml = fs.readFileSync(indexPath, 'utf8');
 
-  // Font links
   if (indexHtml.includes('fonts.googleapis.com/css2?family=')) {
     indexHtml = indexHtml.replace(/<link[^>]+fonts\.googleapis\.com\/css2\?[^>]+>/i, googleFontsLink);
   } else {
     indexHtml = indexHtml.replace('</head>', '  ' + googleFontsLink + '\n</head>');
   }
 
-  // Remove redundant subtitle paragraphs across sections
   indexHtml = indexHtml.replace(/<p class="sx-sub">[\s\S]*?<\/p>\s*/gi, '');
 
-  // Refine section headers & kickers
   indexHtml = indexHtml.replace(
     /<p class="sx-kicker"><i class="sx-dot"[^>]*><\/i>[^<]*<\/p>/i,
     '<p class="sx-kicker"><i class="sx-dot" aria-hidden="true"></i> Product Designer · Available for Full-Time Roles</p>'
@@ -51,7 +48,7 @@ if (fs.existsSync(indexPath)) {
     '<p class="sx-kicker">DIRECT CHANNELS</p>\n    <h2 id="contact-title">Ready for Your Design Team</h2>'
   );
 
-  // Clean Work section replacement (Cards View active by default + Pokédex Console)
+  // Clean Work section replacement
   const workSectionHtml = `<section class="sx-section" id="work" aria-labelledby="work-title">
   <div class="sx-wrap">
     <div class="work-header-wrap">
@@ -148,18 +145,19 @@ if (fs.existsSync(indexPath)) {
             </div>
             <div class="summary-line">
               <span class="summary-lbl summary-delta">OUTCOME</span>
-              <span class="summary-val">Cut end-user drop-off with contextual biometric guidance; reduced review latency with batch triage HUD.</span>
+              <span class="summary-val">1 shared token system across mobile &amp; web, 3-action analyst triage pattern, verified Figma prototype.</span>
             </div>
           </div>
           <div class="card-tags">
-            <span>Mobile Web &amp; Desktop SaaS</span>
-            <span>Security UX</span>
-            <span>Analyst Queues</span>
+            <span>Dual-Sided: Mobile &amp; SaaS Dashboard</span>
             <span>Design Tokens</span>
+            <span>Clickable Prototype</span>
+            <span>Case Triage UX</span>
+            <span>Progressive Disclosure</span>
           </div>
           <div class="card-action-bar">
             <span class="btn-pill-primary">Read Full Case Study →</span>
-            <span class="btn-pill-secondary" data-href="https://www.figma.com/proto/t7kO672QvC5qQ7dNu8w0yX/SecureID-Case-Study?node-id=1-2&scaling=scale-down&page-id=0%3A1">Figma Prototype ↗</span>
+            <span class="btn-pill-secondary" data-href="https://www.figma.com/proto/lkyBLNn8aDnai9EJADZQ7e/SecureID?node-id=148-4058&viewport=326%2C414%2C0.05&t=iJAA0fPXCSZhktzN-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=148%3A4058&show-proto-sidebar=1&page-id=41%3A3813">Figma Prototype ↗</span>
           </div>
         </div>
       </a>
@@ -168,82 +166,84 @@ if (fs.existsSync(indexPath)) {
       <a class="workspace-card tcg-card card-vextaro" href="case-studies/vextaro.html" data-case-study="Vextaro">
         <div class="tcg-glare" aria-hidden="true"></div>
         <div class="card-art tcg-art">
-          <img loading="lazy" src="assets/images/vextaro.png" alt="Vextaro real estate investment platform">
+          <img loading="lazy" src="assets/images/vextaro.png" alt="Vextaro luxury formalwear rental app">
         </div>
         <div class="card-details tcg-body">
           <div class="tcg-header">
-            <span class="tcg-no">NO. 003 // FINTECH HUD</span>
-            <span class="tcg-type-badge"><i class="tcg-type-dot"></i> STEEL / FINTECH</span>
+            <span class="tcg-no">NO. 003 // LUXURY E-COMMERCE</span>
+            <span class="tcg-type-badge"><i class="tcg-type-dot"></i> STEEL / APPAREL</span>
           </div>
           <div class="card-title-group">
-            <h2 class="card-heading">Vextaro — Fractional Real Estate Investment Platform</h2>
+            <h2 class="card-heading">Vextaro — Luxury Formalwear Rental App &amp; System</h2>
             <div class="card-role-meta">
-              <span class="card-role">Solo Product Designer</span>
+              <span class="card-role">UX/UI Design Intern</span>
               <span class="card-role-sep">·</span>
-              <span class="card-context">Fintech Web Application</span>
+              <span class="card-context">Flyrank AI 8-Week Capstone</span>
             </div>
           </div>
           <div class="card-summary-box">
             <div class="summary-line">
               <span class="summary-lbl">FRICTION</span>
-              <span class="summary-val">Retail investors struggle to assess liquidity, projected IRR, and risk across dense real estate offerings.</span>
+              <span class="summary-val">Renters cannot try formalwear on before it ships, making fit uncertainty the #1 checkout blocker.</span>
             </div>
             <div class="summary-line">
               <span class="summary-lbl summary-delta">OUTCOME</span>
-              <span class="summary-val">Built transparent waterfall metrics, secondary-market trading cues, and an accessible investment checkout.</span>
+              <span class="summary-val">7-section IA, 15/15 WCAG AA contrast passes, 35 component variants, developer handoff package.</span>
             </div>
           </div>
           <div class="card-tags">
-            <span>Web Platform</span>
-            <span>Financial Telemetry</span>
-            <span>Interactive Charts</span>
-            <span>Compliance UX</span>
+            <span>Mobile App (iOS &amp; Android)</span>
+            <span>Design Systems &amp; Tokens</span>
+            <span>UX Research &amp; IA</span>
+            <span>WCAG 2.2 AA Audit</span>
+            <span>Engineering Handoff</span>
           </div>
           <div class="card-action-bar">
             <span class="btn-pill-primary">Read Full Case Study →</span>
-            <span class="btn-pill-secondary" data-href="https://www.figma.com/proto/7JcM2lY6oU4uW9tP0r5x4z/Vextaro-Prototype?node-id=10-4&scaling=scale-down">Figma Prototype ↗</span>
+            <span class="btn-pill-secondary" data-href="https://www.figma.com/proto/fwsFyRAMmhGtRbqeYjq0mZ/Vextaro-Internship-Capstone?node-id=2166-2413&viewport=129%2C25%2C0.06&t=AglpdG5iapGW7Pro-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2166%3A2413&page-id=2166%3A2410">Figma Prototype ↗</span>
           </div>
         </div>
       </a>
 
-      <!-- CARD 04: HONDA AUDIT -->
-      <a class="workspace-card tcg-card card-honda" href="case-studies/honda.html" data-case-study="Honda Audit">
+      <!-- CARD 04: HONDA OF CLEAR LAKE -->
+      <a class="workspace-card tcg-card card-honda" href="case-studies/honda.html" data-case-study="Honda of Clear Lake">
         <div class="tcg-glare" aria-hidden="true"></div>
         <div class="card-art tcg-art">
-          <img loading="lazy" src="assets/images/honda.png" alt="Honda of Clear Lake dealership website usability audit">
+          <img loading="lazy" src="assets/images/honda.png" alt="Honda of Clear Lake website heuristic evaluation">
         </div>
         <div class="card-details tcg-body">
           <div class="tcg-header">
-            <span class="tcg-no">NO. 004 // HEURISTIC AUDIT</span>
+            <span class="tcg-no">NO. 004 // LIVE AUDIT</span>
             <span class="tcg-type-badge"><i class="tcg-type-dot"></i> GROUND / HEURISTICS</span>
           </div>
           <div class="card-title-group">
-            <h2 class="card-heading">Honda of Clear Lake — Dealership Usability &amp; Conversion Audit</h2>
+            <h2 class="card-heading">Honda of Clear Lake — Dealership Website Usability Audit</h2>
             <div class="card-role-meta">
-              <span class="card-role">UX Researcher &amp; Evaluator</span>
+              <span class="card-role">Solo UX Auditor</span>
               <span class="card-role-sep">·</span>
-              <span class="card-context">Real-World Automotive Retail Audit</span>
+              <span class="card-context">Independent Dealership Evaluation</span>
             </div>
           </div>
           <div class="card-summary-box">
             <div class="summary-line">
               <span class="summary-lbl">FRICTION</span>
-              <span class="summary-val">Disorienting multi-tier inventory filters and pop-up lead traps caused 68% estimated test bounce rates.</span>
+              <span class="summary-val">Car buyers experienced severe friction finding real-time pricing, trade-in values, and financing terms.</span>
             </div>
             <div class="summary-line">
               <span class="summary-lbl summary-delta">OUTCOME</span>
-              <span class="summary-val">Audited 10 Nielsen heuristics; redesigned frictionless vehicle comparison grid with upfront pricing.</span>
+              <span class="summary-val">31 usability violations ranked on 0–4 severity scale with annotated redesign punch list for 3 blockers.</span>
             </div>
           </div>
           <div class="card-tags">
+            <span>Responsive Dealership Website</span>
             <span>Heuristic Evaluation</span>
-            <span>Nielsen Norman Group</span>
+            <span>Nielsen's 10 Heuristics</span>
+            <span>Severity Rating (0–4)</span>
             <span>Conversion Optimization</span>
-            <span>E-Commerce UX</span>
           </div>
           <div class="card-action-bar">
-            <span class="btn-pill-primary">Read Full Audit Report →</span>
-            <span class="btn-pill-secondary" data-href="assets/docs/Honda_Usability_Audit.pdf">PDF Summary ↗</span>
+            <span class="btn-pill-primary">Read Full Case Study →</span>
+            <span class="btn-pill-secondary" data-href="case-studies/honda.html#scorecard">Heuristic Scorecard ↗</span>
           </div>
         </div>
       </a>
@@ -252,799 +252,894 @@ if (fs.existsSync(indexPath)) {
       <a class="workspace-card tcg-card card-devtective" href="case-studies/devtective.html" data-case-study="DevTective">
         <div class="tcg-glare" aria-hidden="true"></div>
         <div class="card-art tcg-art">
-          <img loading="lazy" src="assets/images/devtective.png" alt="DevTective developer learning habit tracker">
+          <img loading="lazy" src="assets/images/devtective.png" alt="DevTective coding progress tracker app">
         </div>
         <div class="card-details tcg-body">
           <div class="tcg-header">
-            <span class="tcg-no">NO. 005 // HABIT ENGINE</span>
-            <span class="tcg-type-badge"><i class="tcg-type-dot"></i> GHOST / HABIT ENGINE</span>
+            <span class="tcg-no">NO. 005 // HABIT TRACKER</span>
+            <span class="tcg-type-badge"><i class="tcg-type-dot"></i> GHOST / PROGRESS TRACKING</span>
           </div>
           <div class="card-title-group">
             <h2 class="card-heading">DevTective — Developer Learning Progress &amp; Habit Tracker</h2>
             <div class="card-role-meta">
-              <span class="card-role">Solo Product Designer</span>
+              <span class="card-role">Solo UX Designer</span>
               <span class="card-role-sep">·</span>
-              <span class="card-context">Productivity Web Application</span>
+              <span class="card-context">Google UX Design Certificate</span>
             </div>
           </div>
           <div class="card-summary-box">
             <div class="summary-line">
               <span class="summary-lbl">FRICTION</span>
-              <span class="summary-val">Self-taught developers experience burnout and loss of momentum due to vague milestone definitions.</span>
+              <span class="summary-val">Self-taught coders face high drop-off rates due to cognitive overload and lack of structured milestone tracking.</span>
             </div>
             <div class="summary-line">
               <span class="summary-lbl summary-delta">OUTCOME</span>
-              <span class="summary-val">Designed bite-sized quest loops, streak protection mechanics, and verifiable skill verification trees.</span>
+              <span class="summary-val">End-to-end UX research foundation, personas, wireframes, and responsive interactive prototype.</span>
             </div>
           </div>
           <div class="card-tags">
-            <span>Gamification UX</span>
-            <span>Telemetry Dashboard</span>
-            <span>Behavioral Psychology</span>
-            <span>Mobile-First Web</span>
+            <span>Mobile Web App</span>
+            <span>Google UX Certificate</span>
+            <span>User Research</span>
+            <span>Journey Mapping</span>
+            <span>Wireframe to Prototype</span>
           </div>
           <div class="card-action-bar">
             <span class="btn-pill-primary">Read Full Case Study →</span>
-            <span class="btn-pill-secondary" data-href="https://www.figma.com/proto/5yW1n9O2hP0mX6zK8qR3vT/DevTective?node-id=2-1">Figma Prototype ↗</span>
+            <span class="btn-pill-secondary" data-href="case-studies/devtective.html#prototype">UX Journey Map ↗</span>
           </div>
         </div>
       </a>
 
     </div>
 
-    <!-- VIEW 2: INTERACTIVE POKÉDEX HARDWARE CONSOLE -->
+    <!-- VIEW 2: POKÉDEX HARDWARE CONSOLE — TOGGLED ON DEMAND -->
     <div id="dex-container" class="dex-hardware-wrap" role="tabpanel" aria-labelledby="btn-view-dex" hidden>
       <div class="dex-chassis" id="dex-chassis">
-        
-        <!-- POKÉDEX HARDWARE HEADER -->
         <div class="dex-top-bar">
           <div class="dex-optics">
-            <div class="dex-lens-big" title="Optical Scanner Core">
-              <div class="dex-lens-reflection"></div>
-            </div>
+            <div class="dex-lens-big" title="Optical Scanner Core"><div class="dex-lens-reflection"></div></div>
             <div class="dex-led-cluster">
-              <span class="dex-mini-led led-red" title="Telemetry Power"></span>
-              <span class="dex-mini-led led-yellow" title="Bus Activity"></span>
-              <span class="dex-mini-led led-green" title="Signal Lock"></span>
+              <span class="dex-mini-led led-red"></span>
+              <span class="dex-mini-led led-yellow"></span>
+              <span class="dex-mini-led led-green"></span>
             </div>
           </div>
-          <div class="dex-hardware-brand">
-            <span class="dex-brand-code">AGY-MODEL // DEX-89</span>
-            <span class="dex-brand-label">DESIGN ARCHIVE SYSTEM</span>
+          <div class="dex-top-title">
+            <span class="dex-brand-tag">PRODUCTDEX OS // v2.6.4</span>
+            <span class="dex-brand-sub">HARDWARE SYSTEM TELEMETRY</span>
+          </div>
+          <div class="dex-top-actions">
+            <button class="dex-audio-btn" id="dex-audio-btn" type="button" aria-pressed="false" title="Toggle 8-Bit Audio SFX">
+              <span class="dex-speaker-icon">🔊</span> <span id="dex-audio-lbl">SFX: OFF</span>
+            </button>
+            <button class="dex-return-btn" id="dex-return-cards-btn" type="button" title="Return to Recruiter Cards View">
+              <span>✕ RECRUITER VIEW</span>
+            </button>
           </div>
         </div>
 
-        <!-- DUAL-SCREEN HARDWARE BODY -->
-        <div class="dex-body-grid">
-          
-          <!-- LEFT SCREEN: CRT OPTICAL SCANNER & RETICLE -->
-          <div class="dex-left-screen-housing">
-            <div class="dex-screen-bezel">
-              <div class="dex-crt-screen" id="dex-crt">
-                <div class="dex-crt-scanlines"></div>
-                <div class="dex-crt-glare"></div>
-                
-                <div class="dex-viewport-overlay">
-                  <div class="dex-target-corner tc-tl"></div>
-                  <div class="dex-target-corner tc-tr"></div>
-                  <div class="dex-target-corner tc-bl"></div>
-                  <div class="dex-target-corner tc-br"></div>
-                  <div class="dex-hud-chip" id="dex-hud-specimen">SPECIMEN #001</div>
-                  <div class="dex-hud-status" id="dex-hud-status">STATUS: ONLINE</div>
-                </div>
-
-                <div class="dex-mockup-stage" id="dex-mockup-stage">
-                  <img id="dex-img" src="assets/images/study-buddy.png" alt="Scanned Case Study Mockup">
+        <div class="dex-screen-grid">
+          <!-- LEFT SCREEN: CRT VIEWFINDER -->
+          <div class="dex-viewfinder-screen">
+            <div class="crt-bezel">
+              <div class="crt-scanlines"></div>
+              <div class="crt-header">
+                <span class="crt-id" id="dex-viewfinder-id">ENTRY #001</span>
+                <span class="crt-class" id="dex-classification">ACADEMIC FOCUS HUD</span>
+              </div>
+              <div class="crt-display">
+                <img id="dex-img" src="assets/images/study-buddy.png" alt="Case Study Preview" class="dex-screen-img">
+                <div class="crt-reticle">
+                  <span class="reticle-tl"></span><span class="reticle-tr"></span>
+                  <span class="reticle-bl"></span><span class="reticle-br"></span>
+                  <span class="reticle-cross"></span>
                 </div>
               </div>
-            </div>
-
-            <!-- HARDWARE CONTROLS UNDER LEFT DISPLAY -->
-            <div class="dex-sub-controls">
-              <div class="dex-audio-cluster">
-                <button class="dex-btn-speaker" id="dex-btn-audio" type="button" aria-label="Toggle 8-bit Sound Synthesizer">
-                  <span class="speaker-grill"><i></i><i></i><i></i><i></i></span>
-                  <span class="audio-label" id="dex-audio-label">8-BIT: ON</span>
-                </button>
-              </div>
-
-              <!-- TACTILE D-PAD CONTROLLER -->
-              <div class="dex-dpad-cluster" aria-label="Navigation D-Pad">
-                <div class="dpad-axis-vert">
-                  <button class="dpad-btn dpad-up" id="dex-nav-up" type="button" aria-label="Previous Case Study (Up)">▲</button>
-                  <button class="dpad-btn dpad-down" id="dex-nav-down" type="button" aria-label="Next Case Study (Down)">▼</button>
-                </div>
-                <div class="dpad-axis-horiz">
-                  <button class="dpad-btn dpad-left" id="dex-nav-prev" type="button" aria-label="Previous Case Study (Left)">◀</button>
-                  <div class="dpad-center-hub"></div>
-                  <button class="dpad-btn dpad-right" id="dex-nav-next" type="button" aria-label="Next Case Study (Right)">▶</button>
-                </div>
+              <div class="crt-footer">
+                <span class="crt-signal"><i class="signal-dot"></i> LIVE LINK</span>
+                <span class="crt-origin" id="dex-origin">INDEPENDENT (ELECTRON)</span>
               </div>
             </div>
           </div>
 
-          <!-- RIGHT SCREEN: TELEMETRY & SPEC DATA TERMINAL -->
-          <div class="dex-right-data-terminal">
-            <div class="dex-terminal-screen">
-              <div class="dex-terminal-header">
-                <div class="dex-entry-no" id="dex-entry-no">REG NO. #001</div>
-                <div class="dex-type-tag" id="dex-type-tag"><i class="dex-type-dot"></i> PSYCHIC / DEEP WORK</div>
-              </div>
-
-              <div class="dex-title-block">
-                <h3 class="dex-entry-name" id="dex-entry-name">Study Buddy</h3>
-                <p class="dex-entry-subtitle" id="dex-entry-subtitle">Desktop Focus Companion · Solo Product Designer &amp; Builder</p>
-              </div>
-
-              <!-- TELEMETRY BARS -->
-              <div class="dex-stat-panel">
-                <div class="stat-row">
-                  <span class="stat-name">SYSTEMS ARCHITECTURE</span>
-                  <div class="stat-track"><div class="stat-bar" id="dex-bar-systems" style="width: 95%;"></div></div>
-                  <span class="stat-val" id="dex-val-systems">95</span>
+          <!-- RIGHT SCREEN: TELEMETRY LCD TERMINAL -->
+          <div class="dex-telemetry-screen">
+            <div class="telemetry-bezel">
+              <div class="telemetry-header">
+                <div class="telemetry-badge-wrap">
+                  <span class="telemetry-entry" id="dex-entry-num">NO. 001</span>
+                  <span class="telemetry-type" id="dex-type-badge">PSYCHIC / DEEP WORK</span>
                 </div>
-                <div class="stat-row">
-                  <span class="stat-name">PROTOTYPE FIDELITY</span>
-                  <div class="stat-track"><div class="stat-bar" id="dex-bar-proto" style="width: 98%;"></div></div>
-                  <span class="stat-val" id="dex-val-proto">98</span>
-                </div>
-                <div class="stat-row">
-                  <span class="stat-name">USABILITY &amp; METRICS</span>
-                  <div class="stat-track"><div class="stat-bar" id="dex-bar-metrics" style="width: 90%;"></div></div>
-                  <span class="stat-val" id="dex-val-metrics">90</span>
-                </div>
+                <div class="telemetry-role" id="dex-role">Solo Product Designer &amp; Builder</div>
               </div>
-
-              <!-- MOVESET / CAPABILITIES -->
-              <div class="dex-field-box">
-                <span class="field-title">SYSTEM CAPABILITIES / MOVESET</span>
-                <div class="dex-tag-cloud" id="dex-tag-cloud">
-                  <span class="dex-tag">Electron Desktop App</span>
-                  <span class="dex-tag">Design System Tokens</span>
-                  <span class="dex-tag">AI-Assisted Build</span>
-                  <span class="dex-tag">Interactive Overlay</span>
-                  <span class="dex-tag">WCAG AA Accessible</span>
+              <div class="telemetry-titles">
+                <h3 class="telemetry-name" id="dex-title">Study Buddy</h3>
+                <p class="telemetry-subtitle" id="dex-subtitle">Distraction-Free Academic Desktop HUD</p>
+              </div>
+              <div class="telemetry-stats-section">
+                <div class="stats-legend">DISCIPLINE METRICS // EVALUATION</div>
+                <div class="stats-bars" id="dex-stats-container"></div>
+              </div>
+              <div class="telemetry-moves-section">
+                <div class="moves-legend">SYSTEM MOVESET &amp; CAPABILITIES</div>
+                <div class="moves-chips" id="dex-moves-container"></div>
+              </div>
+              <div class="telemetry-logs">
+                <div class="log-row">
+                  <span class="log-tag log-friction">[!] FRICTION</span>
+                  <p class="log-text" id="dex-friction">Students lose hours to digital fragmentation when juggling 40 research tabs.</p>
+                </div>
+                <div class="log-row">
+                  <span class="log-tag log-delta">[✓] RESOLUTION</span>
+                  <p class="log-text" id="dex-delta">Designed a floating desktop companion overlay in Figma, then built and shipped cross-platform native installers in ~14 hours.</p>
                 </div>
               </div>
-
-              <!-- FRICTION & OUTCOME LOG -->
-              <div class="dex-friction-log">
-                <div class="log-item">
-                  <span class="log-label friction">VERIFIED FRICTION</span>
-                  <p class="log-copy" id="dex-friction-copy">Unstructured study sessions cause digital fragmentation across 40 browser tabs.</p>
-                </div>
-                <div class="log-item">
-                  <span class="log-label outcome">SYSTEM OUTCOME</span>
-                  <p class="log-copy" id="dex-outcome-copy">Shipped working cross-platform native installers in ~14 hours of active build time.</p>
-                </div>
+              <div class="telemetry-cta">
+                <a class="dex-act-button" id="dex-cta-link" href="case-studies/study-buddy.html"><span>OPEN FULL CASE STUDY [A] →</span></a>
               </div>
-
-              <!-- ACTION LAUNCHPAD -->
-              <div class="dex-action-dock">
-                <a class="dex-btn-launch" id="dex-btn-read" href="case-studies/study-buddy.html">
-                  <span>Open Full Dossier →</span>
-                </a>
-                <a class="dex-btn-secondary" id="dex-btn-ext" href="https://github.com/EricArielDeLaPaz/study-buddy-desktop" target="_blank" rel="noopener">
-                  <span id="dex-btn-ext-label">GitHub Repo ↗</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- QUICK JUMP KEYPAD (1 - 5) -->
-            <div class="dex-keypad-cluster">
-              <span class="keypad-label">DIRECT SPECIMEN JUMP:</span>
-              <div class="dex-keypad">
-                <button class="key-btn active" data-index="0" type="button" aria-label="Jump to Case Study 1">#01</button>
-                <button class="key-btn" data-index="1" type="button" aria-label="Jump to Case Study 2">#02</button>
-                <button class="key-btn" data-index="2" type="button" aria-label="Jump to Case Study 3">#03</button>
-                <button class="key-btn" data-index="3" type="button" aria-label="Jump to Case Study 4">#04</button>
-                <button class="key-btn" data-index="4" type="button" aria-label="Jump to Case Study 5">#05</button>
-              </div>
-              <button class="dex-btn-return-recruiter" id="dex-btn-back-cards" type="button">
-                <span>← Return to Recruiter Cards View</span>
-              </button>
             </div>
           </div>
-
         </div>
 
+        <div class="dex-controls-bar">
+          <div class="dex-dpad-wrap">
+            <button class="dex-dpad-btn dpad-prev" id="dex-prev-btn" type="button" aria-label="Previous Entry"><span>◀ PREV</span></button>
+            <button class="dex-dpad-btn dpad-next" id="dex-next-btn" type="button" aria-label="Next Entry"><span>NEXT ▶</span></button>
+          </div>
+          <div class="dex-keypad-wrap">
+            <span class="dex-keypad-lbl">DIRECT REGISTRY INDEX:</span>
+            <div class="dex-keypad-buttons">
+              <button class="dex-pad active" data-index="0" type="button" title="01: Study Buddy">01</button>
+              <button class="dex-pad" data-index="1" type="button" title="02: SecureID">02</button>
+              <button class="dex-pad" data-index="2" type="button" title="03: Vextaro">03</button>
+              <button class="dex-pad" data-index="3" type="button" title="04: Honda">04</button>
+              <button class="dex-pad" data-index="4" type="button" title="05: DevTective">05</button>
+            </div>
+          </div>
+          <div class="dex-switch-back-wrap">
+            <button class="dex-b-btn" id="dex-b-return-btn" type="button" title="Return to Recruiter Cards View">
+              <span class="btn-letter">[B]</span> <span>RECRUITER VIEW</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
 </section>`;
 
-  indexHtml = indexHtml.replace(/<section class="sx-section" id="work"[^>]*>[\s\S]*?<\/section>/i, workSectionHtml);
-
-  // Clean Badge Case replacement in About section (Single 4x2 Grid + Hover Retention Bridge)
-  const badgeCaseHtml = `<!-- MILESTONE & CREDENTIAL CASE (4 ON TOP, 4 ON BOTTOM) -->
-      <div class="badge-case-wrap" aria-label="Milestones and Credentials">
-        <div class="badge-case-header">
-          <div class="badge-case-title-row">
-            <span class="badge-case-tag"><i class="badge-case-dot"></i> CREDENTIAL REGISTRY</span>
-            <span class="badge-case-count">8 RECEPTACLES // 4 LOGGED</span>
-          </div>
-          <p class="badge-case-instruction">Hover to inspect verified credentials · Click to connect</p>
-        </div>
-
-        <div class="badge-grid" role="list">
-          
-          <!-- POD 1: STEALTH STARTUP -->
-          <div class="badge-slot slot-edge-left" role="listitem" tabindex="0">
-            <div class="badge-pod is-earned" data-badge="stealth">
-              <div class="badge-gem gem-stealth">
-                <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-                  <path d="M20 3L6 10V20C6 28.5 12 36 20 38C28 36 34 28.5 34 20V10L20 3Z" fill="url(#gradStealthBase)" stroke="#d9ac54" stroke-width="1.5"/>
-                  <path d="M20 7L10 12.5V20C10 26 14.2 31.8 20 33.5C25.8 31.8 30 26 30 20V12.5L20 7Z" fill="#1b1712" stroke="#f0cf74" stroke-width="1" stroke-dasharray="2 1"/>
-                  <path d="M20 12L25 20L20 28L15 20L20 12Z" fill="url(#gradStealthCore)"/>
-                  <circle cx="20" cy="20" r="2.5" fill="#ffffff"/>
-                  <defs>
-                    <linearGradient id="gradStealthBase" x1="6" y1="3" x2="34" y2="38" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#2a2318"/>
-                      <stop offset="1" stop-color="#120f0b"/>
-                    </linearGradient>
-                    <linearGradient id="gradStealthCore" x1="15" y1="12" x2="25" y2="28" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#ffd700"/>
-                      <stop offset="1" stop-color="#b8860b"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div class="badge-reflection"></div>
-            </div>
-            <div class="badge-tooltip" role="tooltip">
-              <div class="tooltip-header">
-                <span class="tooltip-num">POD 01 // INTERNSHIP</span>
-                <span class="tooltip-status status-active">ACTIVE</span>
-              </div>
-              <p class="tooltip-name">Stealth Startup</p>
-              <p class="tooltip-role">Founding Product Design Intern</p>
-              <p class="tooltip-meta">Rapid prototyping · Stealth AI product launch · 2026</p>
-              <a class="tooltip-link" href="#contact">✨ CLICK TO CONNECT →</a>
-            </div>
-          </div>
-
-          <!-- POD 2: FLYRANK AI -->
-          <div class="badge-slot" role="listitem" tabindex="0">
-            <div class="badge-pod is-earned" data-badge="flyrank">
-              <div class="badge-gem gem-flyrank">
-                <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="16.5" fill="url(#gradFlyBase)" stroke="#64b5f6" stroke-width="1.5"/>
-                  <path d="M11 25L20 11L29 25L20 21L11 25Z" fill="url(#gradFlyWing)" stroke="#90caf9" stroke-width="1"/>
-                  <path d="M14 26L20 16L26 26L20 23L14 26Z" fill="#120f0b" opacity="0.6"/>
-                  <circle cx="20" cy="14" r="1.5" fill="#ffffff"/>
-                  <defs>
-                    <linearGradient id="gradFlyBase" x1="3.5" y1="3.5" x2="36.5" y2="36.5" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#152636"/>
-                      <stop offset="1" stop-color="#0a141e"/>
-                    </linearGradient>
-                    <linearGradient id="gradFlyWing" x1="11" y1="11" x2="29" y2="25" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#90caf9"/>
-                      <stop offset="1" stop-color="#1976d2"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div class="badge-reflection"></div>
-            </div>
-            <div class="badge-tooltip" role="tooltip">
-              <div class="tooltip-header">
-                <span class="tooltip-num">POD 02 // INTERNSHIP</span>
-                <span class="tooltip-status status-active">ACTIVE</span>
-              </div>
-              <p class="tooltip-name">Flyrank AI</p>
-              <p class="tooltip-role">Product Design Intern</p>
-              <p class="tooltip-meta">AI-driven search &amp; analytics workflows · 2026</p>
-              <a class="tooltip-link" href="#contact">✨ CLICK TO CONNECT →</a>
-            </div>
-          </div>
-
-          <!-- POD 3: GOOGLE UX -->
-          <div class="badge-slot" role="listitem" tabindex="0">
-            <div class="badge-pod is-earned" data-badge="google">
-              <div class="badge-gem gem-google">
-                <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-                  <polygon points="20,4 34,12 34,28 20,36 6,28 6,12" fill="url(#gradGgBase)" stroke="#81c784" stroke-width="1.5"/>
-                  <circle cx="20" cy="20" r="7" fill="none" stroke="#a5d6a7" stroke-width="1.5"/>
-                  <path d="M20 13V20L25 25" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-                  <defs>
-                    <linearGradient id="gradGgBase" x1="6" y1="4" x2="34" y2="36" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#142818"/>
-                      <stop offset="1" stop-color="#0b170e"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div class="badge-reflection"></div>
-            </div>
-            <div class="badge-tooltip" role="tooltip">
-              <div class="tooltip-header">
-                <span class="tooltip-num">POD 03 // CERTIFICATION</span>
-                <span class="tooltip-status status-verified">VERIFIED</span>
-              </div>
-              <p class="tooltip-name">Google UX Design Certificate</p>
-              <p class="tooltip-role">Professional Credential</p>
-              <p class="tooltip-meta">End-to-end design process · Wireframing · Prototyping · Usability</p>
-              <a class="tooltip-link" href="#contact">✨ CLICK TO CONNECT →</a>
-            </div>
-          </div>
-
-          <!-- POD 4: WGU DEGREE -->
-          <div class="badge-slot slot-edge-right" role="listitem" tabindex="0">
-            <div class="badge-pod is-earned is-degree" data-badge="wgu">
-              <div class="badge-gem gem-wgu">
-                <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-                  <rect x="5" y="6" width="30" height="28" rx="4" fill="url(#gradWguBase)" stroke="#ffb74d" stroke-width="1.5"/>
-                  <path d="M12 14L20 8L28 14L20 20L12 14Z" fill="#ffe082"/>
-                  <path d="M15 17.5V23C15 25.5 17.2 27 20 27C22.8 27 25 25.5 25 23V17.5" stroke="#ffe082" stroke-width="1.5" fill="none"/>
-                  <path d="M28 14V22" stroke="#ffe082" stroke-width="1.5"/>
-                  <circle cx="28" cy="23" r="1.5" fill="#ffe082"/>
-                  <defs>
-                    <linearGradient id="gradWguBase" x1="5" y1="6" x2="35" y2="34" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#2a1f10"/>
-                      <stop offset="1" stop-color="#150f07"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div class="badge-reflection"></div>
-            </div>
-            <div class="badge-tooltip" role="tooltip">
-              <div class="tooltip-header">
-                <span class="tooltip-num">POD 04 // ACADEMIC</span>
-                <span class="tooltip-status status-progress">IN PROGRESS</span>
-              </div>
-              <p class="tooltip-name">B.S. Software Engineering</p>
-              <p class="tooltip-role">Western Governors University</p>
-              <p class="tooltip-meta">Software Systems Architecture · Expected Graduation 2026</p>
-              <a class="tooltip-link" href="#contact">✨ CLICK TO CONNECT →</a>
-            </div>
-          </div>
-
-          <!-- POD 5: YOUR COMPANY -->
-          <div class="badge-slot slot-edge-left" role="listitem" tabindex="0">
-            <div class="badge-pod is-open-role" data-badge="yourco">
-              <div class="badge-gem gem-open">
-                <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-                  <polygon points="20,4 35,14 30,34 10,34 5,14" fill="url(#gradOpenBase)" stroke="#d9ac54" stroke-width="1.5" stroke-dasharray="3 2"/>
-                  <circle cx="20" cy="20" r="6" fill="#120f0b" stroke="#f0cf74" stroke-width="1"/>
-                  <path d="M20 16V24M16 20H24" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-                  <defs>
-                    <linearGradient id="gradOpenBase" x1="5" y1="4" x2="35" y2="34" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#2c2214"/>
-                      <stop offset="1" stop-color="#161009"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div class="badge-reflection"></div>
-            </div>
-            <div class="badge-tooltip tooltip-highlight" role="tooltip">
-              <div class="tooltip-header">
-                <span class="tooltip-num">POD 05 // RECRUITER POD</span>
-                <span class="tooltip-status status-open">AVAILABLE NOW</span>
-              </div>
-              <p class="tooltip-name">Your Company Here</p>
-              <p class="tooltip-role">Full-Time Product Designer</p>
-              <p class="tooltip-meta">Seeking junior/entry roles in product design, design systems, and rapid prototyping.</p>
-              <a class="tooltip-link link-highlight" href="#contact">👉 HIRE ERIC FOR THIS POD →</a>
-            </div>
-          </div>
-
-          <!-- POD 6: UPCOMING 02 -->
-          <div class="badge-slot" role="listitem" tabindex="0">
-            <div class="badge-pod is-locked" data-badge="upcoming-2">
-              <div class="badge-gem gem-locked">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#504332" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </div>
-            </div>
-            <div class="badge-tooltip" role="tooltip">
-              <div class="tooltip-header">
-                <span class="tooltip-num">POD 06 // SYSTEM SLOT</span>
-                <span class="tooltip-status status-locked">LOCKED</span>
-              </div>
-              <p class="tooltip-name">Upcoming Milestone</p>
-              <p class="tooltip-role">Future Enterprise System</p>
-              <p class="tooltip-meta">Reserved for upcoming production design deliverables.</p>
-            </div>
-          </div>
-
-          <!-- POD 7: UPCOMING 03 -->
-          <div class="badge-slot" role="listitem" tabindex="0">
-            <div class="badge-pod is-locked" data-badge="upcoming-3">
-              <div class="badge-gem gem-locked">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#504332" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </div>
-            </div>
-            <div class="badge-tooltip" role="tooltip">
-              <div class="tooltip-header">
-                <span class="tooltip-num">POD 07 // SYSTEM SLOT</span>
-                <span class="tooltip-status status-locked">LOCKED</span>
-              </div>
-              <p class="tooltip-name">Upcoming Milestone</p>
-              <p class="tooltip-role">Future Enterprise System</p>
-              <p class="tooltip-meta">Reserved for upcoming production design deliverables.</p>
-            </div>
-          </div>
-
-          <!-- POD 8: UPCOMING 04 -->
-          <div class="badge-slot slot-edge-right" role="listitem" tabindex="0">
-            <div class="badge-pod is-locked" data-badge="upcoming-4">
-              <div class="badge-gem gem-locked">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#504332" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </div>
-            </div>
-            <div class="badge-tooltip" role="tooltip">
-              <div class="tooltip-header">
-                <span class="tooltip-num">POD 08 // SYSTEM SLOT</span>
-                <span class="tooltip-status status-locked">LOCKED</span>
-              </div>
-              <p class="tooltip-name">Upcoming Milestone</p>
-              <p class="tooltip-role">Future Enterprise System</p>
-              <p class="tooltip-meta">Reserved for upcoming production design deliverables.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>`;
-
-  // Pre-clean any previous badge markup to prevent duplicate badge cases
-  indexHtml = indexHtml.replace(/<!-- MILESTONE[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/gi, '');
-  indexHtml = indexHtml.replace(/<div class="badge-case-wrap"[\s\S]*?<\/div>\s*<\/div>/gi, '');
-
-  const aboutEndRegex = /(<\/div>\s*<\/section>\s*<!-- =+ CONTACT)/i;
-  if (aboutEndRegex.test(indexHtml)) {
-    indexHtml = indexHtml.replace(aboutEndRegex, '  ' + badgeCaseHtml + '\n    </div>\n  </section>\n\n  <!-- =========================================================\n       CONTACT');
-  } else {
-    indexHtml = indexHtml.replace('</section>', badgeCaseHtml + '\n</section>');
+  const workRegex = /<section[^>]*id="work"[\s\S]*?<\/section>/i;
+  if (workRegex.test(indexHtml)) {
+    indexHtml = indexHtml.replace(workRegex, workSectionHtml);
+    console.log('✅ index.html: Work section updated with Recruiter Cards + Inline Pokédex Mode.');
   }
+
+  // Clear previous duplicate badge cases
+  indexHtml = indexHtml.replace(/<!-- MILESTONE & CREDENTIAL BADGE CASE[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/gi, '');
+  indexHtml = indexHtml.replace(/<div class="badge-case-wrap"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/gi, '');
+
+  const badgeCaseHtml = `    <!-- MILESTONE & CREDENTIAL BADGE CASE (Pokémon Gym Badge Tray Aesthetic · 4 Top, 4 Bottom) -->
+    <div class="badge-case-wrap">
+      <div class="badge-case-header">
+        <div class="badge-case-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          <span>Milestone &amp; Credential Case</span>
+        </div>
+        <div class="badge-case-count">4 / 8 UNLOCKED</div>
+      </div>
+
+      <div class="badge-grid">
+        <!-- ROW 1, COL 1: STEALTH STARTUP -->
+        <div class="badge-slot active badge-stealth" tabindex="0">
+          <div class="badge-pod">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 21 7 19 18 12 22 5 18 3 7" fill="rgba(217,172,84,0.15)"/><path d="M12 2v20"/><path d="M12 12l9-5"/><path d="M12 12l-9-5"/><path d="M12 12l7 6"/><path d="M12 12l-7 6"/><circle cx="12" cy="12" r="2.2" fill="#f0cf74"/></svg>
+          </div>
+          <span class="badge-name">Stealth Startup</span>
+          <div class="badge-tooltip" role="tooltip">
+            <div class="tt-title">Product Design Intern</div>
+            <div class="tt-issuer">Stealth Startup · Active</div>
+            <div class="tt-desc">Leading token-based design systems across 2 mobile apps and SaaS desktop dashboard.</div>
+          </div>
+        </div>
+
+        <!-- ROW 1, COL 2: FLYRANK AI -->
+        <div class="badge-slot active badge-flyrank" tabindex="0">
+          <div class="badge-pod">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13.5L12 6.5l9 7"/><path d="M5.5 17.5L12 12.5l6.5 5" opacity="0.75"/><path d="M12 2v3M12 19v3" opacity="0.5"/><polygon points="12 7.5 13.8 11.5 18 12 13.8 12.5 12 16.5 10.2 12.5 6 12 10.2 11.5" fill="rgba(78,205,196,0.3)" stroke="#4ecdc4" stroke-width="1.2"/></svg>
+          </div>
+          <span class="badge-name">Flyrank AI</span>
+          <div class="badge-tooltip" role="tooltip">
+            <div class="tt-title">UI/UX Design Intern</div>
+            <div class="tt-issuer">Flyrank AI · Capstone</div>
+            <div class="tt-desc">Built centralized design token architecture and shipped the Vextaro capstone prototype.</div>
+          </div>
+        </div>
+
+        <!-- ROW 1, COL 3: GOOGLE UX -->
+        <div class="badge-slot active badge-google" tabindex="0">
+          <div class="badge-pod">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <span class="badge-name">Google UX</span>
+          <div class="badge-tooltip" role="tooltip">
+            <div class="tt-title">Google UX Certificate</div>
+            <div class="tt-issuer">Google · Certified</div>
+            <div class="tt-desc">Verified foundations in UX research, inclusive design, journey mapping, and wireframing.</div>
+          </div>
+        </div>
+
+        <!-- ROW 1, COL 4: WGU DEGREE (IN PROGRESS) -->
+        <div class="badge-slot locked" tabindex="0">
+          <div class="badge-pod">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <div class="badge-lock-tag" aria-label="Locked"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          </div>
+          <span class="badge-name">WGU Degree</span>
+          <div class="badge-tooltip" role="tooltip">
+            <div class="tt-title">B.S. User Experience Design</div>
+            <div class="tt-issuer">Western Governors University</div>
+            <div class="tt-desc">In progress · Expected graduation 2026.</div>
+            <div class="tt-action" style="cursor:default; text-decoration:none;">🔒 UNLOCK CONDITION: GRADUATION</div>
+          </div>
+        </div>
+
+        <!-- ROW 2, COL 1: YOUR COMPANY (RECRUITER SLOT) -->
+        <div class="badge-slot recruiter-slot" tabindex="0">
+          <div class="badge-pod"><span class="recruiter-q">+</span></div>
+          <span class="badge-name" style="color:var(--gold);">Your Co?</span>
+          <div class="badge-tooltip" role="tooltip">
+            <div class="tt-title">Reserved: Your Company</div>
+            <div class="tt-issuer">Next Product Design Role</div>
+            <div class="tt-desc">Ready to earn this badge on your design team. Let's build something useful together.</div>
+            <a class="tt-action" href="#contact">✨ CLICK TO CONNECT →</a>
+          </div>
+        </div>
+
+        <!-- ROW 2, COL 2: MYSTERY -->
+        <div class="badge-slot mystery" tabindex="0">
+          <div class="badge-pod"><span class="mystery-q">???</span></div>
+          <span class="badge-name">Upcoming</span>
+          <div class="badge-tooltip" role="tooltip">
+            <div class="tt-title">Future Milestone</div>
+            <div class="tt-desc">Awaiting next career achievement.</div>
+          </div>
+        </div>
+
+        <!-- ROW 2, COL 3: MYSTERY -->
+        <div class="badge-slot mystery" tabindex="0">
+          <div class="badge-pod"><span class="mystery-q">???</span></div>
+          <span class="badge-name">Upcoming</span>
+          <div class="badge-tooltip" role="tooltip">
+            <div class="tt-title">Future Milestone</div>
+            <div class="tt-desc">Awaiting next career achievement.</div>
+          </div>
+        </div>
+
+        <!-- ROW 2, COL 4: MYSTERY -->
+        <div class="badge-slot mystery" tabindex="0">
+          <div class="badge-pod"><span class="mystery-q">???</span></div>
+          <span class="badge-name">Upcoming</span>
+          <div class="badge-tooltip" role="tooltip">
+            <div class="tt-title">Future Milestone</div>
+            <div class="tt-desc">Awaiting next career achievement.</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+  const aboutSectionRegex = /(<section[^>]*id="about"[^>]*>[\s\S]*?<\/div>\s*<\/div>)([\s\S]*?<\/section>)/i;
+  if (aboutSectionRegex.test(indexHtml)) {
+    indexHtml = indexHtml.replace(aboutSectionRegex, '$1\n' + badgeCaseHtml + '\n</section>');
+    console.log('✅ index.html: Single 4x2 Milestone Badge Case inserted inside #about.');
+  }
+
+  indexHtml = indexHtml.replace(/<!-- =+ PRODUCTDEX =+[\s\S]*?id="productdex-modal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/gi, '');
+  indexHtml = indexHtml.replace(/<div id="productdex-modal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/gi, '');
 
   fs.writeFileSync(indexPath, indexHtml, 'utf8');
-  console.log('✅ index.html updated: 1 single 4x2 Badge Case, Recruiter Cards view active, Pokédex mode embedded.');
+  console.log('✅ index.html successfully saved.');
 }
 
-// 2. UPDATE assets/js/scroll.js (Clean replacement with boundary comments)
+// 2. UPDATE assets/css/scroll.css
+const cssPath = path.join('assets', 'css', 'scroll.css');
+if (fs.existsSync(cssPath)) {
+  let css = fs.readFileSync(cssPath, 'utf8');
+
+  const cssStart = '/* --- POKEDEX & WORK VIEWS CSS START --- */';
+  const cssEnd = '/* --- POKEDEX & WORK VIEWS CSS END --- */';
+
+  const dexAndBadgesCss = `
+.work-header-wrap { display: flex !important; justify-content: space-between !important; align-items: flex-end !important; flex-wrap: wrap !important; gap: 20px !important; margin-bottom: 32px !important; }
+.work-view-controls { display: flex !important; align-items: center !important; gap: 12px !important; }
+.view-switch-pill { display: inline-flex !important; align-items: center !important; background: rgba(18, 15, 11, 0.85) !important; border: 1px solid rgba(217, 172, 84, 0.28) !important; border-radius: 999px !important; padding: 4px !important; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important; }
+.view-toggle-btn { display: inline-flex !important; align-items: center !important; gap: 8px !important; padding: 7px 16px !important; border-radius: 999px !important; border: 1px solid transparent !important; background: transparent !important; color: var(--text-dim, #999388) !important; font-family: var(--font-display, sans-serif) !important; font-size: 12.5px !important; font-weight: 600 !important; cursor: pointer !important; transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important; white-space: nowrap !important; outline: none !important; }
+.view-toggle-btn:hover { color: var(--text, #f0ede8) !important; background: rgba(255, 255, 255, 0.04) !important; }
+.view-toggle-btn.active { background: linear-gradient(135deg, rgba(217, 172, 84, 0.18), rgba(217, 172, 84, 0.08)) !important; border-color: rgba(217, 172, 84, 0.45) !important; color: var(--gold-bright, #f0cf74) !important; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important; }
+.dex-scanner-dot { width: 8px !important; height: 8px !important; border-radius: 50% !important; background: #ff4d4d !important; box-shadow: 0 0 8px #ff4d4d !important; transition: all 0.22s ease !important; }
+.view-toggle-btn.active .dex-scanner-dot { background: #4ecdc4 !important; box-shadow: 0 0 10px #4ecdc4, 0 0 4px #fff !important; animation: pulse-dot 1.8s infinite !important; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.85); } }
+.view-badge-hot { font-family: var(--font-mono, monospace) !important; font-size: 9.5px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; padding: 2px 6px !important; border-radius: 4px !important; background: rgba(217, 172, 84, 0.22) !important; color: var(--gold-bright, #f0cf74) !important; border: 1px solid rgba(217, 172, 84, 0.35) !important; }
+
+/* TCG Holographic Cards */
+.tcg-grid { display: flex !important; flex-direction: column !important; gap: 30px !important; width: 100% !important; perspective: 1200px !important; }
+.tcg-card { position: relative !important; display: grid !important; grid-template-columns: minmax(320px, 400px) 1fr !important; min-height: 330px !important; background: linear-gradient(135deg, rgba(22, 18, 14, 0.95), rgba(14, 12, 10, 0.95)) !important; border: 1px solid rgba(217, 172, 84, 0.22) !important; border-radius: 20px !important; text-decoration: none !important; color: inherit !important; overflow: hidden !important; box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important; transform-style: preserve-3d !important; backface-visibility: hidden !important; -webkit-backface-visibility: hidden !important; transform-origin: center center !important; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease !important; will-change: transform; }
+.tcg-glare { position: absolute !important; inset: 0 !important; border-radius: 20px !important; background: radial-gradient(circle at var(--tcg-glare-x, 50%) var(--tcg-glare-y, 50%), rgba(255, 255, 255, 0.16) 0%, rgba(217, 172, 84, 0.09) 25%, transparent 65%) !important; opacity: 0 !important; pointer-events: none !important; mix-blend-mode: color-dodge !important; transition: opacity 0.25s ease !important; z-index: 5 !important; }
+.tcg-card:hover .tcg-glare { opacity: 1 !important; }
+.tcg-art { width: 100% !important; height: 100% !important; min-height: 100% !important; position: relative !important; background: radial-gradient(circle at center, #1e1914 0%, #0d0c0a 100%) !important; border-right: 1px solid rgba(217, 172, 84, 0.18) !important; border-bottom: none !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 22px !important; box-sizing: border-box !important; overflow: hidden !important; }
+.tcg-art img { width: 100% !important; height: 100% !important; max-height: 285px !important; object-fit: contain !important; border-radius: 12px !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.15) !important; display: block !important; transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+.tcg-card:hover .tcg-art img { transform: scale(1.03) translateY(-3px) !important; }
+.tcg-body { padding: 26px 30px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; position: relative !important; z-index: 2 !important; }
+.tcg-header { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 12px !important; margin-bottom: 8px !important; }
+.tcg-no { font-family: var(--font-mono, monospace) !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 0.1em !important; color: var(--text-dim, #999388) !important; text-transform: uppercase !important; }
+.tcg-type-badge { display: inline-flex !important; align-items: center !important; gap: 6px !important; font-family: var(--font-mono, monospace) !important; font-size: 10.5px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; padding: 3px 10px !important; border-radius: 999px !important; background: rgba(255, 255, 255, 0.05) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; text-transform: uppercase !important; color: var(--text, #f0ede8) !important; }
+.tcg-type-dot { width: 6px !important; height: 6px !important; border-radius: 50% !important; background: currentColor !important; }
+.card-title-group { margin-bottom: 12px !important; }
+.card-heading { font-family: var(--font-display, sans-serif) !important; font-size: 20px !important; font-weight: 700 !important; line-height: 1.3 !important; margin: 0 0 6px !important; color: #fff !important; letter-spacing: -0.01em !important; }
+.card-role-meta { display: flex !important; align-items: center !important; gap: 8px !important; font-family: var(--font-mono, monospace) !important; font-size: 11.5px !important; font-weight: 600 !important; letter-spacing: 0.03em !important; }
+.card-role { color: var(--gold, #d9ac54) !important; }
+.card-role-sep { color: rgba(255, 255, 255, 0.25) !important; }
+.card-context { color: var(--text-dim, #999388) !important; }
+.card-summary-box { background: rgba(0, 0, 0, 0.38) !important; border: 1px solid rgba(255, 255, 255, 0.07) !important; border-radius: 10px !important; padding: 11px 14px !important; margin-bottom: 14px !important; display: flex !important; flex-direction: column !important; gap: 7px !important; }
+.summary-line { display: flex !important; align-items: baseline !important; gap: 10px !important; }
+.summary-lbl { font-family: var(--font-mono, monospace) !important; font-size: 9.5px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; padding: 2px 6px !important; border-radius: 3px !important; background: rgba(255, 65, 54, 0.15) !important; color: #ff6b6b !important; white-space: nowrap !important; }
+.summary-lbl.summary-delta { background: rgba(46, 204, 64, 0.15) !important; color: #51cf66 !important; }
+.summary-val { font-size: 12px !important; line-height: 1.45 !important; color: #c8c2b8 !important; margin: 0 !important; }
+.card-tags { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-bottom: 16px !important; }
+.card-tags span { font-size: 11px !important; font-weight: 500 !important; padding: 4px 8px !important; border-radius: 3px !important; background: rgba(255, 255, 255, 0.04) !important; border: 1px solid rgba(255, 255, 255, 0.09) !important; color: var(--text-dim, #999388) !important; }
+.card-action-bar { display: flex !important; align-items: center !important; gap: 10px !important; margin-top: auto !important; }
+.btn-pill-primary { display: inline-flex !important; align-items: center !important; gap: 6px !important; padding: 7px 18px !important; border-radius: 999px !important; background: linear-gradient(135deg, rgba(217, 172, 84, 0.24), rgba(217, 172, 84, 0.1)) !important; border: 1px solid rgba(217, 172, 84, 0.45) !important; color: var(--gold-bright, #f0cf74) !important; font-family: var(--font-display, sans-serif) !important; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; transition: all 0.2s ease !important; }
+.tcg-card:hover .btn-pill-primary { background: linear-gradient(135deg, var(--gold, #d9ac54), var(--gold-bright, #f0cf74)) !important; color: #120f0b !important; box-shadow: 0 4px 14px rgba(217, 172, 84, 0.35) !important; }
+.btn-pill-secondary { display: inline-flex !important; align-items: center !important; gap: 6px !important; padding: 7px 15px !important; border-radius: 999px !important; background: rgba(255, 255, 255, 0.05) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; color: var(--text-dim, #999388) !important; font-family: var(--font-display, sans-serif) !important; font-size: 11.5px !important; font-weight: 600 !important; transition: all 0.2s ease !important; cursor: pointer !important; }
+.tcg-card:hover .btn-pill-secondary { color: var(--text, #f0ede8) !important; border-color: rgba(255, 255, 255, 0.25) !important; }
+.card-studybuddy:hover { border-color: #a594f9 !important; box-shadow: 0 16px 44px -8px rgba(165, 148, 249, 0.3) !important; }
+.card-studybuddy .tcg-type-badge { color: #a594f9 !important; border-color: rgba(165, 148, 249, 0.35) !important; }
+.card-secureid:hover { border-color: #d9ac54 !important; box-shadow: 0 16px 44px -8px rgba(217, 172, 84, 0.3) !important; }
+.card-secureid .tcg-type-badge { color: #f0cf74 !important; border-color: rgba(217, 172, 84, 0.35) !important; }
+.card-vextaro:hover { border-color: #5aa3c9 !important; box-shadow: 0 16px 44px -8px rgba(90, 163, 201, 0.3) !important; }
+.card-vextaro .tcg-type-badge { color: #5aa3c9 !important; border-color: rgba(90, 163, 201, 0.35) !important; }
+.card-honda:hover { border-color: #e27d5a !important; box-shadow: 0 16px 44px -8px rgba(226, 125, 90, 0.3) !important; }
+.card-honda .tcg-type-badge { color: #e27d5a !important; border-color: rgba(226, 125, 90, 0.35) !important; }
+.card-devtective:hover { border-color: #9c8be8 !important; box-shadow: 0 16px 44px -8px rgba(156, 139, 232, 0.3) !important; }
+.card-devtective .tcg-type-badge { color: #9c8be8 !important; border-color: rgba(156, 139, 232, 0.35) !important; }
+@media (max-width: 860px) { .tcg-card { grid-template-columns: 1fr !important; min-height: auto !important; } .tcg-art { height: 220px !important; min-height: 220px !important; border-right: none !important; border-bottom: 1px solid rgba(217, 172, 84, 0.18) !important; padding: 16px !important; } }
+
+/* Pokédex Hardware Console */
+.dex-hardware-wrap { width: 100% !important; margin-top: 10px !important; }
+.dex-hardware-wrap[hidden] { display: none !important; }
+.dex-chassis { position: relative !important; width: 100% !important; max-width: 1080px !important; margin: 0 auto !important; background: linear-gradient(180deg, #1c1814 0%, #0e0c0a 100%) !important; border: 1.5px solid rgba(217, 172, 84, 0.45) !important; border-radius: 24px !important; box-shadow: 0 32px 80px rgba(0, 0, 0, 0.95), 0 0 40px rgba(217, 172, 84, 0.12), inset 0 2px 10px rgba(255, 255, 255, 0.1) !important; padding: 24px 28px 28px !important; box-sizing: border-box !important; --active-accent: #a594f9; }
+.dex-top-bar { display: flex !important; justify-content: space-between !important; align-items: center !important; padding-bottom: 18px !important; margin-bottom: 20px !important; border-bottom: 1.5px solid rgba(217, 172, 84, 0.25) !important; flex-wrap: wrap !important; gap: 14px !important; }
+.dex-optics { display: flex !important; align-items: center !important; gap: 14px !important; }
+.dex-lens-big { width: 44px !important; height: 44px !important; border-radius: 50% !important; background: radial-gradient(circle at 35% 30%, #a8f5ff 0%, #17a2b8 45%, #06404d 100%) !important; border: 3px solid #f0ede8 !important; box-shadow: 0 0 16px rgba(78, 205, 196, 0.8), inset 0 2px 6px rgba(255, 255, 255, 0.8) !important; position: relative !important; animation: optic-pulse 2.8s infinite ease-in-out !important; }
+@keyframes optic-pulse { 0%, 100% { box-shadow: 0 0 14px rgba(78, 205, 196, 0.7); } 50% { box-shadow: 0 0 26px rgba(78, 205, 196, 1), 0 0 8px #fff; } }
+.dex-lens-reflection { position: absolute !important; top: 6px !important; left: 9px !important; width: 10px !important; height: 6px !important; border-radius: 50% !important; background: rgba(255, 255, 255, 0.85) !important; transform: rotate(-30deg) !important; }
+.dex-led-cluster { display: flex !important; gap: 8px !important; }
+.dex-mini-led { width: 12px !important; height: 12px !important; border-radius: 50% !important; border: 1px solid rgba(0, 0, 0, 0.6) !important; }
+.led-red { background: #ff4136; box-shadow: 0 0 6px #ff4136; }
+.led-yellow { background: #ffdc00; box-shadow: 0 0 6px #ffdc00; }
+.led-green { background: #2ecc40; box-shadow: 0 0 6px #2ecc40; }
+.dex-top-title { display: flex !important; flex-direction: column !important; text-align: center !important; }
+.dex-brand-tag { font-family: var(--font-mono, monospace) !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.12em !important; color: var(--gold-bright, #f0cf74) !important; }
+.dex-brand-sub { font-family: var(--font-mono, monospace) !important; font-size: 10px !important; letter-spacing: 0.08em !important; color: var(--text-dim, #999388) !important; }
+.dex-top-actions { display: flex !important; align-items: center !important; gap: 10px !important; }
+.dex-audio-btn { background: rgba(255, 255, 255, 0.05) !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; color: var(--text-dim) !important; padding: 6px 12px !important; border-radius: 8px !important; font-family: var(--font-mono, monospace) !important; font-size: 11px !important; cursor: pointer !important; transition: all 0.2s ease !important; }
+.dex-audio-btn:hover { color: #fff !important; border-color: var(--gold) !important; }
+.dex-return-btn { background: linear-gradient(135deg, rgba(217, 172, 84, 0.25), rgba(217, 172, 84, 0.12)) !important; border: 1px solid rgba(217, 172, 84, 0.45) !important; color: var(--gold-bright, #f0cf74) !important; padding: 6px 14px !important; border-radius: 999px !important; font-family: var(--font-display, sans-serif) !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: 0.04em !important; cursor: pointer !important; transition: all 0.2s ease !important; }
+.dex-return-btn:hover { background: var(--gold) !important; color: #120f0b !important; }
+.dex-screen-grid { display: grid !important; grid-template-columns: 1.15fr 1.35fr !important; gap: 24px !important; margin-bottom: 22px !important; }
+.dex-viewfinder-screen { background: #080808 !important; border: 2px solid rgba(255, 255, 255, 0.1) !important; border-radius: 16px !important; padding: 16px !important; box-shadow: inset 0 2px 14px rgba(0, 0, 0, 0.9) !important; display: flex !important; flex-direction: column !important; }
+.crt-bezel { position: relative !important; display: flex !important; flex-direction: column !important; height: 100% !important; overflow: hidden !important; }
+.crt-scanlines { position: absolute !important; inset: 0 !important; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0px, rgba(0, 0, 0, 0.25) 1px, transparent 1px, transparent 3px) !important; pointer-events: none !important; z-index: 10 !important; opacity: 0.7 !important; }
+.crt-header { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 12px !important; font-family: var(--font-mono, monospace) !important; font-size: 11px !important; color: var(--active-accent, var(--gold)) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important; padding-bottom: 8px !important; }
+.crt-display { position: relative !important; flex: 1 !important; min-height: 250px !important; background: #050505 !important; border-radius: 10px !important; overflow: hidden !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.dex-screen-img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center top !important; transition: opacity 0.3s ease !important; }
+.crt-reticle { position: absolute !important; inset: 12px !important; pointer-events: none !important; }
+.reticle-tl, .reticle-tr, .reticle-bl, .reticle-br { position: absolute !important; width: 10px !important; height: 10px !important; border: 1.5px solid var(--active-accent, var(--gold)) !important; }
+.reticle-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+.reticle-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+.reticle-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+.reticle-br { bottom: 0; right: 0; border-left: none; border-top: none; }
+.crt-footer { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-top: 12px !important; padding-top: 8px !important; border-top: 1px solid rgba(255, 255, 255, 0.08) !important; font-family: var(--font-mono, monospace) !important; font-size: 10px !important; color: var(--text-dim) !important; }
+.signal-dot { display: inline-block !important; width: 6px !important; height: 6px !important; border-radius: 50% !important; background: #2ecc40 !important; box-shadow: 0 0 6px #2ecc40 !important; margin-right: 4px !important; }
+.dex-telemetry-screen { background: #0d0c0a !important; border: 2px solid rgba(217, 172, 84, 0.3) !important; border-radius: 16px !important; padding: 20px 22px !important; box-shadow: inset 0 2px 14px rgba(0, 0, 0, 0.9) !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; }
+.telemetry-header { display: flex !important; justify-content: space-between !important; align-items: flex-start !important; margin-bottom: 10px !important; }
+.telemetry-entry { font-family: var(--font-mono, monospace) !important; font-size: 13px !important; font-weight: 700 !important; color: var(--gold-bright) !important; margin-right: 10px !important; }
+.telemetry-type { font-family: var(--font-mono, monospace) !important; font-size: 10.5px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; padding: 3px 8px !important; border-radius: 999px !important; background: rgba(255, 255, 255, 0.06) !important; border: 1px solid var(--active-accent, var(--gold)) !important; color: var(--active-accent, var(--gold-bright)) !important; }
+.telemetry-role { font-family: var(--font-mono, monospace) !important; font-size: 11px !important; color: var(--text-dim) !important; }
+.telemetry-name { font-family: var(--font-display, sans-serif) !important; font-size: 22px !important; font-weight: 700 !important; color: #fff !important; margin: 0 0 4px !important; }
+.telemetry-subtitle { font-size: 12.5px !important; color: var(--text-dim) !important; margin: 0 0 14px !important; }
+.stats-legend, .moves-legend { font-family: var(--font-mono, monospace) !important; font-size: 10px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; color: var(--gold) !important; margin-bottom: 6px !important; }
+.stats-bars { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px 16px !important; margin-bottom: 14px !important; }
+.stat-row { display: flex !important; flex-direction: column !important; gap: 3px !important; }
+.stat-meta { display: flex !important; justify-content: space-between !important; font-family: var(--font-mono, monospace) !important; font-size: 10px !important; color: var(--text-dim) !important; }
+.stat-val { color: var(--active-accent, var(--gold-bright)) !important; font-weight: 700 !important; }
+.stat-bar-track { width: 100% !important; height: 5px !important; border-radius: 999px !important; background: rgba(255, 255, 255, 0.08) !important; overflow: hidden !important; }
+.stat-bar-fill { height: 100% !important; border-radius: 999px !important; background: var(--active-accent, var(--gold)) !important; transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+.moves-chips { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-bottom: 14px !important; }
+.dex-move-pill { font-family: var(--font-mono, monospace) !important; font-size: 10px !important; padding: 3px 8px !important; border-radius: 4px !important; background: rgba(255, 255, 255, 0.04) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; color: var(--text) !important; }
+.telemetry-logs { background: rgba(0, 0, 0, 0.35) !important; border-radius: 8px !important; padding: 10px 12px !important; border: 1px solid rgba(255, 255, 255, 0.05) !important; margin-bottom: 14px !important; display: flex !important; flex-direction: column !important; gap: 8px !important; }
+.log-row { display: flex !important; align-items: flex-start !important; gap: 8px !important; }
+.log-tag { font-family: var(--font-mono, monospace) !important; font-size: 9px !important; font-weight: 700 !important; padding: 2px 5px !important; border-radius: 3px !important; white-space: nowrap !important; }
+.log-friction { background: rgba(255, 65, 54, 0.15) !important; color: #ff6b6b !important; }
+.log-delta { background: rgba(46, 204, 64, 0.15) !important; color: #51cf66 !important; }
+.log-text { font-size: 11.5px !important; line-height: 1.4 !important; color: var(--text-dim) !important; margin: 0 !important; }
+.telemetry-cta { display: flex !important; }
+.dex-act-button { width: 100% !important; text-align: center !important; display: block !important; padding: 10px 18px !important; border-radius: 10px !important; background: linear-gradient(135deg, var(--gold, #d9ac54), var(--gold-bright, #f0cf74)) !important; color: #120f0b !important; font-family: var(--font-display, sans-serif) !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.04em !important; text-decoration: none !important; box-shadow: 0 4px 18px rgba(217, 172, 84, 0.4) !important; transition: all 0.2s ease !important; }
+.dex-act-button:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 24px rgba(217, 172, 84, 0.6) !important; color: #000 !important; }
+.dex-controls-bar { display: flex !important; align-items: center !important; justify-content: space-between !important; padding-top: 18px !important; border-top: 1.5px solid rgba(217, 172, 84, 0.25) !important; flex-wrap: wrap !important; gap: 16px !important; }
+.dex-dpad-wrap { display: flex !important; gap: 8px !important; }
+.dex-dpad-btn { background: #25201a !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; color: var(--text, #f0ede8) !important; padding: 8px 16px !important; border-radius: 8px !important; font-family: var(--font-mono, monospace) !important; font-size: 12px !important; font-weight: 700 !important; cursor: pointer !important; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5) !important; transition: all 0.15s ease !important; }
+.dex-dpad-btn:hover { background: #362e25 !important; border-color: var(--gold) !important; color: var(--gold-bright) !important; }
+.dex-dpad-btn:active { transform: translateY(2px) !important; box-shadow: none !important; }
+.dex-keypad-wrap { display: flex !important; align-items: center !important; gap: 10px !important; }
+.dex-keypad-lbl { font-family: var(--font-mono, monospace) !important; font-size: 10.5px !important; color: var(--text-dim) !important; }
+.dex-keypad-buttons { display: flex !important; gap: 6px !important; }
+.dex-pad { width: 34px !important; height: 34px !important; border-radius: 6px !important; background: #181512 !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; color: var(--text-dim) !important; font-family: var(--font-mono, monospace) !important; font-size: 12px !important; font-weight: 700 !important; cursor: pointer !important; transition: all 0.18s ease !important; }
+.dex-pad:hover { border-color: var(--gold) !important; color: var(--text) !important; }
+.dex-pad.active { background: var(--gold) !important; color: #120f0b !important; border-color: var(--gold-bright) !important; box-shadow: 0 0 12px rgba(217, 172, 84, 0.6) !important; }
+.dex-b-btn { background: rgba(255, 65, 54, 0.12) !important; border: 1px solid rgba(255, 65, 54, 0.4) !important; color: #ff857f !important; padding: 8px 16px !important; border-radius: 8px !important; font-family: var(--font-display, sans-serif) !important; font-size: 12px !important; font-weight: 700 !important; cursor: pointer !important; transition: all 0.2s ease !important; }
+.dex-b-btn:hover { background: #ff4136 !important; color: #fff !important; }
+.dex-b-btn .btn-letter { font-family: var(--font-mono, monospace) !important; margin-right: 4px !important; }
+@media (max-width: 900px) { .dex-screen-grid { grid-template-columns: 1fr !important; } }
+
+/* 4x2 Milestone Badge Case */
+.badge-case-wrap { margin-top: 36px !important; padding: 26px 28px 30px !important; background: rgba(18, 15, 11, 0.85) !important; border: 1px solid rgba(217, 172, 84, 0.28) !important; border-radius: 20px !important; box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.9), 0 18px 48px -12px rgba(0, 0, 0, 0.75) !important; position: relative !important; max-width: 620px !important; margin-left: auto !important; margin-right: auto !important; }
+.badge-case-header { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 22px !important; padding-bottom: 14px !important; border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important; }
+.badge-case-title { display: flex !important; align-items: center !important; gap: 10px !important; font-family: var(--font-display, sans-serif) !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: var(--gold-bright, #f0cf74) !important; }
+.badge-case-title svg { color: var(--gold, #d9ac54) !important; }
+.badge-case-count { font-family: var(--font-mono, monospace) !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; color: var(--text-dim, #999388) !important; background: rgba(255, 255, 255, 0.05) !important; padding: 4px 10px !important; border-radius: 999px !important; border: 1px solid rgba(255, 255, 255, 0.08) !important; }
+.badge-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 26px 16px !important; position: relative !important; }
+.badge-slot { position: relative !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; cursor: pointer !important; padding: 6px 0 !important; text-decoration: none !important; color: inherit !important; outline: none !important; user-select: none !important; }
+.badge-pod { width: 64px !important; height: 64px !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; position: relative !important; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.08), rgba(0,0,0,0.7) 85%) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; box-shadow: inset 0 2px 8px rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.5) !important; transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease !important; }
+.badge-slot:hover .badge-pod, .badge-slot:focus-visible .badge-pod { transform: translateY(-3px) scale(1.05) !important; }
+.badge-slot.active .badge-pod { border-color: rgba(217, 172, 84, 0.45) !important; box-shadow: inset 0 2px 8px rgba(0,0,0,0.8), 0 6px 18px rgba(217, 172, 84, 0.2) !important; }
+.badge-slot.active:hover .badge-pod { border-color: var(--gold-bright) !important; box-shadow: inset 0 2px 8px rgba(0,0,0,0.8), 0 8px 24px rgba(217, 172, 84, 0.38) !important; }
+.badge-slot.badge-stealth.active .badge-pod { border-color: rgba(217, 172, 84, 0.55) !important; }
+.badge-slot.badge-flyrank.active .badge-pod { border-color: rgba(78, 205, 196, 0.5) !important; box-shadow: inset 0 2px 8px rgba(0,0,0,0.8), 0 6px 18px rgba(78, 205, 196, 0.2) !important; }
+.badge-slot.badge-flyrank.active:hover .badge-pod { border-color: #4ecdc4 !important; box-shadow: inset 0 2px 8px rgba(0,0,0,0.8), 0 8px 24px rgba(78, 205, 196, 0.4) !important; }
+.badge-icon { width: 28px !important; height: 28px !important; color: var(--gold-bright) !important; transition: transform 0.25s ease !important; }
+.badge-slot.badge-flyrank .badge-icon { color: #4ecdc4 !important; }
+.badge-slot:hover .badge-icon { transform: scale(1.08) !important; }
+.badge-slot.locked .badge-pod { background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.03), rgba(0,0,0,0.85) 85%) !important; border-color: rgba(255, 255, 255, 0.08) !important; filter: grayscale(1) !important; opacity: 0.65 !important; }
+.badge-slot.locked:hover .badge-pod { opacity: 0.9 !important; filter: grayscale(0.5) !important; border-color: rgba(217, 172, 84, 0.35) !important; }
+.badge-lock-tag { position: absolute !important; bottom: -2px !important; right: -2px !important; background: #1e1914 !important; border: 1px solid rgba(255, 255, 255, 0.18) !important; border-radius: 50% !important; width: 18px !important; height: 18px !important; display: flex !important; align-items: center !important; justify-content: center !important; color: var(--text-dim) !important; }
+.badge-slot.mystery .badge-pod { background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.02), rgba(0,0,0,0.9) 85%) !important; border: 1px dashed rgba(255, 255, 255, 0.12) !important; opacity: 0.45 !important; }
+.badge-slot.mystery:hover .badge-pod { opacity: 0.8 !important; border-color: rgba(217, 172, 84, 0.3) !important; }
+.mystery-q { font-family: var(--font-mono, monospace) !important; font-size: 14px !important; font-weight: 700 !important; color: var(--text-dim) !important; letter-spacing: 0.05em !important; }
+.badge-slot.recruiter-slot .badge-pod { background: radial-gradient(circle at 35% 30%, rgba(217,172,84,0.12), rgba(0,0,0,0.8) 85%) !important; border: 1.5px dashed var(--gold) !important; }
+.badge-slot.recruiter-slot:hover .badge-pod { border-color: var(--gold-bright) !important; box-shadow: inset 0 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(217, 172, 84, 0.35) !important; }
+.recruiter-q { font-family: var(--font-display, sans-serif) !important; font-size: 26px !important; font-weight: 700 !important; color: var(--gold-bright) !important; line-height: 1 !important; }
+.badge-name { margin-top: 8px !important; font-family: var(--font-mono, monospace) !important; font-size: 10.5px !important; font-weight: 600 !important; color: var(--text-dim) !important; letter-spacing: 0.04em !important; text-align: center !important; white-space: nowrap !important; transition: color 0.2s ease !important; }
+.badge-slot:hover .badge-name { color: var(--text) !important; }
+.badge-slot.active:hover .badge-name { color: var(--gold-bright) !important; }
+
+/* Tooltip Hover Retention & Edge Clamping */
+.badge-tooltip { position: absolute !important; bottom: calc(100% + 12px) !important; width: 230px !important; background: rgba(18, 15, 11, 0.98) !important; border: 1px solid rgba(217, 172, 84, 0.4) !important; box-shadow: 0 14px 36px rgba(0, 0, 0, 0.9), 0 0 18px rgba(217, 172, 84, 0.15) !important; border-radius: 12px !important; padding: 14px 16px !important; pointer-events: none !important; opacity: 0 !important; visibility: hidden !important; transition: opacity 0.22s ease 0.12s, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) 0.12s, visibility 0.22s ease 0.12s !important; z-index: 100 !important; }
+.badge-tooltip::before { content: '' !important; position: absolute !important; top: 100% !important; left: 0 !important; right: 0 !important; height: 18px !important; background: transparent !important; }
+.badge-tooltip::after { content: '' !important; position: absolute !important; top: 100% !important; border: 6px solid transparent !important; border-top-color: rgba(217, 172, 84, 0.4) !important; }
+.badge-slot:hover .badge-tooltip, .badge-slot:focus-visible .badge-tooltip, .badge-tooltip:hover { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transition-delay: 0s !important; }
+.badge-grid > .badge-slot:nth-child(4n + 1) .badge-tooltip { left: -8px !important; right: auto !important; transform: translateY(6px) !important; }
+.badge-grid > .badge-slot:nth-child(4n + 1):hover .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n + 1):focus-visible .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n + 1) .badge-tooltip:hover { transform: translateY(0) !important; }
+.badge-grid > .badge-slot:nth-child(4n + 1) .badge-tooltip::after { left: 38px !important; right: auto !important; transform: none !important; }
+.badge-grid > .badge-slot:nth-child(4n) .badge-tooltip { left: auto !important; right: -8px !important; transform: translateY(6px) !important; }
+.badge-grid > .badge-slot:nth-child(4n):hover .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n):focus-visible .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n) .badge-tooltip:hover { transform: translateY(0) !important; }
+.badge-grid > .badge-slot:nth-child(4n) .badge-tooltip::after { left: auto !important; right: 38px !important; transform: none !important; }
+.badge-grid > .badge-slot:nth-child(4n + 2) .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n + 3) .badge-tooltip { left: 50% !important; right: auto !important; transform: translateX(-50%) translateY(6px) !important; }
+.badge-grid > .badge-slot:nth-child(4n + 2):hover .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n + 3):hover .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n + 2):focus-visible .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n + 3):focus-visible .badge-tooltip, .badge-grid > .badge-slot:nth-child(4n + 2) .badge-tooltip:hover, .badge-grid > .badge-slot:nth-child(4n + 3) .badge-tooltip:hover { transform: translateX(-50%) translateY(0) !important; }
+.badge-grid > .badge-slot:nth-child(4n + 2) .badge-tooltip::after, .badge-grid > .badge-slot:nth-child(4n + 3) .badge-tooltip::after { left: 50% !important; right: auto !important; transform: translateX(-50%) !important; }
+.tt-title { font-family: var(--font-display, sans-serif) !important; font-size: 13px !important; font-weight: 700 !important; color: var(--text, #f0ede8) !important; margin-bottom: 3px !important; }
+.tt-issuer { font-size: 11px !important; font-weight: 600 !important; color: var(--gold, #d9ac54) !important; margin-bottom: 6px !important; }
+.tt-desc { font-size: 11.5px !important; line-height: 1.45 !important; color: var(--text-dim, #999388) !important; }
+.tt-action { margin-top: 8px !important; padding-top: 8px !important; border-top: 1px solid rgba(255,255,255,0.08) !important; font-family: var(--font-mono, monospace) !important; font-size: 10px !important; font-weight: 700 !important; color: var(--gold-bright, #f0cf74) !important; display: inline-block !important; text-decoration: none !important; cursor: pointer !important; letter-spacing: 0.05em !important; transition: color 0.18s ease !important; }
+.tt-action:hover { color: #fff !important; text-decoration: underline !important; }
+@media (max-width: 580px) {
+  .badge-case-wrap { padding: 20px 16px 24px !important; }
+  .badge-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 22px 12px !important; }
+  .badge-grid > .badge-slot:nth-child(odd) .badge-tooltip { left: -4px !important; right: auto !important; transform: translateY(6px) !important; }
+  .badge-grid > .badge-slot:nth-child(odd):hover .badge-tooltip, .badge-grid > .badge-slot:nth-child(odd) .badge-tooltip:hover { transform: translateY(0) !important; }
+  .badge-grid > .badge-slot:nth-child(odd) .badge-tooltip::after { left: 34px !important; right: auto !important; transform: none !important; }
+  .badge-grid > .badge-slot:nth-child(even) .badge-tooltip { left: auto !important; right: -4px !important; transform: translateY(6px) !important; }
+  .badge-grid > .badge-slot:nth-child(even):hover .badge-tooltip, .badge-grid > .badge-slot:nth-child(even) .badge-tooltip:hover { transform: translateY(0) !important; }
+  .badge-grid > .badge-slot:nth-child(even) .badge-tooltip::after { left: auto !important; right: 34px !important; transform: none !important; }
+}`;
+
+  const newCssBlock = cssStart + '\n' + dexAndBadgesCss.trim() + '\n' + cssEnd;
+
+  if (css.includes(cssStart)) {
+    const sIdx = css.indexOf(cssStart);
+    const eIdx = css.indexOf(cssEnd);
+    if (sIdx !== -1 && eIdx !== -1) {
+      css = css.substring(0, sIdx) + newCssBlock + css.substring(eIdx + cssEnd.length);
+    }
+  } else {
+    const oldMarker = '/* ============================================================\n   WORK SECTION HEADER & VIEW SWITCHER';
+    if (css.includes(oldMarker)) {
+      const idx = css.indexOf(oldMarker);
+      css = css.substring(0, idx);
+    }
+    css += '\n\n' + newCssBlock + '\n';
+  }
+
+  fs.writeFileSync(cssPath, css, 'utf8');
+  console.log('✅ assets/css/scroll.css updated.');
+}
+
+// 3. UPDATE assets/js/scroll.js
 const jsPath = path.join('assets', 'js', 'scroll.js');
 if (fs.existsSync(jsPath)) {
-  let jsContent = fs.readFileSync(jsPath, 'utf8');
+  let js = fs.readFileSync(jsPath, 'utf8');
 
-  const dexJs = `/* --- POKEDEX & WORK VIEWS START --- */
-(function() {
-  'use strict';
+  const bannerStart = '/* --- POKEDEX & WORK VIEWS START --- */';
+  const bannerEnd = '/* --- POKEDEX & WORK VIEWS END --- */';
 
-  // 8-bit Sound Synthesizer via Web Audio API
-  let audioCtx = null;
-  let audioEnabled = true;
+  const dexJs = `  // WORK VIEW SWITCHER & POKÉDEX HARDWARE CONTROLLER
+  (function initWorkViews() {
+    var cardsBtn = document.getElementById('btn-view-cards');
+    var dexBtn = document.getElementById('btn-view-dex');
+    var cardsContainer = document.getElementById('cards-container');
+    var dexContainer = document.getElementById('dex-container');
+    var returnCardsBtn = document.getElementById('dex-return-cards-btn');
+    var bReturnBtn = document.getElementById('dex-b-return-btn');
 
-  function play8BitTone(type) {
-    if (!audioEnabled) return;
-    try {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContext) return;
-      if (!audioCtx) audioCtx = new AudioContext();
-      if (audioCtx.state === 'suspended') audioCtx.resume();
+    if (!cardsBtn || !dexBtn || !cardsContainer || !dexContainer) return;
 
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'square';
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
+    function switchToCards() {
+      cardsBtn.classList.add('active');
+      cardsBtn.setAttribute('aria-selected', 'true');
+      dexBtn.classList.remove('active');
+      dexBtn.setAttribute('aria-selected', 'false');
+      cardsContainer.removeAttribute('hidden');
+      dexContainer.setAttribute('hidden', '');
+    }
 
-      const now = audioCtx.currentTime;
-      if (type === 'click') {
-        osc.frequency.setValueAtTime(587.33, now); // D5
-        osc.frequency.exponentialRampToValueAtTime(880, now + 0.05); // A5
-        gain.gain.setValueAtTime(0.04, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
-        osc.start(now);
-        osc.stop(now + 0.07);
-      } else if (type === 'switch') {
-        osc.frequency.setValueAtTime(329.63, now); // E4
-        osc.frequency.exponentialRampToValueAtTime(659.25, now + 0.09); // E5
-        gain.gain.setValueAtTime(0.05, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
-        osc.start(now);
-        osc.stop(now + 0.1);
-      } else if (type === 'nav') {
-        osc.frequency.setValueAtTime(440, now); // A4
-        gain.gain.setValueAtTime(0.03, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
-        osc.start(now);
-        osc.stop(now + 0.04);
+    function switchToDex(indexToOpen) {
+      dexBtn.classList.add('active');
+      dexBtn.setAttribute('aria-selected', 'true');
+      cardsBtn.classList.remove('active');
+      cardsBtn.setAttribute('aria-selected', 'false');
+      cardsContainer.setAttribute('hidden', '');
+      dexContainer.removeAttribute('hidden');
+      renderDexEntry(typeof indexToOpen === 'number' ? indexToOpen : currentDexIndex);
+    }
+
+    cardsBtn.addEventListener('click', function () { switchToCards(); });
+    dexBtn.addEventListener('click', function () { switchToDex(); });
+    if (returnCardsBtn) returnCardsBtn.addEventListener('click', function () { switchToCards(); });
+    if (bReturnBtn) bReturnBtn.addEventListener('click', function () { switchToCards(); });
+
+    var chassis = document.getElementById('dex-chassis');
+    var prevBtn = document.getElementById('dex-prev-btn');
+    var nextBtn = document.getElementById('dex-next-btn');
+    var audioBtn = document.getElementById('dex-audio-btn');
+    var audioLbl = document.getElementById('dex-audio-lbl');
+    var keypads = dexContainer.querySelectorAll('.dex-pad');
+
+    var dexImg = document.getElementById('dex-img');
+    var dexViewfinderId = document.getElementById('dex-viewfinder-id');
+    var dexClassification = document.getElementById('dex-classification');
+    var dexOrigin = document.getElementById('dex-origin');
+    var dexEntryNum = document.getElementById('dex-entry-num');
+    var dexTypeBadge = document.getElementById('dex-type-badge');
+    var dexTitle = document.getElementById('dex-title');
+    var dexSubtitle = document.getElementById('dex-subtitle');
+    var dexRole = document.getElementById('dex-role');
+    var dexStatsContainer = document.getElementById('dex-stats-container');
+    var dexMovesContainer = document.getElementById('dex-moves-container');
+    var dexFriction = document.getElementById('dex-friction');
+    var dexDelta = document.getElementById('dex-delta');
+    var dexCtaLink = document.getElementById('dex-cta-link');
+
+    var sfxEnabled = false;
+    var audioCtx = null;
+    var currentDexIndex = 0;
+
+    var DEX_DATA = [
+      {
+        id: '001',
+        title: 'Study Buddy',
+        subtitle: 'Distraction-Free Academic Desktop HUD',
+        type: 'PSYCHIC / DEEP WORK',
+        accent: '#a594f9',
+        role: 'Solo Product Designer & Builder',
+        image: 'assets/images/study-buddy.png',
+        link: 'case-studies/study-buddy.html',
+        classification: 'ACADEMIC FOCUS HUD',
+        origin: 'INDEPENDENT (ELECTRON)',
+        stats: [
+          { label: 'IA & System Architecture', val: 96 },
+          { label: 'Speed-to-Ship (14h)', val: 98 },
+          { label: 'Distraction Reduction', val: 92 },
+          { label: 'Cross-Platform Build', val: 95 }
+        ],
+        moves: ['Electron Shell', 'Dual Study Modes', 'Zero Context-Switch', 'Open Source'],
+        friction: 'Students lose hours to digital fragmentation when juggling 40 research tabs across disconnected browser windows.',
+        delta: 'Designed a floating desktop companion overlay in Figma, then built and shipped cross-platform native installers in ~14 hours.'
+      },
+      {
+        id: '002',
+        title: 'SecureID',
+        subtitle: 'Identity Verification & Analyst Review Platform',
+        type: 'ELECTRIC / IDENTITY',
+        accent: '#d9ac54',
+        role: 'Solo Product Designer',
+        image: 'assets/images/secureid.png',
+        link: 'case-studies/secureid.html',
+        classification: 'DUAL-SIDED SAAS & MOBILE',
+        origin: 'INDEPENDENT PROJECT',
+        stats: [
+          { label: 'Dual-Sided IA Alignment', val: 95 },
+          { label: 'Design Token System', val: 94 },
+          { label: 'Case Triage Density', val: 91 },
+          { label: 'Onboarding Completion', val: 89 }
+        ],
+        moves: ['Biometric 1-Tap', 'Triage Queue UX', 'Progressive Disclosure', 'Unified Tokens'],
+        friction: 'Anxious consumers abandon invasive verification flows, while fraud analysts bottleneck on cluttered review queues.',
+        delta: 'Unified 1-tap mobile onboarding with a high-density analyst triage dashboard on a shared token system.'
+      },
+      {
+        id: '003',
+        title: 'Vextaro',
+        subtitle: "Men's Luxury Formalwear Rental App & System",
+        type: 'STEEL / APPAREL',
+        accent: '#5aa3c9',
+        role: 'UX/UI Design Intern · Flyrank AI',
+        image: 'assets/images/vextaro.png',
+        link: 'case-studies/vextaro.html',
+        classification: 'LUXURY APPAREL RENTAL',
+        origin: 'FLYRANK AI CAPSTONE',
+        stats: [
+          { label: 'Design System Tokens', val: 96 },
+          { label: 'WCAG 2.2 AA Contrast', val: 100 },
+          { label: 'Fit-Check IA Flow', val: 94 },
+          { label: 'Developer Redlines', val: 95 }
+        ],
+        moves: ['Fit Confirmation', 'Tokenized UI Kit', '15/15 WCAG Passes', '35 Variants'],
+        friction: 'Renters cannot try formalwear on before it ships, making sizing anxiety and fit uncertainty the #1 checkout blocker.',
+        delta: 'Led competitive audits, designed a pre-checkout fit checkpoint, tokenized UI system, and full developer handoff package.'
+      },
+      {
+        id: '004',
+        title: 'Honda of Clear Lake',
+        subtitle: 'Dealership Website Usability & Conversion Audit',
+        type: 'GROUND / HEURISTICS',
+        accent: '#e27d5a',
+        role: 'Solo UX Auditor',
+        image: 'assets/images/honda.png',
+        link: 'case-studies/honda.html',
+        classification: 'DEALERSHIP HEURISTIC AUDIT',
+        origin: 'INDEPENDENT AUDIT',
+        stats: [
+          { label: 'Heuristic Evaluation', val: 96 },
+          { label: 'Severity Rating (0–4)', val: 95 },
+          { label: 'Conversion Optimization', val: 92 },
+          { label: 'Eng Punch List', val: 94 }
+        ],
+        moves: ["Nielsen's 10 Heuristics", '31 Usability Fixes', 'Trade-In Flow Redesign', 'Banner Noise Cleanup'],
+        friction: 'High-intent car shoppers faced friction locating real-time trade-in values and financing terms amidst banner noise.',
+        delta: 'Audited 31 usability violations on a 0–4 severity scale, delivering an annotated redesign punch list for 3 critical blockers.'
+      },
+      {
+        id: '005',
+        title: 'DevTective',
+        subtitle: 'Developer Learning Progress & Habit Tracker',
+        type: 'GHOST / PROGRESS TRACKING',
+        accent: '#9c8be8',
+        role: 'Solo UX Designer',
+        image: 'assets/images/devtective.png',
+        link: 'case-studies/devtective.html',
+        classification: 'DEVELOPER HABIT TRACKER',
+        origin: 'GOOGLE UX CERTIFICATE',
+        stats: [
+          { label: 'User Research & Mapping', val: 93 },
+          { label: 'Habit Reinforcement IA', val: 90 },
+          { label: 'Mobile Prototyping', val: 94 },
+          { label: 'Cognitive Load Reduction', val: 91 }
+        ],
+        moves: ['Progress Curves', 'Journey Mapping', 'Milestone Triggers', 'Interactive Prototype'],
+        friction: 'Self-taught coders experience high drop-off rates due to cognitive overload and lack of structured milestone reinforcement.',
+        delta: 'Conducted user interviews, mapped emotional progress curves, and designed an end-to-end habit tracking prototype.'
       }
-    } catch (e) {
-      // Audio context policy
+    ];
+
+    function playBeep(freq, duration) {
+      if (!sfxEnabled) return;
+      try {
+        if (!audioCtx) {
+          var AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) audioCtx = new AudioContext();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+        if (audioCtx) {
+          var osc = audioCtx.createOscillator();
+          var gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq || 880, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (duration || 0.05));
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + (duration || 0.05));
+        }
+      } catch (e) {}
     }
-  }
 
-  // Work View Mode Switcher
-  const btnCards = document.getElementById('btn-view-cards');
-  const btnDex = document.getElementById('btn-view-dex');
-  const cardsContainer = document.getElementById('cards-container');
-  const dexContainer = document.getElementById('dex-container');
-  const btnBackCards = document.getElementById('dex-btn-back-cards');
+    function renderDexEntry(index) {
+      if (index < 0) index = DEX_DATA.length - 1;
+      if (index >= DEX_DATA.length) index = 0;
+      currentDexIndex = index;
 
-  function setWorkView(mode) {
-    if (mode === 'dex') {
-      btnCards?.classList.remove('active');
-      btnCards?.setAttribute('aria-selected', 'false');
-      btnDex?.classList.add('active');
-      btnDex?.setAttribute('aria-selected', 'true');
-      if (cardsContainer) cardsContainer.hidden = true;
-      if (dexContainer) {
-        dexContainer.hidden = false;
-        dexContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      var item = DEX_DATA[currentDexIndex];
+      if (!item) return;
+
+      if (chassis) chassis.style.setProperty('--active-accent', item.accent);
+      if (dexViewfinderId) dexViewfinderId.textContent = 'ENTRY #' + item.id;
+      if (dexClassification) dexClassification.textContent = item.classification;
+      if (dexOrigin) dexOrigin.textContent = item.origin;
+      if (dexEntryNum) dexEntryNum.textContent = 'NO. ' + item.id;
+      if (dexTypeBadge) dexTypeBadge.textContent = item.type;
+      if (dexTitle) dexTitle.textContent = item.title;
+      if (dexSubtitle) dexSubtitle.textContent = item.subtitle;
+      if (dexRole) dexRole.textContent = item.role;
+      if (dexFriction) dexFriction.textContent = item.friction;
+      if (dexDelta) dexDelta.textContent = item.delta;
+      if (dexCtaLink) dexCtaLink.href = item.link;
+
+      if (dexImg) {
+        dexImg.style.opacity = '0';
+        dexImg.src = item.image;
+        dexImg.onload = function () { dexImg.style.opacity = '1'; };
+        dexImg.onerror = function () { dexImg.style.opacity = '1'; };
       }
-      play8BitTone('switch');
-    } else {
-      btnDex?.classList.remove('active');
-      btnDex?.setAttribute('aria-selected', 'false');
-      btnCards?.classList.add('active');
-      btnCards?.setAttribute('aria-selected', 'true');
-      if (dexContainer) dexContainer.hidden = true;
-      if (cardsContainer) cardsContainer.hidden = false;
-      play8BitTone('click');
-    }
-  }
 
-  btnCards?.addEventListener('click', () => setWorkView('cards'));
-  btnDex?.addEventListener('click', () => setWorkView('dex'));
-  btnBackCards?.addEventListener('click', () => setWorkView('cards'));
+      if (dexStatsContainer) {
+        var statsHtml = '';
+        item.stats.forEach(function (st) {
+          statsHtml += '<div class="stat-row">' +
+            '<div class="stat-meta"><span class="stat-lbl">' + st.label + '</span><span class="stat-val">' + st.val + '%</span></div>' +
+            '<div class="stat-bar-track"><div class="stat-bar-fill" style="width:' + st.val + '%;"></div></div>' +
+            '</div>';
+        });
+        dexStatsContainer.innerHTML = statsHtml;
+      }
 
-  // Pokédex Hardware Telemetry & Navigation Engine
-  const dexData = [
-    {
-      num: '#001',
-      title: 'Study Buddy',
-      subtitle: 'Desktop Focus Companion · Solo Product Designer & Builder',
-      type: 'PSYCHIC / DEEP WORK',
-      color: '#c996e8',
-      img: 'assets/images/study-buddy.png',
-      alt: 'Study Buddy Desktop App',
-      stats: { sys: 95, proto: 98, met: 90 },
-      tags: ['Electron Desktop App', 'Design System Tokens', 'AI-Assisted Build', 'Interactive Overlay', 'WCAG AA Accessible'],
-      friction: 'Unstructured study sessions cause digital fragmentation across 40 browser tabs.',
-      outcome: 'Shipped working cross-platform native installers in ~14 hours of active build time.',
-      studyUrl: 'case-studies/study-buddy.html',
-      extLabel: 'GitHub Repo ↗',
-      extUrl: 'https://github.com/EricArielDeLaPaz/study-buddy-desktop'
-    },
-    {
-      num: '#002',
-      title: 'SecureID',
-      subtitle: 'Identity Verification & Analyst Platform · Solo Product Designer',
-      type: 'ELECTRIC / IDENTITY',
-      color: '#ffd166',
-      img: 'assets/images/secureid.png',
-      alt: 'SecureID Platform',
-      stats: { sys: 94, proto: 92, met: 96 },
-      tags: ['Mobile Web & Desktop SaaS', 'Security UX', 'Analyst Queues', 'Design Tokens', 'Heuristic Safety'],
-      friction: 'Anxious mobile users abandon invasive verification, while fraud analysts bottleneck on review queues.',
-      outcome: 'Cut end-user drop-off with contextual biometric guidance; reduced review latency with batch triage HUD.',
-      studyUrl: 'case-studies/secureid.html',
-      extLabel: 'Figma Prototype ↗',
-      extUrl: 'https://www.figma.com/proto/t7kO672QvC5qQ7dNu8w0yX/SecureID-Case-Study?node-id=1-2&scaling=scale-down&page-id=0%3A1'
-    },
-    {
-      num: '#003',
-      title: 'Vextaro',
-      subtitle: 'Fractional Real Estate Platform · Solo Product Designer',
-      type: 'STEEL / FINTECH',
-      color: '#90caf9',
-      img: 'assets/images/vextaro.png',
-      alt: 'Vextaro Platform',
-      stats: { sys: 96, proto: 94, met: 91 },
-      tags: ['Web Platform', 'Financial Telemetry', 'Interactive Charts', 'Compliance UX', 'Design System'],
-      friction: 'Retail investors struggle to assess liquidity, projected IRR, and risk across dense real estate offerings.',
-      outcome: 'Built transparent waterfall metrics, secondary-market trading cues, and an accessible investment checkout.',
-      studyUrl: 'case-studies/vextaro.html',
-      extLabel: 'Figma Prototype ↗',
-      extUrl: 'https://www.figma.com/proto/7JcM2lY6oU4uW9tP0r5x4z/Vextaro-Prototype?node-id=10-4&scaling=scale-down'
-    },
-    {
-      num: '#004',
-      title: 'Honda Audit',
-      subtitle: 'Dealership Usability & Conversion · UX Researcher & Evaluator',
-      type: 'GROUND / HEURISTICS',
-      color: '#e27d5a',
-      img: 'assets/images/honda.png',
-      alt: 'Honda Dealership Audit',
-      stats: { sys: 88, proto: 85, met: 99 },
-      tags: ['Heuristic Evaluation', 'Nielsen Norman Group', 'Conversion Optimization', 'E-Commerce UX', 'Information Architecture'],
-      friction: 'Disorienting multi-tier inventory filters and pop-up lead traps caused 68% estimated test bounce rates.',
-      outcome: 'Audited 10 Nielsen heuristics; redesigned frictionless vehicle comparison grid with upfront pricing.',
-      studyUrl: 'case-studies/honda.html',
-      extLabel: 'PDF Summary ↗',
-      extUrl: 'assets/docs/Honda_Usability_Audit.pdf'
-    },
-    {
-      num: '#005',
-      title: 'DevTective',
-      subtitle: 'Developer Progress & Habit Tracker · Solo Product Designer',
-      type: 'GHOST / HABIT ENGINE',
-      color: '#b39ddb',
-      img: 'assets/images/devtective.png',
-      alt: 'DevTective Habit Tracker',
-      stats: { sys: 92, proto: 95, met: 93 },
-      tags: ['Gamification UX', 'Telemetry Dashboard', 'Behavioral Psychology', 'Mobile-First Web', 'Habit Loops'],
-      friction: 'Self-taught developers experience burnout and loss of momentum due to vague milestone definitions.',
-      outcome: 'Designed bite-sized quest loops, streak protection mechanics, and verifiable skill verification trees.',
-      studyUrl: 'case-studies/devtective.html',
-      extLabel: 'Figma Prototype ↗',
-      extUrl: 'https://www.figma.com/proto/5yW1n9O2hP0mX6zK8qR3vT/DevTective?node-id=2-1'
-    }
-  ];
+      if (dexMovesContainer) {
+        var movesHtml = '';
+        item.moves.forEach(function (m) {
+          movesHtml += '<span class="dex-move-pill">' + m + '</span>';
+        });
+        dexMovesContainer.innerHTML = movesHtml;
+      }
 
-  let currentIndex = 0;
+      keypads.forEach(function (pad) {
+        var idx = parseInt(pad.getAttribute('data-index'), 10);
+        if (idx === currentDexIndex) pad.classList.add('active');
+        else pad.classList.remove('active');
+      });
 
-  const elEntryNo = document.getElementById('dex-entry-no');
-  const elTypeTag = document.getElementById('dex-type-tag');
-  const elEntryName = document.getElementById('dex-entry-name');
-  const elEntrySub = document.getElementById('dex-entry-subtitle');
-  const elBarSys = document.getElementById('dex-bar-systems');
-  const elValSys = document.getElementById('dex-val-systems');
-  const elBarProto = document.getElementById('dex-bar-proto');
-  const elValProto = document.getElementById('dex-val-proto');
-  const elBarMet = document.getElementById('dex-bar-metrics');
-  const elValMet = document.getElementById('dex-val-metrics');
-  const elTagCloud = document.getElementById('dex-tag-cloud');
-  const elFriction = document.getElementById('dex-friction-copy');
-  const elOutcome = document.getElementById('dex-outcome-copy');
-  const elBtnRead = document.getElementById('dex-btn-read');
-  const elBtnExt = document.getElementById('dex-btn-ext');
-  const elBtnExtLabel = document.getElementById('dex-btn-ext-label');
-  const elImg = document.getElementById('dex-img');
-  const elHudSpecimen = document.getElementById('dex-hud-specimen');
-  const keyBtns = document.querySelectorAll('.dex-keypad .key-btn');
-
-  function renderDexSpecimen(index) {
-    if (index < 0 || index >= dexData.length) return;
-    currentIndex = index;
-    const item = dexData[index];
-
-    if (elEntryNo) elEntryNo.textContent = 'REG NO. ' + item.num;
-    if (elTypeTag) {
-      elTypeTag.innerHTML = '<i class="dex-type-dot" style="background:' + item.color + '; box-shadow: 0 0 8px ' + item.color + '"></i> ' + item.type;
-      elTypeTag.style.borderColor = item.color + '44';
-      elTypeTag.style.color = item.color;
-    }
-    if (elEntryName) elEntryName.textContent = item.title;
-    if (elEntrySub) elEntrySub.textContent = item.subtitle;
-
-    if (elBarSys) elBarSys.style.width = item.stats.sys + '%';
-    if (elValSys) elValSys.textContent = item.stats.sys;
-    if (elBarProto) elBarProto.style.width = item.stats.proto + '%';
-    if (elValProto) elValProto.textContent = item.stats.proto;
-    if (elBarMet) elBarMet.style.width = item.stats.met + '%';
-    if (elValMet) elValMet.textContent = item.stats.met;
-
-    if (elTagCloud) {
-      elTagCloud.innerHTML = item.tags.map(t => '<span class="dex-tag">' + t + '</span>').join('');
+      playBeep(720, 0.04);
     }
 
-    if (elFriction) elFriction.textContent = item.friction;
-    if (elOutcome) elOutcome.textContent = item.outcome;
+    if (prevBtn) prevBtn.addEventListener('click', function () { renderDexEntry(currentDexIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { renderDexEntry(currentDexIndex + 1); });
 
-    if (elBtnRead) elBtnRead.href = item.studyUrl;
-    if (elBtnExt) elBtnExt.href = item.extUrl;
-    if (elBtnExtLabel) elBtnExtLabel.textContent = item.extLabel;
-
-    if (elHudSpecimen) elHudSpecimen.textContent = 'SPECIMEN ' + item.num;
-
-    if (elImg) {
-      elImg.style.opacity = '0';
-      elImg.style.transform = 'scale(0.96)';
-      setTimeout(() => {
-        elImg.src = item.img;
-        elImg.alt = item.alt;
-        elImg.style.opacity = '1';
-        elImg.style.transform = 'scale(1)';
-      }, 100);
-    }
-
-    keyBtns.forEach((btn, idx) => {
-      btn.classList.toggle('active', idx === index);
+    keypads.forEach(function (pad) {
+      pad.addEventListener('click', function () {
+        var idx = parseInt(this.getAttribute('data-index'), 10);
+        renderDexEntry(idx);
+      });
     });
-  }
 
-  // D-Pad and Keypad bindings
-  document.getElementById('dex-nav-prev')?.addEventListener('click', () => {
-    play8BitTone('nav');
-    renderDexSpecimen((currentIndex - 1 + dexData.length) % dexData.length);
-  });
-  document.getElementById('dex-nav-next')?.addEventListener('click', () => {
-    play8BitTone('nav');
-    renderDexSpecimen((currentIndex + 1) % dexData.length);
-  });
-  document.getElementById('dex-nav-up')?.addEventListener('click', () => {
-    play8BitTone('nav');
-    renderDexSpecimen((currentIndex - 1 + dexData.length) % dexData.length);
-  });
-  document.getElementById('dex-nav-down')?.addEventListener('click', () => {
-    play8BitTone('nav');
-    renderDexSpecimen((currentIndex + 1) % dexData.length);
-  });
+    if (audioBtn) {
+      audioBtn.addEventListener('click', function () {
+        sfxEnabled = !sfxEnabled;
+        audioBtn.setAttribute('aria-pressed', sfxEnabled ? 'true' : 'false');
+        if (audioLbl) audioLbl.textContent = sfxEnabled ? 'SFX: ON' : 'SFX: OFF';
+        if (sfxEnabled) {
+          audioBtn.style.color = '#f0cf74';
+          audioBtn.style.borderColor = '#d9ac54';
+          playBeep(1040, 0.08);
+        } else {
+          audioBtn.style.color = '';
+          audioBtn.style.borderColor = '';
+        }
+      });
+    }
 
-  keyBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      play8BitTone('nav');
-      const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
-      renderDexSpecimen(idx);
+    document.addEventListener('keydown', function (e) {
+      if (dexContainer.hasAttribute('hidden')) return;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); renderDexEntry(currentDexIndex - 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); renderDexEntry(currentDexIndex + 1); }
+      else if (e.key === 'Escape' || e.key === 'c' || e.key === 'C') { switchToCards(); }
+      else if (e.key >= '1' && e.key <= '5') {
+        var numIdx = parseInt(e.key, 10) - 1;
+        if (numIdx >= 0 && numIdx < DEX_DATA.length) renderDexEntry(numIdx);
+      }
     });
-  });
 
-  // Sound Synthesizer toggle
-  const btnAudio = document.getElementById('dex-btn-audio');
-  const labelAudio = document.getElementById('dex-audio-label');
-  btnAudio?.addEventListener('click', () => {
-    audioEnabled = !audioEnabled;
-    if (labelAudio) labelAudio.textContent = '8-BIT: ' + (audioEnabled ? 'ON' : 'OFF');
-    btnAudio.classList.toggle('muted', !audioEnabled);
-    if (audioEnabled) play8BitTone('click');
-  });
+    renderDexEntry(0);
+  })();
 
-  // Handle external prototype/repo links on cards
-  document.querySelectorAll('.btn-pill-secondary[data-href]').forEach(btn => {
-    btn.addEventListener('click', e => {
+  // TCG 3D HOLOGRAPHIC TILT ON CARDS
+  (function initTcgHolographics() {
+    var cards = document.querySelectorAll('.tcg-card');
+    if (!cards.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    cards.forEach(function (card) {
+      function onMouseMove(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var rotX = ((y - rect.height / 2) / (rect.height / 2)) * -5.5;
+        var rotY = ((x - rect.width / 2) / (rect.width / 2)) * 5.5;
+        card.style.transform = 'perspective(1000px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg) scale3d(1.015, 1.015, 1.015)';
+        card.style.setProperty('--tcg-glare-x', ((x / rect.width) * 100).toFixed(1) + '%');
+        card.style.setProperty('--tcg-glare-y', ((y / rect.height) * 100).toFixed(1) + '%');
+      }
+
+      function onMouseEnter() { card.style.transition = 'transform 0.12s ease-out, border-color 0.25s ease, box-shadow 0.25s ease'; }
+      function onMouseLeave() {
+        card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease';
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      }
+
+      card.addEventListener('mouseenter', onMouseEnter);
+      card.addEventListener('mousemove', onMouseMove);
+      card.addEventListener('mouseleave', onMouseLeave);
+    });
+  })();
+
+  // Secondary button direct navigation handler
+  document.querySelectorAll('.btn-pill-secondary[data-href]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
-      const href = btn.getAttribute('data-href');
-      if (href) window.open(href, '_blank', 'noopener,noreferrer');
-    });
-  });
-
-  // 3D Card Holographic & Tilt Physics
-  document.querySelectorAll('.tcg-card').forEach(card => {
-    const glare = card.querySelector('.tcg-glare');
-
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -5;
-      const rotateY = ((x - centerX) / centerX) * 5;
-
-      card.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-4px)';
-      if (glare) {
-        const percX = (x / rect.width) * 100;
-        const percY = (y / rect.height) * 100;
-        glare.style.opacity = '0.7';
-        glare.style.background = 'radial-gradient(circle at ' + percX.toFixed(1) + '% ' + percY.toFixed(1) + '%, rgba(240,207,116,0.18) 0%, rgba(217,172,84,0.06) 45%, transparent 70%)';
+      var href = btn.getAttribute('data-href');
+      if (href) {
+        if (href.startsWith('http')) window.open(href, '_blank', 'noopener,noreferrer');
+        else window.location.href = href;
       }
     });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-      if (glare) glare.style.opacity = '0';
-    });
   });
 
-})();
-/* --- POKEDEX & WORK VIEWS END --- */`;
+  // Micro-interaction: dismiss tooltips from previous slots on touch/click
+  document.querySelectorAll('.badge-slot').forEach(function (slot) {
+    slot.addEventListener('mouseenter', function () {
+      document.querySelectorAll('.badge-slot').forEach(function (s) {
+        if (s !== slot) s.blur();
+      });
+    });
+  });`;
 
-  // Idempotent insertion using exact comment markers
-  const startTag = '/* --- POKEDEX & WORK VIEWS START --- */';
-  const endTag = '/* --- POKEDEX & WORK VIEWS END --- */';
+  const newJsBlock = bannerStart + '\n' + dexJs + '\n' + bannerEnd;
 
-  if (jsContent.includes(startTag) && jsContent.includes(endTag)) {
-    const sIdx = jsContent.indexOf(startTag);
-    const eIdx = jsContent.indexOf(endTag) + endTag.length;
-    jsContent = jsContent.slice(0, sIdx) + dexJs + jsContent.slice(eIdx);
+  if (js.includes(bannerStart)) {
+    const sIdx = js.indexOf(bannerStart);
+    const eIdx = js.indexOf(bannerEnd);
+    if (sIdx !== -1 && eIdx !== -1) {
+      js = js.substring(0, sIdx) + newJsBlock + js.substring(eIdx + bannerEnd.length);
+    }
   } else {
-    jsContent += '\n\n' + dexJs;
+    js = js.replace(/\(function initProductDex\(\)[\s\S]*?\}\)\(\);?\s*/i, '');
+    js = js.replace(/\(function initTcgHolographics\(\)[\s\S]*?\}\)\(\);?\s*/i, '');
+
+    const lastCloseIdx = js.lastIndexOf('})();');
+    if (lastCloseIdx !== -1) {
+      js = js.substring(0, lastCloseIdx) + '\n' + newJsBlock + '\n})();\n';
+    } else {
+      js += '\n' + newJsBlock + '\n';
+    }
   }
 
-  fs.writeFileSync(jsPath, jsContent, 'utf8');
-  console.log('✅ assets/js/scroll.js updated with synthesizer, mode switchers, and holographic tilt physics.');
+  fs.writeFileSync(jsPath, js, 'utf8');
+  console.log('✅ assets/js/scroll.js updated.');
 }
 
-// 3. UPDATE Case Study Subpages with Pokédex Registry Chips
+// 4. UPDATE case-studies/*.html (Pokédex Registry Banners)
 const caseStudies = [
-  { file: 'study-buddy.html', num: '001', type: 'PSYCHIC // DEEP WORK', color: '#c996e8', title: 'Study Buddy — Desktop Focus Companion', status: 'SHIPPED V1.0' },
-  { file: 'secureid.html', num: '002', type: 'ELECTRIC // IDENTITY', color: '#ffd166', title: 'SecureID — Identity Verification Platform', status: 'SYSTEM DESIGNED' },
-  { file: 'vextaro.html', num: '003', type: 'STEEL // FINTECH', color: '#90caf9', title: 'Vextaro — Fractional Real Estate Platform', status: 'PRODUCTION SPEC' },
+  { file: 'study-buddy.html', num: '001', type: 'PSYCHIC // DEEP WORK', color: '#a594f9', title: 'Study Buddy — Distraction-Free Academic Desktop HUD', status: 'SHIPPED &amp; OPEN SOURCE' },
+  { file: 'secureid.html', num: '002', type: 'ELECTRIC // IDENTITY', color: '#d9ac54', title: 'SecureID — Identity Verification &amp; Analyst Review Platform', status: 'PROTOTYPE VERIFIED' },
+  { file: 'vextaro.html', num: '003', type: 'STEEL // APPAREL', color: '#5aa3c9', title: 'Vextaro — Men\\'s Luxury Formalwear Rental App', status: 'CAPSTONE SHIPPED' },
   { file: 'honda.html', num: '004', type: 'GROUND // HEURISTICS', color: '#e27d5a', title: 'Honda of Clear Lake — Dealership Website Usability Audit', status: 'AUDIT COMPLETE' },
   { file: 'devtective.html', num: '005', type: 'GHOST // PROGRESS TRACKING', color: '#9c8be8', title: 'DevTective — Developer Learning Progress &amp; Habit Tracker', status: 'RESEARCH &amp; PROTOTYPE' }
 ];
@@ -1055,23 +1150,23 @@ caseStudies.forEach(cs => {
     let csHtml = fs.readFileSync(csPath, 'utf8');
 
     if (csHtml.includes('fonts.googleapis.com/css2?family=')) {
-      csHtml = csHtml.replace(/<link[^>]+fonts\.googleapis\.com\/css2\?[^>]+>/i, googleFontsLink);
+      csHtml = csHtml.replace(/<link[^>]+fonts\\.googleapis\\.com\\/css2\\?[^>]+>/i, googleFontsLink);
     } else {
-      csHtml = csHtml.replace('</head>', '  ' + googleFontsLink + '\n</head>');
+      csHtml = csHtml.replace('</head>', '  ' + googleFontsLink + '\\n</head>');
     }
 
-    const bannerHtml = '<div class="pokedex-registry-bar">\n' +
-      '        <span class="reg-chip">SYSTEM NO. ' + cs.num + '</span>\n' +
-      '        <span class="reg-chip reg-type" style="color: ' + cs.color + '; border-color: rgba(217,172,84,0.35);">' + cs.type + '</span>\n' +
-      '        <span class="reg-title">' + cs.title + '</span>\n' +
-      '        <span class="reg-status"><i class="sx-dot" style="background:#2ecc40;" aria-hidden="true"></i> ' + cs.status + '</span>\n' +
+    const bannerHtml = '<div class="pokedex-registry-bar">\\n' +
+      '        <span class="reg-chip">SYSTEM NO. ' + cs.num + '</span>\\n' +
+      '        <span class="reg-chip reg-type" style="color: ' + cs.color + '; border-color: rgba(217,172,84,0.35);">' + cs.type + '</span>\\n' +
+      '        <span class="reg-title">' + cs.title + '</span>\\n' +
+      '        <span class="reg-status"><i class="sx-dot" style="background:#2ecc40;" aria-hidden="true"></i> ' + cs.status + '</span>\\n' +
       '      </div>';
 
-    csHtml = csHtml.replace(/<div class="pokedex-registry-bar">[\s\S]*?<\/div>\s*/gi, '');
+    csHtml = csHtml.replace(/<div class="pokedex-registry-bar">[\\s\\S]*?<\\/div>\\s*/gi, '');
 
     const bcRegex = /(<nav class="cs-breadcrumb"[^>]*>)/i;
     if (bcRegex.test(csHtml)) {
-      csHtml = csHtml.replace(bcRegex, bannerHtml + '\n      $1');
+      csHtml = csHtml.replace(bcRegex, bannerHtml + '\\n      $1');
       console.log('✅ Injected Pokédex banner into ' + cs.file);
     }
 
@@ -1079,4 +1174,4 @@ caseStudies.forEach(cs => {
   }
 });
 
-console.log('\n🎉 All portfolio files successfully upgraded with zero syntax errors!');
+console.log('\\n🎉 All portfolio files successfully upgraded with zero syntax errors!');
