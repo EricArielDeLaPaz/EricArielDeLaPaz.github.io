@@ -24,9 +24,6 @@
 <link rel="icon" type="image/png" href="assets/images/profile.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/scroll.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="sx-page">
 <a class="sx-skip" href="#work">Skip to work</a>
@@ -71,179 +68,63 @@
     <p class="sx-kicker">Selected work</p>
     <h2 id="work-title">Case studies</h2>
     <p class="sx-sub">Self-initiated and internship projects. Open any one for the full story.</p>
-    
-      <div class="project-grid sx-projects tcg-grid">
-
-        <!-- CARD 01: VEXTARO -->
-        <a class="workspace-card tcg-card card-vextaro" href="case-studies/vextaro.html" data-case-study="Vextaro">
-          <div class="tcg-glare" aria-hidden="true"></div>
-          <div class="card-art tcg-art">
-            <img loading="lazy" src="assets/images/vextaro.png" alt="Vextaro luxury formalwear rental app">
-          </div>
-          <div class="card-details tcg-body">
-            <div>
-              <div class="tcg-header">
-                <span class="tcg-no">NO. 001 // SYSTEM SPEC</span>
-                <span class="tcg-type-badge"><i class="tcg-type-dot"></i> STEEL / APPAREL</span>
-              </div>
-              <div class="card-title">
-                <h2>Vextaro — Men's Luxury Formalwear Rental App</h2>
-              </div>
-              <div class="tcg-role">UX/UI Design Intern · Flyrank AI (8-Week Capstone)</div>
-              <div class="card-tags tcg-tags">
-                <span>Mobile App (iOS &amp; Android)</span>
-                <span>Token Architecture &amp; IA</span>
-                <span>15/15 WCAG AA Checks</span>
-                <span>Developer Handoff</span>
-              </div>
-              <div class="tcg-narrative">
-                <p class="card-problem"><b>The Friction:</b> Renters cannot try formalwear on before it ships, making fit uncertainty the #1 checkout blocker killing conversion.</p>
-                <p class="card-outcome tcg-delta"><b>Delivered Delta:</b> Architected a centralized sizing token engine, 9 annotated error/empty edge cases, and a 100% tokenized developer handoff package.</p>
-              </div>
+    <div class="project-grid sx-projects">
+<a class="workspace-card card-studybuddy" href="case-studies/study-buddy.html" data-case-study="Study Buddy">
+            <div class="card-art"><img loading="lazy" src="assets/images/study-buddy.png" alt="Study Buddy desktop focus companion app"></div>
+            <div class="card-details">
+              <div class="card-title"><div><h2>Study Buddy — Desktop Focus Companion</h2></div></div>
+              <strong class="card-role">Product Designer</strong>
+              <div class="card-tags"><span>Desktop App (Windows / Mac / Linux)</span><span>Design Systems</span><span>AI-Assisted Build</span><span>Interactive Overlay</span><span>WCAG AA</span></div>
+              <p class="card-problem"><b>Problem:</b> Unstructured study sessions lead to digital distraction, while rigid timers disrupt deep focus.</p>
+              <p>Designed a floating desktop overlay in Figma, then built and shipped cross-platform installers by directing AI through staged commits.</p>
+              <p class="card-outcome"><b>Outcome:</b> Shipped working installers across 3 operating systems in ~14 hours of build time. Dogfooded daily to eliminate edge cases.</p>
             </div>
-            <div class="tcg-footer">
-              <span class="tcg-rarity">★ CAPSTONE RELEASE · 01 / 05</span>
-              <span class="tcg-action">View Case Study ↗</span>
+          </a>
+<a class="workspace-card card-secureid" href="case-studies/secureid.html" data-case-study="SecureID">
+            <div class="card-art"><img loading="lazy" src="assets/images/secureid.png" alt="SecureID identity-verification flow and analyst dashboard"></div>
+            <div class="card-details">
+              <div class="card-title"><div><h2>SecureID — Identity Verification &amp; Analyst Review Platform</h2></div></div>
+              <strong class="card-role">Product Designer</strong>
+              <div class="card-tags"><span>Dual-Sided: Mobile &amp; SaaS Dashboard</span><span>Design Tokens</span><span>Clickable Prototype</span><span>Case Triage UX</span><span>Progressive Disclosure</span></div>
+              <p class="card-problem"><b>Problem:</b> Anxious mobile users faced verification drop-off, while fraud analysts struggled with cluttered review queues.</p>
+              <p>Designed an end-user mobile verification journey and a high-throughput desktop analyst dashboard on 1 unified token architecture.</p>
+              <p class="card-outcome"><b>Outcome:</b> 1 shared token system across mobile &amp; web, a 3-action analyst triage pattern (Approve, Escalate, Reject), and a verified Figma prototype.</p>
             </div>
-          </div>
-        </a>
-
-        <!-- CARD 02: STUDY BUDDY -->
-        <a class="workspace-card tcg-card card-studybuddy" href="case-studies/study-buddy.html" data-case-study="Study Buddy">
-          <div class="tcg-glare" aria-hidden="true"></div>
-          <div class="card-art tcg-art">
-            <img loading="lazy" src="assets/images/study-buddy.png" alt="Study Buddy desktop focus companion app">
-          </div>
-          <div class="card-details tcg-body">
-            <div>
-              <div class="tcg-header">
-                <span class="tcg-no">NO. 002 // DESKTOP HUD</span>
-                <span class="tcg-type-badge"><i class="tcg-type-dot"></i> PSYCHIC / DEEP WORK</span>
-              </div>
-              <div class="card-title">
-                <h2>Study Buddy — Distraction-Free Academic Desktop HUD</h2>
-              </div>
-              <div class="tcg-role">Product Designer &amp; Builder · Independent Project</div>
-              <div class="card-tags tcg-tags">
-                <span>Cross-Platform (Electron)</span>
-                <span>Dual Study/Write Modes</span>
-                <span>Zero Context Switching</span>
-                <span>Open Source</span>
-              </div>
-              <div class="tcg-narrative">
-                <p class="card-problem"><b>The Friction:</b> Students lose hours to digital fragmentation when juggling 40 research tabs across disconnected browser windows.</p>
-                <p class="card-outcome tcg-delta"><b>Delivered Delta:</b> Designed a floating desktop companion overlay in Figma, then built and shipped cross-platform native installers in ~14 hours.</p>
-              </div>
+          </a>
+<a class="workspace-card card-vextaro" href="case-studies/vextaro.html" data-case-study="Vextaro">
+            <div class="card-art"><img loading="lazy" src="assets/images/vextaro.png" alt="Vextaro luxury formalwear rental app"></div>
+            <div class="card-details">
+              <div class="card-title"><div><h2>Vextaro — Luxury Formalwear Rental App &amp; System</h2></div></div>
+              <strong class="card-role">UX/UI Design Intern · Flyrank AI</strong>
+              <div class="card-tags"><span>Mobile App (iOS &amp; Android)</span><span>Design Systems &amp; Tokens</span><span>UX Research &amp; IA</span><span>WCAG 2.2 AA Audit</span><span>Engineering Handoff</span></div>
+              <p class="card-problem"><b>Problem:</b> Renters cannot try formalwear on before it ships, making fit uncertainty the #1 checkout blocker.</p>
+              <p>Led competitive research to design a specialist fit-confirmation checkpoint, tokenized UI system, and an accessible high-fidelity prototype.</p>
+              <p class="card-outcome"><b>Outcome:</b> 7-section IA, 15/15 WCAG AA contrast checks passed, 35 component variants documented, and a developer-ready handoff package.</p>
             </div>
-            <div class="tcg-footer">
-              <span class="tcg-rarity">★ SHIPPED BUILD · 02 / 05</span>
-              <span class="tcg-action">View Case Study ↗</span>
+          </a>
+<a class="workspace-card card-honda" href="case-studies/honda.html" data-case-study="Honda of Clear Lake">
+            <div class="card-art"><img loading="lazy" src="assets/images/honda.png" alt="Honda of Clear Lake website heuristic evaluation"></div>
+            <div class="card-details">
+              <div class="card-title"><div><h2>Honda of Clear Lake — Dealership Website Usability Audit</h2></div></div>
+              <strong class="card-role">UX Auditor</strong>
+              <div class="card-tags"><span>Responsive Dealership Website</span><span>Heuristic Evaluation</span><span>Nielsen's 10 Heuristics</span><span>Severity Rating (0–4)</span><span>Conversion Optimization</span></div>
+              <p class="card-problem"><b>Problem:</b> Car buyers experienced severe friction finding real-time pricing, trade-in values, and financing terms.</p>
+              <p>Audited the live dealership site against Nielsen's 10 heuristics, identifying 31 usability violations across core conversion paths.</p>
+              <p class="card-outcome"><b>Outcome:</b> Ranked findings on a 0–4 severity scale with annotated redesign proposals and an engineering punch list for 3 critical blockers.</p>
             </div>
-          </div>
-        </a>
-
-        <!-- CARD 03: SECUREID -->
-        <a class="workspace-card tcg-card card-secureid" href="case-studies/secureid.html" data-case-study="SecureID">
-          <div class="tcg-glare" aria-hidden="true"></div>
-          <div class="card-art tcg-art">
-            <img loading="lazy" src="assets/images/secureid.png" alt="SecureID identity verification and analyst review platform">
-          </div>
-          <div class="card-details tcg-body">
-            <div>
-              <div class="tcg-header">
-                <span class="tcg-no">NO. 003 // DUAL-SIDED SAAS</span>
-                <span class="tcg-type-badge"><i class="tcg-type-dot"></i> ELECTRIC / IDENTITY</span>
-              </div>
-              <div class="card-title">
-                <h2>SecureID — Identity Verification &amp; Analyst Review Platform</h2>
-              </div>
-              <div class="tcg-role">Product Designer · Independent Project</div>
-              <div class="card-tags tcg-tags">
-                <span>Dual-Sided: Mobile &amp; SaaS</span>
-                <span>Design Tokens</span>
-                <span>Case Triage UX</span>
-                <span>Progressive Disclosure</span>
-              </div>
-              <div class="tcg-narrative">
-                <p class="card-problem"><b>The Friction:</b> Anxious mobile consumers abandon verification flows that feel intrusive, while fraud analysts get bottlenecked by cluttered review queues.</p>
-                <p class="card-outcome tcg-delta"><b>Delivered Delta:</b> Unified 1-tap biometric mobile onboarding with a high-density triage dashboard on 1 shared token architecture.</p>
-              </div>
+          </a>
+<a class="workspace-card card-devtective" href="case-studies/devtective.html" data-case-study="DevTective">
+            <div class="card-art"><img loading="lazy" src="assets/images/devtective.png" alt="DevTective coding progress tracker app"></div>
+            <div class="card-details">
+              <div class="card-title"><div><h2>DevTective — Developer Learning Progress &amp; Habit Tracker</h2></div></div>
+              <strong class="card-role">UX Designer</strong>
+              <div class="card-tags"><span>Mobile Web App</span><span>Google UX Certificate</span><span>User Research</span><span>Journey Mapping</span><span>Wireframe to Prototype</span></div>
+              <p class="card-problem"><b>Problem:</b> Self-taught coders face high drop-off rates due to cognitive overload and lack of structured milestone tracking.</p>
+              <p>Conducted user interviews, mapped emotional journeys, and designed low-to-high fidelity flows to help beginners sustain daily learning habits.</p>
+              <p class="card-outcome"><b>Outcome:</b> Completed end-to-end UX research foundation, personas, wireframes, and responsive interactive prototype.</p>
             </div>
-            <div class="tcg-footer">
-              <span class="tcg-rarity">★ VERIFIED PROTOTYPE · 03 / 05</span>
-              <span class="tcg-action">View Case Study ↗</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- CARD 04: HONDA OF CLEAR LAKE -->
-        <a class="workspace-card tcg-card card-honda" href="case-studies/honda.html" data-case-study="Honda of Clear Lake">
-          <div class="tcg-glare" aria-hidden="true"></div>
-          <div class="card-art tcg-art">
-            <img loading="lazy" src="assets/images/honda.png" alt="Honda of Clear Lake website heuristic evaluation">
-          </div>
-          <div class="card-details tcg-body">
-            <div>
-              <div class="tcg-header">
-                <span class="tcg-no">NO. 004 // HEURISTIC AUDIT</span>
-                <span class="tcg-type-badge"><i class="tcg-type-dot"></i> FIRE / USABILITY AUDIT</span>
-              </div>
-              <div class="card-title">
-                <h2>Honda of Clear Lake — Dealership Website Usability Audit</h2>
-              </div>
-              <div class="tcg-role">UX Auditor · Independent Audit</div>
-              <div class="card-tags tcg-tags">
-                <span>Responsive Dealership Site</span>
-                <span>Nielsen's 10 Heuristics</span>
-                <span>Severity Rating (0–4)</span>
-                <span>Conversion Optimization</span>
-              </div>
-              <div class="tcg-narrative">
-                <p class="card-problem"><b>The Friction:</b> High-intent car buyers faced friction locating real-time trade-in values and financing terms amidst competing banner noise.</p>
-                <p class="card-outcome tcg-delta"><b>Delivered Delta:</b> Audited 31 usability violations on a 0–4 severity scale, delivering an annotated redesign punch list for 3 critical conversion blockers.</p>
-              </div>
-            </div>
-            <div class="tcg-footer">
-              <span class="tcg-rarity">★ HEURISTIC REPORT · 04 / 05</span>
-              <span class="tcg-action">View Case Study ↗</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- CARD 05: DEVTECTIVE -->
-        <a class="workspace-card tcg-card card-devtective" href="case-studies/devtective.html" data-case-study="DevTective">
-          <div class="tcg-glare" aria-hidden="true"></div>
-          <div class="card-art tcg-art">
-            <img loading="lazy" src="assets/images/devtective.png" alt="DevTective developer habit tracker app">
-          </div>
-          <div class="card-details tcg-body">
-            <div>
-              <div class="tcg-header">
-                <span class="tcg-no">NO. 005 // HABIT TRACKER</span>
-                <span class="tcg-type-badge"><i class="tcg-type-dot"></i> GHOST / PROGRESS TRACKING</span>
-              </div>
-              <div class="card-title">
-                <h2>DevTective — Developer Learning Progress &amp; Habit Tracker</h2>
-              </div>
-              <div class="tcg-role">UX Designer · Google UX Certificate</div>
-              <div class="card-tags tcg-tags">
-                <span>Mobile Web App</span>
-                <span>User Research &amp; IA</span>
-                <span>Journey Mapping</span>
-                <span>Interactive Prototype</span>
-              </div>
-              <div class="tcg-narrative">
-                <p class="card-problem"><b>The Friction:</b> Self-taught coders experience high drop-off rates due to cognitive overload and lack of structured milestone reinforcement.</p>
-                <p class="card-outcome tcg-delta"><b>Delivered Delta:</b> Conducted user interviews, mapped emotional progress curves, and designed an end-to-end habit tracking prototype.</p>
-              </div>
-            </div>
-            <div class="tcg-footer">
-              <span class="tcg-rarity">★ CERTIFIED CASE STUDY · 05 / 05</span>
-              <span class="tcg-action">View Case Study ↗</span>
-            </div>
-          </div>
-        </a>
-      </div>
+          </a>
+    </div>
   </div>
 </section>
 
