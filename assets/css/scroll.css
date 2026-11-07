@@ -971,3 +971,122 @@ html {
   flex-shrink: 0 !important;
   vertical-align: middle !important;
 }
+
+/* ============================================================
+   SQUARED TAGS & PILL-SHAPED ACTION BUTTONS
+   - Squared metadata tags (.cs-badge-row > span) matching homepage
+   - Dedicated action button row (.cs-action-row) below tags
+   - Pill-shaped action buttons styled with card bg & accent glow
+   - Pill-shaped "All work" and Prev/Next footer buttons
+   ============================================================ */
+
+/* 1. Squared Metadata Tags (matches homepage .card-tags span) */
+.cs-badge-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-bottom: 14px !important;
+}
+.cs-badge-row > span {
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  padding: 4px 10px !important;
+  border-radius: 4px !important;
+  border: 1px solid color-mix(in srgb, var(--accent, #d9ac54) 35%, var(--border, #292929)) !important;
+  color: var(--accent, var(--gold)) !important;
+  background: color-mix(in srgb, var(--accent, #d9ac54) 9%, transparent) !important;
+  letter-spacing: 0.02em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* 2. Dedicated Action Button Row Below Tags */
+.cs-action-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-bottom: 24px !important;
+  align-items: center !important;
+}
+
+/* 3. Pill-Shaped Action Buttons (Styled like "All work", card bg + accent glow) */
+.cs-action-row a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  padding: 10px 22px !important;
+  border: 1px solid var(--border, #292929) !important;
+  border-radius: 999px !important;
+  background: var(--card, #151515) !important;
+  color: var(--text, #f0ede8) !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.cs-action-row a:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 12%, var(--card, #151515)) !important;
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--accent) 30%, transparent) !important;
+  transform: translateY(-2px) !important;
+}
+.cs-action-row a:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* Reset inner span so it inherits clean pill button typography */
+.cs-action-row a span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+.cs-action-row a span::after {
+  content: none !important;
+}
+
+/* Single trailing icon inside action buttons */
+.cs-action-row a .sx-btn-icon {
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0 !important;
+  stroke-width: 1.85 !important;
+  color: currentColor !important;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.cs-action-row a:hover .sx-btn-icon {
+  transform: scale(1.12) !important;
+}
+
+/* 4. Pill-Shaped "All work" and Next/Prev Navigation Buttons */
+.cs-nav-footer a,
+.sx-case .cs-nav-footer a {
+  border-radius: 999px !important;
+  padding: 12px 24px !important;
+}
+
+/* 5. Mobile Layout for Action Row */
+@media (max-width: 700px) {
+  .cs-action-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .cs-action-row a {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 20px !important;
+  }
+}
