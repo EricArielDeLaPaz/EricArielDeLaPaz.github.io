@@ -366,12 +366,9 @@ html {
   color: #ffffff !important;
   background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
 }
-.sx-case .sx-dot {
-  background: var(--accent) !important;
-}
-.sx-case .sx-dot::after {
-  border-color: var(--accent) !important;
-}
+/* Keep open-to-work dot emerald green across all case studies */
+.sx-case .sx-dot { background: #22c55e !important; }
+.sx-case .sx-dot::after { border-color: #22c55e !important; }
 
 /* Breadcrumbs & headings */
 .sx-case .breadcrumb a:hover {
@@ -961,5 +958,54 @@ html {
     margin-top: 32px !important;
     padding: 20px 0 0 !important;
     gap: 12px !important;
+  }
+}
+
+
+/* ============================================================
+   OPEN TO WORK: VIBRATING GREEN PULSE (ALL PAGES, DESKTOP & MOBILE)
+   ============================================================ */
+.sx-dot,
+.sx-case .sx-dot,
+.sx-status .sx-dot,
+.sx-kicker .sx-dot {
+  position: relative !important;
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.8), 0 0 0 1px rgba(34, 197, 94, 0.45) !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
+}
+
+.sx-dot::after,
+.sx-case .sx-dot::after,
+.sx-status .sx-dot::after,
+.sx-kicker .sx-dot::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -4px !important;
+  border-radius: 50% !important;
+  border: 2px solid #22c55e !important;
+  background: rgba(34, 197, 94, 0.25) !important;
+  opacity: 0.85 !important;
+  animation: sx-green-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite !important;
+  pointer-events: none !important;
+  box-sizing: border-box !important;
+}
+
+@keyframes sx-green-pulse {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
   }
 }
