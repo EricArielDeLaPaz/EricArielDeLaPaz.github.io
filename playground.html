@@ -13,17 +13,13 @@
   <link rel="stylesheet" href="assets/css/scroll.css">
 </head>
 <body class="sx-page is-light" data-nav="playground">
-  <a class="sx-skip" href="#main">Skip to content</a>
+  
   
   
   <header class="sx-nav-wrap">
+  <a class="sx-skip" href="#main">Skip to content</a>
     <nav class="sx-nav" aria-label="Main navigation">
-      <a class="sx-brand" href="index.html" aria-label="Eric Ariel De La Paz, home">
-        <img src="assets/images/profile.png" alt="" width="28" height="28">
-        <span>De La Paz</span>
-      </a>
-      <span class="sx-nav-sep" aria-hidden="true"></span>
-      <a href="index.html" class="sx-nav-link">Home</a>
+<a href="index.html" class="sx-nav-link">Home</a>
       <a href="about.html" class="sx-nav-link">About</a>
       <a href="playground.html" class="sx-nav-link is-active">Playground</a>
       <button type="button" class="sx-nav-info-btn" id="infoBtn" aria-expanded="false" aria-controls="infoPopover" title="Open Quick Contact & Info">
@@ -75,7 +71,7 @@
       
     
     
-    <aside class="mini-eric-banner is-header" aria-label="Mini Eric dialogue">
+    <aside class="mini-eric-banner is-header" aria-label="Mini Eric greeting">
       <div class="mini-eric-char" title="Click Mini Eric!">
         <img src="assets/images/mini-eric-thumbsup.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
       </div>
@@ -98,7 +94,7 @@
         <div class="section-head-row">
           <div>
             <h2 class="section-heading">Interactive Nintendo DS Lite (Crimson &amp; Black)</h2>
-            <p class="sx-sub">Click the closed lid below to flip open the dual screens and test out the D-Pad and touch controls.</p>
+            <p class="sx-sub">Click the closed lid to flip open the dual screens, test the D-Pad and touch controls, then click the top lid to close it again.</p>
           </div>
         </div>
 
@@ -113,11 +109,6 @@
           <span class="ds-sq ds-sq-2"></span>
         </div>
         <span class="ds-engraving">Nintendo DS Lite</span>
-        <div class="ds-open-prompt">
-          <span class="ds-sparkle">✦</span>
-          <span>Click to Flip Open DS</span>
-          <span class="ds-sparkle">✦</span>
-        </div>
       </div>
       <div class="ds-hinge-band"></div>
     </div>
@@ -125,7 +116,7 @@
     <!-- Opened Console State -->
     <div class="ds-console" id="dsConsole" hidden>
       <!-- Top Bezel & Backlit Screen -->
-      <div class="ds-top-housing">
+      <div class="ds-top-housing" id="dsTopLid" role="button" tabindex="0" aria-label="Close Nintendo DS Lite lid" title="Click the top lid to close">
         <div class="ds-top-bezel">
           <div class="ds-speaker ds-speaker-l"><i></i><i></i><i></i><i></i></div>
           <div class="ds-screen ds-top-screen">
@@ -139,7 +130,6 @@
           </div>
           <div class="ds-speaker ds-speaker-r"><i></i><i></i><i></i><i></i></div>
         </div>
-        <button type="button" class="ds-close-btn" id="dsCloseBtn" title="Snap DS lid closed">✕ Close Lid</button>
       </div>
 
       <!-- Center Hinge & LEDs -->
@@ -206,9 +196,6 @@
         <div class="sb-showcase-card">
           <div class="sb-showcase-frame">
             <img src="assets/images/study-buddy.png" alt="Study Buddy Desktop Focus Companion preview" class="sb-showcase-img" loading="lazy">
-            <div class="sb-showcase-overlay">
-              <span class="sb-showcase-badge">Desktop Companion • Electron &amp; AI</span>
-            </div>
           </div>
           <div class="sb-showcase-caption">
             <h3>Study Buddy — Focus &amp; Break Companion</h3>
@@ -233,7 +220,6 @@
         <div class="section-badge"><span>04</span> Future Release</div>
         <div class="ai-teaser-card">
           <div class="ai-teaser-copy">
-            <span class="ai-chip">In Development</span>
             <h2>AI Design Library &amp; Font Pairing Database</h2>
             <p>A dual-purpose knowledge repository designed for both humans and AI agents. It curates high-contrast font pairings, tested token scales, and structured system prompts for Claude, Gemini, and v0 to build pristine, production-grade user interfaces.</p>
             <div class="ai-teaser-tags">
@@ -246,7 +232,7 @@
       
     
     
-    <aside class="mini-eric-banner is-footer" aria-label="Mini Eric dialogue">
+    <aside class="mini-eric-banner is-footer" aria-label="Mini Eric closing note">
       <div class="mini-eric-char" title="Click Mini Eric!">
         <img src="assets/images/mini-eric-thumbsup.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
       </div>

@@ -71,7 +71,7 @@
   // 3. INTERACTIVE NINTENDO DS LITE (CRIMSON RED & ONYX BLACK)
   const dsLid = document.getElementById('dsLid');
   const dsConsole = document.getElementById('dsConsole');
-  const dsCloseBtn = document.getElementById('dsCloseBtn');
+  const dsTopLid = document.getElementById('dsTopLid');
   const dsCartridgeTitle = document.getElementById('dsCartridgeTitle');
   const dsScreenStage = document.getElementById('dsScreenStage');
   const dsTouchBody = document.getElementById('dsTouchBody');
@@ -170,18 +170,28 @@
   }
 
   if (dsLid && dsConsole) {
-    dsLid.addEventListener('click', () => {
+    dsLid.addEventListener('click', () => openDs());
+
+    function openDs() {
       dsLid.hidden = true;
       dsConsole.hidden = false;
       renderCartridge(activeCartIdx);
-    });
-
-    if (dsCloseBtn) {
-      dsCloseBtn.addEventListener('click', () => {
-        dsConsole.hidden = true;
-        dsLid.hidden = false;
+      if (dsTopLid) dsTopLid.focus({ preventScroll: true });
+    }
+    function closeDs() {
+      dsConsole.hidden = true;
+      dsLid.hidden = false;
+      dsLid.focus({ preventScroll: true });
+    }
+    if (dsTopLid) {
+      dsTopLid.addEventListener('click', closeDs);
+      dsTopLid.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); closeDs(); }
       });
     }
+    dsLid.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDs(); }
+    });
 
     function prevCart() {
       activeCartIdx = (activeCartIdx - 1 + cartridges.length) % cartridges.length;
