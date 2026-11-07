@@ -425,10 +425,8 @@ html {
               color 0.24s var(--ease-motion);
 }
 .cs-badge-row a span::after {
-  content: "↗";
-  font-size: 12px;
-  line-height: 1;
-}
+    content: none !important;
+  }
 .cs-badge-row a:hover span {
   background: color-mix(in srgb, var(--accent) 24%, transparent) !important;
   box-shadow: 0 4px 18px -2px color-mix(in srgb, var(--accent) 45%, transparent) !important;
@@ -962,3 +960,14 @@ html {
 }
 
 
+
+
+/* Case study button trailing icon */
+.cs-badge-row a span .sx-btn-icon {
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin-left: 4px !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
+}
