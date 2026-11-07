@@ -665,7 +665,9 @@
 
 })();
 
-/* --- POKEDEX & WORK VIEWS START --- */
+
+
+/* --- PRODUCTDEX & TOP BADGES JS START --- */
 (function() {
   'use strict';
 
@@ -710,45 +712,62 @@
         osc.stop(now + 0.04);
       }
     } catch (e) {
-      // Audio context policy
+      // Audio policy safe
     }
   }
 
-  // Work View Mode Switcher
-  const btnCards = document.getElementById('btn-view-cards');
-  const btnDex = document.getElementById('btn-view-dex');
-  const cardsContainer = document.getElementById('cards-container');
+  // Work View Mode Switcher Elements
   const dexContainer = document.getElementById('dex-container');
-  const btnBackCards = document.getElementById('dex-btn-back-cards');
+  const cardsContainer = document.getElementById('cards-container');
+  const btnDexToRecruiter = document.getElementById('btn-dex-to-recruiter');
+  const btnReturnToDex = document.getElementById('btn-return-to-dex');
 
-  function setWorkView(mode) {
-    if (mode === 'dex') {
-      btnCards?.classList.remove('active');
-      btnCards?.setAttribute('aria-selected', 'false');
-      btnDex?.classList.add('active');
-      btnDex?.setAttribute('aria-selected', 'true');
-      if (cardsContainer) cardsContainer.hidden = true;
-      if (dexContainer) {
-        dexContainer.hidden = false;
-        dexContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-      play8BitTone('switch');
-    } else {
-      btnDex?.classList.remove('active');
-      btnDex?.setAttribute('aria-selected', 'false');
-      btnCards?.classList.add('active');
-      btnCards?.setAttribute('aria-selected', 'true');
-      if (dexContainer) dexContainer.hidden = true;
-      if (cardsContainer) cardsContainer.hidden = false;
-      play8BitTone('click');
-    }
+  // Mobile check: Default to recruiter cards view on mobile screens (<= 768px)
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    if (dexContainer) dexContainer.hidden = true;
+    if (cardsContainer) cardsContainer.hidden = false;
+  } else {
+    if (cardsContainer) cardsContainer.hidden = true;
+    if (dexContainer) dexContainer.hidden = false;
   }
 
-  btnCards?.addEventListener('click', () => setWorkView('cards'));
-  btnDex?.addEventListener('click', () => setWorkView('dex'));
-  btnBackCards?.addEventListener('click', () => setWorkView('cards'));
+  // SWITCH TO RECRUITER MODE (Smooth Slide Transition)
+  function switchToRecruiterMode() {
+    if (!dexContainer || !cardsContainer) return;
+    play8BitTone('switch');
 
-  // Pokédex Hardware Telemetry & Navigation Engine
+    dexContainer.classList.add('dex-sliding-out');
+    setTimeout(() => {
+      dexContainer.hidden = true;
+      dexContainer.classList.remove('dex-sliding-out');
+      cardsContainer.hidden = false;
+      cardsContainer.classList.add('cards-sliding-in');
+      cardsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 320);
+  }
+
+  // RETURN TO PRODUCTDEX (Smooth Slide Transition)
+  function switchToProductDex() {
+    if (!dexContainer || !cardsContainer) return;
+    play8BitTone('click');
+
+    cardsContainer.classList.add('cards-sliding-out');
+    setTimeout(() => {
+      cardsContainer.hidden = true;
+      cardsContainer.classList.remove('cards-sliding-out');
+      cardsContainer.classList.remove('cards-sliding-in');
+      dexContainer.hidden = false;
+      dexContainer.classList.add('dex-sliding-in');
+      dexContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => dexContainer.classList.remove('dex-sliding-in'), 450);
+    }, 280);
+  }
+
+  btnDexToRecruiter?.addEventListener('click', switchToRecruiterMode);
+  btnReturnToDex?.addEventListener('click', switchToProductDex);
+
+  // ProductDex Telemetry & Specimen Data Engine
   const dexData = [
     {
       num: '#001',
@@ -791,7 +810,7 @@
       img: 'assets/images/vextaro.png',
       alt: 'Vextaro Platform',
       stats: { sys: 96, proto: 94, met: 91 },
-      tags: ['Web Platform', 'Financial Telemetry', 'Interactive Charts', 'Compliance UX', 'Design System'],
+      tags: ['Fintech Web Platform', 'Financial Telemetry', 'Interactive Charts', 'Compliance UX', 'Design Systems'],
       friction: 'Retail investors struggle to assess liquidity, projected IRR, and risk across dense real estate offerings.',
       outcome: 'Built transparent waterfall metrics, secondary-market trading cues, and an accessible investment checkout.',
       studyUrl: 'case-studies/vextaro.html',
@@ -940,7 +959,7 @@
     if (audioEnabled) play8BitTone('click');
   });
 
-  // Handle external prototype/repo links on cards
+  // Handle external prototype/repo links on cards with stopPropagation
   document.querySelectorAll('.btn-pill-secondary[data-href]').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
@@ -979,4 +998,4 @@
   });
 
 })();
-/* --- POKEDEX & WORK VIEWS END --- */
+/* --- PRODUCTDEX & TOP BADGES JS END --- */
