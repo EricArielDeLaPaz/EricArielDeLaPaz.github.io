@@ -664,3 +664,319 @@
   })();
 
 })();
+
+/* --- POKEDEX & WORK VIEWS START --- */
+(function() {
+  'use strict';
+
+  // 8-bit Sound Synthesizer via Web Audio API
+  let audioCtx = null;
+  let audioEnabled = true;
+
+  function play8BitTone(type) {
+    if (!audioEnabled) return;
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      if (!audioCtx) audioCtx = new AudioContext();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'square';
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      const now = audioCtx.currentTime;
+      if (type === 'click') {
+        osc.frequency.setValueAtTime(587.33, now); // D5
+        osc.frequency.exponentialRampToValueAtTime(880, now + 0.05); // A5
+        gain.gain.setValueAtTime(0.04, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+        osc.start(now);
+        osc.stop(now + 0.07);
+      } else if (type === 'switch') {
+        osc.frequency.setValueAtTime(329.63, now); // E4
+        osc.frequency.exponentialRampToValueAtTime(659.25, now + 0.09); // E5
+        gain.gain.setValueAtTime(0.05, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        osc.start(now);
+        osc.stop(now + 0.1);
+      } else if (type === 'nav') {
+        osc.frequency.setValueAtTime(440, now); // A4
+        gain.gain.setValueAtTime(0.03, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+        osc.start(now);
+        osc.stop(now + 0.04);
+      }
+    } catch (e) {
+      // Audio context policy
+    }
+  }
+
+  // Work View Mode Switcher
+  const btnCards = document.getElementById('btn-view-cards');
+  const btnDex = document.getElementById('btn-view-dex');
+  const cardsContainer = document.getElementById('cards-container');
+  const dexContainer = document.getElementById('dex-container');
+  const btnBackCards = document.getElementById('dex-btn-back-cards');
+
+  function setWorkView(mode) {
+    if (mode === 'dex') {
+      btnCards?.classList.remove('active');
+      btnCards?.setAttribute('aria-selected', 'false');
+      btnDex?.classList.add('active');
+      btnDex?.setAttribute('aria-selected', 'true');
+      if (cardsContainer) cardsContainer.hidden = true;
+      if (dexContainer) {
+        dexContainer.hidden = false;
+        dexContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      play8BitTone('switch');
+    } else {
+      btnDex?.classList.remove('active');
+      btnDex?.setAttribute('aria-selected', 'false');
+      btnCards?.classList.add('active');
+      btnCards?.setAttribute('aria-selected', 'true');
+      if (dexContainer) dexContainer.hidden = true;
+      if (cardsContainer) cardsContainer.hidden = false;
+      play8BitTone('click');
+    }
+  }
+
+  btnCards?.addEventListener('click', () => setWorkView('cards'));
+  btnDex?.addEventListener('click', () => setWorkView('dex'));
+  btnBackCards?.addEventListener('click', () => setWorkView('cards'));
+
+  // Pokédex Hardware Telemetry & Navigation Engine
+  const dexData = [
+    {
+      num: '#001',
+      title: 'Study Buddy',
+      subtitle: 'Desktop Focus Companion · Solo Product Designer & Builder',
+      type: 'PSYCHIC / DEEP WORK',
+      color: '#c996e8',
+      img: 'assets/images/study-buddy.png',
+      alt: 'Study Buddy Desktop App',
+      stats: { sys: 95, proto: 98, met: 90 },
+      tags: ['Electron Desktop App', 'Design System Tokens', 'AI-Assisted Build', 'Interactive Overlay', 'WCAG AA Accessible'],
+      friction: 'Unstructured study sessions cause digital fragmentation across 40 browser tabs.',
+      outcome: 'Shipped working cross-platform native installers in ~14 hours of active build time.',
+      studyUrl: 'case-studies/study-buddy.html',
+      extLabel: 'GitHub Repo ↗',
+      extUrl: 'https://github.com/EricArielDeLaPaz/study-buddy-desktop'
+    },
+    {
+      num: '#002',
+      title: 'SecureID',
+      subtitle: 'Identity Verification & Analyst Platform · Solo Product Designer',
+      type: 'ELECTRIC / IDENTITY',
+      color: '#ffd166',
+      img: 'assets/images/secureid.png',
+      alt: 'SecureID Platform',
+      stats: { sys: 94, proto: 92, met: 96 },
+      tags: ['Mobile Web & Desktop SaaS', 'Security UX', 'Analyst Queues', 'Design Tokens', 'Heuristic Safety'],
+      friction: 'Anxious mobile users abandon invasive verification, while fraud analysts bottleneck on review queues.',
+      outcome: 'Cut end-user drop-off with contextual biometric guidance; reduced review latency with batch triage HUD.',
+      studyUrl: 'case-studies/secureid.html',
+      extLabel: 'Figma Prototype ↗',
+      extUrl: 'https://www.figma.com/proto/t7kO672QvC5qQ7dNu8w0yX/SecureID-Case-Study?node-id=1-2&scaling=scale-down&page-id=0%3A1'
+    },
+    {
+      num: '#003',
+      title: 'Vextaro',
+      subtitle: 'Fractional Real Estate Platform · Solo Product Designer',
+      type: 'STEEL / FINTECH',
+      color: '#90caf9',
+      img: 'assets/images/vextaro.png',
+      alt: 'Vextaro Platform',
+      stats: { sys: 96, proto: 94, met: 91 },
+      tags: ['Web Platform', 'Financial Telemetry', 'Interactive Charts', 'Compliance UX', 'Design System'],
+      friction: 'Retail investors struggle to assess liquidity, projected IRR, and risk across dense real estate offerings.',
+      outcome: 'Built transparent waterfall metrics, secondary-market trading cues, and an accessible investment checkout.',
+      studyUrl: 'case-studies/vextaro.html',
+      extLabel: 'Figma Prototype ↗',
+      extUrl: 'https://www.figma.com/proto/7JcM2lY6oU4uW9tP0r5x4z/Vextaro-Prototype?node-id=10-4&scaling=scale-down'
+    },
+    {
+      num: '#004',
+      title: 'Honda Audit',
+      subtitle: 'Dealership Usability & Conversion · UX Researcher & Evaluator',
+      type: 'GROUND / HEURISTICS',
+      color: '#e27d5a',
+      img: 'assets/images/honda.png',
+      alt: 'Honda Dealership Audit',
+      stats: { sys: 88, proto: 85, met: 99 },
+      tags: ['Heuristic Evaluation', 'Nielsen Norman Group', 'Conversion Optimization', 'E-Commerce UX', 'Information Architecture'],
+      friction: 'Disorienting multi-tier inventory filters and pop-up lead traps caused 68% estimated test bounce rates.',
+      outcome: 'Audited 10 Nielsen heuristics; redesigned frictionless vehicle comparison grid with upfront pricing.',
+      studyUrl: 'case-studies/honda.html',
+      extLabel: 'PDF Summary ↗',
+      extUrl: 'assets/docs/Honda_Usability_Audit.pdf'
+    },
+    {
+      num: '#005',
+      title: 'DevTective',
+      subtitle: 'Developer Progress & Habit Tracker · Solo Product Designer',
+      type: 'GHOST / HABIT ENGINE',
+      color: '#b39ddb',
+      img: 'assets/images/devtective.png',
+      alt: 'DevTective Habit Tracker',
+      stats: { sys: 92, proto: 95, met: 93 },
+      tags: ['Gamification UX', 'Telemetry Dashboard', 'Behavioral Psychology', 'Mobile-First Web', 'Habit Loops'],
+      friction: 'Self-taught developers experience burnout and loss of momentum due to vague milestone definitions.',
+      outcome: 'Designed bite-sized quest loops, streak protection mechanics, and verifiable skill verification trees.',
+      studyUrl: 'case-studies/devtective.html',
+      extLabel: 'Figma Prototype ↗',
+      extUrl: 'https://www.figma.com/proto/5yW1n9O2hP0mX6zK8qR3vT/DevTective?node-id=2-1'
+    }
+  ];
+
+  let currentIndex = 0;
+
+  const elEntryNo = document.getElementById('dex-entry-no');
+  const elTypeTag = document.getElementById('dex-type-tag');
+  const elEntryName = document.getElementById('dex-entry-name');
+  const elEntrySub = document.getElementById('dex-entry-subtitle');
+  const elBarSys = document.getElementById('dex-bar-systems');
+  const elValSys = document.getElementById('dex-val-systems');
+  const elBarProto = document.getElementById('dex-bar-proto');
+  const elValProto = document.getElementById('dex-val-proto');
+  const elBarMet = document.getElementById('dex-bar-metrics');
+  const elValMet = document.getElementById('dex-val-metrics');
+  const elTagCloud = document.getElementById('dex-tag-cloud');
+  const elFriction = document.getElementById('dex-friction-copy');
+  const elOutcome = document.getElementById('dex-outcome-copy');
+  const elBtnRead = document.getElementById('dex-btn-read');
+  const elBtnExt = document.getElementById('dex-btn-ext');
+  const elBtnExtLabel = document.getElementById('dex-btn-ext-label');
+  const elImg = document.getElementById('dex-img');
+  const elHudSpecimen = document.getElementById('dex-hud-specimen');
+  const keyBtns = document.querySelectorAll('.dex-keypad .key-btn');
+
+  function renderDexSpecimen(index) {
+    if (index < 0 || index >= dexData.length) return;
+    currentIndex = index;
+    const item = dexData[index];
+
+    if (elEntryNo) elEntryNo.textContent = 'REG NO. ' + item.num;
+    if (elTypeTag) {
+      elTypeTag.innerHTML = '<i class="dex-type-dot" style="background:' + item.color + '; box-shadow: 0 0 8px ' + item.color + '"></i> ' + item.type;
+      elTypeTag.style.borderColor = item.color + '44';
+      elTypeTag.style.color = item.color;
+    }
+    if (elEntryName) elEntryName.textContent = item.title;
+    if (elEntrySub) elEntrySub.textContent = item.subtitle;
+
+    if (elBarSys) elBarSys.style.width = item.stats.sys + '%';
+    if (elValSys) elValSys.textContent = item.stats.sys;
+    if (elBarProto) elBarProto.style.width = item.stats.proto + '%';
+    if (elValProto) elValProto.textContent = item.stats.proto;
+    if (elBarMet) elBarMet.style.width = item.stats.met + '%';
+    if (elValMet) elValMet.textContent = item.stats.met;
+
+    if (elTagCloud) {
+      elTagCloud.innerHTML = item.tags.map(t => '<span class="dex-tag">' + t + '</span>').join('');
+    }
+
+    if (elFriction) elFriction.textContent = item.friction;
+    if (elOutcome) elOutcome.textContent = item.outcome;
+
+    if (elBtnRead) elBtnRead.href = item.studyUrl;
+    if (elBtnExt) elBtnExt.href = item.extUrl;
+    if (elBtnExtLabel) elBtnExtLabel.textContent = item.extLabel;
+
+    if (elHudSpecimen) elHudSpecimen.textContent = 'SPECIMEN ' + item.num;
+
+    if (elImg) {
+      elImg.style.opacity = '0';
+      elImg.style.transform = 'scale(0.96)';
+      setTimeout(() => {
+        elImg.src = item.img;
+        elImg.alt = item.alt;
+        elImg.style.opacity = '1';
+        elImg.style.transform = 'scale(1)';
+      }, 100);
+    }
+
+    keyBtns.forEach((btn, idx) => {
+      btn.classList.toggle('active', idx === index);
+    });
+  }
+
+  // D-Pad and Keypad bindings
+  document.getElementById('dex-nav-prev')?.addEventListener('click', () => {
+    play8BitTone('nav');
+    renderDexSpecimen((currentIndex - 1 + dexData.length) % dexData.length);
+  });
+  document.getElementById('dex-nav-next')?.addEventListener('click', () => {
+    play8BitTone('nav');
+    renderDexSpecimen((currentIndex + 1) % dexData.length);
+  });
+  document.getElementById('dex-nav-up')?.addEventListener('click', () => {
+    play8BitTone('nav');
+    renderDexSpecimen((currentIndex - 1 + dexData.length) % dexData.length);
+  });
+  document.getElementById('dex-nav-down')?.addEventListener('click', () => {
+    play8BitTone('nav');
+    renderDexSpecimen((currentIndex + 1) % dexData.length);
+  });
+
+  keyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      play8BitTone('nav');
+      const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
+      renderDexSpecimen(idx);
+    });
+  });
+
+  // Sound Synthesizer toggle
+  const btnAudio = document.getElementById('dex-btn-audio');
+  const labelAudio = document.getElementById('dex-audio-label');
+  btnAudio?.addEventListener('click', () => {
+    audioEnabled = !audioEnabled;
+    if (labelAudio) labelAudio.textContent = '8-BIT: ' + (audioEnabled ? 'ON' : 'OFF');
+    btnAudio.classList.toggle('muted', !audioEnabled);
+    if (audioEnabled) play8BitTone('click');
+  });
+
+  // Handle external prototype/repo links on cards
+  document.querySelectorAll('.btn-pill-secondary[data-href]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      const href = btn.getAttribute('data-href');
+      if (href) window.open(href, '_blank', 'noopener,noreferrer');
+    });
+  });
+
+  // 3D Card Holographic & Tilt Physics
+  document.querySelectorAll('.tcg-card').forEach(card => {
+    const glare = card.querySelector('.tcg-glare');
+
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+
+      card.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-4px)';
+      if (glare) {
+        const percX = (x / rect.width) * 100;
+        const percY = (y / rect.height) * 100;
+        glare.style.opacity = '0.7';
+        glare.style.background = 'radial-gradient(circle at ' + percX.toFixed(1) + '% ' + percY.toFixed(1) + '%, rgba(240,207,116,0.18) 0%, rgba(217,172,84,0.06) 45%, transparent 70%)';
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      if (glare) glare.style.opacity = '0';
+    });
+  });
+
+})();
+/* --- POKEDEX & WORK VIEWS END --- */
