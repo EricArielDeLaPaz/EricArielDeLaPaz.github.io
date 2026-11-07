@@ -12,8 +12,8 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 /* ---------- Floating frosted pill nav ---------- */
 .sx-nav-wrap{ position:fixed; top:14px; left:0; right:0; z-index:100; display:flex; justify-content:center; padding:0 12px; pointer-events:none; }
 .sx-nav{ pointer-events:auto; display:flex; align-items:center; gap:4px; padding:6px 10px 6px 8px; border:1px solid rgba(217,172,84,.22); border-radius:999px;
-  background:rgba(255,255,255,.88); -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%);
-  box-shadow:0 10px 30px -10px rgba(42,36,28,.1), 0 1px 0 rgba(255,255,255,.9) inset; }
+  background:rgba(18,15,11,.55); -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:0 10px 40px -12px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.05) inset; }
 .sx-nav a{ padding:8px 14px; border-radius:999px; font-size:14px; font-weight:500; color:var(--text-dim); transition:background-color .18s ease,color .18s ease; white-space:nowrap; }
 .sx-nav a:hover,.sx-nav a:focus-visible{ color:var(--text); background:rgba(255,255,255,.07); }
 .sx-nav a.is-active{ color:var(--gold-bright); background:rgba(217,172,84,.14); }
@@ -29,7 +29,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 
 /* ---------- Shared type ---------- */
 .sx-kicker{ display:flex; align-items:center; gap:10px; margin:0 0 14px; font:600 12px/1 'Inter',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
-.sx-section .sx-wrap > h2,.sx-about h2,.sx-hero h1{ font-family:Cinzel,Georgia,serif; font-weight:600; color:#1a1612; letter-spacing:.01em; }
+.sx-section .sx-wrap > h2,.sx-about h2,.sx-hero h1{ font-family:Cinzel,Georgia,serif; font-weight:600; color:#f0ede8; letter-spacing:.01em; }
 .sx-section .sx-wrap > h2,.sx-about h2{ font-size:clamp(26px,3.4vw,40px); line-height:1.2; max-width:24ch; }
 .sx-sub{ max-width:62ch; margin:16px 0 0; font-size:18px; line-height:1.65; color:var(--text-dim); }
 .sx-section{ padding:92px 0; border-top:1px solid var(--border-soft); }
@@ -45,7 +45,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .sx-hero h1{ font-size:clamp(32px,4.8vw,58px); line-height:1.12; margin:0; }
 .sx-lede{ margin:22px 0 0; max-width:52ch; font-size:20px; line-height:1.6; color:var(--text-dim); }
 .sx-badges{ display:flex; flex-wrap:wrap; gap:8px; margin:26px 0 0; padding:0; list-style:none; }
-.sx-badges li{ padding:7px 13px; border:1px solid var(--border); border-radius:999px; background:var(--card); box-shadow:0 1px 3px rgba(42,36,28,.04); font-size:13px; color:var(--text); }
+.sx-badges li{ padding:7px 13px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.025); font-size:13px; color:var(--text); }
 .sx-portrait{ margin:0; position:relative; }
 .sx-portrait::before{ content:""; position:absolute; inset:-18px; border-radius:36px; background:radial-gradient(60% 60% at 50% 40%,rgba(217,172,84,.22),transparent 70%); z-index:0; }
 .sx-portrait img{ position:relative; z-index:1; width:100%; max-width:340px; margin:0 0 0 auto; aspect-ratio:3/4; object-fit:cover; border-radius:28px; border:1px solid rgba(217,172,84,.35); box-shadow:var(--shadow-pop); }
@@ -155,60 +155,40 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .sx-portrait img{ height:auto; }
 
 /* ============================================================
-   Warm Minimalist / Editorial Studio (Light Mode) Tokens & Polish
+   Old design system (workspace look): neutral panels, Cinzel + Raleway,
+   workspace gold, 4px-radius buttons. Project accent colors unchanged.
    ============================================================ */
 .sx-page{
-  --bg: #faf8f5;
-  --bg-raised: #f5f2eb;
-  --panel: #f0e9dc;
-  --card: #ffffff;
-  --card-hover: #ffffff;
-  --border: #e2d8c7;
-  --border-soft: #ede7dc;
-
-  --text: #2a241c;
-  --text-dim: #6b5e4f;
-  --text-faint: #8a7b6a;
-
-  --gold: #9a7428;
-  --gold-bright: #7c5a1a;
-  --gold-dim: #b89758;
-
-  --secureid: #9a7428;
-  --honda: #b84822;
-  --devtective: #6044a6;
-  --vextaro: #1e6e94;
-  --studybuddy: #6b46b8;
-
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Raleway', Inter, sans-serif;
+  --bg:#080808; --bg-raised:#111; --panel:#111; --card:#151515; --card-hover:#1a1a1a;
+  --border:#292929; --border-soft:#202020;
+  --text:#f0ede8; --text-dim:#aaa39b; --text-faint:#8d877f;
+  --gold:#c9a84c; --gold-bright:#e0bf62; --gold-dim:#8d7634;
+  background:#080808; color:var(--text); font-family:'Raleway',Inter,sans-serif;
 }
-.sx-page h1,.sx-page h2,.sx-page h3{ font-family:Cinzel,Georgia,serif; color:#1a1612; letter-spacing:.01em; }
-.sx-page .sx-kicker{ font-family:'Raleway',sans-serif; letter-spacing:.18em; color:var(--gold); }
-.sx-nav{ background:rgba(255,255,255,.88); border-color:rgba(154,116,40,.25); box-shadow:0 10px 30px -10px rgba(42,36,28,.1), 0 1px 0 rgba(255,255,255,.9) inset; }
-.sx-nav .sx-brand{ font-family:Cinzel,Georgia,serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--text); }
-.sx-nav a,.sx-status{ font-family:'Raleway',sans-serif; color:var(--text-dim); }
-.sx-nav a:hover{ color:var(--text); background:rgba(42,36,28,.05); }
-.sx-nav a.is-active{ color:var(--gold-bright); background:rgba(154,116,40,.12); font-weight:600; }
-.sx-badges li{ border-color:var(--border); border-radius:4px; background:var(--card); font-family:'Raleway',sans-serif; }
+.sx-page h1,.sx-page h2,.sx-page h3{ font-family:Cinzel,Georgia,serif; color:#f0ede8; letter-spacing:.01em; }
+.sx-page .sx-kicker{ font-family:'Raleway',sans-serif; letter-spacing:.18em; }
+.sx-nav{ background:rgba(17,17,17,.62); border-color:rgba(201,168,76,.3); }
+.sx-nav .sx-brand{ font-family:Cinzel,Georgia,serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; }
+.sx-nav a,.sx-status{ font-family:'Raleway',sans-serif; }
+.sx-nav a.is-active{ background:rgba(201,168,76,.16); }
+.sx-badges li{ border-color:#2b2b2b; border-radius:4px; background:#111; font-family:'Raleway',sans-serif; }
 .sx-lede,.sx-sub{ font-family:'Raleway',sans-serif; }
 .sx-portrait::before{ background:radial-gradient(60% 60% at 50% 40%,rgba(201,168,76,.18),transparent 70%); }
-.sx-portrait img{ border-radius:12px; border-color:var(--border); }
+.sx-portrait img{ border-radius:12px; border-color:#343434; }
 .sx-statbar b{ font-family:Cinzel,Georgia,serif; color:var(--gold); font-weight:600; }
-.sx-exp-card{ background:var(--card); border-color:var(--border); border-radius:10px; box-shadow:none; }
+.sx-exp-card{ background:#111; border-color:#292929; border-radius:10px; box-shadow:none; }
 .sx-exp-card:hover{ border-color:#8d7634; }
 .sx-exp-card header p{ color:var(--gold); }
-.sx-exp-card h3{ font-family:Cinzel,Georgia,serif; font-size:20px; color:#1a1612; }
+.sx-exp-card h3{ font-family:Cinzel,Georgia,serif; font-size:20px; }
 .sx-case .cs-nav-footer a,.sx-case .cs-section figure img{ border-radius:8px; }
 
 /* Buttons: same as the Share / Contact buttons (gold, 4px radius, lift + glow on hover) */
-.sx-btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1px solid var(--gold); border-radius:999px; background:var(--card); color:var(--gold-bright); font:700 14px/1 'Raleway',sans-serif; cursor:pointer; transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease; }
-.sx-btn:hover,.sx-btn:focus-visible{ transform:translateY(-2px); background:rgba(154,116,40,.1); color:var(--gold-bright); box-shadow:0 6px 20px rgba(154,116,40,.18); }
+.sx-btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1px solid var(--gold); border-radius:999px; background:transparent; color:var(--gold); font:700 14px/1 'Raleway',sans-serif; cursor:pointer; transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease; }
+.sx-btn:hover,.sx-btn:focus-visible{ transform:translateY(-3px) scale(1.04); background:rgba(201,168,76,.14); color:#f0cf74; box-shadow:0 6px 18px rgba(201,168,76,.45),0 0 0 2px rgba(240,207,116,.35); }
 .sx-btn:active{ transform:none; box-shadow:none; }
-.sx-btn-primary{ background:var(--gold); border-color:var(--gold); color:#ffffff; }
-.sx-btn-primary:hover,.sx-btn-primary:focus-visible{ background:var(--gold-bright); border-color:var(--gold-bright); color:#ffffff; }
-@media (prefers-reduced-motion:reduce){ .sx-btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1px solid var(--gold); border-radius:999px; background:var(--card); color:var(--gold-bright); font:700 14px/1 'Raleway',sans-serif; cursor:pointer; transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease; } .sx-btn:hover{ transform:none; } }
+.sx-btn-primary{ background:var(--gold); color:#111; }
+.sx-btn-primary:hover,.sx-btn-primary:focus-visible{ background:#f0cf74; color:#111; }
+@media (prefers-reduced-motion:reduce){ .sx-btn{ transition:none; } .sx-btn:hover{ transform:none; } }
 
 
 .sx-hero .sx-cta{ gap:12px; }
