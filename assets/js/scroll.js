@@ -292,4 +292,42 @@
   });
   lb.addEventListener('click', function(e) { if (e.target === lb || e.target === lbC) closeLB(); });
   window.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLB(); });
+
+  // ============================================================
+  // TCG HOLOGRAPHIC 3D TILT & SPECULAR GLARE TRACKER
+  // ============================================================
+  if (!reduce) {
+    var tcgCards = document.querySelectorAll('.tcg-card');
+    tcgCards.forEach(function (card) {
+      var bounds;
+      function updateBounds() { bounds = card.getBoundingClientRect(); }
+
+      card.addEventListener('mouseenter', function () {
+        updateBounds();
+        card.style.transition = 'transform 0.12s ease-out, border-color 0.25s ease, box-shadow 0.25s ease';
+      });
+
+      card.addEventListener('mousemove', function (e) {
+        if (!bounds) updateBounds();
+        var x = e.clientX - bounds.left;
+        var y = e.clientY - bounds.top;
+
+        var normX = (x / bounds.width) - 0.5;
+        var normY = (y / bounds.height) - 0.5;
+
+        var tiltX = -normY * 10;
+        var tiltY = normX * 10;
+
+        card.style.transform = 'perspective(1000px) rotateX(' + tiltX.toFixed(2) + 'deg) rotateY(' + tiltY.toFixed(2) + 'deg) scale3d(1.015, 1.015, 1.015)';
+        card.style.setProperty('--glare-x', ((x / bounds.width) * 100).toFixed(1) + '%');
+        card.style.setProperty('--glare-y', ((y / bounds.height) * 100).toFixed(1) + '%');
+      });
+
+      card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease';
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    });
+  }
+
 })();
