@@ -1092,38 +1092,26 @@ html {
 }
 
 /* ============================================================
-   TCG HOLOGRAPHIC PROJECT CARDS (Clean Proportions, 3D Perspective & Zero Conflicts)
+   TCG HOLOGRAPHIC PROJECT CARDS & 3D PERSPECTIVE SYSTEM
    ============================================================ */
 :root {
   --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-mono: 'Space Mono', monospace;
-  --studybuddy: #a594f9;
-  --secureid: #d9ac54;
-  --vextaro: #5aa3c9;
-  --honda: #e27d5a;
-  --devtective: #9c8be8;
 }
 
-/* 1. Project Grid Container */
-.project-grid,
-.project-grid.is-list,
-.project-grid.sx-projects,
+/* Perspective Grid */
 .tcg-grid {
   display: flex !important;
   flex-direction: column !important;
-  gap: 26px !important;
-  width: 100% !important;
+  gap: 28px !important;
   perspective: 1200px !important;
 }
 
-/* 2. Base TCG Card Shell (Desktop Horizontal Layout) */
-.workspace-card.tcg-card,
-.project-grid.is-list .workspace-card.tcg-card,
-.project-grid .workspace-card.tcg-card {
+/* Base TCG Card Shell */
+.tcg-card {
   position: relative !important;
   display: grid !important;
-  grid-template-columns: 260px 1fr !important;
-  min-height: 280px !important;
+  grid-template-columns: 240px 1fr !important;
   background: var(--card, #151515) !important;
   border: 1px solid var(--border, #292929) !important;
   border-radius: 16px !important;
@@ -1131,9 +1119,6 @@ html {
   color: inherit !important;
   overflow: hidden !important;
   transform-style: preserve-3d !important;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-  transform-origin: center center !important;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.25s ease,
@@ -1141,12 +1126,12 @@ html {
   will-change: transform;
 }
 
-/* Accent Color Mapping per Project */
-.tcg-card.card-studybuddy { --accent: var(--studybuddy); }
-.tcg-card.card-secureid   { --accent: var(--secureid); }
-.tcg-card.card-vextaro    { --accent: var(--vextaro); }
-.tcg-card.card-honda      { --accent: var(--honda); }
-.tcg-card.card-devtective { --accent: var(--devtective); }
+/* Project Accent Color Mapping */
+.tcg-card.card-vextaro    { --accent: var(--vextaro, #5aa3c9); }
+.tcg-card.card-studybuddy { --accent: var(--studybuddy, #a594f9); }
+.tcg-card.card-secureid   { --accent: var(--secureid, #d9ac54); }
+.tcg-card.card-honda      { --accent: var(--honda, #e27d5a); }
+.tcg-card.card-devtective { --accent: var(--devtective, #9c8be8); }
 
 /* Holographic Glare Overlay */
 .tcg-card .tcg-glare {
@@ -1172,59 +1157,46 @@ html {
     transparent 68%
   ) !important;
 }
+
 .tcg-card:hover .tcg-glare {
   opacity: 1 !important;
 }
 
-/* Card Hover Elevation & Accent Glow */
 .tcg-card:hover {
   border-color: color-mix(in srgb, var(--accent) 70%, var(--border)) !important;
   box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.8),
               0 0 26px -6px color-mix(in srgb, var(--accent) 30%, transparent) !important;
 }
 
-/* 3. Artwork Frame */
-.tcg-card .card-art,
-.tcg-card .tcg-art,
-.project-grid.is-list .tcg-card .card-art {
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 100% !important;
+/* Artwork Frame */
+.tcg-art {
   position: relative !important;
-  background: #0a0a0a !important;
-  border-right: 1px solid var(--border, #292929) !important;
-  border-bottom: none !important;
+  background: #000 !important;
+  border-right: 1px solid var(--border) !important;
+  overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 0 !important;
-  overflow: hidden !important;
 }
-.tcg-card .card-art img,
-.tcg-card .tcg-art img {
+.tcg-art img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: center !important;
-  display: block !important;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
-.tcg-card:hover .card-art img {
+.tcg-card:hover .tcg-art img {
   transform: scale(1.04) !important;
 }
 
-/* 4. Card Body & Spacing */
-.tcg-card .card-details,
-.tcg-card .tcg-body {
+/* Card Body */
+.tcg-body {
   padding: 24px 28px !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
-  gap: 0 !important;
-  box-sizing: border-box !important;
 }
 
-/* 5. Header: Pokédex Registry No. + Type Badge */
+/* Header: Pokédex No. + Elemental Type Badge */
 .tcg-header {
   display: flex !important;
   justify-content: space-between !important;
@@ -1233,11 +1205,11 @@ html {
   margin-bottom: 10px !important;
 }
 .tcg-no {
-  font-family: var(--font-mono, monospace) !important;
+  font-family: var(--font-mono) !important;
   font-size: 11px !important;
   font-weight: 700 !important;
   letter-spacing: 0.1em !important;
-  color: var(--text-dim, #999388) !important;
+  color: var(--text-dim) !important;
 }
 .tcg-type-badge {
   display: inline-flex !important;
@@ -1247,7 +1219,7 @@ html {
   border-radius: 999px !important;
   border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border)) !important;
   background: color-mix(in srgb, var(--accent) 10%, transparent) !important;
-  font-family: var(--font-mono, monospace) !important;
+  font-family: var(--font-mono) !important;
   font-size: 10px !important;
   font-weight: 700 !important;
   letter-spacing: 0.06em !important;
@@ -1263,146 +1235,108 @@ html {
   box-shadow: 0 0 6px var(--accent) !important;
 }
 
-/* 6. Title & Role Typography */
-.tcg-card .card-title,
-.tcg-card .card-title > div {
-  display: block !important;
-  margin-bottom: 4px !important;
-}
+/* Title & Role */
 .tcg-card .card-title h2 {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif) !important;
-  font-size: 20px !important;
+  font-family: var(--font-display) !important;
+  font-size: 19px !important;
   font-weight: 700 !important;
-  line-height: 1.3 !important;
-  letter-spacing: -0.01em !important;
-  color: var(--text, #f0ede8) !important;
+  line-height: 1.28 !important;
   margin: 0 0 4px !important;
-  transition: color 0.22s ease !important;
+  color: var(--text) !important;
+  transition: color 0.2s ease !important;
 }
 .tcg-card:hover .card-title h2 {
   color: var(--accent) !important;
 }
-.tcg-card .tcg-role,
-.tcg-card .card-role {
-  display: inline-block !important;
-  font-size: 13px !important;
+.tcg-role {
+  font-size: 12.5px !important;
   font-weight: 600 !important;
-  color: var(--text-dim, #999388) !important;
-  margin: 0 0 14px !important;
+  color: var(--text-dim) !important;
+  margin-bottom: 12px !important;
 }
 
-/* 7. Squared Metadata Tags */
-.tcg-card .card-tags,
-.tcg-card .tcg-tags {
+/* Squared Tags */
+.tcg-tags {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 6px !important;
+  margin-bottom: 14px !important;
+}
+.tcg-tags span {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  border: 1px solid var(--border) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #ccc6bd !important;
+}
+
+/* High-Stakes Narrative */
+.tcg-narrative {
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  color: var(--text-dim) !important;
   margin: 0 0 16px !important;
 }
-.tcg-card .card-tags span,
-.tcg-card .tcg-tags span {
-  font-size: 11.5px !important;
-  font-weight: 500 !important;
-  padding: 4px 10px !important;
-  border-radius: 4px !important;
-  border: 1px solid var(--border, #292929) !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  color: #dedad4 !important;
-  letter-spacing: 0.02em !important;
-  transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease !important;
+.tcg-narrative p {
+  margin: 0 0 6px !important;
 }
-.tcg-card:hover .card-tags span {
-  background: color-mix(in srgb, var(--accent) 12%, transparent) !important;
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--border)) !important;
-  color: #ffffff !important;
-}
-.tcg-card:hover .card-tags span:first-child {
-  background: color-mix(in srgb, var(--accent) 24%, transparent) !important;
-  border-color: var(--accent) !important;
-  color: #ffffff !important;
-}
-
-/* 8. High-Stakes Narrative Text (Friction & Delta) */
-.tcg-card .tcg-narrative,
-.tcg-card .card-details p {
-  margin: 0 0 8px !important;
-  font-size: 13.5px !important;
-  line-height: 1.55 !important;
-  color: var(--text-dim, #999388) !important;
-}
-.tcg-card .tcg-narrative p {
-  margin: 0 0 8px !important;
-}
-.tcg-card .tcg-narrative p:last-child {
+.tcg-narrative p:last-child {
   margin-bottom: 0 !important;
 }
-.tcg-card .card-problem b {
-  color: var(--text, #f0ede8) !important;
+.tcg-narrative b {
+  color: var(--text) !important;
   font-weight: 600 !important;
 }
-.tcg-card .card-outcome {
-  margin-top: 6px !important;
+.tcg-delta {
   color: #ddd7cc !important;
 }
-.tcg-card .card-outcome b,
-.tcg-card .tcg-delta b {
+.tcg-delta b {
   color: var(--accent) !important;
-  font-weight: 600 !important;
 }
 
-/* 9. Bottom Strip (Rarity & View Link) */
-.tcg-card .tcg-footer {
+/* Bottom Strip */
+.tcg-footer {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  margin-top: 18px !important;
-  padding-top: 14px !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding-top: 12px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
   font-size: 11.5px !important;
   color: var(--text-dim) !important;
 }
-.tcg-card .tcg-rarity {
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 11px !important;
+.tcg-rarity {
+  font-family: var(--font-mono) !important;
+  font-size: 10.5px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.04em !important;
   color: var(--text-dim) !important;
 }
-.tcg-card .tcg-action {
-  font-size: 12.5px !important;
-  font-weight: 700 !important;
+.tcg-action {
+  font-weight: 600 !important;
   color: var(--accent) !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 5px !important;
-  transition: transform 0.22s ease !important;
+  transition: transform 0.2s ease !important;
 }
 .tcg-card:hover .tcg-action {
-  transform: translateX(4px) !important;
+  transform: translateX(3px) !important;
 }
 
-/* 10. Mobile Responsiveness */
+/* Mobile Stacking */
 @media (max-width: 760px) {
-  .workspace-card.tcg-card,
-  .project-grid.is-list .workspace-card.tcg-card,
-  .project-grid .workspace-card.tcg-card {
+  .tcg-card {
     grid-template-columns: 1fr !important;
-    min-height: auto !important;
   }
-  .tcg-card .card-art,
-  .tcg-card .tcg-art,
-  .project-grid.is-list .tcg-card .card-art {
-    height: 200px !important;
-    min-height: 200px !important;
+  .tcg-art {
+    height: 190px !important;
     border-right: none !important;
     border-bottom: 1px solid var(--border) !important;
   }
-  .tcg-card .card-details,
-  .tcg-card .tcg-body {
-    padding: 20px 18px !important;
-  }
-  .tcg-card .card-title h2 {
-    font-size: 18px !important;
+  .tcg-body {
+    padding: 20px !important;
   }
 }
 
