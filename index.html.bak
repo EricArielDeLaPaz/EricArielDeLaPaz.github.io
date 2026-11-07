@@ -45,7 +45,7 @@
 <section class="sx-hero" aria-labelledby="hero-title">
   <div class="sx-wrap sx-hero-grid">
     <div class="sx-hero-copy">
-      <p class="sx-kicker"><i class="sx-dot" aria-hidden="true"></i> Hi, I'm Eric. Open to junior product design roles</p>
+      <p class="sx-kicker"><i class="sx-dot" aria-hidden="true"></i> Hi, I'm Eric. Open to Product Design roles</p>
       <h1 id="hero-title">Product Designer: systems, flows, prototypes.</h1>
       <p class="sx-lede">I design token-based Figma systems and clickable prototypes that engineers can build from. Texas-based, open to work.</p>
       <ul class="sx-badges" aria-label="At a glance">
