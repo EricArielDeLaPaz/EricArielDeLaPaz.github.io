@@ -4183,8 +4183,8 @@ button,input,select,textarea{ font-family:inherit; }
 /* ------------------------------------------------------------
    Shape rule: pills are for buttons only; tags and nav are square-cornered
    ------------------------------------------------------------ */
-.sx-nav { border-radius: 12px !important; }
-.sx-nav a.sx-nav-link, .sx-nav a, .sx-nav-info-btn { border-radius: 6px !important; }
+.sx-nav { border-radius: 999px !important; }
+.sx-nav a.sx-nav-link, .sx-nav a, .sx-nav-info-btn { border-radius: 999px !important; }
 .megan-tags span, .ai-teaser-tags span, .exp-badge, .watching-pill, .sx-case .hf-badge, .hf-badge { border-radius: 4px !important; }
 
 /* Stat strip: keep every cell's padding equal (fixes shifted WCAG cell on mobile) */
