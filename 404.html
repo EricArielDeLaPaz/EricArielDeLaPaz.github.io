@@ -1,152 +1,182 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 — Page Not Found · Eric Ariel De La Paz</title>
-<meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="/assets/images/profile.png">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/scroll.css">
-<style>
-  :root {
-    --bg: #080808;
-    --text: #f0ede8;
-    --text-dim: #aaa39b;
-    --text-faint: #8d877f;
-    --gold: #c9a84c;
-    --gold-bright: #e0bf62;
-    --card: #141210;
-    --border: #262118;
-  }
-  body.sx-page.error-page {
-    background: #080808;
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', Inter, -apple-system, sans-serif;
-  }
-  .error-main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 20px 60px;
-  }
-  .error-card {
-    max-width: 580px;
-    width: 100%;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 48px 36px;
-    text-align: center;
-    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05) inset;
-  }
-  .error-kicker {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--gold);
-    margin: 0 0 14px;
-  }
-  .error-num {
-    font-family: 'EB Garamond', Georgia, serif;
-    font-size: clamp(64px, 12vw, 92px);
-    line-height: 1;
-    font-weight: 600;
-    margin: 0 0 14px;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #f0c878 0%, #c9a84c 60%, #8a6a34 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .error-card h1 {
-    font-family: 'Cinzel', Georgia, serif;
-    font-size: clamp(22px, 4vw, 28px);
-    color: #fbf7ee;
-    margin: 0 0 14px;
-    font-weight: 600;
-    line-height: 1.3;
-  }
-  .error-card p {
-    font-size: 15.5px;
-    line-height: 1.6;
-    color: var(--text-dim);
-    margin: 0 auto 30px;
-    max-width: 44ch;
-  }
-  .error-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .easter-egg {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    font-size: 12.5px;
-    color: var(--text-faint);
-    font-style: italic;
-  }
-  @media (max-width: 600px) {
-    .error-card { padding: 36px 20px; }
-    .error-actions { flex-direction: column; }
-    .error-actions .sx-btn { width: 100%; justify-content: center; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — Page Not Found · Eric Ariel De La Paz</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/scroll.css">
+  <style>
+    :root {
+      --bg: #FAF9F6;
+      --card: #FFFFFF;
+      --text: #23190A;
+      --text-dim: #6E665E;
+      --gold: #7a5a14;
+      --gold-bright: #D4AF37;
+      --border: rgba(35, 25, 10, 0.08);
+      --shadow: 0 12px 36px -8px rgba(35, 25, 10, 0.08);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      width: 100%;
+      background: var(--bg) !important;
+      color: var(--text) !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .error-wrap {
+      width: 100%;
+      max-width: 560px;
+      padding: 32px 20px;
+      margin: auto;
+      text-align: center;
+    }
+    .error-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px 36px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .error-character {
+      margin-bottom: 20px;
+    }
+    .error-character img {
+      height: 130px;
+      width: auto;
+      max-width: 100px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 4px 12px rgba(35, 25, 10, 0.1));
+      display: block;
+    }
+    .error-kicker {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin: 0 0 8px;
+    }
+    .error-num {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: clamp(56px, 10vw, 84px);
+      line-height: 1;
+      font-weight: 700;
+      color: #1A1615;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+    }
+    .error-card h1 {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: clamp(22px, 4vw, 28px);
+      color: #1A1615;
+      margin: 0 0 14px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .error-card p {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--text-dim);
+      margin: 0 auto 32px;
+      max-width: 44ch;
+    }
+    .error-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .error-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: "Inter", sans-serif;
+    }
+    .error-actions .btn-primary {
+      background: linear-gradient(135deg, #1c1815, #352f2a);
+      color: #FFFFFF !important;
+      border: 1px solid #1c1815;
+      box-shadow: 0 2px 8px rgba(28, 24, 21, 0.18);
+    }
+    .error-actions .btn-primary:hover {
+      background: linear-gradient(135deg, #2d2621, #484039);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(28, 24, 21, 0.25);
+    }
+    .error-actions .btn-secondary {
+      background: #FFFFFF;
+      color: #23190A !important;
+      border: 1px solid var(--border);
+    }
+    .error-actions .btn-secondary:hover {
+      background: #F7F6F2;
+      border-color: rgba(35, 25, 10, 0.2);
+      transform: translateY(-1px);
+    }
+    .easter-egg {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(35, 25, 10, 0.08);
+      font-size: 13px;
+      color: #6b655c;
+      font-style: italic;
+    }
+    @media (max-width: 540px) {
+      .error-card { padding: 36px 20px; }
+      .error-actions { flex-direction: column; }
+      .error-actions a { width: 100%; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="sx-page error-page">
-
-<header class="sx-nav-wrap">
-  <nav class="sx-nav" aria-label="Primary">
-    <a class="sx-brand" href="/index.html" aria-label="Eric Ariel De La Paz, home">
-      <img src="/assets/images/profile.png" alt="" width="28" height="28">
-      <span>De La Paz</span>
-    </a>
-    <span class="sx-nav-sep" aria-hidden="true"></span>
-    <a href="/index.html#work">Work</a>
-    <a href="/index.html#experience">Experience</a>
-    <a href="/index.html#skills">Skills</a>
-    <a href="/index.html#about">About</a>
-    <a href="/index.html#contact">Contact</a>
-  </nav>
-</header>
-
-<main class="error-main">
-  <div class="error-card">
-    <div class="error-kicker">Status 404</div>
-    <div class="error-num">404</div>
-    <h1>Artifact Not Found</h1>
-    <p>The screen, document, or prototype you're looking for isn't here or is currently being updated.</p>
-    
-    <div class="error-actions">
-      <a class="sx-btn sx-btn-primary" href="/index.html#work">View Selected Work</a>
-      <a class="sx-btn" href="/index.html">Back to Home</a>
+<body class="is-light">
+  <main id="main" class="error-wrap">
+    <div class="error-card">
+      <div class="error-character">
+        <img src="/assets/images/mini-eric-thinking.png" class="mini-eric-img" alt="Mini Eric looking around" width="80" height="120">
+      </div>
+      <div class="error-kicker">Status 404</div>
+      <div class="error-num">404</div>
+      <h1>Artifact Not Found</h1>
+      <p>The screen, document, or prototype you're looking for isn't here or has moved.</p>
+      <div class="error-actions">
+        <a class="btn-primary" href="/index.html#work">
+          <span>View Selected Work</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="btn-secondary" href="/index.html">Back to Home</a>
+      </div>
+      <div class="easter-egg">
+        Fun fact: Like the Pokémon Shuckle, this page doesn't really go anywhere.
+      </div>
     </div>
-
-    <div class="easter-egg">
-      Fun fact: Like the Pokémon Shuckle, this page doesn't really go anywhere.
-    </div>
-  </div>
-</main>
-
-<footer class="container" style="margin-bottom: 24px;">
-  <div class="foot-row">
-    <div class="foot-links">
-      <a href="mailto:ericforall247@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/eric-ariel-de-la-paz/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/EricArielDeLaPaz" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <span class="copyright">© 2026 Eric Ariel De La Paz</span>
-  </div>
-</footer>
-
+  </main>
 </body>
 </html>
