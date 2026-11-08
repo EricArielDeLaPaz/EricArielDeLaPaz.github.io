@@ -6,11 +6,11 @@
   <title>About | Eric Ariel De La Paz — Product Designer &amp; Aspiring Design Engineer</title>
   <meta name="description" content="The story, creative fuel, morning routines, anime favorites, and childhood Nintendo DS memories of Eric Ariel De La Paz.">
   <link rel="icon" type="image/png" href="assets/images/profile.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/scroll.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="sx-page is-light" data-nav="about">
   
@@ -254,7 +254,7 @@
         <div class="section-head-row">
           <div>
             <h2 class="section-heading">My Nintendo DS Lite (Crimson &amp; Black)</h2>
-            <p class="sx-sub">Click the closed DS below to flip open the dual screens and explore my childhood Pokémon memories.</p>
+            <p class="sx-sub">Click the closed lid to flip open the dual screens and explore my childhood Pokémon memories, then click the top lid to close it again.</p>
           </div>
         </div>
 
@@ -269,11 +269,6 @@
           <span class="ds-sq ds-sq-2"></span>
         </div>
         <span class="ds-engraving">Nintendo DS Lite</span>
-        <div class="ds-open-prompt">
-          <span class="ds-sparkle">✦</span>
-          <span>Click to Flip Open DS</span>
-          <span class="ds-sparkle">✦</span>
-        </div>
       </div>
       <div class="ds-hinge-band"></div>
     </div>
@@ -281,7 +276,7 @@
     <!-- Opened Console State -->
     <div class="ds-console" id="dsConsole" hidden>
       <!-- Top Bezel & Backlit Screen -->
-      <div class="ds-top-housing">
+      <div class="ds-top-housing" id="dsTopLid" role="button" tabindex="0" aria-label="Close Nintendo DS Lite lid" title="Click the top lid to close">
         <div class="ds-top-bezel">
           <div class="ds-speaker ds-speaker-l"><i></i><i></i><i></i><i></i></div>
           <div class="ds-screen ds-top-screen">
@@ -295,7 +290,6 @@
           </div>
           <div class="ds-speaker ds-speaker-r"><i></i><i></i><i></i><i></i></div>
         </div>
-        <button type="button" class="ds-close-btn" id="dsCloseBtn" title="Snap DS lid closed">✕ Close Lid</button>
       </div>
 
       <!-- Center Hinge & LEDs -->

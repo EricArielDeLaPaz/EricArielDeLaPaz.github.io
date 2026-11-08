@@ -17,7 +17,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .sx-nav a{ padding:8px 14px; border-radius:999px; font-size:14px; font-weight:500; color:var(--text-dim); transition:background-color .18s ease,color .18s ease; white-space:nowrap; }
 .sx-nav a:hover,.sx-nav a:focus-visible{ color:var(--text); background:rgba(255,255,255,.07); }
 .sx-nav a.is-active{ color:var(--gold-bright); background:rgba(217,172,84,.14); }
-.sx-nav .sx-brand{ display:flex; align-items:center; gap:9px; padding:3px 12px 3px 3px; color:var(--text); font-family:Cinzel,Georgia,serif; font-size:17px; font-weight:600; }
+.sx-nav .sx-brand{ display:flex; align-items:center; gap:9px; padding:3px 12px 3px 3px; color:var(--text); font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:17px; font-weight:600; }
 .sx-brand img{ width:28px; height:28px; border-radius:50%; object-fit:cover; border:1px solid var(--gold-dim); }
 .sx-nav-sep{ width:1px; height:18px; background:rgba(255,255,255,.12); margin:0 4px; }
 .sx-status{ display:flex; align-items:center; gap:8px; padding:0 8px 0 6px; font-size:12.5px; color:var(--text-dim); white-space:nowrap; }
@@ -29,7 +29,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 
 /* ---------- Shared type ---------- */
 .sx-kicker{ display:flex; align-items:center; gap:10px; margin:0 0 14px; font:600 12px/1 'Inter',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
-.sx-section .sx-wrap > h2,.sx-about h2,.sx-hero h1{ font-family:Cinzel,Georgia,serif; font-weight:600; color:#1a1612; letter-spacing:.01em; }
+.sx-section .sx-wrap > h2,.sx-about h2,.sx-hero h1{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight:600; color:#1a1612; letter-spacing:.01em; }
 .sx-section .sx-wrap > h2,.sx-about h2{ font-size:clamp(26px,3.4vw,40px); line-height:1.2; max-width:24ch; }
 .sx-sub{ max-width:62ch; margin:16px 0 0; font-size:18px; line-height:1.65; color:var(--text-dim); }
 .sx-section{ padding:92px 0; border-top:1px solid var(--border-soft); }
@@ -52,7 +52,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .sx-statbar{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; margin-top:72px; padding:0 32px; list-style:none; border-top:1px solid var(--border); }
 .sx-statbar li{ padding:26px 24px 30px 0; }
 .sx-statbar li + li{ padding-left:24px; border-left:1px solid var(--border-soft); }
-.sx-statbar b{ display:block; font:600 clamp(30px,3.6vw,44px)/1 Cinzel,Georgia,serif; color:var(--gold-bright); }
+.sx-statbar b{ display:block; font:600 clamp(30px,3.6vw,44px)/1 'Plus Jakarta Sans',sans-serif; color:var(--gold-bright); }
 .sx-statbar span{ display:block; margin-top:8px; font-size:13.5px; color:var(--text-dim); }
 
 /* ---------- Project cards (reuse the long-card style) ---------- */
@@ -64,7 +64,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .sx-exp{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:36px; }
 .sx-exp-card{ padding:28px; border:1px solid var(--border); border-radius:var(--radius); background:var(--card); box-shadow:var(--shadow-card); }
 .sx-exp-card header{ margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--border-soft); }
-.sx-exp-card h3{ font-size:24px; font-family:Cinzel,Georgia,serif; }
+.sx-exp-card h3{ font-size:24px; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 .sx-exp-card header p{ margin:6px 0 0; color:var(--gold); font-size:13.5px; font-weight:500; }
 .sx-exp-card .hero-bullets{ font-size:15.5px; line-height:1.55; color:var(--text); }
 
@@ -182,33 +182,33 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 
   background: var(--bg);
   color: var(--text);
-  font-family: 'Raleway', Inter, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
-.sx-page h1,.sx-page h2,.sx-page h3{ font-family:Cinzel,Georgia,serif; color:#1a1612; letter-spacing:.01em; }
-.sx-page .sx-kicker{ font-family:'Raleway',sans-serif; letter-spacing:.18em; color:var(--gold); }
+.sx-page h1,.sx-page h2,.sx-page h3{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:#1a1612; letter-spacing:.01em; }
+.sx-page .sx-kicker{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; letter-spacing:.18em; color:var(--gold); }
 .sx-nav{ background:rgba(255,255,255,.88); border-color:rgba(154,116,40,.25); box-shadow:0 10px 30px -10px rgba(42,36,28,.1), 0 1px 0 rgba(255,255,255,.9) inset; }
-.sx-nav .sx-brand{ font-family:Cinzel,Georgia,serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--text); }
-.sx-nav a,.sx-status{ font-family:'Raleway',sans-serif; color:var(--text-dim); }
+.sx-nav .sx-brand{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--text); }
+.sx-nav a,.sx-status{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:var(--text-dim); }
 .sx-nav a:hover{ color:var(--text); background:rgba(42,36,28,.05); }
 .sx-nav a.is-active{ color:var(--gold-bright); background:rgba(154,116,40,.12); font-weight:600; }
-.sx-badges li{ border-color:var(--border); border-radius:4px; background:var(--card); font-family:'Raleway',sans-serif; }
-.sx-lede,.sx-sub{ font-family:'Raleway',sans-serif; }
+.sx-badges li{ border-color:var(--border); border-radius:4px; background:var(--card); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.sx-lede,.sx-sub{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 .sx-portrait::before{ background:radial-gradient(60% 60% at 50% 40%,rgba(201,168,76,.18),transparent 70%); }
 .sx-portrait img{ border-radius:12px; border-color:var(--border); }
-.sx-statbar b{ font-family:Cinzel,Georgia,serif; color:var(--gold); font-weight:600; }
+.sx-statbar b{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:var(--gold); font-weight:600; }
 .sx-exp-card{ background:var(--card); border-color:var(--border); border-radius:10px; box-shadow:none; }
 .sx-exp-card:hover{ border-color:#8d7634; }
 .sx-exp-card header p{ color:var(--gold); }
-.sx-exp-card h3{ font-family:Cinzel,Georgia,serif; font-size:20px; color:#1a1612; }
+.sx-exp-card h3{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:20px; color:#1a1612; }
 .sx-case .cs-nav-footer a,.sx-case .cs-section figure img{ border-radius:8px; }
 
 /* Buttons: same as the Share / Contact buttons (gold, 4px radius, lift + glow on hover) */
-.sx-btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1px solid var(--gold); border-radius:999px; background:var(--card); color:var(--gold-bright); font:700 14px/1 'Raleway',sans-serif; cursor:pointer; transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease; }
+.sx-btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1px solid var(--gold); border-radius:999px; background:var(--card); color:var(--gold-bright); font:700 14px/1 Inter,sans-serif; cursor:pointer; transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease; }
 .sx-btn:hover,.sx-btn:focus-visible{ transform:translateY(-2px); background:rgba(154,116,40,.1); color:var(--gold-bright); box-shadow:0 6px 20px rgba(154,116,40,.18); }
 .sx-btn:active{ transform:none; box-shadow:none; }
 .sx-btn-primary{ background:var(--gold); border-color:var(--gold); color:#ffffff; }
 .sx-btn-primary:hover,.sx-btn-primary:focus-visible{ background:var(--gold-bright); border-color:var(--gold-bright); color:#ffffff; }
-@media (prefers-reduced-motion:reduce){ .sx-btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1px solid var(--gold); border-radius:999px; background:var(--card); color:var(--gold-bright); font:700 14px/1 'Raleway',sans-serif; cursor:pointer; transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease; } .sx-btn:hover{ transform:none; } }
+@media (prefers-reduced-motion:reduce){ .sx-btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1px solid var(--gold); border-radius:999px; background:var(--card); color:var(--gold-bright); font:700 14px/1 Inter,sans-serif; cursor:pointer; transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease; } .sx-btn:hover{ transform:none; } }
 
 
 .sx-hero .sx-cta{ gap:12px; }
@@ -242,19 +242,19 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .persona-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:22px; }
 .persona{ border:1px solid var(--border); border-radius:var(--radius); background:var(--card); padding:20px; display:flex; flex-direction:column; gap:14px; }
 .persona header{ display:flex; gap:14px; align-items:center; }
-.persona-av{ flex:none; width:46px; height:46px; border-radius:50%; display:grid; place-items:center; font:600 20px Cinzel,Georgia,serif; color:#17130b; background:var(--accent,var(--gold)); }
+.persona-av{ flex:none; width:46px; height:46px; border-radius:50%; display:grid; place-items:center; font:600 20px 'Plus Jakarta Sans',sans-serif; color:#17130b; background:var(--accent,var(--gold)); }
 .persona-analyst .persona-av{ background:transparent; color:var(--accent,var(--gold)); border:2px solid var(--accent,var(--gold)); }
-.persona h3{ margin:0; font:600 20px Cinzel,Georgia,serif; color:var(--text); }
+.persona h3{ margin:0; font:600 20px 'Plus Jakarta Sans',sans-serif; color:var(--text); }
 .persona header p{ margin:2px 0 0; font-size:13.5px; color:var(--text); }
 .persona header em{ font-style:normal; color:#6b655c; }
 .persona-about{ margin:0; font-size:14px; line-height:1.55; color:var(--text-dim); }
 .persona-about span{ display:block; margin-top:6px; font-size:12.5px; color:#6b655c; }
 .persona-cols{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.persona h4{ margin:0 0 6px; font:700 11px Raleway,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:var(--accent,var(--gold)); }
+.persona h4{ margin:0 0 6px; font:700 11px Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:var(--accent,var(--gold)); }
 .persona ul{ margin:0; padding-left:16px; font-size:13px; line-height:1.5; color:var(--text-dim); }
 .persona li{ margin-bottom:3px; }
 .persona-goal{ margin:auto 0 0; padding-top:12px; border-top:1px solid var(--border-soft); font-size:13.5px; line-height:1.5; color:var(--text); }
-.persona-goal b{ display:block; margin-bottom:2px; font:700 11px Raleway,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:var(--accent,var(--gold)); }
+.persona-goal b{ display:block; margin-bottom:2px; font:700 11px Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:var(--accent,var(--gold)); }
 @media (max-width:860px){ .persona-grid{ grid-template-columns:1fr; } }
 @media (max-width:480px){ .persona-cols{ grid-template-columns:1fr; } }
 
@@ -544,7 +544,7 @@ html {
   }
   .sx-nav .sx-brand span {
     display: inline-block !important;
-    font-family: Cinzel, Georgia, serif !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: 13px !important;
     font-weight: 600 !important;
     letter-spacing: 0.08em !important;
@@ -2776,7 +2776,7 @@ body.sx-case.is-light {
   padding: 2px 10px 2px 2px !important;
   color: var(--text) !important;
   text-decoration: none !important;
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 14px !important;
   font-weight: 700 !important;
   letter-spacing: 0.06em !important;
@@ -2804,7 +2804,7 @@ body.sx-case.is-light {
   border-radius: 999px !important;
   background: transparent !important;
   color: var(--text-dim) !important;
-  font-family: 'Raleway', Inter, sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 13.5px !important;
   font-weight: 600 !important;
   cursor: pointer !important;
@@ -2871,7 +2871,7 @@ body.sx-case.is-light {
 }
 .info-name {
   display: block !important;
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 16px !important;
   color: var(--text) !important;
 }
@@ -3018,7 +3018,7 @@ body.sx-case.is-light {
 }
 .mini-eric-tag {
   display: inline-block !important;
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 10px !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
@@ -3117,7 +3117,7 @@ body.sx-case.is-light {
   color: var(--gold) !important;
 }
 .megan-title {
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: clamp(20px, 2.2vw, 24px) !important;
   line-height: 1.25 !important;
   color: var(--text) !important;
@@ -3163,7 +3163,7 @@ body.sx-case.is-light {
   padding: 32px 0 24px !important;
 }
 .about-title {
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: clamp(28px, 4vw, 44px) !important;
   line-height: 1.2 !important;
   color: var(--text) !important;
@@ -3183,7 +3183,7 @@ body.sx-case.is-light {
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
-  font-family: 'Raleway', sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 12px !important;
   font-weight: 700 !important;
   letter-spacing: 0.14em !important;
@@ -3192,7 +3192,7 @@ body.sx-case.is-light {
   margin-bottom: 12px !important;
 }
 .section-heading {
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: clamp(24px, 3vw, 32px) !important;
   color: var(--text) !important;
   margin: 0 0 8px !important;
@@ -3265,7 +3265,7 @@ body.sx-case.is-light {
 .bible-emboss {
   position: absolute !important;
   bottom: 8px !important;
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 10px !important;
   letter-spacing: 0.16em !important;
   color: rgba(255, 255, 255, 0.7) !important;
@@ -3301,7 +3301,7 @@ body.sx-case.is-light {
   margin-bottom: 4px !important;
 }
 .foundation-card h3 {
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 18px !important;
   color: var(--text) !important;
   margin: 0 0 8px !important;
@@ -3357,13 +3357,13 @@ body.sx-case.is-light {
   letter-spacing: 0.1em !important;
 }
 .anime-num {
-  font-family: Cinzel, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 14px !important;
   font-weight: 700 !important;
   color: rgba(255, 255, 255, 0.7) !important;
 }
 .anime-cover-title h3 {
-  font-family: Cinzel, Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 22px !important;
   color: #FFFFFF !important;
   margin: 0 !important;
@@ -3400,7 +3400,7 @@ body.sx-case.is-light {
   margin-bottom: 6px !important;
 }
 .anime-reveal h4 {
-  font-family: Cinzel, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 16px !important;
   color: #FFFFFF !important;
   margin: 0 0 10px !important;
@@ -3457,7 +3457,7 @@ body.sx-case.is-light {
 }
 .ds-engraving {
   display: block !important;
-  font-family: 'Raleway', sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 14px !important;
   font-weight: 700 !important;
   letter-spacing: 0.16em !important;
@@ -3537,7 +3537,7 @@ body.sx-case.is-light {
   padding: 6px 10px !important;
   background: #16202c !important;
   border-bottom: 1px solid #222a35 !important;
-  font-family: monospace !important;
+  font-family: var(--font-mono) !important;
   font-size: 11px !important;
   color: #7dd3fc !important;
 }
@@ -3612,7 +3612,7 @@ body.sx-case.is-light {
   background: #334155 !important;
 }
 .ds-touch-indicator {
-  font-family: monospace !important;
+  font-family: var(--font-mono) !important;
   font-size: 11px !important;
   color: #94a3b8 !important;
 }
@@ -3737,7 +3737,7 @@ body.sx-case.is-light {
   box-shadow: 0 10px 24px rgba(124, 58, 237, 0.3) !important;
 }
 .sb-sim-timer {
-  font-family: monospace !important;
+  font-family: var(--font-mono) !important;
   font-size: 42px !important;
   font-weight: 700 !important;
   color: var(--text) !important;
@@ -3838,7 +3838,7 @@ body.sx-case.is-light {
   margin-bottom: 12px !important;
 }
 .sample-title {
-  font-family: Cinzel, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 20px !important;
   color: var(--text) !important;
   margin: 0 0 10px !important;
@@ -3901,7 +3901,7 @@ body.sx-case.is-light {
   letter-spacing: 0.08em !important;
 }
 .exp-role {
-  font-family: Cinzel, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 20px !important;
   color: var(--text) !important;
   margin: 4px 0 0 !important;
@@ -4021,7 +4021,7 @@ body.sx-case.is-light {
   padding: 24px 28px;
 }
 .sb-showcase-caption h3 {
-  font-family: Cinzel, Georgia, serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 20px;
   color: var(--text);
   margin: 0 0 8px;
@@ -4108,7 +4108,7 @@ body.sx-case.is-light {
   margin-bottom: 12px !important;
 }
 .ai-teaser-card h2 {
-  font-family: Cinzel, serif !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: clamp(22px, 3vw, 30px) !important;
   color: #1a1615 !important;
   margin: 0 0 12px !important;
@@ -4176,3 +4176,6 @@ body.sx-case.is-light {
 .mini-eric-banner.is-footer.no-rule{ border-top:0 !important; padding-top:0 !important; margin:40px 0 24px !important; }
 /* Case study breadcrumb above the cover */
 .sx-case .breadcrumb.breadcrumb-top{ margin:0 0 16px; font-size:14px; }
+
+/* Typography: buttons and form controls inherit the site fonts */
+button,input,select,textarea{ font-family:inherit; }
