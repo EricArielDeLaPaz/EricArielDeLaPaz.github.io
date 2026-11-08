@@ -4179,3 +4179,26 @@ body.sx-case.is-light {
 
 /* Typography: buttons and form controls inherit the site fonts */
 button,input,select,textarea{ font-family:inherit; }
+
+/* ------------------------------------------------------------
+   Shape rule: pills are for buttons only; tags and nav are square-cornered
+   ------------------------------------------------------------ */
+.sx-nav { border-radius: 12px !important; }
+.sx-nav a.sx-nav-link, .sx-nav a, .sx-nav-info-btn { border-radius: 6px !important; }
+.megan-tags span, .ai-teaser-tags span, .exp-badge, .watching-pill, .sx-case .hf-badge, .hf-badge { border-radius: 4px !important; }
+
+/* Stat strip: keep every cell's padding equal (fixes shifted WCAG cell on mobile) */
+.sx-statbar li:nth-child(n) { padding: 26px 28px 30px !important; }
+
+/* Mobile nav: fit everything, including Open to work, with no scrolling */
+@media (max-width: 700px) {
+  .sx-nav { overflow: visible !important; max-width: calc(100vw - 16px) !important; gap: 0 !important; padding: 5px 6px !important; }
+  .sx-nav .sx-nav-sep { display: none !important; }
+  .sx-nav a, .sx-nav a.sx-nav-link { padding: 7px 9px !important; font-size: 13px !important; }
+  .sx-nav-info-btn { padding: 7px 8px !important; font-size: 13px !important; gap: 4px !important; }
+  .sx-nav .sx-status { padding: 0 6px 0 8px !important; }
+}
+@media (max-width: 360px) {
+  .sx-nav a, .sx-nav a.sx-nav-link { padding: 7px 6px !important; font-size: 12.5px !important; }
+  .sx-nav-info-btn { padding: 7px 6px !important; font-size: 12.5px !important; }
+}
