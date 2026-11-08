@@ -4152,3 +4152,27 @@ body.sx-case.is-light {
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
 }
+
+/* Case study cover appears first, above Mini Eric */
+.sx-case .sx-cover.sx-cover-top{ margin:0 0 8px; }
+.sx-case .sx-main > .container > .sx-cover-top:first-child{ margin-top:0; }
+@media (max-width:720px){ .sx-case .sx-cover.sx-cover-top{ margin:0 0 4px; } }
+
+/* Home: Mini Eric sits between hero buttons and highlights; boxed highlights with padding */
+.sx-hero{ padding-top:24px; }
+.mini-eric-banner.is-header + .sx-hero{ padding-top:24px; }
+.sx-hero .mini-eric-banner.is-mid{ margin:44px 0 0 !important; }
+.sx-statbar{ margin-top:20px; padding:0; border:1px solid var(--border); border-radius:12px; background:var(--card); overflow:hidden; }
+.sx-statbar li,.sx-statbar li + li{ padding:26px 28px 30px; }
+.sx-statbar li + li{ border-left:1px solid var(--border-soft); }
+@media (max-width:980px){
+  .sx-statbar li:nth-child(3){ border-left:0; }
+  .sx-statbar li:nth-child(n+3){ border-top:1px solid var(--border-soft); }
+}
+@media (max-width:560px){
+  .sx-statbar{ grid-template-columns:1fr; }
+  .sx-statbar li + li{ border-left:0; border-top:1px solid var(--border-soft); }
+}
+.mini-eric-banner.is-footer.no-rule{ border-top:0 !important; padding-top:0 !important; margin:40px 0 24px !important; }
+/* Case study breadcrumb above the cover */
+.sx-case .breadcrumb.breadcrumb-top{ margin:0 0 16px; font-size:14px; }
