@@ -595,7 +595,7 @@ function buildPlaygroundHtml() {
 
       <!-- Experiment 4: AI Design Library Teaser -->
       <section class="about-section" id="lab-ai-teaser">
-        <div class="section-badge"><span>04</span> Future Release</div>
+        <div class="section-badge"><span>03</span> Soon to be Released</div>
         <div class="ai-teaser-card">
           <div class="ai-teaser-copy">
             <span class="ai-chip">In Development</span>
