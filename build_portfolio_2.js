@@ -599,10 +599,16 @@ function buildPlaygroundHtml() {
         <div class="ai-teaser-card">
           <div class="ai-teaser-copy">
             <span class="ai-chip">In Development</span>
-            <h2>AI Design Library &amp; Font Pairing Database</h2>
+            <h2>Mambo Database</h2>
             <p>A dual-purpose knowledge repository designed for both humans and AI agents. It curates high-contrast font pairings, tested token scales, and structured system prompts for Claude, Gemini, and v0 to build pristine, production-grade user interfaces.</p>
             <div class="ai-teaser-tags">
               <span>Font Pairings</span><span>WCAG Contrast Matrices</span><span>Claude/Gemini Skill System</span><span>Figma Tokens</span>
+            </div>
+            <br>
+            <div>
+            <a href="https://ericarieldelapaz.tech/mambo-database" class="sx-btn sx-btn-primary">
+                <span>View Mambo Database</span>
+            </a>
             </div>
           </div>
         </div>
