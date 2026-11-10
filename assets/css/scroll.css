@@ -3056,16 +3056,50 @@ body.sx-case.is-light {
   box-shadow: var(--shadow-hover) !important;
   border-color: var(--gold) !important;
 }
-.megan-card-link {
+.megan-card-link,
+.megan-card-grid {
   display: grid !important;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) !important;
   text-decoration: none !important;
   color: inherit !important;
 }
 @media (max-width: 860px) {
-  .megan-card-link {
+  .megan-card-link,
+  .megan-card-grid {
     grid-template-columns: 1fr !important;
   }
+}
+.megan-card-content {
+  cursor: pointer !important;
+}
+.sb-card-stageshow {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.sb-card-stageshow .sb-card-stage-wrap {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.sb-card-stageshow .ss-fit {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.sb-card-stageshow .ss-stage {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 .megan-card-preview {
   position: relative !important;
