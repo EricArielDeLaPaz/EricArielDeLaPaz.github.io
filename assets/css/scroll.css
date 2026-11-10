@@ -13,7 +13,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .sx-nav-wrap{ position:fixed; top:14px; left:0; right:0; z-index:100; display:flex; justify-content:center; padding:0 12px; pointer-events:none; }
 .sx-nav{ pointer-events:auto; display:flex; align-items:center; gap:4px; padding:6px 10px 6px 8px; border:1px solid rgba(217,172,84,.22); border-radius:999px;
   background:rgba(255,255,255,.88); -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%);
-  box-shadow:0 10px 30px -10px rgba(42,36,28,.1), 0 1px 0 rgba(255,255,255,.9) inset; }
+  box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.7), 0 0 24px -4px color-mix(in srgb, var(--gold, #d9ac54) 30%, transparent), 0 1px 0 rgba(255, 255, 255, 0.05) inset; }
 .sx-nav a{ padding:8px 14px; border-radius:999px; font-size:14px; font-weight:500; color:var(--text-dim); transition:background-color .18s ease,color .18s ease; white-space:nowrap; }
 .sx-nav a:hover,.sx-nav a:focus-visible{ color:var(--text); background:rgba(255,255,255,.07); }
 .sx-nav a.is-active{ color:var(--gold-bright); background:rgba(217,172,84,.14); }
@@ -186,7 +186,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 }
 .sx-page h1,.sx-page h2,.sx-page h3{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:#1a1612; letter-spacing:.01em; }
 .sx-page .sx-kicker{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; letter-spacing:.18em; color:var(--gold); }
-.sx-nav{ background:rgba(255,255,255,.88); border-color:rgba(154,116,40,.25); box-shadow:0 10px 30px -10px rgba(42,36,28,.1), 0 1px 0 rgba(255,255,255,.9) inset; }
+.sx-nav{ background:rgba(255,255,255,.88); border-color:rgba(154,116,40,.25); box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.7), 0 0 24px -4px color-mix(in srgb, var(--gold, #d9ac54) 30%, transparent), 0 1px 0 rgba(255, 255, 255, 0.05) inset; }
 .sx-nav .sx-brand{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--text); }
 .sx-nav a,.sx-status{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:var(--text-dim); }
 .sx-nav a:hover{ color:var(--text); background:rgba(42,36,28,.05); }
