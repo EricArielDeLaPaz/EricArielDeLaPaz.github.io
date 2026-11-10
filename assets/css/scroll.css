@@ -3122,6 +3122,34 @@ body.sx-case.is-light {
   box-shadow: none !important;
   border-radius: 0 !important;
 }
+.sb-hero-stageshow .ss-cursor,
+.sb-card-stageshow .ss-cursor,
+.stageshow-mount .ss-cursor {
+  --ss-cursor-ink: #ffffff !important;
+  --ss-cursor-line: #ffffff !important;
+  --ss-cursor-edge: #000000 !important;
+}
+.sb-hero-stageshow .ss-cursor__arrow path,
+.sb-card-stageshow .ss-cursor__arrow path,
+.stageshow-mount .ss-cursor__arrow path {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+  stroke-width: 2.2 !important;
+  stroke-linejoin: round !important;
+}
+.sb-hero-stageshow .ss-cursor__arrow,
+.sb-card-stageshow .ss-cursor__arrow,
+.stageshow-mount .ss-cursor__arrow {
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.75)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.9)) !important;
+}
+.sb-showcase-frame {
+  overflow: hidden !important;
+  background: #141020 !important;
+}
+.sb-showcase-frame .sb-hero-stageshow {
+  border-top-left-radius: 19px !important;
+  border-top-right-radius: 19px !important;
+}
 .sx-cover-fallback {
   width: 100% !important;
   height: 100% !important;
