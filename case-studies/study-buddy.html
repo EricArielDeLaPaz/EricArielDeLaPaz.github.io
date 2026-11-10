@@ -18,23 +18,18 @@
 <link rel="stylesheet" href="../assets/css/scroll.css">
 <link rel="stylesheet" href="../assets/css/study-buddy-stageshow.css">
 <style>:root{ --accent:var(--studybuddy); }</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="sx-page sx-case is-light" data-case-study="Study Buddy" data-accent="studybuddy">
 
 
   
-  
-  
-  
-  
   <header class="sx-nav-wrap">
+  <a class="sx-skip" href="#main">Skip to content</a>
     <nav class="sx-nav" aria-label="Main navigation">
-      <a class="sx-brand" href="../index.html" aria-label="Eric Ariel De La Paz, home">
-        <img src="../assets/images/profile.png" alt="" width="28" height="28">
-        <span>De La Paz</span>
-      </a>
-      <span class="sx-nav-sep" aria-hidden="true"></span>
-      <a href="../index.html" class="sx-nav-link">Home</a>
+<a href="../index.html" class="sx-nav-link">Home</a>
       <a href="../about.html" class="sx-nav-link">About</a>
       <a href="../playground.html" class="sx-nav-link">Playground</a>
       <button type="button" class="sx-nav-info-btn" id="infoBtn" aria-expanded="false" aria-controls="infoPopover" title="Open Quick Contact & Info">
@@ -80,30 +75,33 @@
       </div>
     </div>
   </header>
-<a class="sx-skip" href="#main">Skip to content</a>
 <main class="sx-main" id="main">
-  
-<div class="container">
+  <div class="container">
 
-    <aside class="mini-eric-banner is-header" aria-label="Mini Eric dialogue">
+    <nav class="breadcrumb breadcrumb-top" aria-label="Breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / Study Buddy</nav>
+    <figure class="sx-cover sx-cover-top" style="overflow:hidden;border-radius:14px;"><div class="stageshow-mount" data-demo="hero-cover"></div></figure>
+    <aside class="mini-eric-banner is-header" aria-label="Mini Eric greeting">
       <div class="mini-eric-char" title="Click Mini Eric!">
-        <img src="../assets/images/mini-eric-thinking.jpg" class="mini-eric-img" alt="Detective Mini Eric chibi avatar" width="80" height="120" />
+        <img src="../assets/images/mini-eric-thinking.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
       </div>
       <div class="mini-eric-bubble">
-        <div class="mini-eric-name">Detective Mini Eric <span class="mini-eric-badge">Companion</span></div>
+        <div class="mini-eric-name">Mini Eric </div>
         <p class="mini-eric-text">Welcome to Study Buddy! A lightweight desktop focus companion packaged for macOS, Windows, and Linux.</p>
       </div>
     </aside>
 </div>
 <section class="cs-hero container">
-    <div class="sx-cover stageshow-cover-wrap">
-      <div class="stageshow-mount" data-demo="hero-cover"></div>
-    </div>
-    <div class="breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / Study Buddy</div>
+      
     <h1>Study Buddy</h1>
     <p class="tagline">A desktop focus companion. A small mascot, Mambo, runs your study sessions and asks for breaks with friendly overlays instead of locking your screen. I designed it in Figma, then built it by directing AI and reviewing every round myself.</p>
     <div class="impact-grid cs-glance"><div class="impact-stat"><div class="n">~14 hrs</div><div class="l">active build time, from commit timestamps</div></div><div class="impact-stat"><div class="n">40+</div><div class="l">commits, every round reviewed by me</div></div><div class="impact-stat"><div class="n">3</div><div class="l">desktop installers: Windows, Mac, Linux</div></div></div>
-    <div class="cs-badge-row"><span>Desktop App (Windows / Mac / Linux)</span><a href="https://github.com/EricArielDeLaPaz/study-buddy-desktop" target="_blank" rel="noopener"><span>View GitHub Repository <svg class="sx-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></span></a><a href="https://www.linkedin.com/posts/eric-ariel-de-la-paz_uxdesign-productdesign-studentlife-ugcPost-7517057393239752704-cLUV/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwSUJgBsQv-5MDGy8Lu7UaL4Oxsc64LZLc" target="_blank" rel="noopener"><span>View LinkedIn Overlay Demo <svg class="sx-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg></span></a></div>
+    <div class="cs-badge-row">
+      <span>Desktop App (Windows / Mac / Linux)</span>
+    </div>
+    <div class="cs-action-row">
+      <a href="https://github.com/EricArielDeLaPaz/study-buddy-desktop" target="_blank" rel="noopener"><span>View GitHub Repository <svg class="sx-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></span></a>
+      <a href="https://www.linkedin.com/posts/eric-ariel-de-la-paz_uxdesign-productdesign-studentlife-ugcPost-7517057393239752704-cLUV/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwSUJgBsQv-5MDGy8Lu7UaL4Oxsc64LZLc" target="_blank" rel="noopener"><span>View LinkedIn Overlay Demo <svg class="sx-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg></span></a>
+    </div>
     <dl class="cs-meta">
       <div><dt>Role</dt><dd>Product designer, AI-assisted builder</dd></div>
       <div><dt>Status</dt><dd>In progress, rolling updates</dd></div>
@@ -134,16 +132,12 @@
     <div class="cs-section">
       <h2>Designed in Figma first</h2>
       <p>Session, reminders, schedule, app rules, progress, buddy screens, break overlays, and the Mambo widget, in light and dark themes on shared tokens (Fredoka, DM Sans).</p>
-      <div class="stageshow-demo-wrap">
-        <div class="stageshow-mount" data-demo="figma"></div>
-      </div>
+      <div class="stageshow-mount" data-demo="figma-system"></div>
     </div>
     <div class="cs-section">
       <h2>From frame to working overlay</h2>
       <p>The break overlay is the heart of the product: a calm card with a small plus to postpone. Figma held a placeholder; the build plays Mambo's states, with a gentler nudge for distracting sites.</p>
-      <div class="stageshow-demo-wrap">
-        <div class="stageshow-mount" data-demo="overlays"></div>
-      </div>
+      <div class="stageshow-mount" data-demo="overlays"></div>
     </div>
     <div class="cs-section">
       <h2>Working with AI, on purpose</h2>
@@ -172,23 +166,17 @@
       <h2>Dogfooding and edge-case elimination</h2>
       <p>I run the app myself every day, then write the next change list from what breaks, confuses, or feels unfinished. Fixes from those rounds:</p>
       <ul><li>Cut clutter: the Messages tab and a focus-timer pill</li><li>Made the window behave like a normal app: resizable, no fullscreen, close tucks into Mambo</li><li>Fixed low-contrast light-mode text against WCAG AA (formal audit still to do)</li><li>One purple palette instead of blue and purple, with hover states on every desktop button</li><li>Confirmation dialogs before delete, clear and sign-out actions</li><li>Removed settings that did not work yet (cloud sync, "iPhone connected")</li></ul>
-      <div class="stageshow-demo-wrap" style="margin-top: 24px;">
-        <div class="stageshow-mount" data-demo="themes"></div>
-      </div>
+      <div class="stageshow-mount" data-demo="theme-contrast"></div>
     </div>
     <div class="cs-section">
       <h2>The desktop app</h2>
       <p>Editable reminders, a schedule for study blocks, and app rules that nudge you when a listed app or site opens mid-session. Auto-starting sessions from the schedule is next.</p>
-      <div class="stageshow-demo-wrap">
-        <div class="stageshow-mount" data-demo="features"></div>
-      </div>
+      <div class="stageshow-mount" data-demo="features"></div>
     </div>
     <div class="cs-section">
       <h2>Companions and progress</h2>
       <p>Mambo is the starting companion; levels unlock more, and each companion's animations can link to a reminder, session or alert. A progress screen tracks focus hours, streaks and level.</p>
-      <div class="stageshow-demo-wrap">
-        <div class="stageshow-mount" data-demo="companions"></div>
-      </div>
+      <div class="stageshow-mount" data-demo="companions"></div>
     </div>
     <div class="cs-section">
       <h2>What's next</h2>
@@ -201,14 +189,12 @@
 
     
     
-    
-    
-    <aside class="mini-eric-banner is-footer" aria-label="Mini Eric dialogue">
+    <aside class="mini-eric-banner is-footer" aria-label="Mini Eric closing note">
       <div class="mini-eric-char" title="Click Mini Eric!">
-        <img src="../assets/images/mini-eric-thumbsup.jpg" class="mini-eric-img" alt="Detective Mini Eric chibi avatar" width="80" height="120" />
+        <img src="../assets/images/mini-eric-thumbsup.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
       </div>
       <div class="mini-eric-bubble">
-        <div class="mini-eric-name">Detective Mini Eric <span class="mini-eric-badge">Companion</span></div>
+        <div class="mini-eric-name">Mini Eric </div>
         <p class="mini-eric-text">Thanks for exploring Study Buddy! Gentle interval nudges keep deep work in flow.</p>
       </div>
     </aside>
