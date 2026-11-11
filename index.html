@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/scroll.css?v=2.2">
   <link rel="stylesheet" href="assets/css/study-buddy-stageshow.css?v=12.0">
-  <link rel="stylesheet" href="assets/css/secureid-stageshow.css?v=1.0">
+  <link rel="stylesheet" href="assets/css/secureid-stageshow.css?v=1.2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -135,11 +135,11 @@
           <!-- 1. Study Buddy -->
           <article class="megan-card card-theme-studybuddy">
             <div class="megan-card-grid">
-              <div class="megan-card-preview" title="Interactive Stageshow: test presets, timer, and notepad, or open case study on right">
+              <a href="case-studies/study-buddy.html" class="megan-card-preview" title="View Study Buddy case study" aria-label="View Study Buddy case study" style="display:block; cursor:pointer; text-decoration:none;">
                 <div class="stageshow-mount sb-card-stageshow" data-demo="card-cover" data-ss-fill>
                   <img loading="lazy" src="assets/images/study-buddy.png" alt="Study Buddy desktop focus companion app" class="megan-card-img sb-card-img-fallback">
                 </div>
-              </div>
+              </a>
               <a href="case-studies/study-buddy.html" class="megan-card-content" aria-label="View Study Buddy case study">
                 <div class="megan-meta-row">
                   <span class="megan-role">Solo Product Designer</span>
@@ -160,11 +160,11 @@
           <!-- 2. SecureID -->
           <article class="megan-card card-theme-secureid">
             <div class="megan-card-grid">
-              <div class="megan-card-preview" title="Interactive Stageshow: mobile verification flow handoff to analyst triage dashboard, or open case study on right">
+              <a href="case-studies/secureid.html" class="megan-card-preview" title="View SecureID case study" aria-label="View SecureID case study" style="display:block; cursor:pointer; text-decoration:none;">
                 <div class="stageshow-mount secureid-stageshow-card" data-demo="secureid-card" data-ss-fill>
                   <img loading="lazy" src="assets/images/secureid.png" alt="SecureID identity verification platform" class="megan-card-img megan-card-img-fallback">
                 </div>
-              </div>
+              </a>
               <a href="case-studies/secureid.html" class="megan-card-content" aria-label="View SecureID case study">
                 <div class="megan-meta-row">
                   <span class="megan-role">Solo Product Designer</span>
@@ -331,7 +331,26 @@
     </div>
   </footer>
   <script src="assets/js/scroll.js"></script>
-  <script src="assets/js/study-buddy-stageshow.js?v=12.0"></script>
-  <script src="assets/js/secureid-stageshow.js?v=1.0"></script>
+  <script src="assets/js/study-buddy-stageshow.js?v=12.1"></script>
+  <script src="assets/js/secureid-stageshow.js?v=1.1"></script>
+  <script>
+    // Ensure clicking on the home page card covers navigates to their case studies
+    document.addEventListener('DOMContentLoaded', function() {
+      var sb = document.querySelector('.card-theme-studybuddy .megan-card-preview');
+      if (sb) {
+        sb.style.cursor = 'pointer';
+        sb.addEventListener('click', function() {
+          window.location.href = 'case-studies/study-buddy.html';
+        }, true);
+      }
+      var sid = document.querySelector('.card-theme-secureid .megan-card-preview');
+      if (sid) {
+        sid.style.cursor = 'pointer';
+        sid.addEventListener('click', function() {
+          window.location.href = 'case-studies/secureid.html';
+        }, true);
+      }
+    });
+  </script>
 </body>
 </html>
