@@ -3079,9 +3079,11 @@ body.sx-case.is-light {
 .megan-card-content {
   cursor: pointer !important;
 }
-.sb-card-stageshow {
+.sb-card-stageshow,
+.megan-card-preview .sb-hero-stageshow {
   width: 100% !important;
   height: 100% !important;
+  aspect-ratio: unset !important;
   display: block !important;
   position: relative !important;
   z-index: 2 !important;
