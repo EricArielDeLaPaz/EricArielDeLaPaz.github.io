@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/scroll.css?v=2.4">
   <link rel="stylesheet" href="assets/css/study-buddy-stageshow.css?v=12.3">
+  <link rel="stylesheet" href="assets/css/mambo-stageshow.css?v=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -223,18 +224,21 @@
       <!-- Experiment 4: AI Design Library Teaser -->
       <section class="about-section" id="lab-ai-teaser">
         <div class="section-badge"><span>03</span> Soon to be Released</div>
-        <div class="ai-teaser-card">
-          <div class="ai-teaser-copy">
-            <h2>Mambo Database</h2>
-            <p>A dual-purpose knowledge repository designed for both humans and AI agents. It curates high-contrast font pairings, tested token scales, and structured system prompts for Claude, Gemini, and v0 to build pristine, production-grade user interfaces.</p>
-            <div class="ai-teaser-tags">
-              <span>Font Pairings</span><span>WCAG Contrast Matrices</span><span>Claude/Gemini Skill System</span><span>Figma Tokens</span>
-            </div>
-            <br>
-            <div>
-            <a href="https://ericarieldelapaz.tech/mambo-database" target="_blank" rel="noopener" class="sx-btn sx-btn-primary">
-                <span>View Mambo Database</span>
+        <div class="sb-showcase-card">
+          <div class="sb-showcase-frame">
+            <a href="https://ericarieldelapaz.tech/mambo-database/" target="_blank" rel="noopener" title="View Mambo Database" aria-label="View Mambo Database" style="display:block; cursor:pointer; text-decoration:none;">
+              <div class="stageshow-mount" data-demo="mambo-database" data-ss-fill>
+                <img src="assets/images/mambo-database-cover.png" alt="Mambo Database preview" class="sx-cover-fallback" width="1200" height="675">
+              </div>
             </a>
+          </div>
+          <div class="sb-showcase-caption">
+            <h3>Mambo Database</h3>
+            <p>A dual-purpose knowledge repository designed for both humans and AI agents. It curates high-contrast font pairings, tested token scales, and structured system prompts for Claude, Gemini, and v0 to build pristine, production-grade user interfaces.</p>
+            <div class="sb-showcase-links">
+              <a href="https://ericarieldelapaz.tech/mambo-database/" target="_blank" rel="noopener" class="sx-btn sx-btn-primary">
+                <span>View Mambo Database</span>
+              </a>
             </div>
           </div>
         </div>
@@ -266,5 +270,22 @@
   </footer>
   <script src="assets/js/scroll.js"></script>
   <script src="assets/js/study-buddy-stageshow.js?v=12.3"></script>
+  <script src="assets/js/mambo-stageshow.js?v=1.0"></script>
+  <script>
+    // Block synthetic/simulated clicks from stageshow demos on wrapper <a> links
+    // Only real human clicks (e.isTrusted === true) should trigger page navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.sb-showcase-frame a, .stageshow-mount').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          if (!e.isTrusted) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            return false;
+          }
+        }, true);
+      });
+    });
+  </script>
 </body>
 </html>
