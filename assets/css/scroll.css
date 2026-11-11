@@ -3172,6 +3172,78 @@ body.sx-case.is-light {
   height: 100% !important;
   min-height: 280px !important;
 }
+
+/* ------------------------------------------------------------
+   SECUREID STAGESHOW INTEGRATION
+   ------------------------------------------------------------ */
+.card-theme-secureid .megan-card-preview {
+  background: #0c0b09 !important;
+}
+
+.secureid-stageshow-card {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.secureid-stageshow-card .ss-fit {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+.secureid-stageshow-card .ss-stage {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.secureid-stageshow-cover {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+  background: #0c0b09 !important;
+}
+.secureid-stageshow-cover .ss-fit {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+.secureid-stageshow-cover .ss-stage {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.secureid-mount-wrap {
+  width: 100% !important;
+  position: relative !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  background: #0c0b09 !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-card) !important;
+  display: block !important;
+}
+.secureid-mount-wrap .ss-fit {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+.secureid-mount-wrap .ss-stage {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
 @media (max-width: 860px) {
   .megan-card-preview {
     border-top-right-radius: 20px !important;

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/scroll.css?v=2.2">
   <link rel="stylesheet" href="assets/css/study-buddy-stageshow.css?v=12.0">
+  <link rel="stylesheet" href="assets/css/secureid-stageshow.css?v=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -158,11 +159,13 @@
 
           <!-- 2. SecureID -->
           <article class="megan-card card-theme-secureid">
-            <a href="case-studies/secureid.html" class="megan-card-link" aria-label="View SecureID case study">
-              <div class="megan-card-preview">
-                <img loading="lazy" src="assets/images/secureid.png" alt="SecureID identity verification platform" class="megan-card-img">
+            <div class="megan-card-grid">
+              <div class="megan-card-preview" title="Interactive Stageshow: mobile verification flow handoff to analyst triage dashboard, or open case study on right">
+                <div class="stageshow-mount secureid-stageshow-card" data-demo="secureid-card" data-ss-fill>
+                  <img loading="lazy" src="assets/images/secureid.png" alt="SecureID identity verification platform" class="megan-card-img megan-card-img-fallback">
                 </div>
-              <div class="megan-card-content">
+              </div>
+              <a href="case-studies/secureid.html" class="megan-card-content" aria-label="View SecureID case study">
                 <div class="megan-meta-row">
                   <span class="megan-role">Solo Product Designer</span>
                   <span class="megan-year">2026</span>
@@ -175,8 +178,8 @@
                 <div class="megan-outcome-banner">
                   <strong>Outcome:</strong> 1 shared token system across mobile &amp; web, 3-action analyst triage, and verified Figma prototype.
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </article>
 
           <!-- 3. Vextaro -->
@@ -329,5 +332,6 @@
   </footer>
   <script src="assets/js/scroll.js"></script>
   <script src="assets/js/study-buddy-stageshow.js?v=12.0"></script>
+  <script src="assets/js/secureid-stageshow.js?v=1.0"></script>
 </body>
 </html>
