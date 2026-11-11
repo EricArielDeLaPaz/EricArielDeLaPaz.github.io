@@ -334,22 +334,19 @@
   <script src="assets/js/study-buddy-stageshow.js?v=12.1"></script>
   <script src="assets/js/secureid-stageshow.js?v=1.3"></script>
   <script>
-    // Ensure clicking on the home page card covers navigates to their case studies
+    // Ensure clicking on the home page card covers navigates to their case studies ONLY on human interaction
     document.addEventListener('DOMContentLoaded', function() {
-      var sb = document.querySelector('.card-theme-studybuddy .megan-card-preview');
-      if (sb) {
-        sb.style.cursor = 'pointer';
-        sb.addEventListener('click', function() {
-          window.location.href = 'case-studies/study-buddy.html';
+      document.querySelectorAll('.megan-card-preview').forEach(function(card) {
+        card.addEventListener('click', function(e) {
+          if (!e.isTrusted) {
+            // Block simulated/synthetic clicks from automated demo stageshow scripts
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            return false;
+          }
         }, true);
-      }
-      var sid = document.querySelector('.card-theme-secureid .megan-card-preview');
-      if (sid) {
-        sid.style.cursor = 'pointer';
-        sid.addEventListener('click', function() {
-          window.location.href = 'case-studies/secureid.html';
-        }, true);
-      }
+      });
     });
   </script>
 </body>

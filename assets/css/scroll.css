@@ -179,6 +179,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
   --devtective: #6044a6;
   --vextaro: #1e6e94;
   --studybuddy: #6b46b8;
+  --nav-border: rgba(154, 116, 40, 0.25);
 
   background: var(--bg);
   color: var(--text);
@@ -186,7 +187,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 }
 .sx-page h1,.sx-page h2,.sx-page h3{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:#1a1612; letter-spacing:.01em; }
 .sx-page .sx-kicker{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; letter-spacing:.18em; color:var(--gold); }
-.sx-nav{ background:rgba(255,255,255,.88); border-color:rgba(154,116,40,.25); box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.7), 0 0 24px -4px color-mix(in srgb, var(--gold, #d9ac54) 30%, transparent), 0 1px 0 rgba(255, 255, 255, 0.05) inset; }
+.sx-nav{ background:rgba(255,255,255,.88); border: 1px solid var(--nav-border) !important; box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.7), 0 0 24px -4px color-mix(in srgb, var(--gold, #d9ac54) 30%, transparent), 0 1px 0 rgba(255, 255, 255, 0.05) inset; }
 .sx-nav .sx-brand{ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--text); }
 .sx-nav a,.sx-status{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:var(--text-dim); }
 .sx-nav a:hover{ color:var(--text); background:rgba(42,36,28,.05); }
@@ -243,6 +244,7 @@ html{ scroll-behavior:smooth; scroll-padding-top:96px; }
 .persona{ border:1px solid var(--border); border-radius:var(--radius); background:var(--card); padding:20px; display:flex; flex-direction:column; gap:14px; }
 .persona header{ display:flex; gap:14px; align-items:center; }
 .persona-av{ flex:none; width:46px; height:46px; border-radius:50%; display:grid; place-items:center; font:600 20px 'Plus Jakarta Sans',sans-serif; color:#17130b; background:var(--accent,var(--gold)); }
+.persona-user .persona-av{ color:#ffffff !important; }
 .persona-analyst .persona-av{ background:transparent; color:var(--accent,var(--gold)); border:2px solid var(--accent,var(--gold)); }
 .persona h3{ margin:0; font:600 20px 'Plus Jakarta Sans',sans-serif; color:var(--text); }
 .persona header p{ margin:2px 0 0; font-size:13.5px; color:var(--text); }
@@ -365,8 +367,11 @@ html {
 }
 
 /* Nav capsule stroke & ambient colored glow */
+.sx-case {
+  --nav-border: color-mix(in srgb, var(--accent) 45%, transparent);
+}
 .sx-case .sx-nav {
-  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent) !important;
+  border: 1px solid var(--nav-border) !important;
   box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.7),
               0 0 24px -4px color-mix(in srgb, var(--accent) 30%, transparent),
               0 1px 0 rgba(255, 255, 255, 0.05) inset !important;
@@ -3001,7 +3006,7 @@ body.sx-case.is-light {
 .mini-eric-bubble {
   position: relative !important;
   background: #FFFFFF !important;
-  border: 1px solid var(--border-strong) !important;
+  border: 1px solid var(--nav-border, rgba(154, 116, 40, 0.25)) !important;
   border-radius: 16px !important;
   padding: 12px 18px !important;
   box-shadow: var(--shadow-sm) !important;
@@ -3015,16 +3020,18 @@ body.sx-case.is-light {
   width: 14px !important;
   height: 14px !important;
   background: #FFFFFF !important;
-  border-left: 1px solid var(--border-strong) !important;
-  border-bottom: 1px solid var(--border-strong) !important;
+  border-left: 1px solid var(--nav-border, rgba(154, 116, 40, 0.25)) !important;
+  border-bottom: 1px solid var(--nav-border, rgba(154, 116, 40, 0.25)) !important;
 }
+.mini-eric-name,
 .mini-eric-tag {
   display: inline-block !important;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: 10px !important;
+  font-size: 11px !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
-  color: var(--gold) !important;
+  text-transform: uppercase !important;
+  color: var(--accent, var(--gold)) !important;
   margin-bottom: 4px !important;
 }
 .mini-eric-text {
