@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="assets/css/scroll.css?v=2.3">
   <link rel="stylesheet" href="assets/css/study-buddy-stageshow.css?v=12.2">
   <link rel="stylesheet" href="assets/css/secureid-stageshow.css?v=1.4">
+  <link rel="stylesheet" href="assets/css/vextaro-stageshow.css?v=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -184,11 +185,13 @@
 
           <!-- 3. Vextaro -->
           <article class="megan-card card-theme-vextaro">
-            <a href="case-studies/vextaro.html" class="megan-card-link" aria-label="View Vextaro case study">
-              <div class="megan-card-preview">
-                <img loading="lazy" src="assets/images/vextaro.png" alt="Vextaro luxury formalwear rental app" class="megan-card-img">
+            <div class="megan-card-grid">
+              <a href="case-studies/vextaro.html" class="megan-card-preview" title="View Vextaro case study" aria-label="View Vextaro case study" style="display:block; cursor:pointer; text-decoration:none;">
+                <div class="stageshow-mount vextaro-stageshow-card" data-demo="vextaro-card" data-ss-fill>
+                  <img loading="lazy" src="assets/images/vextaro.png" alt="Vextaro luxury formalwear rental app" class="megan-card-img megan-card-img-fallback">
                 </div>
-              <div class="megan-card-content">
+              </a>
+              <a href="case-studies/vextaro.html" class="megan-card-content" aria-label="View Vextaro case study">
                 <div class="megan-meta-row">
                   <span class="megan-role">UX/UI Design Intern · Flyrank AI</span>
                   <span class="megan-year">2026</span>
@@ -201,8 +204,8 @@
                 <div class="megan-outcome-banner">
                   <strong>Outcome:</strong> 7-section IA, 15-check accessibility audit with 5 token-level fixes, 35 component variants documented.
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </article>
 
           <!-- 4. Honda of Clear Lake -->
@@ -333,6 +336,7 @@
   <script src="assets/js/scroll.js"></script>
   <script src="assets/js/study-buddy-stageshow.js?v=12.2"></script>
   <script src="assets/js/secureid-stageshow.js?v=1.4"></script>
+  <script src="assets/js/vextaro-stageshow.js?v=1.0"></script>
   <script>
     // Ensure clicking on the home page card covers navigates to their case studies ONLY on human interaction
     document.addEventListener('DOMContentLoaded', function() {
