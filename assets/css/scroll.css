@@ -2720,7 +2720,7 @@ body.sx-case.is-light {
   color: var(--gold) !important;
 }
 .is-light .sx-portrait img { border-radius: 16px !important; aspect-ratio: 1/1 !important; object-fit: cover !important;
-  border-color: var(--border-strong) !important;
+  border-color: var(--gold) !important;
   box-shadow: var(--shadow-hover) !important;
 }
 .is-light .sx-badges li {
@@ -2807,6 +2807,8 @@ body.sx-case.is-light {
   align-items: center !important;
   gap: 5px !important;
   padding: 7px 13px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
   border: none !important;
   border-radius: 999px !important;
   background: transparent !important;
@@ -2814,6 +2816,7 @@ body.sx-case.is-light {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 13.5px !important;
   font-weight: 600 !important;
+  line-height: normal !important;
   cursor: pointer !important;
   transition: background-color 0.18s var(--ease-motion), color 0.18s var(--ease-motion) !important;
 }
@@ -2941,6 +2944,51 @@ body.sx-case.is-light {
 .info-btn-primary:hover {
   background: var(--gold-bright) !important;
   color: #FFFFFF !important;
+}
+
+/* Keep the Home and Playground overlay borders identical to About. */
+body[data-nav="home"] .info-card,
+body[data-nav="playground"] .info-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 24, 20, 0.16) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--shadow-pop) !important;
+  padding: 22px !important;
+}
+body[data-nav="home"] .info-header,
+body[data-nav="playground"] .info-header {
+  border-bottom-color: rgba(26, 24, 20, 0.08) !important;
+}
+body[data-nav="home"] .info-btn,
+body[data-nav="playground"] .info-btn {
+  border-color: rgba(26, 24, 20, 0.16) !important;
+}
+body[data-nav="home"] .info-btn:hover,
+body[data-nav="playground"] .info-btn:hover {
+  border-color: #997324 !important;
+}
+body[data-nav="home"] .info-btn-primary,
+body[data-nav="playground"] .info-btn-primary {
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+}
+body[data-nav="home"] .info-btn-primary:hover,
+body[data-nav="playground"] .info-btn-primary:hover {
+  background: var(--gold-bright) !important;
+  border-color: var(--gold-bright) !important;
+}
+
+/* Case-study actions share the same neutral overlay frame; only controls use the study accent. */
+.sx-case .info-btn:hover {
+  border-color: var(--accent) !important;
+}
+.sx-case .info-btn-primary {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+.sx-case .info-btn-primary:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
 }
 .info-btn-copy .copy-toast {
   position: absolute !important;
