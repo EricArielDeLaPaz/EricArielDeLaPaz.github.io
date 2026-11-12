@@ -8,9 +8,8 @@
 <link rel="canonical" href="https://ericarieldelapaz.tech/case-studies/secureid.html">
 <link rel="icon" type="image/png" href="../assets/images/profile.png">
 <link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/scroll.css">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/scroll.css">
+<link rel="stylesheet" href="../assets/css/scroll.css?v=2.3">
+<link rel="stylesheet" href="../assets/css/secureid-stageshow.css?v=1.4">
 <style>:root{ --accent:var(--secureid); }</style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +69,11 @@
 <main class="sx-main" id="main">
 <div class="container">
   <nav class="breadcrumb breadcrumb-top" aria-label="Breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / SecureID</nav>
-    <figure class="sx-cover sx-cover-top"><img src="../assets/images/secureid.png" alt="Secureid project artwork" width="1200" height="600"></figure>
+    <figure class="sx-cover sx-cover-top">
+      <div class="stageshow-mount secureid-stageshow-cover" data-demo="cover" data-ss-fill>
+        <img src="../assets/images/secureid.png" alt="SecureID identity verification platform" class="sx-cover-fallback" width="1200" height="600">
+      </div>
+    </figure>
   <aside class="mini-eric-banner is-header" aria-label="Mini Eric greeting">
     <div class="mini-eric-char" title="Click Mini Eric!">
       <img src="../assets/images/mini-eric-thinking.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
@@ -106,9 +109,23 @@
       <h2>Two users, one flow</h2>
       <p>Document capture, biometric checks, and manual review: a calm user flow and a fast analyst dashboard on one design system.</p>
       <div class="cs-figure-row cols-2">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/verification-face-verified.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/verification-face-verified.png" alt="SecureID face-scan success screen on mobile" loading="lazy"></a><figcaption>The person verifying: one task per screen and a clear success state.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/dashboard-case-queue.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/dashboard-case-queue.png" alt="SecureID analyst dashboard case queue with color-coded status badges" loading="lazy"></a><figcaption>The analyst: a sortable case queue with status at a glance.</figcaption></figure>
-        </div>
+        <figure>
+          <div class="secureid-mount-wrap" style="aspect-ratio: 380 / 680; max-width: 400px; margin: 0 auto;">
+            <div class="stageshow-mount" data-demo="section-01-mobile" data-ss-fill style="width:100%;height:100%;">
+              <img src="../assets/images/case-studies/secureid/verification-face-verified.png" alt="SecureID face-scan success screen on mobile" class="sx-cover-fallback" loading="lazy">
+            </div>
+          </div>
+          <figcaption>The person verifying: one task per screen and a clear success state.</figcaption>
+        </figure>
+        <figure>
+          <div class="secureid-mount-wrap" style="aspect-ratio: 700 / 490;">
+            <div class="stageshow-mount" data-demo="section-01-desktop" data-ss-fill style="width:100%;height:100%;">
+              <img src="../assets/images/case-studies/secureid/dashboard-case-queue.png" alt="SecureID analyst dashboard case queue with color-coded status badges" class="sx-cover-fallback" loading="lazy">
+            </div>
+          </div>
+          <figcaption>The analyst: a sortable case queue with status at a glance.</figcaption>
+        </figure>
+      </div>
     </div>
 
     <div class="cs-section">
@@ -132,11 +149,11 @@
                 </div>
         </div>
         <div class="cs-split-media">
-        <div class="cs-figure-row flex" style="--h:250px">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/hi-fi%20ID%20type.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/hi-fi%20ID%20type.png" alt="SecureID Choose Your ID Type mobile screen" loading="lazy"></a><figcaption>Choose an ID type.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/verification-face-verified.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/verification-face-verified.png" alt="SecureID face scan success mobile screen" loading="lazy"></a><figcaption>A clear success state.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/verification-exit.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/verification-exit.png" alt="SecureID exit confirmation mobile screen" loading="lazy"></a><figcaption>Leaving asks for confirmation.</figcaption></figure>
-        </div>
+          <div class="secureid-mount-wrap" style="aspect-ratio: 460 / 740; max-width: 480px; margin: 0 auto;">
+            <div class="stageshow-mount" data-demo="verification-full" data-ss-fill style="width:100%;height:100%;">
+              <img src="../assets/images/case-studies/secureid/verification-face-verified.png" alt="SecureID full mobile verification flow" class="sx-cover-fallback" loading="lazy">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -162,10 +179,11 @@
                 </div>
         </div>
         <div class="cs-split-media">
-        <div class="cs-figure-row cols-1 sm">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/dashboard-case-queue.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/dashboard-case-queue.png" alt="SecureID case queue with sortable columns and status badges" loading="lazy"></a><figcaption>Sortable queue with color-coded status.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/dashboard-settings.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/dashboard-settings.png" alt="SecureID settings screen with account, notification and preference sections" loading="lazy"></a><figcaption>Settings live in their own area, away from the review workspace.</figcaption></figure>
-        </div>
+          <div class="secureid-mount-wrap" style="aspect-ratio: 860 / 560;">
+            <div class="stageshow-mount" data-demo="dashboard-full" data-ss-fill style="width:100%;height:100%;">
+              <img src="../assets/images/case-studies/secureid/dashboard-case-queue.png" alt="SecureID full analyst dashboard flow" class="sx-cover-fallback" loading="lazy">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -186,11 +204,17 @@
           <span class="v">Early low-fi vs. revised dashboard: fewer decisions per case, no action lost.</span>
         </div>
       </div>
-      <div class="cs-figure-row cols-3 xs">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/lo-fi%20review.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/lo-fi%20review.png" alt="Low-fidelity case review workspace with many controls visible at once" loading="lazy"></a><figcaption>Before: every control visible at once.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/dashboard-case-48291.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/dashboard-case-48291.png" alt="High-fidelity analyst screen for case 48291 with Reject, Escalate and Approve buttons" loading="lazy"></a><figcaption>After: Reject, Escalate, Approve.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/overlays/overlay-confirmation-reject.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/overlays/overlay-confirmation-reject.png" alt="Rejection confirmation overlay" loading="lazy"></a><figcaption>Follow-ups live in overlays.</figcaption></figure>
-        </div>
+      <div class="cs-figure-row cols-2">
+        <figure><a class="cs-zoom" href="../assets/images/case-studies/secureid/lo-fi%20review.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/secureid/lo-fi%20review.png" alt="Low-fidelity case review workspace with many controls visible at once" loading="lazy"></a><figcaption>Before: every control visible at once.</figcaption></figure>
+        <figure>
+          <div class="secureid-mount-wrap" style="aspect-ratio: 760 / 560;">
+            <div class="stageshow-mount" data-demo="case-overlays" data-ss-fill style="width:100%;height:100%;">
+              <img src="../assets/images/case-studies/secureid/dashboard-case-48291.png" alt="High-fidelity analyst screen for case 48291 with 3 action overlays" class="sx-cover-fallback" loading="lazy">
+            </div>
+          </div>
+          <figcaption>After: 3 primary actions (Reject, Escalate, Approve) with follow-ups living in focused overlays.</figcaption>
+        </figure>
+      </div>
       <p class="cs-note">Fewer visible choices per case trades screen detail for analyst speed; the overlay keeps every action an analyst needs.</p>
     </div>
 
@@ -199,13 +223,13 @@
       <p>Two end users and two analysts. They kept both interfaces grounded.</p>
       <div class="persona-grid">
         <article class="persona persona-user">
-          <header><span class="persona-av" aria-hidden="true">R</span><div><h3>Riley</h3><p>The Anxious Verifier <em>· User, age 25</em></p></div></header>
+          <header><span class="persona-av" style="color: #ffffff !important;" aria-hidden="true">R</span><div><h3>Riley</h3><p>The Anxious Verifier <em>· User, age 25</em></p></div></header>
           <p class="persona-about">Cautious with technology and second-guesses every step, especially when personal information is involved. <span>Mobile-first, moderate tech comfort, often multitasking in imperfect conditions (poor lighting, noise).</span></p>
           <div class="persona-cols"><div><h4>Needs</h4><ul><li>Clear, simple instructions</li><li>Reassurance their information is safe</li><li>Predictable steps, no surprises</li><li>Helpful guidance during document capture</li></ul></div><div><h4>Pain points</h4><ul><li>Confusing instructions</li><li>Fear of submitting the wrong photo</li><li>Unclear progress indicators</li><li>Stress around sharing personal information</li></ul></div></div>
           <p class="persona-goal"><b>Goal</b> Complete verification quickly and confidently without feeling confused or worried.</p>
         </article>
         <article class="persona persona-user">
-          <header><span class="persona-av" aria-hidden="true">J</span><div><h3>Jordan</h3><p>The Busy Multitasker <em>· User, age 25</em></p></div></header>
+          <header><span class="persona-av" style="color: #ffffff !important;" aria-hidden="true">J</span><div><h3>Jordan</h3><p>The Busy Multitasker <em>· User, age 25</em></p></div></header>
           <p class="persona-about">Expects modern apps to be fast, intuitive, and polished. Anything slow or unclear feels like wasted time. <span>Tech-savvy, uses multiple devices, often on the go.</span></p>
           <div class="persona-cols"><div><h4>Needs</h4><ul><li>Fast, frictionless flow</li><li>Clear progress indicators</li><li>Responsive design across mobile and desktop</li><li>Minimal steps, no repeated actions</li></ul></div><div><h4>Pain points</h4><ul><li>Slow loading screens</li><li>Repeating steps due to unclear instructions</li><li>Poor mobile responsiveness</li><li>Lack of visual polish</li></ul></div></div>
           <p class="persona-goal"><b>Goal</b> Finish verification quickly with minimal friction and move on with their day.</p>
@@ -300,5 +324,6 @@
 
 <script src="../assets/js/scroll.js"></script>
 <script src="../assets/js/halloween.js"></script>
+<script src="../assets/js/secureid-stageshow.js?v=1.4"></script>
 </body>
 </html>

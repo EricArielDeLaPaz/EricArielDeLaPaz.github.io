@@ -14,8 +14,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Eric Ariel De La Paz">
 <link rel="icon" type="image/png" href="../assets/images/profile.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/scroll.css">
+<link rel="stylesheet" href="../assets/css/scroll.css?v=2.4">
+<link rel="stylesheet" href="../assets/css/vextaro-stageshow.css?v=2.2">
 <style>
 :root{ --accent:var(--vextaro); }
 .system-metrics .impact-stat{ padding:18px 16px; display:flex; flex-direction:column; justify-content:flex-start; text-align:left; }
@@ -112,7 +116,11 @@
   <div class="container">
 
     <nav class="breadcrumb breadcrumb-top" aria-label="Breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / Vextaro</nav>
-    <figure class="sx-cover sx-cover-top"><img src="../assets/images/vextaro.png" alt="Vextaro project artwork" width="1200" height="600"></figure>
+    <figure class="sx-cover sx-cover-top">
+      <div class="stageshow-mount vextaro-stageshow-cover" data-demo="vextaro-cover" data-ss-fill>
+        <img src="../assets/images/vextaro.png" alt="Vextaro project artwork" class="sx-cover-fallback" width="1200" height="600">
+      </div>
+    </figure>
     <aside class="mini-eric-banner is-header" aria-label="Mini Eric greeting">
       <div class="mini-eric-char" title="Click Mini Eric!">
         <img src="../assets/images/mini-eric-thinking.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
@@ -214,27 +222,19 @@
       <div class="cs-figure-row cols-1">
         <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/IA.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/IA.png" alt="Vextaro seven-section information architecture" loading="lazy"></a><figcaption>Information architecture: 7 core product sections mapping the renter journey.</figcaption></figure>
       </div>
-      <div class="cs-figure-row cols-2">
+      <div class="cs-figure-row cols-1" style="margin-top: 16px;">
         <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/recovery%20flow.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/recovery%20flow.png" alt="Vextaro recovery user flow with escalation" loading="lazy"></a><figcaption>Recovery user flow: handling sizing mismatches with specialist escalation.</figcaption></figure>
-        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/onboarding.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/onboarding.png" alt="Vextaro onboarding welcome screen" loading="lazy"></a><figcaption>Onboarding welcome flow: introducing the fit specialist guarantee upfront.</figcaption></figure>
       </div>
     </div>
 
     <div class="cs-section">
-      <h2>High-fidelity screens</h2>
-      <p>From welcome to checkout, built on the token system: onboarding with a fit quiz, sign-in, occasion-first discovery, filtered cataloging, and rent-or-buy product pages with a sticky action bar.</p>
-      <div class="cs-figure-row cols-2">
-        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-welcome.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-welcome.png" alt="Vextaro welcome screen" loading="lazy"></a><figcaption>Welcome screen: establishing luxury positioning and fit-first guarantee.</figcaption></figure>
-        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-sign-in.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-sign-in.png" alt="Vextaro sign-in screen" loading="lazy"></a><figcaption>Sign-in: with inline validation states and clear secondary pathways.</figcaption></figure>
-      </div>
-      <div class="cs-figure-row cols-2">
-        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-home.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-home.png" alt="Vextaro home screen starting from the occasion" loading="lazy"></a><figcaption>Home screen: browsing organized by event type (Black Tie, Wedding, Gala).</figcaption></figure>
-        <figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-product.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-product.png" alt="Vextaro product page with rent or buy choice" loading="lazy"></a><figcaption>Product page: rent-vs-buy toggle with dynamic size &amp; pricing in the sticky bar.</figcaption></figure>
-      </div>
+      <h2>High-fidelity screens prototype</h2>
+      <p>From welcome to checkout, built on the token system: onboarding with a fit quiz, occasion-first discovery, rent-or-buy product pages with a sticky action bar, and verified cart checkout.</p>
+      <div class="stageshow-mount vextaro-stageshow-hifi" data-demo="vextaro-hifi"></div>
     </div>
 
     <div class="cs-section">
-      <div class="cs-split">
+      <div class="cs-split" style="--split: 1fr; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: center;">
         <div class="cs-split-text">
           <h2>Measurements, sized the way clothes are</h2>
           <p>A measurements editor replaces typing numbers. Each field steps the way that item is actually sized.</p>
@@ -244,12 +244,14 @@
             <li>Minus and plus buttons with a clear Cancel and Confirm</li>
           </ul>
         </div>
-        <div class="cs-split-media"><div class="cs-figure-row cols-1"><figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-measurements.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-measurements.png" alt="Vextaro measurements editor" loading="lazy"></a><figcaption>Measurements editor.</figcaption></figure></div></div>
+        <div class="cs-split-media" style="overflow: visible; width: 100%; display: flex; justify-content: center;">
+          <div class="stageshow-mount vextaro-stageshow-measurements" data-demo="vextaro-measurements" style="width: 100%; min-height: 700px; display: flex; justify-content: center;"></div>
+        </div>
       </div>
     </div>
 
     <div class="cs-section">
-      <div class="cs-split">
+      <div class="cs-split" style="--split: 1fr; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: center;">
         <div class="cs-split-text">
           <h2>An AI fit estimate, as a concept</h2>
           <p>Vextaro has no automated AI sizing today. I designed one as a labeled concept to explore how algorithmic suggestions can build user trust through transparency rather than unearned authority.</p>
@@ -267,13 +269,10 @@
               <span class="v">Flow walkthroughs ensuring renters can edit measurements or request human specialist confirmation at any stage without dead ends.</span>
             </div>
           </div>
-          <ul>
-            <li>Explicit confidence ratings with understandable reasoning.</li>
-            <li>Always correctable: "Edit measurements", "Not my size", or "Ask a specialist".</li>
-            <li>Error states for low confidence and slow server responses.</li>
-          </ul>
         </div>
-        <div class="cs-split-media"><div class="cs-figure-row cols-1"><figure><a class="cs-zoom" href="../assets/images/case-studies/vextaro/ui-fit-estimate.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/vextaro/ui-fit-estimate.png" alt="Vextaro AI fit estimate concept screen" loading="lazy"></a><figcaption>Fit estimate concept: medium confidence, with reasons and an escape hatch.</figcaption></figure></div></div>
+        <div class="cs-split-media" style="overflow: visible; width: 100%; display: flex; justify-content: center;">
+          <div class="stageshow-mount vextaro-stageshow-cart" data-demo="vextaro-cart" style="width: 100%; display: flex; justify-content: center;"></div>
+        </div>
       </div>
     </div>
 
@@ -453,5 +452,6 @@
 </footer>
 <script src="../assets/js/scroll.js"></script>
 <script src="../assets/js/halloween.js"></script>
+<script src="../assets/js/vextaro-stageshow.js?v=2.2"></script>
 </body>
 </html>

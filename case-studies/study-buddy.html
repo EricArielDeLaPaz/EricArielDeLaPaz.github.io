@@ -15,7 +15,8 @@
 <meta name="author" content="Eric Ariel De La Paz">
 <link rel="icon" type="image/png" href="../assets/images/profile.png">
 <link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/scroll.css">
+<link rel="stylesheet" href="../assets/css/scroll.css?v=2.3">
+<link rel="stylesheet" href="../assets/css/study-buddy-stageshow.css?v=12.2">
 <style>:root{ --accent:var(--studybuddy); }</style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +79,11 @@
   <div class="container">
 
     <nav class="breadcrumb breadcrumb-top" aria-label="Breadcrumb"><a href="../index.html">De La Paz</a> / <a href="../index.html#work">Work</a> / Study Buddy</nav>
-    <figure class="sx-cover sx-cover-top"><img src="../assets/images/study-buddy.png" alt="Study Buddy project artwork" width="1200" height="600"></figure>
+    <figure class="sx-cover sx-cover-top">
+      <div class="stageshow-mount sb-hero-stageshow" data-demo="hero-cover" data-ss-fill>
+        <img src="../assets/images/study-buddy.png" alt="Study Buddy Desktop Focus Companion preview" class="sx-cover-fallback" width="1200" height="600">
+      </div>
+    </figure>
     <aside class="mini-eric-banner is-header" aria-label="Mini Eric greeting">
       <div class="mini-eric-char" title="Click Mini Eric!">
         <img src="../assets/images/mini-eric-thinking.png" class="mini-eric-img" alt="Mini Eric chibi avatar" width="80" height="120" />
@@ -131,19 +136,12 @@
     <div class="cs-section">
       <h2>Designed in Figma first</h2>
       <p>Session, reminders, schedule, app rules, progress, buddy screens, break overlays, and the Mambo widget, in light and dark themes on shared tokens (Fredoka, DM Sans).</p>
-      <div class="cs-figure-row cols-2">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-session.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-session.png" alt="Figma design of the Study Buddy session screen" loading="lazy"></a><figcaption>Figma: the session screen, with presets, a study goal and the Mambo preview.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-buddy-studio.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-buddy-studio.png" alt="Figma design of the Buddy Studio screen with presets and animation slots" loading="lazy"></a><figcaption>Figma: Buddy Studio, where each animation is linked to a session, reminder or alert.</figcaption></figure>
-        </div>
+      <div class="stageshow-mount" data-demo="figma"></div>
     </div>
     <div class="cs-section">
       <h2>From frame to working overlay</h2>
       <p>The break overlay is the heart of the product: a calm card with a small plus to postpone. Figma held a placeholder; the build plays Mambo's states, with a gentler nudge for distracting sites.</p>
-      <div class="cs-figure-row cols-3">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/figma-overlay-hydration.png" alt="Figma frame of the hydration break overlay with a placeholder character" loading="lazy"></a><figcaption>Design: hydration break in Figma.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-hydration.png" alt="Built hydration break overlay with the Mambo character" loading="lazy"></a><figcaption>Built: the same break with Mambo.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-overlay-intervention.png" alt="Built distraction nudge overlay asking whether to keep or close a distracting app" loading="lazy"></a><figcaption>Built: the nudge, shown when you open a listed app or site during a focus session.</figcaption></figure>
-        </div>
+      <div class="stageshow-mount" data-demo="overlays"></div>
     </div>
     <div class="cs-section">
       <h2>Working with AI, on purpose</h2>
@@ -169,36 +167,20 @@
       </div>
     </div>
     <div class="cs-section">
-      <div class="cs-split" style="--split:1.25fr">
-        <div class="cs-split-text">
-          <h2>Dogfooding and edge-case elimination</h2>
-          <p>I run the app myself every day, then write the next change list from what breaks, confuses, or feels unfinished. Fixes from those rounds:</p>
-          <ul><li>Cut clutter: the Messages tab and a focus-timer pill</li><li>Made the window behave like a normal app: resizable, no fullscreen, close tucks into Mambo</li><li>Fixed low-contrast light-mode text against WCAG AA (formal audit still to do)</li><li>One purple palette instead of blue and purple, with hover states on every desktop button</li><li>Confirmation dialogs before delete, clear and sign-out actions</li><li>Removed settings that did not work yet (cloud sync, "iPhone connected")</li></ul>
-        </div>
-        <div class="cs-split-media">
-          <div class="cs-figure-row cols-1 sm">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-session-dark.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-session-dark.png" alt="Study Buddy session screen in dark theme" loading="lazy"></a><figcaption>Dark theme.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-session-light.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-session-light.png" alt="Study Buddy session screen in light theme" loading="lazy"></a><figcaption>Light theme, after the contrast pass.</figcaption></figure>
-        </div>
-        </div>
-      </div>
+      <h2>Dogfooding and edge-case elimination</h2>
+      <p>I run the app myself every day, then write the next change list from what breaks, confuses, or feels unfinished. Fixes from those rounds:</p>
+      <ul><li>Cut clutter: the Messages tab and a focus-timer pill</li><li>Made the window behave like a normal app: resizable, no fullscreen, close tucks into Mambo</li><li>Fixed low-contrast light-mode text against WCAG AA (formal audit still to do)</li><li>One purple palette instead of blue and purple, with hover states on every desktop button</li><li>Confirmation dialogs before delete, clear and sign-out actions</li><li>Removed settings that did not work yet (cloud sync, "iPhone connected")</li></ul>
+      <div class="stageshow-mount" data-demo="themes"></div>
     </div>
     <div class="cs-section">
       <h2>The desktop app</h2>
       <p>Editable reminders, a schedule for study blocks, and app rules that nudge you when a listed app or site opens mid-session. Auto-starting sessions from the schedule is next.</p>
-      <div class="cs-figure-row cols-3">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-reminders.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-reminders.png" alt="Reminders screen with editable reminder cards" loading="lazy"></a><figcaption>Reminders.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-schedule.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-schedule.png" alt="Schedule screen with study time blocks" loading="lazy"></a><figcaption>Schedule.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-app-rules.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-app-rules.png" alt="App rules screen listing apps and sites that trigger a nudge" loading="lazy"></a><figcaption>App rules.</figcaption></figure>
-        </div>
+      <div class="stageshow-mount" data-demo="features"></div>
     </div>
     <div class="cs-section">
       <h2>Companions and progress</h2>
       <p>Mambo is the starting companion; levels unlock more, and each companion's animations can link to a reminder, session or alert. A progress screen tracks focus hours, streaks and level.</p>
-      <div class="cs-figure-row cols-2">
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-buddy-studio.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-buddy-studio.png" alt="Buddy Studio screen with companions and animation slots" loading="lazy"></a><figcaption>Buddy Studio.</figcaption></figure>
-          <figure><a class="cs-zoom" href="../assets/images/case-studies/study-buddy/app-progress.png" target="_blank" rel="noopener" title="Open full size"><img src="../assets/images/case-studies/study-buddy/app-progress.png" alt="Progress screen with focus hours, streak and companion level" loading="lazy"></a><figcaption>Progress. Numbers shown are sample data.</figcaption></figure>
-        </div>
+      <div class="stageshow-mount" data-demo="companions"></div>
     </div>
     <div class="cs-section">
       <h2>What's next</h2>
@@ -236,5 +218,6 @@
 </footer>
 <script src="../assets/js/scroll.js"></script>
 <script src="../assets/js/halloween.js"></script>
+<script src="../assets/js/study-buddy-stageshow.js?v=12.0"></script>
 </body>
 </html>
