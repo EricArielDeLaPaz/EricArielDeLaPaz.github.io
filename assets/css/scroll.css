@@ -4443,3 +4443,59 @@ button,input,select,textarea{ font-family:inherit; }
   .sx-nav a, .sx-nav a.sx-nav-link { padding: 7px 6px !important; font-size: 12.5px !important; }
   .sx-nav-info-btn { padding: 7px 6px !important; font-size: 12.5px !important; }
 }
+
+/* ------------------------------------------------------------
+   Specializations Bar (3-column layout)
+   ------------------------------------------------------------ */
+.sx-statbar.sx-spec-bar {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+.sx-statbar.sx-spec-bar li {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 28px 28px 32px !important;
+}
+.sx-statbar.sx-spec-bar li:nth-child(n) {
+  border-top: 0 !important;
+}
+.sx-statbar.sx-spec-bar li + li {
+  border-left: 1px solid var(--border-soft) !important;
+}
+.sx-statbar.sx-spec-bar li.is-text b {
+  font-size: clamp(20px, 1.9vw, 24px) !important;
+  line-height: 1.2 !important;
+  margin-bottom: 12px !important;
+  color: var(--gold) !important;
+  letter-spacing: -0.01em !important;
+}
+.sx-statbar.sx-spec-bar li.is-text span {
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+  color: var(--text-dim) !important;
+  max-width: none !important;
+  margin-top: 0 !important;
+}
+.sx-statbar.sx-spec-bar .sx-spec-link {
+  color: var(--gold) !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease !important;
+}
+.sx-statbar.sx-spec-bar .sx-spec-link:hover {
+  color: var(--gold-bright) !important;
+  text-decoration-color: var(--gold-bright) !important;
+}
+
+@media (max-width: 900px) {
+  .sx-statbar.sx-spec-bar {
+    grid-template-columns: 1fr !important;
+  }
+  .sx-statbar.sx-spec-bar li:nth-child(n) {
+    border-left: 0 !important;
+  }
+  .sx-statbar.sx-spec-bar li + li {
+    border-top: 1px solid var(--border-soft) !important;
+  }
+}
+
