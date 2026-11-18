@@ -1,0 +1,236 @@
+/* ============================================================
+   Multi-state precision cursor + gold-leaf card illumination
+   Controlled by <body data-portfolio-mode="deep-dive|recruiter-scan|xray">.
+   Desktop fine-pointer only. Zero text labels on the cursor, ever.
+
+   Design constraints applied:
+   - 4-point spatial scale (4, 8, 12, 16, 20, 24, 32px). The brief's
+     off-scale numbers were snapped: 6->8 dot, 26->24 ring, 38->32 hover,
+     7->8 diamond, 28->32 reticle, 14->16 HUD offset.
+   - WCAG AA: every cursor stroke/fill holds >= 3:1 on both the light
+     canvas and the dark card previews. Gold alone fails on white, so
+     strokes use a deeper champagne (--pc-gold-ui) and bright gold
+     (#D4AF37 / #C59B27) is always cased in ink.
+   ============================================================ */
+
+:root {
+  --pc-ink: #1a1a1a;
+  --pc-gold: #c59b27;          /* brand warm gold (fills, always cased) */
+  --pc-gold-lux: #d4af37;      /* luminous gold (X-Ray crosshair, cased) */
+  --pc-gold-ui: #b08420;       /* 3.2:1 on #faf9f6, 5.3:1+ on dark previews */
+  --pc-gold-tint: rgba(197, 155, 39, 0.12);
+  --pc-halo: rgba(255, 255, 255, 0.9);
+  --pc-z: 2147483000;          /* above .dex-modal (z-index 999999) */
+  --pc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --pc-leaf: 260px;
+}
+
+/* Hidden everywhere except desktop fine pointers. */
+.pc { display: none; }
+
+@media (min-width: 900px) and (hover: hover) and (pointer: fine) {
+
+  /* ---------- Native cursor: hidden only once the script is live ---------- */
+  html.pc-active,
+  html.pc-active *,
+  html.pc-active *::before,
+  html.pc-active *::after { cursor: none !important; }
+
+  /* Keep the OS cursor where it carries meaning (text entry, embeds). */
+  html.pc-active :is(
+    input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="color"]):not([type="image"]),
+    textarea, [contenteditable=""], [contenteditable="true"]) { cursor: text !important; }
+  html.pc-active :is(select, iframe, embed, object, video[controls], audio[controls]) { cursor: auto !important; }
+
+  /* ---------- Root: zero-size anchor, never intercepts input ---------- */
+  .pc {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: var(--pc-z);
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .pc[data-visible="true"] { opacity: 1; }
+  .pc[data-hover="native"] { opacity: 0; }
+  .pc *, .pc *::before, .pc *::after { pointer-events: none !important; box-sizing: border-box; }
+
+  /* Layers are zero-size anchors; children centre on them. */
+  .pc-ring, .pc-core { position: absolute; top: 0; left: 0; width: 0; height: 0; will-change: transform; }
+  .pc-ring > *, .pc-core > .pc-dot, .pc-core > .pc-cross {
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: -50% -50%;   /* individual property: composes outside rotate/scale */
+  }
+
+  /* ============ Layer 2: ring / reticle (lerped in JS) ============ */
+  .pc-ring-shape {
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--pc-gold-ui);
+    border-radius: 50%;
+    background: transparent;
+    transition: width 0.28s var(--pc-ease), height 0.28s var(--pc-ease),
+      border-radius 0.28s var(--pc-ease), background-color 0.2s ease,
+      border-color 0.2s ease, opacity 0.2s ease, scale 0.12s ease;
+  }
+  .pc-ticks, .pc-brackets {
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    transition: opacity 0.2s ease, scale 0.28s var(--pc-ease);
+    scale: 0.75;
+  }
+  /* Cardinal ticks: four 4px marks, 2px thick, inside the ring edge. */
+  .pc-ticks {
+    --t: var(--pc-gold-ui);
+    background:
+      linear-gradient(var(--t), var(--t)) 50% 0 / 2px 4px no-repeat,
+      linear-gradient(var(--t), var(--t)) 50% 100% / 2px 4px no-repeat,
+      linear-gradient(var(--t), var(--t)) 0 50% / 4px 2px no-repeat,
+      linear-gradient(var(--t), var(--t)) 100% 50% / 4px 2px no-repeat;
+  }
+  /* L-shaped corner brackets: 8 gradients (2 per corner), 8px arms, 2px thick. */
+  .pc-brackets {
+    --b: var(--pc-gold-ui);
+    background:
+      linear-gradient(var(--b), var(--b)) 0 0 / 8px 2px no-repeat,
+      linear-gradient(var(--b), var(--b)) 0 0 / 2px 8px no-repeat,
+      linear-gradient(var(--b), var(--b)) 100% 0 / 8px 2px no-repeat,
+      linear-gradient(var(--b), var(--b)) 100% 0 / 2px 8px no-repeat,
+      linear-gradient(var(--b), var(--b)) 0 100% / 8px 2px no-repeat,
+      linear-gradient(var(--b), var(--b)) 0 100% / 2px 8px no-repeat,
+      linear-gradient(var(--b), var(--b)) 100% 100% / 8px 2px no-repeat,
+      linear-gradient(var(--b), var(--b)) 100% 100% / 2px 8px no-repeat;
+  }
+
+  /* ============ Layer 1: core pointer (exact, zero lag) ============ */
+  .pc-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--pc-ink);
+    box-shadow: 0 0 0 1px var(--pc-halo);   /* keeps it visible on dark previews */
+    transition: opacity 0.2s ease, border-radius 0.28s var(--pc-ease),
+      background-color 0.2s ease, rotate 0.28s var(--pc-ease), scale 0.12s ease;
+  }
+  .pc-cross {
+    width: 24px;
+    height: 24px;
+    overflow: visible;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .pc-cross .case { stroke: var(--pc-ink); stroke-width: 3.5; fill: none; }
+  .pc-cross .gold { stroke: var(--pc-gold-lux); stroke-width: 1.5; fill: none; }
+
+  /* ============ State 1: Deep Dive (default) ============ */
+  .pc[data-mode="deep-dive"][data-hover="interactive"] .pc-ring-shape {
+    width: 32px;
+    height: 32px;
+    background: var(--pc-gold-tint);
+    border-color: var(--pc-gold-ui);
+  }
+  .pc[data-mode="deep-dive"][data-hover="interactive"] .pc-dot { scale: 0.75; }
+
+  /* ============ State 2: 30-Second Recruiter Scan ============ */
+  .pc[data-mode="recruiter-scan"] .pc-dot {
+    background: var(--pc-gold);
+    border-radius: 0;
+    rotate: 45deg;
+    box-shadow: 0 0 0 1px var(--pc-ink);    /* ink casing: 3:1 on any ground */
+  }
+  .pc[data-mode="recruiter-scan"] .pc-ring-shape { width: 32px; height: 32px; }
+  .pc[data-mode="recruiter-scan"] .pc-ticks { opacity: 1; scale: 1; }
+  .pc[data-mode="recruiter-scan"][data-hover="interactive"] .pc-ring-shape {
+    background: var(--pc-gold-tint);
+  }
+  .pc[data-mode="recruiter-scan"][data-hover="interactive"] .pc-ticks { opacity: 0; }
+  /* Metric hover: ring dissolves into corner brackets. */
+  .pc[data-mode="recruiter-scan"][data-hover="metric"] .pc-ring-shape { opacity: 0; border-radius: 0; }
+  .pc[data-mode="recruiter-scan"][data-hover="metric"] .pc-ticks { opacity: 0; }
+  .pc[data-mode="recruiter-scan"][data-hover="metric"] .pc-brackets { opacity: 1; scale: 1; }
+
+  /* ============ State 3: X-Ray Dev (CAD crosshair) ============ */
+  .pc[data-mode="xray"] .pc-ring { visibility: hidden; }
+  .pc[data-mode="xray"] .pc-dot { opacity: 0; }
+  .pc[data-mode="xray"] .pc-cross { opacity: 1; }
+
+  /* Pressed: a quiet 1-step squeeze, no colour change. */
+  .pc[data-pressed="true"] .pc-ring-shape { scale: 0.88; }
+  .pc[data-pressed="true"] .pc-dot { scale: 0.75; }
+
+  /* ---------- X-Ray Spec HUD: bottom-right quadrant (+16 / +16) ---------- */
+  .pc-hud {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: max-content;
+    max-width: 240px;
+    display: grid;
+    gap: 4px;
+    padding: 8px 12px;
+    border: 1px solid var(--pc-gold-lux);
+    border-radius: 4px;
+    background: var(--pc-ink);
+    color: #f5f1e8;                          /* 15.4:1 on ink */
+    font: 500 12px/16px 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: 0;
+    text-align: left;
+    opacity: 0;
+    scale: 0.96;
+    transform-origin: 0 0;
+    transition: opacity 0.16s ease, scale 0.16s var(--pc-ease);
+  }
+  .pc-hud[data-flip-x="true"] { left: auto; right: 16px; transform-origin: 100% 0; }
+  .pc-hud[data-flip-y="true"] { top: auto; bottom: 16px; }
+  .pc-hud[data-flip-x="true"][data-flip-y="true"] { transform-origin: 100% 100%; }
+  .pc[data-mode="xray"][data-hover="inspect"] .pc-hud { opacity: 1; scale: 1; }
+  .pc-hud .hud-sel { color: var(--pc-gold-lux); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }  /* 8.3:1 on ink */
+  .pc-hud .hud-row { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .pc-hud .hud-sw {
+    flex: none;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #f5f1e8;
+    border-radius: 4px;
+  }
+  .pc-hud .hud-ok { color: #7fd99a; }       /* 10.2:1 on ink */
+  .pc-hud .hud-bad { color: #ff9a8a; }      /* 8.5:1 on ink */
+  .pc-hud .hud-dim { color: #c9c2b4; }      /* 9.8:1 on ink */
+
+  /* ============ Gold-leaf card border illumination ============ */
+  :is(.gold-card, .case-study-card, .megan-card) { position: relative; }
+  :is(.gold-card, .case-study-card, .megan-card)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    padding: 1px;
+    border-radius: inherit;
+    background: radial-gradient(var(--pc-leaf) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(212, 175, 55, 0.65), transparent 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: var(--leaf-o, 0);
+    transition: opacity 0.28s ease;
+    pointer-events: none;
+  }
+  /* Off while X-Ray wireframe mode is active. */
+  body[data-portfolio-mode="xray"] :is(.gold-card, .case-study-card, .megan-card)::before,
+  body.xray-mode :is(.gold-card, .case-study-card, .megan-card)::before { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pc, .pc *, .pc *::before, .pc *::after,
+  :is(.gold-card, .case-study-card, .megan-card)::before { transition-duration: 0.01ms !important; }
+}
