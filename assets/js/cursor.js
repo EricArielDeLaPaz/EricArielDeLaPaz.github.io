@@ -1,7 +1,7 @@
 /**
  * Multi-state precision cursor + gold-leaf card illumination.
  *
- * Mode is read from <body data-portfolio-mode="deep-dive|recruiter-scan|xray">
+ * Mode is read from <body data-portfolio-mode="deep-dive|quick-scan|xray">
  * (body.xray-mode is honoured as an alias). Public API: window.PortfolioCursor.
  *
  * Layer 1 (core)  : written straight from pointermove, zero smoothing.
@@ -12,7 +12,7 @@
   'use strict';
 
   var QUERY = '(min-width: 900px) and (hover: hover) and (pointer: fine)';
-  var MODES = ['deep-dive', 'recruiter-scan', 'xray'];
+  var MODES = ['deep-dive', 'quick-scan', 'xray'];
   var LERP = 0.18;
   var LEAF_RADIUS = 260;
 
@@ -21,12 +21,13 @@
     metric: '[data-metric], [data-cursor-metric], .impact-card, .before-after-card',
     ignore: '[data-xray-ignore]',
     native: 'input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="color"]):not([type="image"]), textarea, select, [contenteditable=""], [contenteditable="true"], iframe, embed, object, video[controls], audio[controls]',
-    card: '.gold-card, .case-study-card, .megan-card'
+    card: '.gold-card, .case-study-card, .featured-card'
   };
 
   var mq = window.matchMedia(QUERY);
   var reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var root, ring, core, hud, hudRefs;
+  var root, ring, core, hud, hudRefs, snap, labelEl;
+  var snapTarget = null, snapKey = '', rafSnap = 0, snapTimer = 0;
   var built = false, visible = false, pressed = false;
   var mx = 0, my = 0, rx = 0, ry = 0;
   var rafRing = 0, rafLeaf = 0, rafHud = 0;
@@ -47,7 +48,8 @@
     root.dataset.visible = 'false';
     root.dataset.pressed = 'false';
     root.innerHTML =
-      '<div class="pc-ring"><span class="pc-ring-shape"></span><span class="pc-ticks"></span><span class="pc-brackets"></span></div>' +
+      '<span class="pc-snap"></span>' +
+      '<div class="pc-ring"><span class="pc-ring-shape"><span class="pc-label"></span></span><span class="pc-ticks"></span><span class="pc-brackets"></span></div>' +
       '<div class="pc-core">' +
         '<span class="pc-dot"></span>' +
         '<svg class="pc-cross" viewBox="0 0 24 24" focusable="false">' +
@@ -68,6 +70,8 @@
     document.body.appendChild(root);
 
     ring = root.querySelector('.pc-ring');
+    snap = root.querySelector('.pc-snap');
+    labelEl = root.querySelector('.pc-label');
     core = root.querySelector('.pc-core');
     hud = root.querySelector('.pc-hud');
     hudRefs = {
@@ -115,7 +119,7 @@
     window.removeEventListener('resize', scheduleLeaf);
     if (bodyObserver) { bodyObserver.disconnect(); bodyObserver = null; }
     if (io) { io.disconnect(); io = null; }
-    cancelAnimationFrame(rafRing); cancelAnimationFrame(rafLeaf); cancelAnimationFrame(rafHud);
+    cancelAnimationFrame(rafRing); cancelAnimationFrame(rafLeaf); cancelAnimationFrame(rafHud); cancelAnimationFrame(rafSnap); rafSnap = 0; snapTarget = null;
     rafRing = rafLeaf = rafHud = 0;
     clearLeaf();
     cards.clear();
@@ -131,7 +135,7 @@
     if (b.classList.contains('xray-mode') || m === 'xray') return 'xray';
     // scan-mode.js owns data-view-mode when present (body, or <html> before body exists)
     var v = b.getAttribute('data-view-mode') || document.documentElement.getAttribute('data-view-mode');
-    if (v === 'recruiter-scan' || v === 'deep-dive') return v;
+    if (v === 'quick-scan' || v === 'deep-dive') return v;
     return MODES.indexOf(m) > -1 ? m : 'deep-dive';
   }
 
@@ -191,6 +195,7 @@
     visible = false;
     root.dataset.visible = 'false';
     clearLeaf();
+    snapTarget = null;
   }
 
   function setHover(kind) {
@@ -208,11 +213,58 @@
       var X = window.PortfolioXray;
       kind = (X && X.isCanvas ? X.isCanvas(t) : (t === document.body || t === document.documentElement)) ? 'none' : 'inspect';
     }
-    else if (mode === 'recruiter-scan' && t.closest(SEL.metric)) kind = 'metric';
+    else if (mode === 'quick-scan' && t.closest(SEL.metric)) kind = 'metric';
     else if (t.closest(SEL.interactive)) kind = 'interactive';
     setHover(kind);
+    setSnap(kind === 'interactive' ? t.closest(SEL.interactive) : null);
     setGround(t);
     if (kind === 'inspect') { hudTarget = t; if (!rafHud) rafHud = requestAnimationFrame(renderHud); }
+  }
+
+
+  /* ------------------------------------ Snap: clickable -> its box edges */
+  // The ring dissolves into square corner brackets drawn on the hovered
+  // element's own bounds. Elements tagged data-cursor-label instead morph the
+  // ring into a horizontal rectangle that carries the label.
+  function setSnap(target) {
+    var labelHost = target && target.closest ? target.closest('[data-cursor-label]') : null;
+    var useBox = !!target && !labelHost;
+    if (labelHost) labelEl.textContent = labelHost.getAttribute('data-cursor-label') || '';
+    var want = labelHost ? 'label' : (useBox ? 'box' : 'none');
+    if (root.dataset.snap !== want) root.dataset.snap = want;
+    if (useBox) {
+      if (snapTarget !== target) {
+        snapTarget = target;
+        snapKey = '';
+        // Animate the jump between targets, but not the per-frame tracking.
+        snap.dataset.settle = 'true';
+        clearTimeout(snapTimer);
+        snapTimer = setTimeout(function () { if (snap) snap.dataset.settle = 'false'; }, 320);
+      }
+      if (!rafSnap) rafSnap = requestAnimationFrame(drawSnap);
+    } else {
+      snapTarget = null;
+    }
+  }
+
+  function drawSnap() {
+    rafSnap = 0;
+    if (!snapTarget || !root) return;
+    if (!snapTarget.isConnected) { setSnap(null); root.dataset.snap = 'none'; return; }
+    var r = snapTarget.getBoundingClientRect();
+    if (r.width < 1 || r.height < 1) { root.dataset.snap = 'none'; }
+    else {
+      if (root.dataset.snap === 'none') root.dataset.snap = 'box';
+      var key = r.left + '|' + r.top + '|' + r.width + '|' + r.height;
+      if (key !== snapKey) {
+        snapKey = key;
+        var pad = 4;
+        snap.style.transform = 'translate3d(' + (r.left - pad) + 'px,' + (r.top - pad) + 'px,0)';
+        snap.style.width = (r.width + pad * 2) + 'px';
+        snap.style.height = (r.height + pad * 2) + 'px';
+      }
+    }
+    rafSnap = requestAnimationFrame(drawSnap);
   }
 
   // Accent colours need a lighter shade on dark replicas to hold 3:1.

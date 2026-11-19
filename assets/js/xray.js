@@ -318,7 +318,7 @@
       active = false;
       b.classList.remove('xray-mode');
       if (b.getAttribute('data-portfolio-mode') === 'xray') {
-        b.setAttribute('data-portfolio-mode', b.getAttribute('data-view-mode') === 'recruiter-scan' ? 'recruiter-scan' : 'deep-dive');
+        b.setAttribute('data-portfolio-mode', b.getAttribute('data-view-mode') === 'quick-scan' ? 'quick-scan' : 'deep-dive');
       }
       document.removeEventListener('pointerover', onOver, true);
       document.removeEventListener('pointermove', onMove, { capture: true });

@@ -110,19 +110,19 @@
   html body.xray-mode.xray-mode.is-light :is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, span, b, strong, small, em, label, figcaption, blockquote, td, th, div):not(.stageshow-mount, .stageshow-mount *, [class*="stageshow"], [class*="stageshow"] *, .pc *, .xr-ov *, .scan-toggle *, .xr-pill *) {
     color: #e8e3d6 !important;
   }
-  html body.xray-mode.xray-mode.is-light :is(p, li, dd, figcaption, .sx-lede, .sx-sub, .tagline, .megan-desc, .exp-copy, .exp-meta-line):not(.stageshow-mount, .stageshow-mount *, [class*="stageshow"], [class*="stageshow"] *) {
+  html body.xray-mode.xray-mode.is-light :is(p, li, dd, figcaption, .sx-lede, .sx-sub, .tagline, .featured-desc, .exp-copy, .exp-meta-line):not(.stageshow-mount, .stageshow-mount *, [class*="stageshow"], [class*="stageshow"] *) {
     color: #b9b2a3 !important;
   }
   html body.xray-mode.xray-mode.is-light :is(a):not(.stageshow-mount, .stageshow-mount *, [class*="stageshow"], [class*="stageshow"] *, .sx-btn-primary, .info-btn-primary) {
     color: #e6c25a !important;
   }
-  html body.xray-mode.xray-mode.is-light :is(.sx-kicker, .megan-role, .exp-company, .sx-statbar b, .impact-stat .n, .scan-metrics b, .scan-row dt, .scan-label, .scan-role, .scan-arrow, .section-heading + *, .cs-section > h2::before) {
+  html body.xray-mode.xray-mode.is-light :is(.sx-kicker, .featured-role, .exp-company, .sx-statbar b, .impact-stat .n, .scan-metrics b, .scan-label, .scan-role, .scan-arrow, .section-heading + *, .cs-section > h2::before) {
     color: #d4af37 !important;
   }
 
   /* ---------- Wireframe containers (borders keep their width: zero layout shift) ---------- */
-  html body.xray-mode.xray-mode.is-light :is(.megan-card, .exp-row-card, .sx-statbar, .info-card, .impact-stat, .cs-meta > div,
-      .sx-badges li, .megan-tags span, .megan-outcome-banner, .mini-eric-bubble, .scan-strip, .scan-chips li, .scan-tag, .workspace-card, .about-card,
+  html body.xray-mode.xray-mode.is-light :is(.featured-card, .exp-row-card, .sx-statbar, .info-card, .impact-stat, .cs-meta > div,
+      .sx-badges li, .featured-tags span, .featured-outcome-banner, .mini-eric-bubble, .workspace-card, .about-card,
       .cs-section figure, .cs-nav-footer a, .exp-badge, .persona, .sx-exp-card) {
     background: rgba(255, 255, 255, 0.02) !important;
     border-color: transparent !important;       /* keep the border's width, draw the wireframe with outline: no layout shift */

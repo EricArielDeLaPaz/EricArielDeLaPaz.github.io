@@ -3090,15 +3090,15 @@ body[data-nav="playground"] .info-btn-primary:hover {
 }
 
 /* ------------------------------------------------------------
-   MEGAN YAP-INSPIRED CASE STUDY CARDS (HOME)
+   FEATURED CASE STUDY CARDS (HOME)
    ------------------------------------------------------------ */
-.megan-work-grid {
+.featured-grid {
   display: grid !important;
   grid-template-columns: 1fr !important;
   gap: 28px !important;
   margin-top: 32px !important;
 }
-.megan-card {
+.featured-card {
   background: #FFFFFF !important;
   border: 1px solid var(--border) !important;
   border-radius: 20px !important;
@@ -3106,29 +3106,29 @@ body[data-nav="playground"] .info-btn-primary:hover {
   overflow: hidden !important;
   transition: transform 0.28s var(--ease-motion), box-shadow 0.28s var(--ease-motion), border-color 0.28s var(--ease-motion) !important;
 }
-.megan-card:hover {
+.featured-card:hover {
   transform: translateY(-4px) !important;
   box-shadow: var(--shadow-hover) !important;
   border-color: var(--gold) !important;
 }
-.megan-card-link,
-.megan-card-grid {
+.featured-card-link,
+.featured-card-grid {
   display: grid !important;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) !important;
   text-decoration: none !important;
   color: inherit !important;
 }
 @media (max-width: 860px) {
-  .megan-card-link,
-  .megan-card-grid {
+  .featured-card-link,
+  .featured-card-grid {
     grid-template-columns: 1fr !important;
   }
 }
-.megan-card-content {
+.featured-card-content {
   cursor: pointer !important;
 }
 .sb-card-stageshow,
-.megan-card-preview .sb-hero-stageshow {
+.featured-card-preview .sb-hero-stageshow {
   width: 100% !important;
   height: 100% !important;
   aspect-ratio: unset !important;
@@ -3216,7 +3216,7 @@ body[data-nav="playground"] .info-btn-primary:hover {
 .stageshow-mount[data-mounted="true"] > .sx-cover-fallback {
   display: none !important;
 }
-.megan-card-preview {
+.featured-card-preview {
   position: relative !important;
   background: #141020 !important;
   display: flex !important;
@@ -3233,7 +3233,7 @@ body[data-nav="playground"] .info-btn-primary:hover {
 /* ------------------------------------------------------------
    SECUREID STAGESHOW INTEGRATION
    ------------------------------------------------------------ */
-.card-theme-secureid .megan-card-preview {
+.card-theme-secureid .featured-card-preview {
   background: #0c0b09 !important;
 }
 
@@ -3302,19 +3302,19 @@ body[data-nav="playground"] .info-btn-primary:hover {
   border-radius: 0 !important;
 }
 @media (max-width: 860px) {
-  .megan-card-preview {
+  .featured-card-preview {
     border-top-right-radius: 20px !important;
     border-bottom-left-radius: 0 !important;
     height: auto !important;
   }
 }
-.card-theme-studybuddy .megan-card-preview { background: #141020 !important; }
-.card-theme-secureid .megan-card-preview { background: #0c0b0a !important; }
-.card-theme-vextaro .megan-card-preview { background: #0d131a !important; }
-.card-theme-honda .megan-card-preview { background: #120e0d !important; }
-.card-theme-devtective .megan-card-preview { background: #191424 !important; }
+.card-theme-studybuddy .featured-card-preview { background: #141020 !important; }
+.card-theme-secureid .featured-card-preview { background: #0c0b0a !important; }
+.card-theme-vextaro .featured-card-preview { background: #0d131a !important; }
+.card-theme-honda .featured-card-preview { background: #120e0d !important; }
+.card-theme-devtective .featured-card-preview { background: #191424 !important; }
 
-.megan-card-img {
+.featured-card-img {
   width: 100% !important;
   height: 100% !important;
   max-height: none !important;
@@ -3324,10 +3324,10 @@ body[data-nav="playground"] .info-btn-primary:hover {
   display: block !important;
   transition: transform 0.32s var(--ease-motion) !important;
 }
-.megan-card:hover .megan-card-img {
+.featured-card:hover .featured-card-img {
   transform: scale(1.03) !important;
 }
-.megan-card-pill {
+.featured-card-pill {
   position: absolute !important;
   top: 16px !important;
   left: 16px !important;
@@ -3340,12 +3340,12 @@ body[data-nav="playground"] .info-btn-primary:hover {
   font-weight: 700 !important;
   color: var(--text) !important;
 }
-.megan-card-content {
+.featured-card-content {
   padding: 28px 32px !important;
   display: flex !important;
   flex-direction: column !important;
 }
-.megan-meta-row {
+.featured-meta-row {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
@@ -3353,30 +3353,30 @@ body[data-nav="playground"] .info-btn-primary:hover {
   color: var(--text-faint) !important;
   margin-bottom: 8px !important;
 }
-.megan-role {
+.featured-role {
   font-weight: 700 !important;
   color: var(--gold) !important;
 }
-.megan-title {
+.featured-title {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: clamp(20px, 2.2vw, 24px) !important;
   line-height: 1.25 !important;
   color: var(--text) !important;
   margin: 0 0 10px !important;
 }
-.megan-desc {
+.featured-desc {
   font-size: 14.5px !important;
   line-height: 1.55 !important;
   color: var(--text-dim) !important;
   margin: 0 0 16px !important;
 }
-.megan-tags {
+.featured-tags {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 6px !important;
   margin-bottom: 18px !important;
 }
-.megan-tags span {
+.featured-tags span {
   padding: 4px 10px !important;
   border-radius: 999px !important;
   background: var(--bg-subtle) !important;
@@ -3384,7 +3384,7 @@ body[data-nav="playground"] .info-btn-primary:hover {
   font-size: 11.5px !important;
   color: var(--text-dim) !important;
 }
-.megan-outcome-banner {
+.featured-outcome-banner {
   margin-top: auto !important;
   padding: 10px 14px !important;
   border-radius: 10px !important;
@@ -3393,7 +3393,7 @@ body[data-nav="playground"] .info-btn-primary:hover {
   font-size: 12.5px !important;
   color: var(--text) !important;
 }
-.megan-outcome-banner strong {
+.featured-outcome-banner strong {
   color: var(--gold) !important;
 }
 
@@ -3555,12 +3555,12 @@ body[data-nav="playground"] .info-btn-primary:hover {
 }
 
 /* Anime Wall */
-.anime-grid {
+.interest-grid {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
   gap: 20px !important;
 }
-.anime-card {
+.interest-card {
   position: relative !important;
   height: 320px !important;
   border-radius: 16px !important;
@@ -3570,7 +3570,7 @@ body[data-nav="playground"] .info-btn-primary:hover {
   cursor: pointer !important;
   background: #111111 !important;
 }
-.anime-poster {
+.interest-poster {
   position: absolute !important;
   inset: 0 !important;
   padding: 20px !important;
@@ -3582,38 +3582,38 @@ body[data-nav="playground"] .info-btn-primary:hover {
   background-position: center !important;
   transition: transform 0.36s var(--ease-motion) !important;
 }
-.anime-card:hover .anime-poster {
+.interest-card:hover .interest-poster {
   transform: scale(1.05) !important;
 }
-.anime-naruto { background: linear-gradient(135deg, #ea580c, #9a3412); }
-.anime-bleach { background: linear-gradient(135deg, #1e293b, #0f172a); }
-.anime-worldtrigger { background: linear-gradient(135deg, #059669, #064e3b); }
-.anime-spiritedaway { background: linear-gradient(135deg, #0284c7, #075985); }
-.anime-hellsparadise { background: linear-gradient(135deg, #b91c1c, #7f1d1d); }
+.interest-theme-1 { background: linear-gradient(135deg, #ea580c, #9a3412); }
+.interest-theme-2 { background: linear-gradient(135deg, #1e293b, #0f172a); }
+.interest-theme-3 { background: linear-gradient(135deg, #059669, #064e3b); }
+.interest-theme-4 { background: linear-gradient(135deg, #0284c7, #075985); }
+.interest-theme-5 { background: linear-gradient(135deg, #b91c1c, #7f1d1d); }
 
-.anime-kanji {
+.interest-kanji {
   font-size: 32px !important;
   font-weight: 900 !important;
   opacity: 0.3 !important;
   letter-spacing: 0.1em !important;
 }
-.anime-num {
+.interest-num {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 14px !important;
   font-weight: 700 !important;
   color: rgba(255, 255, 255, 0.7) !important;
 }
-.anime-cover-title h3 {
+.interest-cover-title h3 {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 22px !important;
   color: #FFFFFF !important;
   margin: 0 !important;
 }
-.anime-cover-title span {
+.interest-cover-title span {
   font-size: 11px !important;
   opacity: 0.8 !important;
 }
-.anime-reveal {
+.interest-reveal {
   position: absolute !important;
   inset: 0 !important;
   background: rgba(23, 21, 18, 0.94) !important;
@@ -3627,8 +3627,8 @@ body[data-nav="playground"] .info-btn-primary:hover {
   transform: translateY(12px) !important;
   transition: opacity 0.28s var(--ease-motion), transform 0.28s var(--ease-motion) !important;
 }
-.anime-card:hover .anime-reveal,
-.anime-card:focus .anime-reveal {
+.interest-card:hover .interest-reveal,
+.interest-card:focus .interest-reveal {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
@@ -3640,13 +3640,13 @@ body[data-nav="playground"] .info-btn-primary:hover {
   color: var(--gold-bright) !important;
   margin-bottom: 6px !important;
 }
-.anime-reveal h4 {
+.interest-reveal h4 {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 16px !important;
   color: #FFFFFF !important;
   margin: 0 0 10px !important;
 }
-.anime-reveal p {
+.interest-reveal p {
   font-size: 13px !important;
   line-height: 1.5 !important;
   color: #d6d3cd !important;
@@ -4375,8 +4375,8 @@ body[data-nav="playground"] .info-btn-primary:hover {
   color: #4a443e !important;
 }
 
-.megan-card-pill { display: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
-.card-theme-vextaro .megan-card-preview, .card-theme-vextaro .megan-card-img, .sx-case[data-accent="vextaro"] .sx-cover, .sx-case[data-accent="vextaro"] .sx-cover img { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; filter: none !important; box-shadow: none !important; }
+.featured-card-pill { display: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+.card-theme-vextaro .featured-card-preview, .card-theme-vextaro .featured-card-img, .sx-case[data-accent="vextaro"] .sx-cover, .sx-case[data-accent="vextaro"] .sx-cover img { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; filter: none !important; box-shadow: none !important; }
 
 @media (max-width:720px){ .sx-case .cs-hero .cs-action-row{ margin:20px 0 8px; } .sx-case .cs-hero .cs-meta{ margin-top:24px; } .sx-case .cs-hero .sx-cover{ margin-top:24px; } }
 .mini-eric-banner.is-header + .sx-hero{ padding-top:36px; }
@@ -4426,7 +4426,7 @@ button,input,select,textarea{ font-family:inherit; }
    ------------------------------------------------------------ */
 .sx-nav { border-radius: 999px !important; }
 .sx-nav a.sx-nav-link, .sx-nav a, .sx-nav-info-btn { border-radius: 999px !important; }
-.megan-tags span, .ai-teaser-tags span, .exp-badge, .watching-pill, .sx-case .hf-badge, .hf-badge { border-radius: 4px !important; }
+.featured-tags span, .ai-teaser-tags span, .exp-badge, .watching-pill, .sx-case .hf-badge, .hf-badge { border-radius: 4px !important; }
 
 /* Stat strip: keep every cell's padding equal (fixes shifted WCAG cell on mobile) */
 .sx-statbar li:nth-child(n) { padding: 26px 28px 30px !important; }
