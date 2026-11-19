@@ -1,0 +1,195 @@
+/* ============================================================
+   X-Ray dev-mode inspector: obsidian-and-gold blueprint theme.
+   Desktop fine-pointer only. Nothing here applies until
+   body.xray-mode is set, so the default site is untouched.
+   The crosshair and spec HUD live in cursor.css / cursor.js.
+   Embedded replicas (.stageshow-mount) are never restyled.
+   ============================================================ */
+
+.xr-pill, .xr-ov { display: none; }
+
+@media (min-width: 900px) and (hover: hover) and (pointer: fine) {
+
+  /* ---------- Nav toggle pill ---------- */
+  .xr-pill {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    gap: 8px;
+    height: 32px;
+    margin: 0 4px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    border: 1px solid #b08420;                 /* 3.4:1 on white */
+    border-radius: 999px;
+    background: #ffffff;
+    color: #5b5346;                            /* 7.2:1 on white */
+    font: 600 13px/16px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+  .xr-pill:focus-visible { outline: 3px solid var(--gold-bright, #7a5a14); outline-offset: 2px; }
+  .xr-dot {
+    width: 8px;
+    height: 8px;
+    box-sizing: border-box;
+    border: 1.5px solid #8a7a55;
+    border-radius: 50%;
+    background: transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .xr-pill[aria-pressed="true"] {
+    border-color: #d4af37;
+    background: #0d1117;
+    color: #f5f1e8;                            /* 16:1 on #0d1117 */
+    box-shadow: 0 0 0 1px #d4af37, 0 0 16px rgba(212, 175, 55, 0.45);
+  }
+  .xr-pill[aria-pressed="true"] .xr-dot {
+    border-color: #d4af37;
+    background: #d4af37;
+    box-shadow: 0 0 8px #d4af37;
+  }
+  .xr-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* ---------- 0.3s surface transition while toggling ---------- */
+  html.xr-anim *, html.xr-anim *::before, html.xr-anim *::after {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+      outline-color 0.3s ease, box-shadow 0.3s ease !important;
+  }
+
+  /* ---------- Blueprint tokens ---------- */
+  html body.xray-mode.xray-mode.is-light {
+    --bg: #0b0e14;
+    --bg-raised: #0d1117;
+    --bg-subtle: #0d1117;
+    --panel: #0d1117;
+    --card: rgba(255, 255, 255, 0.02);
+    --card-hover: rgba(255, 255, 255, 0.04);
+    --card-raised: rgba(255, 255, 255, 0.02);
+    --border: rgba(212, 175, 55, 0.42);
+    --border-soft: rgba(212, 175, 55, 0.22);
+    --border-strong: rgba(212, 175, 55, 0.6);
+    --nav-border: rgba(212, 175, 55, 0.5);
+    --text: #e8e3d6;                           /* 15.6:1 on #0b0e14 */
+    --text-dim: #b9b2a3;                       /* 9.2:1 */
+    --text-faint: #a39c8c;                     /* 7.2:1 */
+    --gold: #d4af37;
+    --gold-bright: #e6c25a;
+    --gold-dim: #8a7430;
+    --gold-soft: rgba(212, 175, 55, 0.12);
+    --shadow-sm: none;
+    --shadow-card: none;
+    --shadow-hover: none;
+    --shadow-pop: none;
+    color-scheme: dark;
+  }
+
+  /* ---------- Surface + 8px / 32px architectural grid ---------- */
+  html body.xray-mode.xray-mode.is-light {
+    background-color: #0b0e14 !important;
+    background-image:
+      linear-gradient(to right, rgba(212, 175, 55, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(212, 175, 55, 0.07) 1px, transparent 1px),
+      radial-gradient(circle, rgba(212, 175, 55, 0.07) 1px, transparent 1.5px) !important;
+    background-size: 32px 32px, 32px 32px, 8px 8px !important;
+    background-attachment: fixed !important;
+    color: #e8e3d6 !important;
+  }
+
+  /* ---------- Text ---------- */
+  html body.xray-mode.xray-mode.is-light :is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, span, b, strong, small, em, label, figcaption, blockquote, td, th, div):not(.stageshow-mount, .stageshow-mount *, [class*="stageshow"], [class*="stageshow"] *, .pc *, .xr-ov *, .scan-toggle *, .xr-pill *) {
+    color: #e8e3d6 !important;
+  }
+  html body.xray-mode.xray-mode.is-light :is(p, li, dd, figcaption, .sx-lede, .sx-sub, .tagline, .megan-desc, .exp-copy, .exp-meta-line):not(.stageshow-mount, .stageshow-mount *, [class*="stageshow"], [class*="stageshow"] *) {
+    color: #b9b2a3 !important;
+  }
+  html body.xray-mode.xray-mode.is-light :is(a):not(.stageshow-mount, .stageshow-mount *, [class*="stageshow"], [class*="stageshow"] *, .sx-btn-primary, .info-btn-primary) {
+    color: #e6c25a !important;
+  }
+  html body.xray-mode.xray-mode.is-light :is(.sx-kicker, .megan-role, .exp-company, .sx-statbar b, .impact-stat .n, .scan-metrics b, .scan-row dt, .section-heading + *, .cs-section > h2::before) {
+    color: #d4af37 !important;
+  }
+
+  /* ---------- Wireframe containers (borders keep their width: zero layout shift) ---------- */
+  html body.xray-mode.xray-mode.is-light :is(.megan-card, .exp-row-card, .sx-statbar, .info-card, .impact-stat, .cs-meta > div,
+      .sx-badges li, .megan-tags span, .megan-outcome-banner, .mini-eric-bubble, .scan-strip, .workspace-card, .about-card,
+      .cs-section figure, .cs-nav-footer a, .exp-badge, .persona, .sx-exp-card) {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-color: transparent !important;       /* keep the border's width, draw the wireframe with outline: no layout shift */
+    outline: 1px dashed rgba(212, 175, 55, 0.5) !important;
+    outline-offset: -1px;
+    box-shadow: none !important;
+  }
+  html body.xray-mode.xray-mode.is-light :is(.sx-section, .about-section, .cs-section, .cs-hero, .sx-hero, .sx-footer) {
+    outline: 1px dashed rgba(212, 175, 55, 0.22);
+    outline-offset: -1px;
+    border-color: rgba(212, 175, 55, 0.3) !important;
+  }
+  html body.xray-mode.xray-mode.is-light :is(hr, .sx-section) { border-top-color: rgba(212, 175, 55, 0.3) !important; }
+
+  /* ---------- Nav, buttons, popover ---------- */
+  html body.xray-mode.xray-mode.is-light .sx-nav {
+    background: rgba(13, 17, 23, 0.92) !important;
+    border-color: rgba(212, 175, 55, 0.5) !important;
+  }
+  html body.xray-mode.xray-mode.is-light .sx-nav :is(a, .sx-status, .sx-nav-info-btn, .sx-nav-info-btn span) { color: #e8e3d6 !important; }
+  html body.xray-mode.xray-mode.is-light .sx-nav a:hover { background: rgba(212, 175, 55, 0.12) !important; }
+  html body.xray-mode.xray-mode.is-light .sx-nav a.is-active { color: #e6c25a !important; background: rgba(212, 175, 55, 0.16) !important; }
+  html body.xray-mode.xray-mode.is-light :is(.sx-btn, .info-btn):not(.sx-btn-primary, .info-btn-primary) {
+    background: transparent !important;
+    border-color: #d4af37 !important;
+    color: #e8e3d6 !important;
+  }
+  html body.xray-mode.xray-mode.is-light :is(.sx-btn-primary, .info-btn-primary) {
+    background: #d4af37 !important;
+    border-color: #d4af37 !important;
+    color: #0b0e14 !important;                 /* 9.3:1 */
+  }
+  html body.xray-mode.xray-mode.is-light .sx-btn svg { color: inherit; }
+
+  /* Scan toggle keeps working inside the blueprint. */
+  html body.xray-mode.xray-mode.is-light .scan-toggle { background: #0d1117 !important; border-color: #d4af37 !important; }
+  html body.xray-mode.xray-mode.is-light .scan-thumb { background: rgba(212, 175, 55, 0.2) !important; border-color: #d4af37 !important; }
+  html body.xray-mode.xray-mode.is-light .scan-opt { color: #b9b2a3 !important; }
+  html body.xray-mode.xray-mode.is-light .scan-opt[aria-pressed="true"] { color: #f5f1e8 !important; }
+
+  /* Mini Eric: gold-rimmed inspector badge. */
+  html body.xray-mode.xray-mode .mini-eric-char {
+    outline: 1.5px dashed #d4af37;
+    outline-offset: 4px;
+    border-radius: 50%;
+  }
+
+  /* ---------- Box-model highlighter overlay ---------- */
+  .xr-ov[data-on="true"] {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--pc-z, 2147483000) - 1);
+    pointer-events: none;
+  }
+  .xr-ov > * {
+    position: absolute;
+    box-sizing: border-box;
+    border: 0 solid transparent;
+    pointer-events: none;
+  }
+  .xr-m { border-color: rgba(255, 170, 60, 0.24); }          /* margin: amber */
+  .xr-p { border-color: rgba(212, 175, 55, 0.22); }          /* padding: gold */
+  .xr-b { border: 1.5px solid #d4af37; }                     /* border box */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.xr-anim *, html.xr-anim *::before, html.xr-anim *::after { transition-duration: 0.01ms !important; }
+  .xr-pill, .xr-dot { transition-duration: 0.01ms; }
+}

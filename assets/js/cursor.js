@@ -18,7 +18,8 @@
 
   var SEL = {
     interactive: 'a, button:not(:disabled), [role="button"]:not([aria-disabled="true"]), summary, .interactive-target',
-    metric: '[data-metric], .impact-card, .before-after-card',
+    metric: '[data-metric], [data-cursor-metric], .impact-card, .before-after-card',
+    ignore: '[data-xray-ignore]',
     native: 'input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="color"]):not([type="image"]), textarea, select, [contenteditable=""], [contenteditable="true"], iframe, embed, object, video[controls], audio[controls]',
     card: '.gold-card, .case-study-card, .megan-card'
   };
@@ -60,6 +61,8 @@
           '<div class="hud-row hud-bg"><i class="hud-sw"></i><span></span></div>' +
           '<div class="hud-row hud-contrast"></div>' +
           '<div class="hud-row hud-dim hud-font"></div>' +
+          '<div class="hud-row hud-dim hud-space"></div>' +
+          '<div class="hud-row hud-dim hud-extra"></div>' +
         '</div>' +
       '</div>';
     document.body.appendChild(root);
@@ -75,7 +78,9 @@
       bgSw: hud.querySelector('.hud-bg .hud-sw'),
       bgTx: hud.querySelector('.hud-bg span'),
       contrast: hud.querySelector('.hud-contrast'),
-      font: hud.querySelector('.hud-font')
+      font: hud.querySelector('.hud-font'),
+      space: hud.querySelector('.hud-space'),
+      extra: hud.querySelector('.hud-extra')
     };
 
     document.documentElement.classList.add('pc-active');
@@ -86,6 +91,7 @@
     document.addEventListener('pointerup', onUp, { passive: true });
     document.addEventListener('pointercancel', onUp, { passive: true });
     window.addEventListener('blur', hide);
+    window.addEventListener('viewmodechange', syncMode);
     window.addEventListener('scroll', scheduleLeaf, { passive: true });
     window.addEventListener('resize', scheduleLeaf, { passive: true });
 
@@ -104,6 +110,7 @@
     document.removeEventListener('pointerup', onUp);
     document.removeEventListener('pointercancel', onUp);
     window.removeEventListener('blur', hide);
+    window.removeEventListener('viewmodechange', syncMode);
     window.removeEventListener('scroll', scheduleLeaf);
     window.removeEventListener('resize', scheduleLeaf);
     if (bodyObserver) { bodyObserver.disconnect(); bodyObserver = null; }
@@ -120,8 +127,11 @@
   /* ------------------------------------------------------------- mode */
   function readMode() {
     var b = document.body;
-    if (b.classList.contains('xray-mode')) return 'xray';
     var m = b.getAttribute('data-portfolio-mode');
+    if (b.classList.contains('xray-mode') || m === 'xray') return 'xray';
+    // scan-mode.js owns data-view-mode when present (body, or <html> before body exists)
+    var v = b.getAttribute('data-view-mode') || document.documentElement.getAttribute('data-view-mode');
+    if (v === 'recruiter-scan' || v === 'deep-dive') return v;
     return MODES.indexOf(m) > -1 ? m : 'deep-dive';
   }
 
@@ -144,7 +154,7 @@
 
   function observeBody() {
     bodyObserver = new MutationObserver(syncMode);
-    bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['data-portfolio-mode', 'class'] });
+    bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['data-portfolio-mode', 'data-view-mode', 'class'] });
   }
 
   /* ------------------------------------------------------ pointer events */
@@ -193,11 +203,23 @@
     if (!root || !t || !t.closest) return;
     var kind = 'none';
     if (t.closest(SEL.native)) kind = 'native';
-    else if (mode === 'xray') kind = 'inspect';
+    else if (t.closest(SEL.ignore)) kind = 'none';
+    else if (mode === 'xray') {
+      var X = window.PortfolioXray;
+      kind = (X && X.isCanvas ? X.isCanvas(t) : (t === document.body || t === document.documentElement)) ? 'none' : 'inspect';
+    }
     else if (mode === 'recruiter-scan' && t.closest(SEL.metric)) kind = 'metric';
     else if (t.closest(SEL.interactive)) kind = 'interactive';
     setHover(kind);
+    setGround(t);
     if (kind === 'inspect') { hudTarget = t; if (!rafHud) rafHud = requestAnimationFrame(renderHud); }
+  }
+
+  // Accent colours need a lighter shade on dark replicas to hold 3:1.
+  function setGround(t) {
+    if (mode === 'xray') return;
+    var g = lum(resolveBg(t)) < 0.18 ? 'dark' : 'light';
+    if (root.dataset.ground !== g) root.dataset.ground = g;
   }
 
   /* ------------------------------------------- Layer 2: ring lerp (rAF) */
@@ -318,39 +340,71 @@
     return s;
   }
 
+  function box4(a) { return a.map(function (n) { return Math.round(n * 10) / 10; }).join(' '); }
+
   function renderHud() {
     rafHud = 0;
     var el = hudTarget;
     if (!el || !hudRefs || !el.isConnected) return;
-    var cs = getComputedStyle(el);
-    var rect = el.getBoundingClientRect();
-    var fg = toRGBA(cs.color);
-    var bg = resolveBg(el);
-    var fgOver = over(fg, bg);
+    var spec = window.PortfolioXray && window.PortfolioXray.getSpec ? window.PortfolioXray.getSpec(el) : null;
 
-    hudRefs.sel.textContent = label(el);
-    hudRefs.size.textContent = Math.round(rect.width) + ' \u00d7 ' + Math.round(rect.height) + ' px';
-    hudRefs.fgSw.style.background = hex(fgOver);
-    hudRefs.fgTx.textContent = 'fg ' + hex(fgOver);
-    hudRefs.bgSw.style.background = hex(bg);
-    hudRefs.bgTx.textContent = 'bg ' + hex(bg);
-
-    if (hasOwnText(el)) {
-      var r = ratio(fgOver, bg);
-      var px = parseFloat(cs.fontSize);
-      var large = px >= 24 || (px >= 18.66 && parseInt(cs.fontWeight, 10) >= 700);
-      var need = large ? 3 : 4.5;
-      var ok = r >= need;
-      hudRefs.contrast.className = 'hud-row ' + (ok ? 'hud-ok' : 'hud-bad');
-      hudRefs.contrast.textContent = r.toFixed(2) + ':1  AA ' + (ok ? 'pass' : 'fail') + ' (\u2265' + need + ')';
-      hudRefs.font.textContent = cs.fontFamily.split(',')[0].replace(/["']/g, '') + ' ' + Math.round(px) + '/' + cs.fontWeight;
+    if (spec) {
+      // Pre-X-Ray values captured before the blueprint theme changed any colours.
+      if (!flashing) hudRefs.sel.textContent = spec.name;
+      hudRefs.size.textContent = Math.round(spec.w) + ' × ' + Math.round(spec.h) + ' px';
+      hudRefs.fgSw.style.background = spec.fg;
+      hudRefs.fgTx.textContent = 'text ' + spec.fg;
+      hudRefs.bgSw.style.background = spec.bg;
+      hudRefs.bgTx.textContent = 'surface ' + spec.bg;
+      var good = spec.badge !== 'Fail';
+      hudRefs.contrast.className = 'hud-row ' + (good ? 'hud-ok' : 'hud-bad');
+      hudRefs.contrast.textContent = spec.ratio.toFixed(2) + ':1 • ' + (spec.badge === 'Fail' ? 'Below AA' : 'WCAG ' + spec.badge);
+      hudRefs.font.textContent = spec.hasText
+        ? spec.font.family + ' • ' + spec.font.size + '/' + spec.font.lh + ' • ' + spec.font.weight
+        : 'no text node';
+      hudRefs.space.textContent = 'pad ' + box4(spec.pad) + ' • mar ' + box4(spec.mar);
+      hudRefs.extra.textContent = 'gap ' + spec.gap + ' • r ' + spec.radius + (spec.token ? ' • ' + spec.token : '');
     } else {
-      hudRefs.contrast.className = 'hud-row hud-dim';
-      hudRefs.contrast.textContent = 'no text node';
-      hudRefs.font.textContent = 'radius ' + (cs.borderTopLeftRadius || '0px');
+      var cs = getComputedStyle(el);
+      var rect = el.getBoundingClientRect();
+      var fg = toRGBA(cs.color);
+      var bg = resolveBg(el);
+      var fgOver = over(fg, bg);
+      if (!flashing) hudRefs.sel.textContent = label(el);
+      hudRefs.size.textContent = Math.round(rect.width) + ' × ' + Math.round(rect.height) + ' px';
+      hudRefs.fgSw.style.background = hex(fgOver);
+      hudRefs.fgTx.textContent = 'fg ' + hex(fgOver);
+      hudRefs.bgSw.style.background = hex(bg);
+      hudRefs.bgTx.textContent = 'bg ' + hex(bg);
+      hudRefs.space.textContent = '';
+      hudRefs.extra.textContent = '';
+      if (hasOwnText(el)) {
+        var r = ratio(fgOver, bg);
+        var px = parseFloat(cs.fontSize);
+        var large = px >= 24 || (px >= 18.66 && parseInt(cs.fontWeight, 10) >= 700);
+        var need = large ? 3 : 4.5;
+        var ok = r >= need;
+        hudRefs.contrast.className = 'hud-row ' + (ok ? 'hud-ok' : 'hud-bad');
+        hudRefs.contrast.textContent = r.toFixed(2) + ':1  AA ' + (ok ? 'pass' : 'fail') + ' (≥' + need + ')';
+        hudRefs.font.textContent = cs.fontFamily.split(',')[0].replace(/["']/g, '') + ' ' + Math.round(px) + '/' + cs.fontWeight;
+      } else {
+        hudRefs.contrast.className = 'hud-row hud-dim';
+        hudRefs.contrast.textContent = 'no text node';
+        hudRefs.font.textContent = 'radius ' + (cs.borderTopLeftRadius || '0px');
+      }
     }
     hudW = hud.offsetWidth; hudH = hud.offsetHeight;
     placeHud();
+  }
+
+  // Brief confirmation in the HUD header after click-to-copy.
+  var flashing = false, flashTimer = 0;
+  function flash(text) {
+    if (!hudRefs) return;
+    flashing = true;
+    hudRefs.sel.textContent = text;
+    window.clearTimeout(flashTimer);
+    flashTimer = window.setTimeout(function () { flashing = false; if (hudTarget && !rafHud) rafHud = requestAnimationFrame(renderHud); }, 1200);
   }
 
   // Keeps the +16/+16 quadrant unless it would leave the viewport.
@@ -376,10 +430,18 @@
   window.PortfolioCursor = {
     setMode: function (m) {
       if (MODES.indexOf(m) === -1) return;
-      document.body.setAttribute('data-portfolio-mode', m);
-      if (m !== 'xray') document.body.classList.remove('xray-mode');
+      var b = document.body, X = window.PortfolioXray, S = window.PortfolioScan;
+      if (m === 'xray') {
+        if (X) X.setActive(true);
+        else { b.setAttribute('data-portfolio-mode', 'xray'); b.classList.add('xray-mode'); }
+      } else {
+        if (X && X.isActive()) X.setActive(false);
+        else { b.classList.remove('xray-mode'); if (b.getAttribute('data-portfolio-mode') === 'xray') b.setAttribute('data-portfolio-mode', m); }
+        if (S) S.setMode(m); else b.setAttribute('data-portfolio-mode', m);
+      }
       syncMode();
     },
+    flash: flash,
     getMode: function () { return built ? mode : readMode(); },
     refreshCards: function () {
       if (!io) return;

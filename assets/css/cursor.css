@@ -19,11 +19,26 @@
   --pc-gold-lux: #d4af37;      /* luminous gold (X-Ray crosshair, cased) */
   --pc-gold-ui: #b08420;       /* 3.2:1 on #faf9f6, 5.3:1+ on dark previews */
   --pc-gold-tint: rgba(197, 155, 39, 0.12);
+
+  /* Live cursor colours. Defaults are the portfolio gold; each case study
+     overrides them below from body[data-accent]. */
+  --pc-ui: #b08420;                /* strokes on light grounds (>= 3:1 on white) */
+  --pc-ui-dk: #b08420;             /* strokes on dark grounds (>= 5:1 on replicas) */
+  --pc-fill: var(--pc-gold);       /* recruiter diamond */
+  --pc-tint: rgba(197, 155, 39, 0.12);  /* hover wash */
   --pc-halo: rgba(255, 255, 255, 0.9);
   --pc-z: 2147483000;          /* above .dex-modal (z-index 999999) */
   --pc-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --pc-leaf: 260px;
 }
+
+/* Per case study colour, matching each page's --accent.
+   Light shade = raw accent (5.4:1+ on white). Dark shade = 70% accent mixed
+   with white (5.2:1+ on the dark replica backgrounds). */
+body[data-accent="secureid"]   { --pc-ui: #7a5a14; --pc-ui-dk: #a28c5a; --pc-fill: #7a5a14; --pc-tint: color-mix(in srgb, #7a5a14 12%, transparent); }
+body[data-accent="honda"]      { --pc-ui: #a33d1b; --pc-ui-dk: #bf775f; --pc-fill: #a33d1b; --pc-tint: color-mix(in srgb, #a33d1b 12%, transparent); }
+body[data-accent="vextaro"]    { --pc-ui: #1e6e94; --pc-ui-dk: #629ab4; --pc-fill: #1e6e94; --pc-tint: color-mix(in srgb, #1e6e94 12%, transparent); }
+body[data-accent="studybuddy"] { --pc-ui: #6b46b8; --pc-ui-dk: #977ecd; --pc-fill: #6b46b8; --pc-tint: color-mix(in srgb, #6b46b8 12%, transparent); }
 
 /* Hidden everywhere except desktop fine pointers. */
 .pc { display: none; }
@@ -74,7 +89,7 @@
   .pc-ring-shape {
     width: 24px;
     height: 24px;
-    border: 1px solid var(--pc-gold-ui);
+    border: 1px solid var(--pc-ui);
     border-radius: 50%;
     background: transparent;
     transition: width 0.28s var(--pc-ease), height 0.28s var(--pc-ease),
@@ -90,7 +105,7 @@
   }
   /* Cardinal ticks: four 4px marks, 2px thick, inside the ring edge. */
   .pc-ticks {
-    --t: var(--pc-gold-ui);
+    --t: var(--pc-ui);
     background:
       linear-gradient(var(--t), var(--t)) 50% 0 / 2px 4px no-repeat,
       linear-gradient(var(--t), var(--t)) 50% 100% / 2px 4px no-repeat,
@@ -99,7 +114,7 @@
   }
   /* L-shaped corner brackets: 8 gradients (2 per corner), 8px arms, 2px thick. */
   .pc-brackets {
-    --b: var(--pc-gold-ui);
+    --b: var(--pc-ui);
     background:
       linear-gradient(var(--b), var(--b)) 0 0 / 8px 2px no-repeat,
       linear-gradient(var(--b), var(--b)) 0 0 / 2px 8px no-repeat,
@@ -131,26 +146,29 @@
   .pc-cross .case { stroke: var(--pc-ink); stroke-width: 3.5; fill: none; }
   .pc-cross .gold { stroke: var(--pc-gold-lux); stroke-width: 1.5; fill: none; }
 
+  /* Over dark replicas, swap to the lighter shade of the same hue. */
+  .pc[data-ground="dark"] { --pc-ui: var(--pc-ui-dk); }
+
   /* ============ State 1: Deep Dive (default) ============ */
   .pc[data-mode="deep-dive"][data-hover="interactive"] .pc-ring-shape {
     width: 32px;
     height: 32px;
-    background: var(--pc-gold-tint);
-    border-color: var(--pc-gold-ui);
+    background: var(--pc-tint);
+    border-color: var(--pc-ui);
   }
   .pc[data-mode="deep-dive"][data-hover="interactive"] .pc-dot { scale: 0.75; }
 
   /* ============ State 2: 30-Second Recruiter Scan ============ */
   .pc[data-mode="recruiter-scan"] .pc-dot {
-    background: var(--pc-gold);
+    background: var(--pc-fill);
     border-radius: 0;
     rotate: 45deg;
-    box-shadow: 0 0 0 1px var(--pc-ink);    /* ink casing: 3:1 on any ground */
+    box-shadow: 0 0 0 1px var(--pc-ink), 0 0 0 2px var(--pc-halo);   /* ink + white casing: reads on light and dark */
   }
   .pc[data-mode="recruiter-scan"] .pc-ring-shape { width: 32px; height: 32px; }
   .pc[data-mode="recruiter-scan"] .pc-ticks { opacity: 1; scale: 1; }
   .pc[data-mode="recruiter-scan"][data-hover="interactive"] .pc-ring-shape {
-    background: var(--pc-gold-tint);
+    background: var(--pc-tint);
   }
   .pc[data-mode="recruiter-scan"][data-hover="interactive"] .pc-ticks { opacity: 0; }
   /* Metric hover: ring dissolves into corner brackets. */
@@ -173,7 +191,7 @@
     top: 16px;
     left: 16px;
     width: max-content;
-    max-width: 240px;
+    max-width: 288px;
     display: grid;
     gap: 4px;
     padding: 8px 12px;
@@ -205,6 +223,7 @@
   .pc-hud .hud-ok { color: #7fd99a; }       /* 10.2:1 on ink */
   .pc-hud .hud-bad { color: #ff9a8a; }      /* 8.5:1 on ink */
   .pc-hud .hud-dim { color: #c9c2b4; }      /* 9.8:1 on ink */
+  .pc-hud .hud-row:empty { display: none; }
 
   /* ============ Gold-leaf card border illumination ============ */
   :is(.gold-card, .case-study-card, .megan-card) { position: relative; }
