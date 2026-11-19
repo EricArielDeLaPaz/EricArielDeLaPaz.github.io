@@ -1,6 +1,6 @@
 /* ============================================================
-   30s Scan (recruiter) vs Deep Dive.
-   State: html/body[data-view-mode="deep-dive" | "recruiter-scan"].
+   Quick Scan vs Deep Dive.
+   State: html/body[data-view-mode="deep-dive" | "quick-scan"].
    Works on desktop and mobile. Deep Dive (default) changes nothing.
    4-point spatial scale throughout (4, 8, 12, 16, 20, 24, 32px).
    ============================================================ */
@@ -8,8 +8,7 @@
 /* ---------- Content disclosure ---------- */
 [data-scan-only] { display: none !important; }
 
-html[data-view-mode="recruiter-scan"] [data-deep-only] { display: none !important; }
-html[data-view-mode="recruiter-scan"] .scan-strip[data-scan-only] { display: grid !important; }
+html[data-view-mode="quick-scan"] [data-deep-only] { display: none !important; }
 
 /* No flash of the long page when a scan visit starts. */
 html[data-scan-pending] main { visibility: hidden; }
@@ -19,39 +18,9 @@ html.scan-switching main { animation: scan-fade 0.32s ease both; }
 @keyframes scan-fade { from { opacity: 0.35; } to { opacity: 1; } }
 
 /* Tighter rhythm once the prose is gone. */
-html[data-view-mode="recruiter-scan"] .cs-section { padding-top: 32px; padding-bottom: 32px; }
-html[data-view-mode="recruiter-scan"] .sx-section { padding-top: 64px; padding-bottom: 64px; }
+html[data-view-mode="quick-scan"] .cs-section { padding-top: 32px; padding-bottom: 32px; }
+html[data-view-mode="quick-scan"] .sx-section { padding-top: 64px; padding-bottom: 64px; }
 
-/* ---------- Executive Summary strip ---------- */
-.scan-strip {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0;
-  margin: 24px auto 32px;
-  max-width: 1116px;                      /* matches the .container content column */
-  width: calc(100% - 64px);
-  border: 1px solid var(--border, #e2d8c7);
-  border-radius: 16px;
-  background: var(--card, #fff);
-  box-shadow: var(--shadow-card, 0 4px 20px -2px rgba(35, 25, 10, 0.05));
-  overflow: hidden;
-}
-.scan-rows { margin: 0; display: grid; }
-.scan-row {
-  display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: 20px;
-  align-items: baseline;
-  padding: 20px 24px;
-}
-.scan-row + .scan-row { border-top: 1px solid var(--border-soft, #ede7dc); }
-.scan-row dt {
-  margin: 0;
-  font: 700 12px/16px 'Inter', sans-serif;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent, var(--gold, #7a5a14));
-}
-.scan-row dd { margin: 0; font-size: 16px; line-height: 24px; color: var(--text, #2a241c); }
 .scan-metrics {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -66,14 +35,8 @@ html[data-view-mode="recruiter-scan"] .sx-section { padding-top: 64px; padding-b
   color: var(--accent, var(--gold, #7a5a14));
 }
 .scan-metrics span { font-size: 13px; line-height: 20px; color: var(--text-dim, #6b5e4f); }
-.scan-note { margin: 12px 0 0; font-size: 13px; line-height: 20px; color: var(--text-dim, #6b5e4f); }
 
-@media (max-width: 720px) {
-  .scan-strip { width: calc(100% - 32px); margin: 16px auto 24px; }
-  .scan-row { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 16px; }
-}
-
-/* ---------- Segmented toggle: [ 30s Scan | Deep Dive ] ---------- */
+/* ---------- Segmented toggle: [ Quick Scan | Deep Dive ] ---------- */
 .scan-toggle {
   position: relative;
   display: inline-grid;
@@ -167,9 +130,9 @@ html[data-view-mode="recruiter-scan"] .sx-section { padding-top: 64px; padding-b
 }
 
 /* ============================================================
-   One-page brief (home in 30s Scan): quick reads, no images.
+   One-page brief (home in Quick Scan): quick reads, no images.
    ============================================================ */
-html[data-view-mode="recruiter-scan"] .scan-brief[data-scan-only] { display: grid !important; }
+html[data-view-mode="quick-scan"] :is(.scan-brief, .scan-case)[data-scan-only] { display: grid !important; }
 
 .scan-brief {
   max-width: 880px;
@@ -178,13 +141,6 @@ html[data-view-mode="recruiter-scan"] .scan-brief[data-scan-only] { display: gri
   gap: 32px;
 }
 .scan-head { display: grid; gap: 12px; justify-items: start; }
-.scan-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0;
-  font: 600 13px/16px 'Inter', sans-serif;
-}
 .scan-name {
   margin: 0;
   font: 700 clamp(32px, 5vw, 48px)/1.1 'Plus Jakarta Sans', sans-serif;
@@ -203,34 +159,13 @@ html[data-view-mode="recruiter-scan"] .scan-brief[data-scan-only] { display: gri
   color: var(--gold) !important;
 }
 
-/* At a glance */
-.scan-glance {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 32px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.scan-glance li { position: relative; padding-left: 16px; font-size: 15px; line-height: 24px; color: var(--text, #2a241c); }
-.scan-glance li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  background: var(--gold, #7a5a14);
-  transform: rotate(45deg) scale(0.7);
-}
-
 /* Selected work: one scannable row per case study */
-.scan-work, .scan-exp { margin: 0; padding: 0; list-style: none; }
+.scan-work { margin: 0; padding: 0; list-style: none; }
 .scan-work li + li { border-top: 1px solid var(--border-soft, #ede7dc); }
 .scan-work-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 24px;
-  gap: 24px;
+  grid-template-columns: 160px minmax(0, 1fr) 24px;
+  gap: 20px;
   align-items: center;
   margin: 0 -12px;
   padding: 16px 12px;
@@ -242,42 +177,21 @@ html[data-view-mode="recruiter-scan"] .scan-brief[data-scan-only] { display: gri
 .scan-work-row:hover, .scan-work-row:focus-visible { background: rgba(154, 116, 40, 0.07); }
 .scan-work-main { display: grid; gap: 4px; }
 .scan-work-main h3 { margin: 0; font: 600 18px/24px 'Plus Jakarta Sans', sans-serif; }
-.scan-work-main p, .scan-exp p { margin: 0; font-size: 13px; line-height: 20px; }
-.scan-work-out { margin: 0; font-size: 15px; line-height: 24px; }
+.scan-work-main p { margin: 0; font-size: 13px; line-height: 20px; }
+.scan-work-main p { font-size: 15px; line-height: 24px; }
+.scan-thumb-img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; border: 1px solid var(--border, #e2d8c7); border-radius: 12px; }
 .is-light .scan-arrow { justify-self: end; font-size: 20px; line-height: 24px; color: var(--gold) !important; transition: transform 0.2s ease; }
 .scan-work-row:hover .scan-arrow { transform: translateX(4px); }
 
-/* Experience */
-.scan-exp li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
-.scan-exp li + li { border-top: 1px solid var(--border-soft, #ede7dc); }
-.scan-exp h3 { margin: 0; font: 600 17px/24px 'Plus Jakarta Sans', sans-serif; }
-.scan-tag {
-  flex: none;
-  padding: 4px 12px;
-  border: 1px solid var(--border, #e2d8c7);
-  border-radius: 999px;
-  font: 600 12px/16px 'Inter', sans-serif;
-  color: var(--text-dim, #6b5e4f);
-}
-
-/* Strengths + side project */
-.scan-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-.scan-chips li {
-  padding: 8px 16px;
-  border: 1px solid var(--border, #e2d8c7);
-  border-radius: 999px;
-  background: var(--card, #fff);
-  font: 600 14px/20px 'Inter', sans-serif;
-  color: var(--text, #2a241c);
-}
-.scan-side { margin: 0; font-size: 15px; line-height: 24px; }
-.scan-side a { font-weight: 600; color: var(--gold-bright, #7c5a1a); text-decoration: underline; text-underline-offset: 4px; }
-
 @media (max-width: 720px) {
   .scan-brief { padding: 96px 16px 32px; gap: 24px; }
-  .scan-glance { grid-template-columns: minmax(0, 1fr); }
-  .scan-work-row { grid-template-columns: minmax(0, 1fr) 24px; gap: 8px 12px; }
-  .scan-work-out { grid-column: 1 / -1; grid-row: 2; }
-  .scan-arrow { grid-row: 1; grid-column: 2; }
-  .scan-exp li { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .scan-work-row { grid-template-columns: 96px minmax(0, 1fr) 24px; gap: 12px; }
+  .scan-work-main h3 { font-size: 16px; line-height: 24px; }
+  .scan-case { padding-top: 96px; }
+  .scan-case .scan-metrics li { padding: 12px; }
+  .scan-case .scan-metrics b { font-size: 24px; line-height: 32px; }
 }
+
+/* ---------- Quick Scan nav: just the mode toggle and Info ---------- */
+.sx-status, .sx-nav-sep { display: none !important; }   /* "Open to work" pill removed site-wide (also covers the locked DevTective page) */
+html[data-view-mode="quick-scan"] .sx-nav > :not(.scan-toggle):not(.sx-nav-info-btn) { display: none !important; }
