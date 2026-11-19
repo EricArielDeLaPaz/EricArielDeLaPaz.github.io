@@ -65,6 +65,12 @@
       alt: 'Vextaro formalwear rental app',
       metrics: [['15/15', 'WCAG AA checks'], ['7', 'IA sections'], ['35', 'component variants']]
     },
+    'DevTective': {
+      line: 'A gamified coding-education concept that treats every bug as a case.',
+      img: 'devtective.png',
+      alt: 'DevTective gamified coding education app',
+      metrics: [['5–15%', 'never finish free courses'], ['3', 'personas'], ['Hi-fi', 'wireframes']]
+    },
     'Honda of Clear Lake': {
       line: 'A heuristic usability audit with a ranked fix list.',
       img: 'honda.png',
