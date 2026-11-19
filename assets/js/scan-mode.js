@@ -110,31 +110,138 @@
     return strip;
   }
 
+  /* ------------------------------------------------- the one-page brief */
+  // Built from the page's own content (cards, roles, links) so it can never
+  // drift out of sync with the long version.
+  function txt(sel, scope) {
+    var n = (scope || document).querySelector(sel);
+    return n ? n.textContent.replace(/\s+/g, ' ').trim() : '';
+  }
+
+  function section(label) {
+    var s = el('section', 'scan-block');
+    s.appendChild(el('h2', 'scan-label', label));
+    return s;
+  }
+
+  function cloneLinks(list, wrap) {
+    list.forEach(function (a) {
+      if ((a.getAttribute('href') || '').charAt(0) === '#') return;
+      var c = a.cloneNode(true);
+      c.classList.remove('sx-btn-primary');
+      wrap.appendChild(c);
+    });
+    var first = wrap.querySelector('a');
+    if (first) first.classList.add('sx-btn-primary');
+  }
+
+  function buildBrief() {
+    var brief = el('div', 'scan-brief');
+    brief.setAttribute('data-scan-only', '');
+
+    /* header */
+    var head = el('header', 'scan-head');
+    var status = txt('.sx-status span') || 'Open to work';
+    var pill = el('p', 'scan-status');
+    pill.appendChild(el('i', 'sx-dot'));
+    pill.lastChild.setAttribute('aria-hidden', 'true');
+    pill.appendChild(el('span', null, status));
+    head.appendChild(pill);
+    head.appendChild(el('h1', 'scan-name', txt('.info-name') || 'Eric Ariel De La Paz'));
+    head.appendChild(el('p', 'scan-role', txt('.info-role') || 'Product Designer'));
+    head.appendChild(el('p', 'scan-lede', txt('.sx-lede')));
+    var cta = el('div', 'scan-cta');
+    cloneLinks([].slice.call(document.querySelectorAll('.sx-hero .sx-cta a')), cta);
+    head.appendChild(cta);
+    brief.appendChild(head);
+
+    /* at a glance */
+    var glance = section('At a glance');
+    var gl = el('ul', 'scan-glance');
+    document.querySelectorAll('.sx-badges li').forEach(function (li) { gl.appendChild(el('li', null, li.textContent.trim())); });
+    glance.appendChild(gl);
+    brief.appendChild(glance);
+
+    /* selected work: one row per case study */
+    var work = section('Selected work');
+    var list = el('ul', 'scan-work');
+    document.querySelectorAll('.megan-card').forEach(function (card) {
+      var link = card.querySelector('a[href*="case-studies"]');
+      if (!link) return;
+      var li = el('li');
+      var a = el('a', 'scan-work-row');
+      a.href = link.getAttribute('href');
+      var left = el('div', 'scan-work-main');
+      left.appendChild(el('h3', null, txt('.megan-title', card)));
+      left.appendChild(el('p', null, [txt('.megan-role', card), txt('.megan-year', card)].filter(Boolean).join(' · ')));
+      a.appendChild(left);
+      var out = el('p', 'scan-work-out', txt('.megan-outcome-banner', card).replace(/^Outcome:\s*/i, ''));
+      out.setAttribute('data-cursor-metric', '');
+      a.appendChild(out);
+      var arrow = el('span', 'scan-arrow', '→');
+      arrow.setAttribute('aria-hidden', 'true');
+      a.appendChild(arrow);
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    work.appendChild(list);
+    brief.appendChild(work);
+
+    /* experience */
+    var exp = section('Experience');
+    var rows = el('ul', 'scan-exp');
+    document.querySelectorAll('.exp-row-card').forEach(function (card) {
+      var li = el('li');
+      var l = el('div');
+      l.appendChild(el('h3', null, txt('.exp-role', card)));
+      l.appendChild(el('p', null, txt('.exp-company', card) + ' · ' + txt('.exp-meta-line', card)));
+      li.appendChild(l);
+      var badge = txt('.exp-badge', card);
+      if (badge) li.appendChild(el('span', 'scan-tag', badge));
+      rows.appendChild(li);
+    });
+    exp.appendChild(rows);
+    brief.appendChild(exp);
+
+    /* strengths + side project */
+    var str = section('Strengths');
+    var chips = el('ul', 'scan-chips');
+    document.querySelectorAll('.sx-spec-bar li > b').forEach(function (b) { chips.appendChild(el('li', null, b.textContent.trim())); });
+    str.appendChild(chips);
+    var mambo = document.querySelector('.sx-spec-link');
+    if (mambo) {
+      var m = el('p', 'scan-side');
+      var ma = el('a', null, mambo.textContent.trim());
+      ma.href = mambo.getAttribute('href'); ma.target = '_blank'; ma.rel = 'noopener';
+      m.appendChild(ma);
+      m.appendChild(document.createTextNode(': 1,480+ entry repository of tested token hierarchies, font pairings and structured prompts for production UI.'));
+      str.appendChild(m);
+    }
+    brief.appendChild(str);
+
+    /* contact */
+    var contact = section('Get in touch');
+    var c = el('div', 'scan-cta');
+    cloneLinks([].slice.call(document.querySelectorAll('#contact .sx-cta a')), c);
+    contact.appendChild(c);
+    brief.appendChild(contact);
+
+    return brief;
+  }
+
   /* --------------------------------------------------------- tagging */
-  var KEEP_HEADING = /^(outcome|what the audit found|a system built to scale)/i;
-  var MEDIA_SEL = '[class*="stageshow"], [data-demo], figure, figcaption';
+  // 30s Scan = quick reads, minimal images. Interactive replicas, covers and
+  // long process sections are hidden; the summary card and outcomes stay.
+  var KEEP_HEADING = /^(outcome|what the audit found)/i;
 
   function deepOnly(n) { if (!n.hasAttribute('data-deep-only')) n.setAttribute('data-deep-only', ''); }
-
-  function stripProse(section) {
-    section.querySelectorAll('p, ul, ol, dl, blockquote, table').forEach(function (n) {
-      if (n.closest(MEDIA_SEL)) return;
-      if (n.querySelector('img, figure, [class*="stageshow"], [data-demo]')) return;
-      deepOnly(n);
-    });
-  }
 
   function tagCaseStudy() {
     document.querySelectorAll('.cs-body .cs-section').forEach(function (sec) {
       var h = sec.querySelector('h2');
-      var title = h ? h.textContent.trim() : '';
-      if (KEEP_HEADING.test(title)) return;                                  // outcomes stay intact
-      var replica = sec.querySelector('[class*="stageshow"], [data-demo]');
-      var media = sec.querySelector('figure, img');
-      var len = sec.textContent.replace(/\s+/g, ' ').length;
-      if (replica || (media && len < 600)) { stripProse(sec); return; }      // visual proof stays, prose goes
-      deepOnly(sec);
+      if (!(h && KEEP_HEADING.test(h.textContent.trim()))) deepOnly(sec);
     });
+    document.querySelectorAll('.sx-cover-top, .cs-hero .impact-grid').forEach(deepOnly);
 
     var hero = document.querySelector('.cs-hero');
     var name = document.body.getAttribute('data-case-study');
@@ -144,10 +251,25 @@
   }
 
   function tagSitePages() {
-    document.querySelectorAll('.mini-eric-banner, .megan-desc, .megan-tags, .exp-copy, .sx-spec-bar li > span')
-      .forEach(deepOnly);
-    var about = document.querySelectorAll('.about-section');      // about + playground: keep the first block only
-    for (var i = 1; i < about.length; i++) deepOnly(about[i]);
+    document.querySelectorAll('.mini-eric-banner').forEach(deepOnly);
+    var page = document.body.getAttribute('data-nav');
+
+    if (page === 'home') {
+      // The whole home page condenses into one brief.
+      var wrap = document.querySelector('.sx-wrap');
+      if (wrap && !document.querySelector('.scan-brief')) {
+        var brief = buildBrief();
+        wrap.insertBefore(brief, wrap.firstChild);
+      }
+      document.querySelectorAll('.sx-hero, #work, #experience, #contact').forEach(deepOnly);
+    } else if (page === 'about') {
+      // About keeps its professional summary; the personal sections are deep-dive only.
+      document.querySelectorAll('.about-section').forEach(deepOnly);
+    } else if (page === 'playground') {
+      // Playground keeps Mambo Database only.
+      document.querySelectorAll('.about-section').forEach(function (s) { if (s.id !== 'lab-ai-teaser') deepOnly(s); });
+      document.querySelectorAll('#lab-ai-teaser .sb-showcase-frame').forEach(deepOnly);
+    }
   }
 
   function tagMetrics() {
