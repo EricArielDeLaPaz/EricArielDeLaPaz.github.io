@@ -21,7 +21,7 @@
     margin: 0 4px;
     padding: 0 12px;
     box-sizing: border-box;
-    border: 1px solid #b08420;                 /* 3.4:1 on white */
+    border: 1px solid var(--accent, #b08420);  /* page accent, >= 5:1 on white */
     border-radius: 999px;
     background: #ffffff;
     color: #5b5346;                            /* 7.2:1 on white */

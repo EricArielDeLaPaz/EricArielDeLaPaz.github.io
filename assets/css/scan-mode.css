@@ -46,7 +46,7 @@ html[data-view-mode="quick-scan"] .sx-section { padding-top: 64px; padding-botto
   height: 32px;
   padding: 2px;
   box-sizing: border-box;
-  border: 1px solid #b08420;                /* 3.4:1 on white; brief's .45 alpha gold is too faint to identify the control */
+  border: 1px solid var(--accent, #b08420);  /* page accent: >= 5:1 on white on every page; gold on pages without one */
   border-radius: 999px;
   background: #ffffff;
   isolation: isolate;
@@ -59,9 +59,9 @@ html[data-view-mode="quick-scan"] .sx-section { padding-top: 64px; padding-botto
   width: calc((100% - 4px) / 2);
   z-index: -1;
   box-sizing: border-box;
-  border: 1px solid #c59b27;
+  border: 1px solid var(--accent, #c59b27);
   border-radius: 999px;
-  background: #faf3e0;
+  background: color-mix(in srgb, var(--accent, #c59b27) 14%, #ffffff);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scan-toggle[data-mode="deep-dive"] .scan-thumb { transform: translateX(100%); }
@@ -92,8 +92,8 @@ html[data-view-mode="quick-scan"] .sx-section { padding-top: 64px; padding-botto
 /* Status pulse on switch (no floating labels). */
 .scan-toggle.is-pulse { animation: scan-pulse 0.6s ease-out; }
 @keyframes scan-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.55); }
-  100% { box-shadow: 0 0 0 8px rgba(197, 155, 39, 0); }
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent, #c59b27) 55%, transparent); }
+  100% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent, #c59b27) 0%, transparent); }
 }
 
 /* In the desktop nav pill. */

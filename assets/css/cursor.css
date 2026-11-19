@@ -39,6 +39,7 @@
 body[data-accent="secureid"]   { --pc-ui: #7a5a14; --pc-ui-dk: #a28c5a; --pc-fill: #7a5a14; --pc-tint: color-mix(in srgb, #7a5a14 12%, transparent); }
 body[data-accent="honda"]      { --pc-ui: #a33d1b; --pc-ui-dk: #bf775f; --pc-fill: #a33d1b; --pc-tint: color-mix(in srgb, #a33d1b 12%, transparent); }
 body[data-accent="vextaro"]    { --pc-ui: #1e6e94; --pc-ui-dk: #629ab4; --pc-fill: #1e6e94; --pc-tint: color-mix(in srgb, #1e6e94 12%, transparent); }
+body[data-accent="devtective"]  { --pc-ui: #6044a6; --pc-ui-dk: #907cc1; --pc-fill: #6044a6; --pc-tint: color-mix(in srgb, #6044a6 12%, transparent); }
 body[data-accent="studybuddy"] { --pc-ui: #6b46b8; --pc-ui-dk: #977ecd; --pc-fill: #6b46b8; --pc-tint: color-mix(in srgb, #6b46b8 12%, transparent); }
 
 /* Hidden everywhere except desktop fine pointers. */
