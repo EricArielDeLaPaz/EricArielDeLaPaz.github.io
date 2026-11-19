@@ -17,7 +17,7 @@
   var LEAF_RADIUS = 260;
 
   var SEL = {
-    interactive: 'a, button:not(:disabled), [role="button"]:not([aria-disabled="true"]), summary, .interactive-target',
+    interactive: 'a, button:not(:disabled), [role="button"]:not([aria-disabled="true"]), summary, .interactive-target, [data-zoomable]',
     metric: '[data-metric], [data-cursor-metric], .impact-card, .before-after-card',
     ignore: '[data-xray-ignore]',
     native: 'input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="color"]):not([type="image"]), textarea, select, [contenteditable=""], [contenteditable="true"], iframe, embed, object, video[controls], audio[controls]',

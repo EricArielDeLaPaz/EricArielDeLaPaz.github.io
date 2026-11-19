@@ -157,12 +157,6 @@
   }
   html body.xray-mode.xray-mode.is-light .sx-btn svg { color: inherit; }
 
-  /* Scan toggle keeps working inside the blueprint. */
-  html body.xray-mode.xray-mode.is-light .scan-toggle { background: #0d1117 !important; border-color: #d4af37 !important; }
-  html body.xray-mode.xray-mode.is-light .scan-thumb { background: rgba(212, 175, 55, 0.2) !important; border-color: #d4af37 !important; }
-  html body.xray-mode.xray-mode.is-light .scan-opt { color: #b9b2a3 !important; }
-  html body.xray-mode.xray-mode.is-light .scan-opt[aria-pressed="true"] { color: #f5f1e8 !important; }
-
   /* Mini Eric: gold-rimmed inspector badge. */
   html body.xray-mode.xray-mode .mini-eric-char {
     outline: 1.5px dashed #d4af37;
