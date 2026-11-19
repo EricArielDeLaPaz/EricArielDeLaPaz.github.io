@@ -271,23 +271,36 @@
     toggle.appendChild(el('span', 'scan-thumb'));
     toggle.lastChild.setAttribute('aria-hidden', 'true');
 
-    var a = el('button', 'scan-opt');
-    a.type = 'button';
+    var a = el('a', 'sx-nav-link scan-opt');
+    a.href = '#'; a.setAttribute('role', 'button');
     a.setAttribute('data-mode', SCAN);
     a.title = 'Condensed view for a quick scan';
     a.innerHTML = BOLT + '<span>Quick Scan</span>';
 
-    var b = el('button', 'scan-opt');
-    b.type = 'button';
+    var b = el('a', 'sx-nav-link scan-opt');
+    b.href = '#'; b.setAttribute('role', 'button');
     b.setAttribute('data-mode', DEEP);
     b.title = 'Full case studies and process';
     b.innerHTML = '<span>Deep Dive</span>';
 
     toggle.appendChild(a);
     toggle.appendChild(b);
+    toggle.addEventListener('keydown', function (e) {
+      if (e.key === ' ' && e.target.closest && e.target.closest('.scan-opt')) { e.preventDefault(); e.target.click(); }
+    });
     toggle.addEventListener('click', function (e) {
       var btn = e.target.closest ? e.target.closest('.scan-opt') : null;
-      if (btn) setMode(btn.getAttribute('data-mode'));
+      if (!btn) return;
+      e.preventDefault();
+      var next = btn.getAttribute('data-mode');
+      // Quick Scan is the one-page home brief: from any other page, go there.
+      if (next === SCAN && document.body.getAttribute('data-nav') !== 'home') {
+        store(false, SCAN);
+        var inCase = /\/case-studies\//.test(window.location.pathname);
+        window.location.href = (inCase ? '../index.html' : 'index.html') + '?mode=scan';
+        return;
+      }
+      setMode(next);
     });
 
     live = el('div', 'scan-live');
@@ -317,7 +330,9 @@
     if (!toggle) return;
     toggle.setAttribute('data-mode', mode);
     toggle.querySelectorAll('.scan-opt').forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.getAttribute('data-mode') === mode));
+      var on = b.getAttribute('data-mode') === mode;
+      b.setAttribute('aria-pressed', String(on));
+      b.classList.toggle('is-active', on);
     });
   }
 

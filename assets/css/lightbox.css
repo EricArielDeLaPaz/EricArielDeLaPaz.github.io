@@ -1,0 +1,70 @@
+/* In-page image / video viewer. A centred panel with a 32px margin on every
+   side (never the full page), dimmed backdrop, 4-point spacing. */
+
+[data-zoomable] { cursor: zoom-in; }
+html.lb-open { overflow: hidden; }
+
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 1000000;                 /* above the nav and modals; the cursor layer sits higher still */
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  box-sizing: border-box;
+  background: rgba(20, 16, 10, 0.64);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.lb[hidden] { display: none; }
+.lb.is-on { opacity: 1; }
+
+.lb-panel {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  transform: scale(0.97);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lb.is-on .lb-panel { transform: none; }
+
+.lb-stage { display: grid; place-items: center; min-height: 0; overflow: hidden; border-radius: 12px; }
+.lb-stage img, .lb-stage video {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 128px);   /* 32px page margin + panel padding + caption */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.lb-cap { margin: 0; padding: 0 8px 4px; font: 500 13px/20px 'Inter', sans-serif; color: #5b5346; }   /* 7.2:1 on white */
+.lb-cap[hidden] { display: none; }
+
+.lb-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #1a1a1a;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1a1a1a;                    /* 17:1 */
+  cursor: pointer;
+}
+.lb-close:hover { background: #faf3e0; }
+.lb-close:focus-visible { outline: 3px solid var(--gold-bright, #7a5a14); outline-offset: 2px; }
+
+@media (max-width: 720px) { .lb { padding: 16px; } .lb-stage img, .lb-stage video { max-height: calc(100vh - 96px); } }
+@media (prefers-reduced-motion: reduce) { .lb, .lb-panel { transition-duration: 0.01ms; } }

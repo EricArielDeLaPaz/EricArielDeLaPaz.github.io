@@ -36,58 +36,38 @@ html[data-view-mode="quick-scan"] .sx-section { padding-top: 64px; padding-botto
 }
 .scan-metrics span { font-size: 13px; line-height: 20px; color: var(--text-dim, #6b5e4f); }
 
-/* ---------- Segmented toggle: [ Quick Scan | Deep Dive ] ---------- */
+/* ---------- Mode toggle: [ Quick Scan | Deep Dive ] ----------
+   In the nav the options are real .sx-nav-link anchors, so they get exactly
+   the nav's type, padding, hover and selected-gold (including the per-case-study
+   accent). Only the docked mobile version below carries its own styling. */
 .scan-toggle {
-  position: relative;
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  flex: none;
-  height: 32px;
-  padding: 2px;
-  box-sizing: border-box;
-  border: 1px solid var(--accent, #b08420);  /* page accent: >= 5:1 on white on every page; gold on pages without one */
-  border-radius: 999px;
-  background: #ffffff;
-  isolation: isolate;
-}
-.scan-thumb {
-  position: absolute;
-  top: 2px;
-  bottom: 2px;
-  left: 2px;
-  width: calc((100% - 4px) / 2);
-  z-index: -1;
-  box-sizing: border-box;
-  border: 1px solid var(--accent, #c59b27);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent, #c59b27) 14%, #ffffff);
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.scan-toggle[data-mode="deep-dive"] .scan-thumb { transform: translateX(100%); }
-
-.scan-opt {
-  appearance: none;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  flex: none;
   gap: 4px;
-  width: 96px;
-  height: 26px;
+  box-sizing: border-box;
   margin: 0;
-  padding: 0 8px;
+  padding: 0;
   border: 0;
-  border-radius: 999px;
   background: transparent;
-  color: #5b5346;                          /* 7.2:1 on white */
-  font: 600 13px/16px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: color 0.2s ease;
 }
-.scan-opt[aria-pressed="true"] { color: #1a1a1a; }     /* 15:1 on #faf3e0 */
+.scan-thumb { display: none; }
+.scan-opt { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; text-decoration: none; }
 .scan-opt svg { flex: none; }
 .scan-opt:focus-visible { outline: 3px solid var(--gold-bright, #7a5a14); outline-offset: 2px; }
+
+.scan-toggle[data-placement="dock"] .scan-opt {
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--text-dim, #6b5e4f);
+  font: 500 14px/20px 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  white-space: nowrap;
+}
+.scan-toggle[data-placement="dock"] .scan-opt.is-active {
+  color: var(--gold-bright, #7c5a1a);
+  background: rgba(217, 172, 84, 0.16);
+  font-weight: 600;
+}
 
 /* Status pulse on switch (no floating labels). */
 .scan-toggle.is-pulse { animation: scan-pulse 0.6s ease-out; }
@@ -97,7 +77,6 @@ html[data-view-mode="quick-scan"] .sx-section { padding-top: 64px; padding-botto
 }
 
 /* In the desktop nav pill. */
-.scan-toggle[data-placement="nav"] { margin: 0 4px; }
 
 /* Under 900px the nav scrolls sideways: dock the toggle where a thumb reaches. */
 .scan-toggle[data-placement="dock"] {
@@ -106,6 +85,10 @@ html[data-view-mode="quick-scan"] .sx-section { padding-top: 64px; padding-botto
   bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   z-index: 140;
   transform: translateX(-50%);
+  padding: 4px;
+  border: 1px solid var(--accent, #b08420);
+  border-radius: 999px;
+  background: #ffffff;
   box-shadow: 0 8px 24px rgba(35, 25, 10, 0.18);
 }
 @media (max-width: 899px) {
@@ -125,7 +108,7 @@ html[data-view-mode="quick-scan"] .sx-section { padding-top: 64px; padding-botto
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scan-thumb, .scan-opt { transition-duration: 0.01ms; }
+  .scan-opt { transition-duration: 0.01ms; }
   html.scan-switching main, .scan-toggle.is-pulse { animation: none; }
 }
 
